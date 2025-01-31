@@ -7,10 +7,15 @@ body {
     padding: 0;
 }
 
+/* Header and Navigation Bar */
 header {
-    background-color: #0033A0; /* Blue color */
+    /*     background-color: #0033A0; /* Blue color */
+    background: linear-gradient(to right, #66ccff, #0033A0); /* Lighter blue to darker blue */
     padding: 10px 20px;
 }
+
+
+
 
 nav ul {
     list-style-type: none;
