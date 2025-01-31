@@ -1,22 +1,33 @@
+/* Header and Navigation Bar */
+header { 
+    background: linear-gradient(to bottom right, #003cbc, #096bfe); /* Gradient from top-left to bottom-right */
+    padding: 20px 30px; /* Initial padding for the header */
+    transition: all 0.3s ease; /* Smooth transition for shrinking */
+
+    position: fixed; /* Fix header at the top of the page */
+    top: 0; /* Make sure it's at the top */
+    left: 0;
+    width: 100%; /* Make sure it spans the entire width of the page */
+    z-index: 1000; /* Ensure it stays above other content */
+} 
+
+header.shrink {
+    padding: 5px 15px; /* Reduced padding when scrolled */
+    font-size: 10px; /* Optional: reduce font size */
+}
+
 /* General page styles */
 body {
+
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     color: #333;
     margin: 0;
     padding: 0;
-}
+    scroll-behavior: smooth; /* Enable smooth scrolling */
+    padding-top: 10px; /* Add space to the top of the body content so it's not hidden under the header */
 
-/* Header and Navigation Bar */
-header {
-    /*     background-color: #0033A0; /* Blue color */
-    /*     background: linear-gradient(to right, #66ccff, #0033A0); /* Lighter blue to darker blue */ 
-    background: linear-gradient(to bottom right, #66ccff, #0033A0); /* Gradient from top-left to bottom-right */
-    padding: 10px 20px;
-}
-
-
-
+} 
 
 nav ul {
     list-style-type: none;
@@ -34,9 +45,75 @@ nav ul li a {
     font-weight: bold;
 }
 
-main {
-    padding: 20px;
+.container {
+    display: flex;
+    /* flex-direction: column;  Stack header and sidebar vertically */
+    flex-direction: row; /* Align sidebar and content horizontally */
+    width: 100%;
 }
+
+
+/* Sidebar styles */
+.sidebar {
+    top: 0; /* Start at the very top of the screen */
+    /* margin-top: 100px; Add space above content to prevent overlap with header */
+    /* top: 60px; Move the sidebar down below the header */
+
+    width: 100px; /* Sidebar width */
+    background-color: #acc7ff;
+    padding: 20px;
+    z-index: 100; /* Ensure the sidebar stays above content */
+    
+    height: 100vh; /* Make the sidebar fill the entire height of the screen */
+    /* height: calc(100vh - 60px);  Full screen height minus padding */
+    /* height: auto;  Let it grow with content */
+    overflow-y: auto; /* Allow vertical scrolling if content exceeds height */
+    padding-top: 80px; /* Add padding to push the sidebar content down */
+    position: sticky;
+
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.sidebar ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Active link styling */
+.sidebar ul li a.active {
+    font-weight: bold;
+    color: #ffcc00; /* Highlight active link */
+}
+
+.content {
+    flex: 1; /* Allow content to fill remaining space */
+    /* margin-left: 135px; Offset for sidebar */
+    padding: 20px;
+    /* margin-left: 140px; */
+    /* width: 100%; */
+    margin-top: 60px; /* Add space above content to prevent overlap with header */
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+/* main {
+    padding: 20px;
+} */
 
 footer {
     text-align: center;
