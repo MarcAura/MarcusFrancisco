@@ -6,4 +6,11 @@ Welcome to my personal ePortfolio. This site contains:
 
 - Edit Made Jan31
 
-Hosted using Jekyll & GitHub Pages.
+## TODO:
+- Make a side-moving sidebar for mobile with clickable hamburger
+- Dark/Light mode?
+
+
+
+
+Hosted using GitHub Pages.
