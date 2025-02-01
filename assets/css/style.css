@@ -341,3 +341,19 @@ footer a {
     justify-content: center;  /* Optional: centers text vertically within the column */
   }
   
+
+  .video-container2 {
+    position: relative;
+    width: auto;  /* Adjusts to the native video width */
+    max-width: 70%; /* Prevents overflowing the page */
+    margin: auto; /* Centers the video */
+    background-color: inherit; /* Matches the background of the webpage */
+}
+
+.video-container2 iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9; /* Ensures the video keeps its native aspect ratio */
+    border: none; /* Removes borders */
+    background-color: inherit; /* Prevents black bars */
+}

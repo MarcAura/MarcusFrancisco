@@ -12,8 +12,25 @@ Welcome to my personal ePortfolio. This site contains:
 - Dark/Light mode?
 - Fix sticky sidebar
 
+## Suggestions:
+- Hero Section with Introduction
+  - A large banner with a background image and a short introduction about you.
+  - A call-to-action (e.g., "Explore My Work" button).
 
+- Skills and Technologies Section
+  - Showcase relevant skills with icons (e.g., HTML, Python, MATLAB, Verilog, etc.).
+  - Display using cards or progress bars.
 
+- Featured Projects
+  - Clicking on a project leads to a detailed project page with reports .
+  - Latest Updates/Blog Section (Optional)
 
+- Highlight recent work, coursework reflections, or experiences.
 
-Hosted using GitHub Pages.
+- Quick contact links and social media integration.
+- Smooth Scrolling and Dark Mode
+
+- Improve navigation experience with animations.
+- Implement dark/light mode toggle.
+
+- Hosted using GitHub Pages. Copyright Marcus Francisco 2020
