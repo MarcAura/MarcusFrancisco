@@ -2,24 +2,28 @@
 const sections = document.querySelectorAll('section');
 const links = document.querySelectorAll('.sidebar ul li a');
 
+let lastActiveSection = sections[0];
+const topOffset = document.querySelector('header').offsetHeight; // Get height of the top bar
+
 // Function to highlight the active section in the sidebar
 function setActiveLink() {
-    let currentSection = sections[0];
+    let currentSection = lastActiveSection; // Default to last active
+
     for (let section of sections) {
         const rect = section.getBoundingClientRect();
-        if (rect.top <= 0 && rect.bottom > 0) {
+        if (rect.top <= topOffset && rect.bottom > topOffset) {
             currentSection = section;
             break;
         }
     }
 
-    links.forEach(link => {
-        link.classList.remove('active'); // Remove active class from all links
-    });
-
-    const activeLink = document.querySelector(`.sidebar ul li a[href="#${currentSection.id}"]`);
-    if (activeLink) {
-        activeLink.classList.add('active'); // Add active class to the current link
+    if (currentSection !== lastActiveSection) {
+        links.forEach(link => link.classList.remove('active'));
+        const activeLink = document.querySelector(`.sidebar ul li a[href="#${currentSection.id}"]`);
+        if (activeLink) {
+            activeLink.classList.add('active');
+        }
+        lastActiveSection = currentSection; // Update last active section
     }
 
     // Center the active section in the sidebar
