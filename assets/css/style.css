@@ -357,3 +357,33 @@ footer a {
     border: none; /* Removes borders */
     background-color: inherit; /* Prevents black bars */
 }
+
+/* Container for text and image */
+.side-by-side {
+    display: flex;
+    align-items: center; /* Aligns content vertically */
+    justify-content: space-between; /* Distributes space */
+    gap: 20px; /* Adds space between text and image */
+    margin: 20px 0; /* Adds vertical spacing */
+}
+
+/* Text styling */
+.side-by-side .text-content {
+    flex: 1; /* Allows the text to take up remaining space */
+    text-align: justify; /* Justify the text for better readability */
+}
+
+/* Image container */
+.side-by-side .image-content {
+    flex: 1; /* Makes image section take up available space */
+    display: flex;
+    justify-content: center; /* Centers the image horizontally */
+    align-items: center; /* Centers vertically */
+}
+
+/* Make sure the image is responsive */
+.side-by-side .image-content img {
+    max-width: 100%; /* Prevents overflow */
+    height: auto; /* Maintains aspect ratio */
+    display: block;
+}
