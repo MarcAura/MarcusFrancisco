@@ -170,3 +170,29 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+
+document.querySelectorAll('.sidebar ul li a').forEach(link => {
+    link.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default jump behavior
+        const targetId = this.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
+
+        if (targetId === "section1") {  
+            // If "Homepage" is clicked, scroll to the very top
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        } else if (targetSection) {
+            // For other sections, apply the offset
+            const topOffset = document.querySelector('header').offsetHeight + 20; // Adjust for header height
+            const targetPosition = targetSection.offsetTop - topOffset;
+
+            window.scrollTo({
+                top: targetPosition,
+                behavior: "smooth" // Smooth scrolling effect
+            });
+        }
+    });
+});

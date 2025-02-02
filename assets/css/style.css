@@ -104,6 +104,10 @@ nav ul li a {
 
 }
 
+html {
+    scroll-padding-top: 80px; /* Adjust based on the height of your top bar */
+}
+
 .sidebar ul {
     list-style-type: none;
     padding: 0;
@@ -387,3 +391,4 @@ footer a {
     height: auto; /* Maintains aspect ratio */
     display: block;
 }
+
