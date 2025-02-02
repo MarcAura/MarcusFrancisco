@@ -200,3 +200,28 @@ document.querySelectorAll('.sidebar ul li a').forEach(link => {
 document.getElementById("sidebar-toggle").addEventListener("click", function() {
     document.querySelector(".sidebar").classList.toggle("collapsed");
 });
+
+const sidebar = document.getElementById("sidebar");
+const toggleButton = document.getElementById("sidebar-toggle");
+
+toggleButton.addEventListener("click", function () {
+    if (sidebar.classList.contains("collapsed")) {
+        // Expanding sidebar with bounce effect
+        sidebar.classList.remove("collapsed");
+        sidebar.classList.add("expanding");
+
+        setTimeout(() => {
+            sidebar.classList.remove("expanding");
+            sidebar.classList.add("expanded");
+        }, 300); // Wait before settling
+    } else {
+        // Collapsing sidebar with bounce effect
+        sidebar.classList.remove("expanded");
+        sidebar.classList.add("collapsing");
+
+        setTimeout(() => {
+            sidebar.classList.remove("collapsing");
+            sidebar.classList.add("collapsed");
+        }, 300); // Wait before fully collapsing
+    }
+});

@@ -90,7 +90,7 @@ nav ul li a {
     background-color: #acc7ff;
     padding: 20px;
     z-index: 100;
-    transition: transform 0.3s ease-in-out;
+    /* transition: transform 0.3s ease-in-out; */
     /* Ensure the sidebar stays above content */
 
     height: 100vh;
@@ -103,8 +103,28 @@ nav ul li a {
     /* Add padding to push the sidebar content down */
     position: sticky;
 
-    /* transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); Bouncy effect */
+    transition: transform 0.5s cubic-bezier(0.38, -0.25, 0.17, 1.35); /* Bouncy effect */
 
+}
+
+/* Expanded Sidebar (Includes Slight Overshoot) */
+.sidebar.expanding {
+    transform: translateX(260px); /* Moves slightly beyond its final position */
+}
+
+/* Fully Expanded Sidebar */
+.sidebar.expanded {
+    transform: translateX(250px); /* Settles at the final position */
+}
+
+/* Collapsing Sidebar (Includes Slight Retract Before Collapse) */
+.sidebar.collapsing {
+    transform: translateX(10px); /* Pulls slightly back before collapsing */
+}
+
+/* Fully Collapsed Sidebar */
+.sidebar.collapsed {
+    transform: translateX(-230px); /* Moves back off-screen */
 }
 
 /* Code to toggle Sidebar START */
@@ -135,6 +155,16 @@ nav ul li a {
     height: 40px;
     border-radius: 5px; /* Optional: rounded edges */
     transition: left 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Adjust Button Position When Sidebar is Open */
+.sidebar.expanded + #sidebar-toggle {
+    left: 270px; /* Moves further out */
+}
+
+/* Adjust Button When Sidebar is Collapsing */
+.sidebar.collapsing + #sidebar-toggle {
+    left: 30px; /* Slightly retract before fully collapsing */
 }
 
 /* Rotate Button When Sidebar is Collapsed */
