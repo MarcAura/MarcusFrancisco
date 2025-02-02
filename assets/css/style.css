@@ -231,7 +231,7 @@ html {
 
 /* Reduce Left Padding When Sidebar is Collapsed */
 .sidebar.collapsed ~ .content {
-    margin-left: -100px; /* Reduce space when sidebar is collapsed */
+    margin-left: -135px; /* Reduce space when sidebar is collapsed */
 }
 
 section {
