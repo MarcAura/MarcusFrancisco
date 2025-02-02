@@ -241,3 +241,17 @@ toggleButton.addEventListener("click", function () {
 });
 
 
+window.addEventListener("scroll", function () {
+    const footer = document.querySelector("footer"); // Get the footer element
+    const button = document.getElementById("sidebar-toggle"); // Get the sidebar button
+
+    const footerTop = footer.getBoundingClientRect().top; // Footer's position relative to the viewport
+    const windowHeight = window.innerHeight; // Height of the viewport
+
+    // If the footer is in view, move the button up
+    if (footerTop < windowHeight) {
+        button.style.bottom = `${windowHeight - footerTop + 20}px`; // Adjust button position dynamically
+    } else {
+        button.style.bottom = "5px"; // Default position when footer is not in view
+    }
+});
