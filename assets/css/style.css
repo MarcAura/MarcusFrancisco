@@ -141,12 +141,15 @@ nav ul li a {
 /* Toggle Button */
 #sidebar-toggle {
     /* position: fixed; Fix it to the screen */
-    left: 140px; /* Position it right next to the sidebar */
-    position: absolute;
+    left: 85px; /* Position it right next to the sidebar */
+    bottom: 5px; /* Position it right next to the sidebar */
+    /* position: absolute; */
+    position: fixed; /* Makes it stay in place while scrolling */
     /* right: -30px; Place outside sidebar */
-    top: 50%;
+    /* top: 50%; */
     transform: translateY(-50%);
-    background: #ffc387;
+    /* background: #ffc387; */
+    background: #acc7ff;
     color: white;
     border: none;
     cursor: pointer;
@@ -159,6 +162,7 @@ nav ul li a {
     height: 30px;
     border-radius: 5px; /* Optional: rounded edges */
     transition: left 0.3s ease-in-out, transform 0.3s ease-in-out;
+    z-index: 1100; /* Ensures it's above other elements */
 }
 
 /* Rotate Button When Sidebar is Collapsed */
