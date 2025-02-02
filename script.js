@@ -22,6 +22,15 @@ function setActiveLink() {
         const activeLink = document.querySelector(`.sidebar ul li a[href="#${currentSection.id}"]`);
         if (activeLink) {
             activeLink.classList.add('active');
+
+            // Scroll the sidebar so the active link is centered
+            const sidebar = document.querySelector('.sidebar');
+            const sidebarHeight = sidebar.clientHeight;
+            const linkPosition = activeLink.offsetTop;
+            const linkHeight = activeLink.clientHeight;
+
+            // Ensure scrolling centers the active link within the sidebar
+            sidebar.scrollTop = linkPosition - (sidebarHeight / 2) + (linkHeight / 2);
         }
         lastActiveSection = currentSection; // Update last active section
     }
