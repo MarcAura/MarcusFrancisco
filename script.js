@@ -203,6 +203,11 @@ document.getElementById("sidebar-toggle").addEventListener("click", function() {
 
 const sidebar = document.getElementById("sidebar");
 const toggleButton = document.getElementById("sidebar-toggle");
+const content = document.querySelector(".content");
+
+document.getElementById("sidebar-toggle").addEventListener("click", function() {
+    sidebar.classList.toggle("collapsed");
+});
 
 toggleButton.addEventListener("click", function () {
     if (sidebar.classList.contains("collapsed")) {
@@ -225,3 +230,5 @@ toggleButton.addEventListener("click", function () {
         }, 300); // Wait before fully collapsing
     }
 });
+
+
