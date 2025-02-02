@@ -36,12 +36,34 @@ function setActiveLink() {
     }
 
     // Center the active section in the sidebar
-    const sidebar = document.querySelector('.sidebar');
-    const activeLinkElement = document.querySelector('.sidebar ul li a.active');
-    if (activeLinkElement) {
-        sidebar.scrollTop = activeLinkElement.offsetTop - (sidebar.clientHeight / 2) + (activeLinkElement.clientHeight / 2);
-    }
+    window.addEventListener("scroll", function () {
+        const sidebar = document.querySelector(".sidebar");
+        const footer = document.querySelector("footer");
+        const pageHeight = document.documentElement.scrollHeight; // Total page height
+        const viewportHeight = window.innerHeight; // Viewport height
+        const scrollY = window.scrollY; // Current scroll position
+        const footerTop = footer.getBoundingClientRect().top + scrollY; // Footer's absolute position
+
+        // Calculate how far user has scrolled down the page (as a percentage)
+        const scrollPercentage = scrollY / (pageHeight - viewportHeight);
+
+        // Sidebar height and max scroll offset
+        const sidebarHeight = sidebar.scrollHeight;
+        const sidebarContainerHeight = sidebar.clientHeight;
+
+        // Max sidebar scroll to ensure last link is 60px above footer
+        const maxSidebarScroll = sidebarHeight - sidebarContainerHeight - 60;
+
+        // Calculate the new sidebar scroll position based on scroll percentage
+        const newSidebarScroll = scrollPercentage * maxSidebarScroll;
+
+        // Update the sidebar scroll position dynamically
+        sidebar.scrollTop = newSidebarScroll;
+    });
+
 }
+
+
 
 // Listen for scroll events to update active section
 window.addEventListener('scroll', setActiveLink);
@@ -206,7 +228,7 @@ document.querySelectorAll('.sidebar ul li a').forEach(link => {
     });
 });
 
-document.getElementById("sidebar-toggle").addEventListener("click", function() {
+document.getElementById("sidebar-toggle").addEventListener("click", function () {
     document.querySelector(".sidebar").classList.toggle("collapsed");
 });
 
@@ -214,7 +236,7 @@ const sidebar = document.getElementById("sidebar");
 const toggleButton = document.getElementById("sidebar-toggle");
 const content = document.querySelector(".content");
 
-document.getElementById("sidebar-toggle").addEventListener("click", function() {
+document.getElementById("sidebar-toggle").addEventListener("click", function () {
     sidebar.classList.toggle("collapsed");
 });
 
