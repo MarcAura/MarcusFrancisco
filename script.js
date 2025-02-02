@@ -173,12 +173,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 document.querySelectorAll('.sidebar ul li a').forEach(link => {
-    link.addEventListener('click', function(event) {
+    link.addEventListener('click', function (event) {
         event.preventDefault(); // Prevent default jump behavior
         const targetId = this.getAttribute('href').substring(1);
         const targetSection = document.getElementById(targetId);
 
-        if (targetId === "section1") {  
+        if (targetId === "section1") {
             // If "Homepage" is clicked, scroll to the very top
             window.scrollTo({
                 top: 0,
@@ -195,4 +195,8 @@ document.querySelectorAll('.sidebar ul li a').forEach(link => {
             });
         }
     });
+});
+
+document.getElementById("sidebar-toggle").addEventListener("click", function() {
+    document.querySelector(".sidebar").classList.toggle("collapsed");
 });

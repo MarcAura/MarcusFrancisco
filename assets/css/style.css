@@ -90,6 +90,7 @@ nav ul li a {
     background-color: #acc7ff;
     padding: 20px;
     z-index: 100;
+    transition: transform 0.3s ease-in-out;
     /* Ensure the sidebar stays above content */
 
     height: 100vh;
@@ -102,10 +103,51 @@ nav ul li a {
     /* Add padding to push the sidebar content down */
     position: sticky;
 
+    /* transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); Bouncy effect */
+
 }
 
+/* Code to toggle Sidebar START */
+
+/* Collapsed Sidebar */
+.sidebar.collapsed {
+    transform: translateX(-130px); /* Hides most of the sidebar */
+}
+
+/* Toggle Button */
+#sidebar-toggle {
+    /* position: fixed; Fix it to the screen */
+    left: 150px; /* Position it right next to the sidebar */
+    position: absolute;
+    /* right: -30px; Place outside sidebar */
+    top: 50%;
+    transform: translateY(-50%);
+    background: #ffc387;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px; /* Add padding for a square shape */
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; /* Ensures button is square */
+    height: 40px;
+    border-radius: 5px; /* Optional: rounded edges */
+    transition: left 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Rotate Button When Sidebar is Collapsed */
+.sidebar.collapsed + #sidebar-toggle {
+    left: 15px; /* Move button closer when sidebar is collapsed */
+    transform: translateY(-50%) rotate(180deg); /* Rotate button */
+}
+
+/* Code to toggle Sidebar END */
+
 html {
-    scroll-padding-top: 80px; /* Adjust based on the height of your top bar */
+    scroll-padding-top: 80px;
+    /* Adjust based on the height of your top bar */
 }
 
 .sidebar ul {
@@ -289,106 +331,133 @@ footer a {
 /* Container for the responsive YouTube video */
 .video-container {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    padding-top: 25px; /* Optional top padding */
+    padding-bottom: 56.25%;
+    /* 16:9 aspect ratio */
+    padding-top: 25px;
+    /* Optional top padding */
     height: 0;
     overflow: hidden;
-  }
-  
-  /* Style the iframe to fill the container */
-  .video-container iframe {
+}
+
+/* Style the iframe to fill the container */
+.video-container iframe {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     border: 0;
-  }
-  
+}
 
-  /* Container for the video and text section */
+
+/* Container for the video and text section */
 #video-and-text {
     display: flex;
-    align-items: flex-start;  /* Align items at the top */
-    gap: 20px;                /* Space between the columns */
-    margin: 20px 0;           /* Vertical spacing */
-  }
-  
-  /* Video column styling */
-  #video-and-text .video-column {
-    flex: 1;  /* Takes up available space */
-  }
-  
-  /* Responsive video container (maintaining 16:9 aspect ratio) */
-  .video-container {
+    align-items: flex-start;
+    /* Align items at the top */
+    gap: 20px;
+    /* Space between the columns */
+    margin: 20px 0;
+    /* Vertical spacing */
+}
+
+/* Video column styling */
+#video-and-text .video-column {
+    flex: 1;
+    /* Takes up available space */
+}
+
+/* Responsive video container (maintaining 16:9 aspect ratio) */
+.video-container {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    padding-bottom: 56.25%;
+    /* 16:9 aspect ratio */
     height: 0;
     overflow: hidden;
-  }
-  
-  .video-container iframe {
+}
+
+.video-container iframe {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     border: 0;
-  }
-  
-  /* Text column styling */
-  #video-and-text .text-column {
-    flex: 1;  /* Takes up available space */
-    text-align: justify;  /* Justify the text */
+}
+
+/* Text column styling */
+#video-and-text .text-column {
+    flex: 1;
+    /* Takes up available space */
+    text-align: justify;
+    /* Justify the text */
     display: flex;
     flex-direction: column;
-    justify-content: center;  /* Optional: centers text vertically within the column */
-  }
-  
+    justify-content: center;
+    /* Optional: centers text vertically within the column */
+}
 
-  .video-container2 {
+
+.video-container2 {
     position: relative;
-    width: auto;  /* Adjusts to the native video width */
-    max-width: 70%; /* Prevents overflowing the page */
-    margin: auto; /* Centers the video */
-    background-color: inherit; /* Matches the background of the webpage */
+    width: auto;
+    /* Adjusts to the native video width */
+    max-width: 70%;
+    /* Prevents overflowing the page */
+    margin: auto;
+    /* Centers the video */
+    background-color: inherit;
+    /* Matches the background of the webpage */
 }
 
 .video-container2 iframe {
     width: 100%;
     height: auto;
-    aspect-ratio: 16 / 9; /* Ensures the video keeps its native aspect ratio */
-    border: none; /* Removes borders */
-    background-color: inherit; /* Prevents black bars */
+    aspect-ratio: 16 / 9;
+    /* Ensures the video keeps its native aspect ratio */
+    border: none;
+    /* Removes borders */
+    background-color: inherit;
+    /* Prevents black bars */
 }
 
 /* Container for text and image */
 .side-by-side {
     display: flex;
-    align-items: center; /* Aligns content vertically */
-    justify-content: space-between; /* Distributes space */
-    gap: 20px; /* Adds space between text and image */
-    margin: 20px 0; /* Adds vertical spacing */
+    align-items: center;
+    /* Aligns content vertically */
+    justify-content: space-between;
+    /* Distributes space */
+    gap: 20px;
+    /* Adds space between text and image */
+    margin: 20px 0;
+    /* Adds vertical spacing */
 }
 
 /* Text styling */
 .side-by-side .text-content {
-    flex: 1; /* Allows the text to take up remaining space */
-    text-align: justify; /* Justify the text for better readability */
+    flex: 1;
+    /* Allows the text to take up remaining space */
+    text-align: justify;
+    /* Justify the text for better readability */
 }
 
 /* Image container */
 .side-by-side .image-content {
-    flex: 1; /* Makes image section take up available space */
+    flex: 1;
+    /* Makes image section take up available space */
     display: flex;
-    justify-content: center; /* Centers the image horizontally */
-    align-items: center; /* Centers vertically */
+    justify-content: center;
+    /* Centers the image horizontally */
+    align-items: center;
+    /* Centers vertically */
 }
 
 /* Make sure the image is responsive */
 .side-by-side .image-content img {
-    max-width: 100%; /* Prevents overflow */
-    height: auto; /* Maintains aspect ratio */
+    max-width: 100%;
+    /* Prevents overflow */
+    height: auto;
+    /* Maintains aspect ratio */
     display: block;
 }
-
