@@ -11,6 +11,7 @@ Welcome to my personal ePortfolio. This site contains:
   - OR Make the sidebar toggleable with an arrow at the top  (automatically recessed in mobile)
 - Dark/Light mode?
 - Fix sticky sidebar
+- Light/Dark mode banner changes from UB picture day to UB Picture Night
 
 ## Suggestions:
 - Hero Section with Introduction
