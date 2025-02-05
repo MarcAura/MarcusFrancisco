@@ -37,6 +37,7 @@ body {
     /* Enable smooth scrolling */
     padding-top: 10px;
     /* Add space to the top of the body content so it's not hidden under the header */
+    transition: transform 0.3s ease; /* Ensure smooth scaling */
 
 }
 

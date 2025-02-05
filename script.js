@@ -277,3 +277,4 @@ window.addEventListener("scroll", function () {
         button.style.bottom = "5px"; // Default position when footer is not in view
     }
 });
+
