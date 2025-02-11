@@ -512,3 +512,12 @@ footer a {
     /* Maintains aspect ratio */
     display: block;
 }
+
+.no-bullets {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.justified-text {
+    text-align: justify;
+}
