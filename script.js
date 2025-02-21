@@ -278,3 +278,21 @@ window.addEventListener("scroll", function () {
     }
 });
 
+// Open the modal and show the clicked image
+function openModal(imgElement) {
+    var modal = document.getElementById("imageModal");
+    var modalImg = document.getElementById("modalImage");
+    var modalCaption = document.getElementById("modalCaption"); // Get caption element
+    modal.style.display = "block";
+    modal.classList.add("show");
+    modalImg.src = imgElement.src;    
+    modalCaption.textContent = imgElement.alt || "No description available"; // Set caption text
+
+}
+
+// Close the modal
+function closeModal() {
+    var modal = document.getElementById("imageModal");
+    modal.classList.remove("show");
+    setTimeout(() => modal.style.display = "none", 300); // Wait for fade-out transition
+}

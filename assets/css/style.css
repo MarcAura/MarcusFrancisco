@@ -521,3 +521,29 @@ footer a {
 .justified-text {
     text-align: justify;
 }
+
+/* Combined Zoomable and Responsive Image */
+.zoomable-responsive {
+    width: 50%;  /* Adjust scale as needed */
+    height: auto;
+    display: block;
+    margin: auto;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.zoomable-responsive:hover {
+    transform: scale(1.05); /* Slight hover effect */
+}
+
+.image-container {
+    text-align: center; /* Centers the content inside */
+    margin: 20px auto; /* Adds space around */
+}
+
+.image-container figcaption {
+    font-size: 14px;
+    color: #666; /* Grey text */
+    margin-top: 8px;
+    text-align: center; /* Ensures the caption text is centered */
+}
