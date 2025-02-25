@@ -12,7 +12,7 @@ Welcome to my personal ePortfolio. This site contains:
 - Dark/Light mode?
 - Fix sticky sidebar
 - Light/Dark mode banner changes from UB picture day to UB Picture Night
-- In the modal for images, give both the zoom feature and clickable buttons to move up down left and right
+- In the modal for images, give both the zoom feature and clickable buttons to move up down left and right and CENTER in middle
 
 ## Suggestions:
 - Hero Section with Introduction
