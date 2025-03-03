@@ -1,0 +1,61 @@
+/* Ensure landing page styles only affect the content area */
+.content #image-grid {
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Image Grid only affects the right-side content area */
+.content .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    width: 100%;
+    max-width: 100%; /* Prevents interference with sidebar */
+}
+
+/* Grid items apply only inside .content */
+.content .grid-item {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.content .grid-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background: rgba(0, 0, 0, 0.5); */
+    background: rgba(0, 31, 125, 0.5);
+    transition: background 0.3s ease-in-out;
+}
+
+.content .grid-item:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.content .grid-item:hover::before {
+    background: rgba(0, 31, 125, 0.3);
+}
+
+.content .grid-item span {
+    position: relative;
+    z-index: 2;
+}
