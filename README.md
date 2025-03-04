@@ -14,6 +14,12 @@ Welcome to my personal ePortfolio. This site contains:
 - Light/Dark mode banner changes from UB picture day to UB Picture Night
 - In the modal for images, give both the zoom feature and clickable buttons to move up down left and right and CENTER in middle
 
+
+A custom SVG-based circuit background?
+Animations for the timeline?
+A downloadable resume button?
+
+
 ## Suggestions:
 - Hero Section with Introduction
   - A large banner with a background image and a short introduction about you.

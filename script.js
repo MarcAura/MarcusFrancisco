@@ -296,3 +296,21 @@ function closeModal() {
     modal.classList.remove("show");
     setTimeout(() => modal.style.display = "none", 300); // Wait for fade-out transition
 }
+
+
+// Animations for Landing Page
+document.addEventListener("DOMContentLoaded", function () {
+    const fadeElements = document.querySelectorAll(".fade-in");
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+            }
+        });
+    }, { threshold: 0.3 });
+
+    fadeElements.forEach((element) => {
+        observer.observe(element);
+    });
+});
