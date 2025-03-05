@@ -34,6 +34,7 @@
     font-weight: bold;
     text-transform: uppercase;
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    border-radius: 15px; /* Rounds corners */
 }
 
 .content .grid-item::before {
@@ -46,6 +47,7 @@
     /* background: rgba(0, 0, 0, 0.5); */
     background: rgba(0, 31, 125, 0.4);
     transition: background 0.3s ease-in-out;
+    border-radius: 15px; /* Rounds corners */
 }
 
 .content .grid-item:hover {
@@ -54,7 +56,7 @@
 }
 
 .content .grid-item:hover::before {
-    background: rgba(0, 31, 125, 0.1);
+    background: rgba(221, 99, 0, 0.1);
 }
 
 .content .grid-item span {
@@ -199,54 +201,60 @@ body {
 }
 
 
+
+
 /* Style list items properly */
 #portfolio-intro ul li {
-    display: flex;
+    display: grid;
+    grid-template-columns: 220px auto;
     align-items: center;
+    column-gap: 15px;
     font-size: 1.1rem;
     margin-bottom: 10px;
     text-align: left;
     line-height: 1.5;
+    background: #f9f9f9;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border-left: 4px solid #003c7d;
+
+    /* 🔹 Enable both fade-in and hover effect */
+    opacity: 0;
+    transform: translateY(20px) scale(1);
+    transition: opacity 0.8s ease-out, transform 0.3s ease-out, box-shadow 0.3s ease-in-out;
+}
+
+
+/* Add a shadow effect on hover */
+#portfolio-intro ul li:hover {
+    transform: translateY(17px) scale(1.01); /* Slight lift + Zoom */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+/* 🔹 Apply Fade-In Animation */
+#portfolio-intro.visible ul li {
+    opacity: 1;
+    /* transform: none; */
+}
+
+/* Apply delay to each list item */
+#portfolio-intro.visible ul li:nth-child(1) { opacity: 1; }
+#portfolio-intro.visible ul li:nth-child(2) { opacity: 1; }
+#portfolio-intro.visible ul li:nth-child(3) { opacity: 1; }
+#portfolio-intro.visible ul li:nth-child(4) { opacity: 1; }
+
+
+/* Make icons slightly larger on hover */
+#portfolio-intro .icon:hover {
+    transform: scale(1.14);
+    transition: 0.2s ease-in-out;
 }
 
 /* Ensure emoji or icons align properly */
 #portfolio-intro ul li::before {
     /* content: "✅"; Replace with an appropriate icon */
     margin-right: 10px;
-}
-
-
-/* Timeline */
-.timeline {
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
-    position: relative;
-}
-
-.timeline-item {
-    display: flex;
-    margin: 20px 0;
-}
-
-.timeline-date {
-    font-weight: bold;
-    flex: 1;
-    text-align: right;
-    padding-right: 20px;
-    color: #003c7d;
-}
-
-.timeline-content {
-    flex: 3;
-    background: white;
-    padding: 15px;
-    border-left: 5px solid #003c7d;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.timeline-content h3 {
-    margin: 5px 0;
 }
 
 
@@ -271,12 +279,6 @@ body {
     transform: translateY(20px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
-
-/* Apply delay to each list item */
-.fade-in.visible ul li:nth-child(1) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
-.fade-in.visible ul li:nth-child(2) { transition-delay: 0.4s; opacity: 1; transform: translateY(0); }
-.fade-in.visible ul li:nth-child(3) { transition-delay: 0.6s; opacity: 1; transform: translateY(0); }
-.fade-in.visible ul li:nth-child(4) { transition-delay: 0.8s; opacity: 1; transform: translateY(0); }
 
 
 /* Tiny Icons */
@@ -310,7 +312,98 @@ body {
 }
 
 .fade-in {
+    /* opacity: 0;
+    animation: fadeIn 0.8s ease-in-out forwards; */
     opacity: 0;
-    animation: fadeIn 0.8s ease-in-out forwards;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Intro Alignment Stuff */
+/* Ensure icons remain aligned */
+#portfolio-intro .icon {
+    width: 40px; 
+    height: 40px;
+    margin-right: 10px;
+    flex-shrink: 0; /* Prevents shrinking */
+}
+
+/* Wrap icon & title together */
+#portfolio-intro .title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Ensure all descriptions align */
+#portfolio-intro .description {
+    text-align: left;
+}
+
+
+
+
+/* Timeline */
+.timeline {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    position: relative;
+}
+
+.timeline-item {
+    display: flex;
+    margin: 20px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;  /* Clickable */
+    opacity: 0;
+    transform: translateY(20px) scale(1);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s ease-in-out;
+}
+
+.timeline-date {
+    font-weight: bold;
+    flex: 1;
+    text-align: right;
+    padding-right: 20px;
+    color: #003c7d;
+}
+
+.timeline-content {
+    flex: 3;
+    background: white;
+    padding: 15px;
+    border-left: 5px solid #003c7d;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; /* Rounds all edges */
+}
+
+/* 🔹 Hover Effect: Works with Fade-In */
+.timeline-item:hover {
+    transform: translateY(-3px) scale(1.06); /* Slight lift + Zoom */
+    box-shadow: 4px 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* 🔹 Apply Fade-In Animation */
+.timeline-item.visible {
+    opacity: 1;
+    /* transform: translateY(0) scale(1); Default state after fade-in */
+}
+
+.timeline-content h3 {
+    margin: 5px 0;
+}
+
+/* Scroll Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 

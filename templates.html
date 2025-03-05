@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcus Francisco's Portfolio</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/landing-style.css"> <!-- Landing page-specific styles -->
+    <script defer src="script.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="cv.html">CV</a></li>
+                <li><a href="reflections.html">Reflections</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <ul>
+                <li><a href="#hero">Marcus Francisco</a></li>
+                <li><a href="#portfolio-intro">Welcome</a></li>
+                <li><a href="#timeline">Timeline</a></li>
+            </ul>
+        </div>
+        <button id="sidebar-toggle">«</button> <!-- Side Bar Toggle -->
+
+        <!-- Main Content -->
+        <div class="content">
+
+            <!-- Additional Sections (Keeping existing structure) -->
+            <section id="section1">
+                <h1>Homepage</h1>
+                <p>Hi, I'm Marcus Francisco. Welcome to my personal portfolio where you can explore my work, projects,
+                    and career journey. Feel free to explore!</p>
+            </section>
+
+            <section id="section2">
+                <h1>Project 2</h1>
+                <p>Description of Project 2...</p>
+            </section>
+
+            <section id="responsive-image-section">
+                <h2>Images</h2>
+                <img src="assets/images/TestImg_Github.PNG" alt="A descriptive text for the image"
+                    class="responsive-image">
+            </section>
+
+            <section id="text-and-image">
+                <div class="text-content">
+                    <h2>Text and Image</h2>
+                    <p>Some text content alongside an image...</p>
+                </div>
+                <div class="image-content">
+                    <img src="assets/images/TestImg_Github.PNG" alt="A descriptive caption of the image"
+                        class="zoomable">
+                </div>
+            </section>
+
+            <section id="youtube-video">
+                <h2>Embedded Video</h2>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/KqnaoUkd_f4" title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+            </section>
+
+            <section id="section3">
+                <h1>Project 3</h1>
+                <p>Description of Project 3...</p>
+            </section>
+
+            <section id="video-and-text">
+                <div class="video-column">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/8Onl30TVQCg" title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="text-column">
+                    <h2>Video Description</h2>
+                    <p>Some description about the embedded video...</p>
+                </div>
+            </section>
+
+            <section id="section4">
+                <h1>Project 4</h1>
+                <p>Description of Project 4...</p>
+            </section>
+
+            <section id="section5" class="side-by-side">
+                <div class="text-content">
+                    <h2>Section 5</h2>
+                    <p>Some information here...</p>
+                </div>
+                <div class="image-content">
+                    <img src="assets/images/MF.PNG" alt="Marcus Francisco Icon" class="zoomable">
+                </div>
+            </section>
+
+            <section id="section6" class="side-by-side">
+                <div class="image-content">
+                    <img src="assets/images/MF.PNG" alt="Marcus Francisco Icon" class="zoomable">
+                </div>
+                <div class="text-content">
+                    <h2>Section 6</h2>
+                    <p>Some more content...</p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer>
+        <p>Connect with me on <a href="https://www.linkedin.com/in/marcus-francisco">LinkedIn</a> and <a
+                href="https://github.com/yourgithub">GitHub</a>.</p>
+        <p>&copy; 2025 Marcus Francisco. All rights reserved.</p>
+        <p>Website theme, template code, and content is original work created by Marcus Francisco</p>
+    </footer>
+
+    <!-- Modal Structure for Images -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div class="caption" id="modalCaption"></div>
+        <!-- Optional zoom controls -->
+        <div id="zoomControls">
+            <button id="zoomIn">Zoom In</button>
+            <button id="zoomOut">Zoom Out</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
