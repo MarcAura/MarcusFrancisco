@@ -336,3 +336,9 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("scroll", handleScroll);
     handleScroll(); // Run once on page load
 });
+
+// Sending Emails
+
+document.getElementById("contact-form").addEventListener("submit", function(event) {
+    document.getElementById("form-message").style.display = "block";
+});

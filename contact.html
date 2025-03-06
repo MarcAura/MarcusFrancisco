@@ -1,11 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me</title>
+    <title>Marcus Francisco's Portfolio</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/landing-style.css"> <!-- Landing page-specific styles -->
+    <script defer src="script.js"></script>
+    <style>
+        #hero {
+            margin-bottom: -150px; /* Reduce space between hero and form */
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #0061c1, #313ffd);
+            color: white;
+            font-size: 18px;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .btn-submit:hover {
+            background: linear-gradient(135deg, #0047AB, #1c8aff);
+        }
+    </style>
 </head>
+
 <body>
     <header>
         <nav>
@@ -13,20 +71,79 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="projects.html">Projects</a></li>
+                <li><a href="cv.html">CV</a></li>
+                <li><a href="reflections.html">Reflections</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section>
-            <h1>About Me</h1>
-            <p>Hello, my name is [Your Name], and I'm a graduate student studying Electrical Engineering. I have a strong interest in [your field of interest]. In this portfolio, you will find a collection of my academic work, projects, and achievements throughout my journey.</p>
-        </section>
-    </main>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <ul>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        <button id="sidebar-toggle">«</button> <!-- Side Bar Toggle -->
+
+        <!-- Main Content -->
+        <div class="content">
+
+            <!-- Hero Section with Circuit Background -->
+            <section id="hero" class="fade-in">
+                <div class="hero-content">
+                    <h1>Contact Me</h1>
+                    <h2>Let's Get in Touch</h2>
+                    <p>If you have any inquiries or just want to connect, feel free to send me a message.</p>
+                </div>
+            </section>
+            
+            <section id="contact" class="fade-in">
+                <div class="form-container stylish-form">
+                    <form id="contact-form" action="marcusfranciscoportfolio@gmail.com" method="post" enctype="text/plain">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message:</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-submit">Send Message</button>
+                    </form>
+                    <p id="form-message" style="display: none; color: green;">Your message has been sent!</p>
+                </div>
+            </section>
+        </div>
+    </div>
 
     <footer>
-        <p>Connect with me on <a href="https://www.linkedin.com/in/yourlinkedin">LinkedIn</a> and <a href="https://github.com/yourgithub">GitHub</a>.</p>
+        <p>Connect with me on <a href="https://www.linkedin.com/in/marcus-francisco">LinkedIn</a> and <a
+                href="https://github.com/yourgithub">GitHub</a>.</p>
+        <p>&copy; 2025 Marcus Francisco. All rights reserved.</p>
+        <p>Website content, themes, animations, templates, images, and icons are all original work created by Marcus Francisco</p>
     </footer>
+
+    <!-- Modal Structure for Images -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div class="caption" id="modalCaption"></div>
+        <!-- Optional zoom controls -->
+        <div id="zoomControls">
+            <button id="zoomIn">Zoom In</button>
+            <button id="zoomOut">Zoom Out</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
