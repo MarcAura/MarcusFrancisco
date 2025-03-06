@@ -150,6 +150,9 @@ body {
     margin: 50px auto; /* Centers the section */
     margin-top: -200px;
     animation: fadeIn 0.8s ease-out forwards;
+    border-right: 5px solid #003c7d;
+    border-bottom: 5px solid #003c7d;
+    border-radius: 15px;
 }
 
 /* Adjust heading */

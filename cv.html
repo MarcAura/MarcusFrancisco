@@ -6,13 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV - Marcus Francisco</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/aboutme.css">
+    <style>
+        .btn-download {
+            display: inline-block;
+            background: linear-gradient(135deg, #0061c1, #313ffd);
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .btn-download:hover {
+            background: linear-gradient(135deg, #0047AB, #1c8aff);
+        }
+
+        .image-content-icon-size img {
+            width: 180px;
+            /* Adjust this for a smaller size */
+            height: auto;
+            /* Keeps aspect ratio */
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Fix resume download position to top right */
+        #resume-download-fixed {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+    </style>
 </head>
 
 <body>
     <header>
         <nav>
             <ul>
-                <li><a href="cv.html">CV</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="cv.html">Resume</a></li>
+                <li><a href="reflections.html">Reflections</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -34,40 +80,61 @@
         <div class="content">
             <center>
                 <h1> Curriculum Vitae </h1>
-            </center> 
-            <section id="education">
-                <h1>Education</h1>
-                <p><strong>University at Buffalo</strong>: <br> 
+            </center>
+
+
+
+
+
+            <section id="education" class="text-and-image">
+                <div>
+                    <h1>Education</h1>
+                    <p><strong>University at Buffalo</strong>: <br>
                     <ul class="no-bullets">
-                        MS Electrical Engineering, June 2025<br>  
-                        GPA: 3.9 / 4.0                    
+                        MS Electrical Engineering, June 2025<br>
+                        GPA: 3.9 / 4.0
                     </ul>
                     <ul class="no-bullets">
-                        BS Electrical Engineering, June 2024 <br> 
-                        GPA: 3.942 / 4.0    [Summa Cum Laude]
+                        BS Electrical Engineering, June 2024 <br>
+                        GPA: 3.942 / 4.0 [Summa Cum Laude]
                     </ul>
                     </p>
+                    <section id="honors">
+                        <h1>Academic Honors and Awards</h1>
+                        <ul>
+                            <li>Summa Cum Laude (2024)</li>
+                            <li>Dean's List (6 consecutive semesters)</li>
+                            <li>Barbara & Jack Davis Engineering Education Endowment Fund (2023)</li>
+                            <li>Professor Edward P. Furlani Scholarship (2023)</li>
+                            <li>Russell L. Agrusa UB CSE Student Innovation Award (2022)</li>
+                            <li>Tau Beta Pi Scholarship (2022)</li>
+                            <li>Pride of New York Scholarship (2020)</li>
+                            <li>Tau Beta Pi (2021-Present, Executive Board Participant)</li>
+                        </ul>
+                    </section>
+                </div>
+                <section id="resume-download" class="about-me-item">
+                    <div class="text-and-image">
+                        <div class="image-content-icon-size">
+                            <img src="assets/images/resume-preview.PNG" alt="Resume Preview">
+                        </div>
+                        <div>
+                            <h1>Download My Resume</h1>
+                            <!-- <p>Click the button below to download my resume.</p> -->
+                            <a href="assets/files/Marcus_Francisco_Resume_3-6-2025.pdf" target="_blank" download
+                                class="btn-download">Download Resume</a>
+                        </div>
+                    </div>
+                </section>
             </section>
 
-            <section id="honors">
-                <h1>Academic Honors and Awards</h1>
-                <ul>
-                    <li>Summa Cum Laude (2024)</li>
-                    <li>Dean's List (6 consecutive semesters)</li>
-                    <li>Barbara & Jack Davis Engineering Education Endowment Fund (2023)</li>
-                    <li>Professor Edward P. Furlani Scholarship (2023)</li>
-                    <li>Russell L. Agrusa UB CSE Student Innovation Award (2022)</li>
-                    <li>Tau Beta Pi Scholarship (2022)</li>
-                    <li>Pride of New York Scholarship (2020)</li>
-                    <li>Tau Beta Pi (2021-Present, Executive Board Participant)</li>
-                </ul>
-            </section>
+
 
 
             <section id="coursework">
                 <h1>Relevent Coursework</h1>
                 <ul>
-                    <li>Cleanroom Fabrication Lab</li> 
+                    <li>Cleanroom Fabrication Lab</li>
                     <li>VHDL </li>
                     <li>FPGA </li>
                     <li>Digital Design</li>
@@ -82,7 +149,8 @@
             <section id="publications">
                 <h1>Publications & Presentations</h1>
                 <ul>
-                    <li><strong>A Campus Prototype of Interactive Digital Twin in Cyber Manufacturing</strong> (2023) - ACM SenSys '22</li>
+                    <li><strong>A Campus Prototype of Interactive Digital Twin in Cyber Manufacturing</strong> (2023) -
+                        ACM SenSys '22</li>
                     <li>ACM Sensors and Systems Conference (2022) - Research Presentation</li>
                     <li>ACM Project Workshop (2023) - Presenter & Mentor</li>
                     <li>New York State Conference All-State Composer and Musician (2019)</li>
@@ -106,7 +174,8 @@
                 <ul>
                     <li><strong>Tapecon Electrical Engineering Internship</strong> (2023-2024)</li>
                     <li><strong>University at Buffalo REU Program</strong> (2022-2023) - Digital Twin Research</li>
-                    <li><strong>Student Assistant for EE Courses</strong> (2023-2024) - Embedded Systems, Digital Design</li>
+                    <li><strong>Student Assistant for EE Courses</strong> (2023-2024) - Embedded Systems, Digital Design
+                    </li>
                     <li><strong>Professional Musician</strong> - French Horn & Piano Performer</li>
                 </ul>
             </section>
@@ -115,51 +184,90 @@
                 <h1>Projects</h1>
                 <ul>
                     <li><strong>BlueLink IoT Smart Home Automation</strong> (2024)</li>
-                        <ul class="no-bullets">
-                            <p class="justified-text">
-                                BlueLink Bluetooth & WiFi IoT Network with Android App: Fall 2024: Designed and implemented a distributed IoT network featuring ESP32 microcontrollers connected via Bluetooth and WiFi, integrated with a user-friendly Android application. The system enables real-time control and monitoring of various IoT devices, such as smart lights, fans, a smart thermostat, air quality monitoring, and a flood water detector. The project, developed independently, demonstrates communication between a central Wi-Fi connected ESP32 hub and Bluetooth ESP32 functional devices, offering robust automation functionality through an app interface. The project involves mobile development, networking, and embedded systems, showcasing a scalable and modular solution for smart home automation. Project overview can be accessed 
-                                via the following link: 
-                                <a href="https://youtu.be/8Onl30TVQCg?si=hDx17WmNNWcEFkoD" target="_blank">
-                                    https://youtu.be/8Onl30TVQCg?si=hDx17WmNNWcEFkoD
-                                </a> 
-                            </p>
-                        </ul>
+                    <ul class="no-bullets">
+                        <p class="justified-text">
+                            BlueLink Bluetooth & WiFi IoT Network with Android App: Fall 2024: Designed and implemented
+                            a distributed IoT network featuring ESP32 microcontrollers connected via Bluetooth and WiFi,
+                            integrated with a user-friendly Android application. The system enables real-time control
+                            and monitoring of various IoT devices, such as smart lights, fans, a smart thermostat, air
+                            quality monitoring, and a flood water detector. The project, developed independently,
+                            demonstrates communication between a central Wi-Fi connected ESP32 hub and Bluetooth ESP32
+                            functional devices, offering robust automation functionality through an app interface. The
+                            project involves mobile development, networking, and embedded systems, showcasing a scalable
+                            and modular solution for smart home automation. Project overview can be accessed
+                            via the following link:
+                            <a href="https://youtu.be/8Onl30TVQCg?si=hDx17WmNNWcEFkoD" target="_blank">
+                                https://youtu.be/8Onl30TVQCg?si=hDx17WmNNWcEFkoD
+                            </a>
+                        </p>
+                    </ul>
                     <li><strong>5G KPI Analysis under Varying Weather Conditions</strong> (2024)</li>
-                        <ul class="no-bullets">
-                            <p class="justified-text">
-                                Analysis of Key Performance Indicators in 5G Networks under Varying Weather Conditions: Fall 2024: Conducted an experimental study to evaluate the impact of weather conditions on 5G Key Performance Indicators (KPIs) such as latency, signal strength, and throughput. Developed a data collection system using a Raspberry Pi with a 5G hat, integrating real-time environmental data from WeatherAPI. Processed and visualized data with Python, Plotly, and Matplotlib heatmaps with interactive graphs correlating KPIs with weather metrics like temperature, humidity, and precipitation. The project shows resilience of 5G networks under adverse conditions, and offers recommendations.
-                            </p>
-                        </ul>
+                    <ul class="no-bullets">
+                        <p class="justified-text">
+                            Analysis of Key Performance Indicators in 5G Networks under Varying Weather Conditions: Fall
+                            2024: Conducted an experimental study to evaluate the impact of weather conditions on 5G Key
+                            Performance Indicators (KPIs) such as latency, signal strength, and throughput. Developed a
+                            data collection system using a Raspberry Pi with a 5G hat, integrating real-time
+                            environmental data from WeatherAPI. Processed and visualized data with Python, Plotly, and
+                            Matplotlib heatmaps with interactive graphs correlating KPIs with weather metrics like
+                            temperature, humidity, and precipitation. The project shows resilience of 5G networks under
+                            adverse conditions, and offers recommendations.
+                        </p>
+                    </ul>
                     <li><strong>Extended Capacity Uninterrupted Power Supply</strong> (2024)</li>
-                        <ul class="no-bullets">
-                            <p class="justified-text">
-                                Extended Capacity Uninterrupted Power Supply: Spring 2024: Developed a Deep Cycle Battery Uninterrupted Power Supply (UPS) system. This project is a senior design project with team members Marcus H. Francisco and Alexander J. Francisco, under the guidance of Professor Jennifer L. Zirnheld, Ph.D, at the University at Buffalo's Department of Electrical Engineering. This project aims to address the need for a reliable, cost-effective, and efficient UPS solution capable of sustaining long-duration power outages. This project procured two designs costing $502.80 and $681.74 capable of supporting a 600W load using a 100Ah battery, one model incorporating a solar-charging complication.
-                            </p>
-                        </ul>
+                    <ul class="no-bullets">
+                        <p class="justified-text">
+                            Extended Capacity Uninterrupted Power Supply: Spring 2024: Developed a Deep Cycle Battery
+                            Uninterrupted Power Supply (UPS) system. This project is a senior design project with team
+                            members Marcus H. Francisco and Alexander J. Francisco, under the guidance of Professor
+                            Jennifer L. Zirnheld, Ph.D, at the University at Buffalo's Department of Electrical
+                            Engineering. This project aims to address the need for a reliable, cost-effective, and
+                            efficient UPS solution capable of sustaining long-duration power outages. This project
+                            procured two designs costing $502.80 and $681.74 capable of supporting a 600W load using a
+                            100Ah battery, one model incorporating a solar-charging complication.
+                        </p>
+                    </ul>
                     <li><strong>Pinnacle Hackathon - Prism Augmented Reality</strong> (2021)</li>
-                        <ul class="no-bullets">
-                            <p class="justified-text">
-                                Pinnacle Hackathon 2021: Code Red, victorious at UB Hackathon 2020, received exclusive invitations to Pinnacle 2021, a prestigious hackathon with 166 global participants. In Dallas, Texas, the team presented "Prism," an augmented reality project showcasing 3D printing and CAD design, using Magic Leap for holographic manufacturing assistance.
-                            </p>
-                        </ul>
+                    <ul class="no-bullets">
+                        <p class="justified-text">
+                            Pinnacle Hackathon 2021: Code Red, victorious at UB Hackathon 2020, received exclusive
+                            invitations to Pinnacle 2021, a prestigious hackathon with 166 global participants. In
+                            Dallas, Texas, the team presented "Prism," an augmented reality project showcasing 3D
+                            printing and CAD design, using Magic Leap for holographic manufacturing assistance.
+                        </p>
+                    </ul>
                     <li><strong>UB Hackathon - Red Alert Fire Prevention System</strong> (2020-2022)</li>
                     <ul class="no-bullets">
                         <p class="justified-text">
-                            UB Hackathon 2020 - 2022: Code Red, a collaborative team of Electrical Engineering and Computer Science majors, secured a $2,000 Grand Prize at UB Hackathon 2020. Their innovative "Red Alert" project, designed within 24 hours, prevents house fires using circuits, servos, and a server backend, earning accolades, including "Best Hardware" award. I designed a servo-actuated fire suppression mechanism, implementing a simple automated motion control for real-time hazard response. I also worked on the embedded control logic for actuator-driven safety mechanisms including remotely opening a garage door and a sprinkler system.
+                            UB Hackathon 2020 - 2022: Code Red, a collaborative team of Electrical Engineering and
+                            Computer Science majors, secured a $2,000 Grand Prize at UB Hackathon 2020. Their innovative
+                            "Red Alert" project, designed within 24 hours, prevents house fires using circuits, servos,
+                            and a server backend, earning accolades, including "Best Hardware" award. I designed a
+                            servo-actuated fire suppression mechanism, implementing a simple automated motion control
+                            for real-time hazard response. I also worked on the embedded control logic for
+                            actuator-driven safety mechanisms including remotely opening a garage door and a sprinkler
+                            system.
                         </p>
                     </ul>
                     <li><strong>Printer Filament Recycling Project</strong> (2022)</li>
                     <ul class="no-bullets">
                         <p class="justified-text">
-                            Printer Filament Recycling Project “Code Green”: Developed in Fall 2022. Code Green recycles plastic bottles into 3D printer filament, earning UB-Hacking's "Best Hardware Hack" and UB Blackstone Launchpad's "Hack with a Purpose" awards. The 24-hour-built system includes the machine, modified hot-end, and a web interface for remote monitoring.
+                            Printer Filament Recycling Project “Code Green”: Developed in Fall 2022. Code Green recycles
+                            plastic bottles into 3D printer filament, earning UB-Hacking's "Best Hardware Hack" and UB
+                            Blackstone Launchpad's "Hack with a Purpose" awards. The 24-hour-built system includes the
+                            machine, modified hot-end, and a web interface for remote monitoring.
                         </p>
                     </ul>
                     <li><strong>Modular Security System </strong> (2022)</li>
                     <ul class="no-bullets">
                         <p class="justified-text">
-                            Modular Security System In 2022, I contributed to Code Red's award-winning project "Big Transistor Security" at a hackathon. Our modular security system earned the "Best Hardware Hack" award, showcasing adaptability for homeowners to enhance and customize. I handled hardware assembly, circuit wiring, and created a demo video highlighting our design's versatility with components like an ultrasonic sensor and servo-actuated air horn deterrent.
+                            Modular Security System In 2022, I contributed to Code Red's award-winning project "Big
+                            Transistor Security" at a hackathon. Our modular security system earned the "Best Hardware
+                            Hack" award, showcasing adaptability for homeowners to enhance and customize. I handled
+                            hardware assembly, circuit wiring, and created a demo video highlighting our design's
+                            versatility with components like an ultrasonic sensor and servo-actuated air horn deterrent.
                         </p>
-                    </ul> 
+                    </ul>
                 </ul>
             </section>
         </div>
@@ -173,4 +281,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>

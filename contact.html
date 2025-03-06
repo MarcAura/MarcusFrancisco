@@ -10,8 +10,10 @@
     <script defer src="script.js"></script>
     <style>
         #hero {
-            margin-bottom: -150px; /* Reduce space between hero and form */
+            margin-bottom: -150px;
+            /* Reduce space between hero and form */
         }
+
         .form-container {
             max-width: 600px;
             margin: 0 auto;
@@ -33,7 +35,8 @@
             margin-bottom: 5px;
         }
 
-        .form-group input, .form-group textarea {
+        .form-group input,
+        .form-group textarea {
             width: 100%;
             padding: 10px;
             border: 1px solid #ccc;
@@ -61,6 +64,14 @@
         .btn-submit:hover {
             background: linear-gradient(135deg, #0047AB, #1c8aff);
         }
+
+        /* Adjust heading */
+        #hero h4 {
+            color: #ff9500;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
     </style>
 </head>
 
@@ -71,7 +82,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="projects.html">Projects</a></li>
-                <li><a href="cv.html">CV</a></li>
+                <li><a href="cv.html">Resume</a></li>
                 <li><a href="reflections.html">Reflections</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
@@ -96,27 +107,31 @@
                     <h1>Contact Me</h1>
                     <h2>Let's Get in Touch</h2>
                     <p>If you have any inquiries or just want to connect, feel free to send me a message.</p>
+                    <h4>Contact Page is still a work in progress! </h4>
+                    <p>This form below does not yet work, but feel free to
+                        practice typing messages in the meantime!</p>
                 </div>
             </section>
-            
+
             <section id="contact" class="fade-in">
                 <div class="form-container stylish-form">
-                    <form id="contact-form" action="marcusfranciscoportfolio@gmail.com" method="post" enctype="text/plain">
+                    <form id="contact-form" action="marcusfranciscoportfolio@gmail.com" method="post"
+                        enctype="text/plain">
                         <div class="form-group">
                             <label for="name">Name:</label>
                             <input type="text" id="name" name="name" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="email">Email:</label>
                             <input type="email" id="email" name="email" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="message">Message:</label>
                             <textarea id="message" name="message" rows="5" required></textarea>
                         </div>
-                        
+
                         <button type="submit" class="btn-submit">Send Message</button>
                     </form>
                     <p id="form-message" style="display: none; color: green;">Your message has been sent!</p>
@@ -129,7 +144,8 @@
         <p>Connect with me on <a href="https://www.linkedin.com/in/marcus-francisco">LinkedIn</a> and <a
                 href="https://github.com/yourgithub">GitHub</a>.</p>
         <p>&copy; 2025 Marcus Francisco. All rights reserved.</p>
-        <p>Website content, themes, animations, templates, images, and icons are all original work created by Marcus Francisco</p>
+        <p>Website content, themes, animations, templates, images, and icons are all original work created by Marcus
+            Francisco</p>
     </footer>
 
     <!-- Modal Structure for Images -->
@@ -146,4 +162,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>

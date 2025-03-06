@@ -1,0 +1,163 @@
+/* Fixes for Portfolio Introduction */
+.about-me-item {
+    background: white;
+    padding: 40px;
+    text-align: center;
+    max-width: 900px; /* Limits the width for better readability */
+    margin: 50px auto; /* Centers the section */
+    margin-top: 20px;
+    animation: fadeIn 0.8s ease-out forwards;
+    border-left: 5px solid #003c7d;
+    border-right: 5px solid #003c7d;
+    border-radius: 15px;
+}
+
+/* Adjust heading */
+.about-me-item h2 {
+    color: #003c7d;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Adjust heading */
+.about-me-item h3 {
+    color: #003c7d;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Align paragraph properly */
+.about-me-item p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    text-align: justify; /* Centers text */
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+/* Organize the content into two justified columns */
+.about-me-item .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 30px; /* Adds space between columns */
+    align-items: start;
+    text-align: left;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+/* Fix unordered list alignment */
+.about-me-item ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    max-width: 600px;
+    margin: 20px auto;
+    list-style: none;
+    padding-left: 0;
+}
+
+
+
+
+/* Style list items properly */
+.about-me-item ul li {
+    display: grid;
+    grid-template-columns: 220px auto;
+    align-items: center;
+    column-gap: 15px;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    text-align: left;
+    line-height: 1.5;
+    background: #f9f9f9;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border-left: 4px solid #003c7d;
+
+    /* 🔹 Enable both fade-in and hover effect */
+    opacity: 0;
+    transform: translateY(20px) scale(1);
+    transition: opacity 0.8s ease-out, transform 0.3s ease-out, box-shadow 0.3s ease-in-out;
+}
+
+
+/* Add a shadow effect on hover */
+.about-me-item ul li:hover {
+    transform: translateY(17px) scale(1.01); /* Slight lift + Zoom */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+/* 🔹 Apply Fade-In Animation */
+.about-me-item.visible ul li {
+    opacity: 1;
+    /* transform: none; */
+}
+
+/* Apply delay to each list item */
+.about-me-item.visible ul li:nth-child(1) { opacity: 1; }
+.about-me-item.visible ul li:nth-child(2) { opacity: 1; }
+.about-me-item.visible ul li:nth-child(3) { opacity: 1; }
+.about-me-item.visible ul li:nth-child(4) { opacity: 1; }
+
+
+/* Make icons slightly larger on hover */
+.about-me-item .icon:hover {
+    transform: scale(1.14);
+    transition: 0.2s ease-in-out;
+}
+
+/* Ensure emoji or icons align properly */
+.about-me-item ul li::before {
+    /* content: "✅"; Replace with an appropriate icon */
+    margin-right: 10px;
+}
+
+
+/* Container for text and image */
+.text-and-image {
+    display: flex;
+    align-items: flex-start;
+    /* Align items at the top */
+    gap: 20px;
+    /* Adds space between the text and image columns */
+    margin: 20px 0;
+    /* Vertical spacing for the section */
+}
+
+/* Text styling */
+.text-and-image .text-content {
+    flex: 1;
+    /* Take up available space */
+    text-align: justify;
+    /* Justify the text */
+}
+
+/* Image container styling */
+.text-and-image .image-content {
+    flex: 1;
+    /* Take up available space */
+    display: flex;
+    justify-content: center;
+    /* Center the image horizontally if desired */
+    align-items: center;
+    /* Center vertically if needed */
+}
+
+/* Ensure the image is responsive */
+.text-and-image .image-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.image-content img {
+    /* width: 500px; Adjust width as needed */
+    height: auto; /* Maintains aspect ratio. Consider constraining height to adjacent item */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
