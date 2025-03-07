@@ -1,5 +1,7 @@
 /* Header and Navigation Bar */
 header {
+    
+    text-align: center;
     background: linear-gradient(to bottom right, #003cbc, #096bfe);
     /* Gradient from top-left to bottom-right */
     padding: 20px 30px;

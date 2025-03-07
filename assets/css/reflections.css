@@ -1,0 +1,139 @@
+/* Fixes for Portfolio Introduction */
+.project-item {
+    background: white;
+    padding: 40px;
+    text-align: center;
+    max-width: 900px; /* Limits the width for better readability */
+    margin: 50px auto; /* Centers the section */
+    margin-top: 20px;
+    animation: fadeIn 0.8s ease-out forwards;
+    border-left: 5px solid #003c7d;
+    border-right: 5px solid #003c7d;
+    border-radius: 15px;
+    transform: translateY(0px) scale(1);
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Adjust heading */
+.project-item h2 {
+    color: #003c7d;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Adjust heading */
+.project-item h3 {
+    color: #003c7d;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Align paragraph properly */
+.project-item p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    text-align: justify; /* Centers text */
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+/* Organize the content into two justified columns */
+.project-item .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 30px; /* Adds space between columns */
+    align-items: start;
+    text-align: left;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+/* Fix unordered list alignment */
+.project-item ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    max-width: 600px;
+    margin: 20px auto;
+    list-style: none;
+    padding-left: 0;
+}
+
+
+
+
+/* Style list items properly */
+.project-item ul li {
+    display: grid;
+    grid-template-columns: 220px auto;
+    align-items: center;
+    column-gap: 15px;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    text-align: left;
+    line-height: 1.5;
+    background: #f9f9f9;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border-left: 4px solid #003c7d;
+
+    /* 🔹 Enable both fade-in and hover effect */
+    opacity: 0;
+    transform: translateY(20px) scale(1);
+    transition: opacity 0.8s ease-out, transform 0.3s ease-out, box-shadow 0.3s ease-in-out;
+}
+
+
+/* Add a shadow effect on hover */
+.project-item ul li:hover {
+    transform: translateY(17px) scale(1.01); /* Slight lift + Zoom */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Make it look like a button/link but as a full container */
+.project-item a {
+    display: block;
+    text-decoration: none;
+    color: inherit; /* Keeps text color unchanged */
+}
+
+/* Hover effect for lifting and slight scaling */
+.project-item:hover {
+    transform: translateY(-5px) scale(1.03); /* Slight lift and zoom */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+/* 🔹 Apply Fade-In Animation */
+.project-item.visible {
+    opacity: 1;
+    /* transform: none; */
+}
+
+/* 🔹 Apply Fade-In Animation */
+.project-item.visible ul li {
+    opacity: 1;
+    /* transform: none; */
+}
+
+/* Apply delay to each list item */
+.project-item.visible ul li:nth-child(1) { opacity: 1; }
+.project-item.visible ul li:nth-child(2) { opacity: 1; }
+.project-item.visible ul li:nth-child(3) { opacity: 1; }
+.project-item.visible ul li:nth-child(4) { opacity: 1; }
+
+
+/* Make icons slightly larger on hover */
+.project-item .icon:hover {
+    transform: scale(1.14);
+    transition: 0.2s ease-in-out;
+}
+
+/* Ensure emoji or icons align properly */
+.project-item ul li::before {
+    /* content: "✅"; Replace with an appropriate icon */
+    margin-right: 10px;
+}
