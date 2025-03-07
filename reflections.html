@@ -6,6 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marcus Francisco's Portfolio</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* 🔹 Ensure the video container only takes 50% of its parent */
+        .video-container-50 {
+            width: 50%;
+            /* ✅ Restrict the width to 50% of the parent */
+            max-width: 560px;
+            /* ✅ Prevents it from becoming too large on big screens */
+            margin: 0 auto;
+            /* ✅ Centers the video */
+            display: flex;
+            justify-content: center;
+        }
+
+        /* 🔹 Ensure iframe scales properly */
+        .video-container-50 iframe {
+            width: 100%;
+            /* ✅ Makes the iframe take up the full width of the .video-container */
+            height: auto;
+            aspect-ratio: 16 / 9;
+            /* ✅ Maintains correct aspect ratio */
+
+
+        }
+
+        .content {
+            max-width: 800px;
+            /* Limits width of the content for readability */
+            margin-left: 0 auto;
+            margin-right: 0 auto;
+        }
+    </style>
 </head>
 
 <body>
@@ -301,12 +332,10 @@
                     under these conditions.
                 </p>
 
-                <div class="video-container">
-                    <iframe width="560" height="315" 
-                        src="https://www.youtube.com/embed/8Onl30TVQCg?si=79SV4fbzqMYWAx87" 
-                        title="EE 526 Project Video" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                <div class="video-container-50">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/8Onl30TVQCg?si=79SV4fbzqMYWAx87"
+                        title="EE 526 Project Video" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen>
                     </iframe>
                 </div>
@@ -315,7 +344,8 @@
                     To present projects to the class in a timely manner, we were required to make a video presentation
                     with the constraint of being under 3 minutes. My video presentation that was shown to the class can
                     be seen here:
-                    <a href="https://youtu.be/8Onl30TVQCg?si=79SV4fbzqMYWAx87" target="_blank">BlueLink Smart Home App and Network - Marcus Francisco EE526 Project 3</a>
+                    <a href="https://youtu.be/8Onl30TVQCg?si=79SV4fbzqMYWAx87" target="_blank">BlueLink Smart Home App
+                        and Network - Marcus Francisco EE526 Project 3</a>
                     I feel most accomplished with the fact that I stuck with my original goals (with some slight
                     alterations) instead of simplifying my project just to get an easy A. My goal was to create
                     something worthwhile that would grant me more than a good grade, and I believe under the conditions
@@ -326,28 +356,81 @@
             <section id="reflection4">
                 <h1>Reflection 4: EE 550 - Photovoltaic Technology, Professor Ian R. Sellers</h1>
                 <p class="justified-text">
-                    
-                    I enrolled in EE 550 expecting to deepen my understanding of photovoltaic (PV) technology beyond the surface-level knowledge I had gained from prior coursework and projects. I had previously worked with solar panels in my senior design project, where I became familiar with key characteristics such as open-circuit voltage, short-circuit current, maximum power point tracking (MPPT), and the equivalent circuit representation of solar cells as a current source with diode behavior. However, this class introduced me to a far more nuanced perspective—one that made me re-think how I critically assess emerging technologies and the claims made in research and the industry.
 
-                    One of the most significant takeaways from this course was learning to approach new photovoltaic technologies with a more critical mindset. In 2021, I wrote a paper on perovskite solar cells, a technology widely hailed for its potential to revolutionize the solar industry due to its high efficiency, tunable bandgap, and low-cost fabrication. At the time, my research was based on recent publications that portrayed perovskites as the next major leap in solar power. While I acknowledged concerns regarding their stability and service life, I largely focused on their advantages and future prospects. However, in EE 550, I gained a more balanced and skeptical perspective on the practical feasibility of perovskite-based photovoltaics.
-                    
-                    Through discussions with Professor Sellers during class, I learned that much of the excitement surrounding perovskites is fueled by highly selective data, with many research papers presenting only the most optimistic results while glossing over fundamental reliability issues. For example, while perovskite solar cells can demonstrate efficiencies exceeding 25\% in controlled lab environments, their long-term stability is a major concern. Many perovskite cells degrade within weeks, far from the decades-long service life expected from commercial solar panels. Additionally, yield reporting in perovskite manufacturing is often absent, meaning that while individual cells may be inexpensive to produce, the true cost skyrockets if hundreds must be fabricated to obtain a single functional unit.
-                    
-                    This realization reshaped my view of technological hype in renewable energy. While innovations are necessary to advance solar power, the premature excitement surrounding some emerging technologies can lead to unrealistic expectations and, ultimately, public distrust when those technologies fail to deliver on exaggerated promises. It is crucial to distinguish between lab-scale success and real-world viability, considering not only efficiency but also manufacturing scalability, stability, and deployment challenges.
-                    
-                    I wrote a paper on Perovskite usage in solar panels in 2021. My report adresses some of the issues mentioned here, but it glances over the more concerning fact that perovskites are not proven to have a suitable service life for Photovoltaic panels. My report written on perovskites can be accessed via this link: 
-                    <a href="https://marcaura.github.io/MarcusFrancisco/pdfs/perovskites.pdf" target="_blank">Perovskite Solar Cells Report</a>
-                    
-                    What I found in this class was a more realistic view on how useful perovskites are for widespread use. Professor Sellers was able to look past the hype, and was not easily convinced of perovskite panel feasibility like I was in years prior.
-                    
-                    Beyond perovskites, this course also provided valuable insight into the engineering and design principles behind PV systems. One particularly interesting topic was the role of boost converters in photovoltaic applications. As I am simultaneously studying power electronics in another course, I found it fascinating to see the direct application of DC-DC converters in maximizing the efficiency of solar energy conversion. Boost converters are commonly used in PV systems to step up the voltage from solar panels while maintaining maximum power transfer through MPPT algorithms. This connection between power electronics and photovoltaics reinforced how interdisciplinary renewable energy systems truly are.
-                    
-                    Another key takeaway was the complexity of integrating solar power into the electrical grid. Many people assume that the main challenge with solar power is simply storing excess energy to compensate for intermittency. While energy storage is important, EE 550 introduced me to the numerous technical and economic challenges beyond just storage. These include grid stability, voltage regulation, power electronics for grid interconnection, and the impact of variable solar generation on traditional power infrastructure.
-                    
-                    Overall, EE 550 has significantly refined my critical thinking when evaluating solar technologies. It has taught me to question the sustainability and practicality of emerging PV solutions rather than accepting optimistic projections at face value. While I still believe that perovskites and other next-generation materials may play a role in the future of solar energy, I now understand the importance of long-term reliability, economic feasibility, and scalable manufacturing as key factors in determining whether a new technology will succeed beyond the laboratory.
-                    
-                    This course has not only strengthened my technical understanding of photovoltaics but also provided me with a more grounded perspective—one that will be invaluable in my career as an engineer working in renewable energy. Moving forward, I will continue to approach emerging technologies with a balance of curiosity and skepticism, ensuring that my assessments are based on both scientific rigor and real-world viability.
-                    
+                    I enrolled in EE 550 expecting to deepen my understanding of photovoltaic (PV) technology beyond the
+                    surface-level knowledge I had gained from prior coursework and projects. I had previously worked
+                    with solar panels in my senior design project, where I became familiar with key characteristics such
+                    as open-circuit voltage, short-circuit current, maximum power point tracking (MPPT), and the
+                    equivalent circuit representation of solar cells as a current source with diode behavior. However,
+                    this class introduced me to a far more nuanced perspective—one that made me re-think how I
+                    critically assess emerging technologies and the claims made in research and the industry.
+
+                    One of the most significant takeaways from this course was learning to approach new photovoltaic
+                    technologies with a more critical mindset. In 2021, I wrote a paper on perovskite solar cells, a
+                    technology widely hailed for its potential to revolutionize the solar industry due to its high
+                    efficiency, tunable bandgap, and low-cost fabrication. At the time, my research was based on recent
+                    publications that portrayed perovskites as the next major leap in solar power. While I acknowledged
+                    concerns regarding their stability and service life, I largely focused on their advantages and
+                    future prospects. However, in EE 550, I gained a more balanced and skeptical perspective on the
+                    practical feasibility of perovskite-based photovoltaics.
+
+                    Through discussions with Professor Sellers during class, I learned that much of the excitement
+                    surrounding perovskites is fueled by highly selective data, with many research papers presenting
+                    only the most optimistic results while glossing over fundamental reliability issues. For example,
+                    while perovskite solar cells can demonstrate efficiencies exceeding 25\% in controlled lab
+                    environments, their long-term stability is a major concern. Many perovskite cells degrade within
+                    weeks, far from the decades-long service life expected from commercial solar panels. Additionally,
+                    yield reporting in perovskite manufacturing is often absent, meaning that while individual cells may
+                    be inexpensive to produce, the true cost skyrockets if hundreds must be fabricated to obtain a
+                    single functional unit.
+
+                    This realization reshaped my view of technological hype in renewable energy. While innovations are
+                    necessary to advance solar power, the premature excitement surrounding some emerging technologies
+                    can lead to unrealistic expectations and, ultimately, public distrust when those technologies fail
+                    to deliver on exaggerated promises. It is crucial to distinguish between lab-scale success and
+                    real-world viability, considering not only efficiency but also manufacturing scalability, stability,
+                    and deployment challenges.
+
+                    I wrote a paper on Perovskite usage in solar panels in 2021. My report adresses some of the issues
+                    mentioned here, but it glances over the more concerning fact that perovskites are not proven to have
+                    a suitable service life for Photovoltaic panels. My report written on perovskites can be accessed
+                    via this link:
+                    <a href="https://marcaura.github.io/MarcusFrancisco/pdfs/perovskites.pdf" target="_blank">Perovskite
+                        Solar Cells Report</a>
+
+                    What I found in this class was a more realistic view on how useful perovskites are for widespread
+                    use. Professor Sellers was able to look past the hype, and was not easily convinced of perovskite
+                    panel feasibility like I was in years prior.
+
+                    Beyond perovskites, this course also provided valuable insight into the engineering and design
+                    principles behind PV systems. One particularly interesting topic was the role of boost converters in
+                    photovoltaic applications. As I am simultaneously studying power electronics in another course, I
+                    found it fascinating to see the direct application of DC-DC converters in maximizing the efficiency
+                    of solar energy conversion. Boost converters are commonly used in PV systems to step up the voltage
+                    from solar panels while maintaining maximum power transfer through MPPT algorithms. This connection
+                    between power electronics and photovoltaics reinforced how interdisciplinary renewable energy
+                    systems truly are.
+
+                    Another key takeaway was the complexity of integrating solar power into the electrical grid. Many
+                    people assume that the main challenge with solar power is simply storing excess energy to compensate
+                    for intermittency. While energy storage is important, EE 550 introduced me to the numerous technical
+                    and economic challenges beyond just storage. These include grid stability, voltage regulation, power
+                    electronics for grid interconnection, and the impact of variable solar generation on traditional
+                    power infrastructure.
+
+                    Overall, EE 550 has significantly refined my critical thinking when evaluating solar technologies.
+                    It has taught me to question the sustainability and practicality of emerging PV solutions rather
+                    than accepting optimistic projections at face value. While I still believe that perovskites and
+                    other next-generation materials may play a role in the future of solar energy, I now understand the
+                    importance of long-term reliability, economic feasibility, and scalable manufacturing as key factors
+                    in determining whether a new technology will succeed beyond the laboratory.
+
+                    This course has not only strengthened my technical understanding of photovoltaics but also provided
+                    me with a more grounded perspective—one that will be invaluable in my career as an engineer working
+                    in renewable energy. Moving forward, I will continue to approach emerging technologies with a
+                    balance of curiosity and skepticism, ensuring that my assessments are based on both scientific rigor
+                    and real-world viability.
+
                 </p>
             </section>
             <section id="reflection5">

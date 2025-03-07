@@ -10,6 +10,59 @@
     <script defer src="script.js"></script>
     <link rel="stylesheet" href="assets/css/projects.css">
     <link rel="stylesheet" href="assets/css/aboutme.css">
+    <style>
+        /* Base project item */
+        .project-item {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            max-width: 900px;
+            margin: 20px auto;
+            border-left: 5px solid #003c7d;
+            border-right: 5px solid #003c7d;
+            border-radius: 15px;
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-in-out;
+            cursor: pointer;
+            position: relative;
+        }
+
+        /* Hover effect to indicate it's clickable */
+        .project-item:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* The collapsible content (hidden by default) */
+        .project-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
+            opacity: 0;
+            padding: 0 20px;
+        }
+
+        /* When active, expand the dropdown */
+        .project-item.active .project-content {
+            max-height: 300px;
+            /* Adjust based on content */
+            opacity: 1;
+            padding-top: 10px;
+        }
+
+        /* Plus/Minus icon for toggling */
+        .toggle-icon {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Rotate icon when expanded */
+        .project-item.active .toggle-icon {
+            transform: rotate(180deg);
+        }
+    </style>
 </head>
 
 <body>
@@ -41,25 +94,46 @@
                 <li><a href="#section9">Modular Security System</a></li>
             </ul>
         </div>
-    
+
         <!-- Main Content -->
         <div class="content">
-    
+
             <section id="section1" class="text-and-image">
-                <div class="project-item">
+                <div class="project-item" onclick="toggleDropdown(this)">
                     <h1>5G Network KPI Analysis</h1>
                     <p>
-                        Conducted an experimental study on the impact of <strong>weather conditions</strong> on <strong>5G Key Performance Indicators (KPIs)</strong> such as 
-                        latency, signal strength, and throughput. Developed a real-time <strong>data collection system</strong> using a <strong>Raspberry Pi with a 5G hat</strong>, 
-                        integrating environmental data from WeatherAPI. Processed data using <strong>Python, Plotly, and Matplotlib</strong>, visualizing KPIs with interactive 
-                        heatmaps to correlate <strong>temperature, humidity, and precipitation</strong> with network performance.
+                        Conducted an experimental study on the impact of <strong>weather conditions</strong> on
+                        <strong>5G Key Performance Indicators (KPIs)</strong> such as
+                        latency, signal strength, and throughput. Developed a real-time <strong>data collection
+                            system</strong> using a <strong>Raspberry Pi with a 5G hat</strong>,
+                        integrating environmental data from WeatherAPI. Processed data using <strong>Python, Plotly, and
+                            Matplotlib</strong>, visualizing KPIs with interactive
+                        heatmaps to correlate <strong>temperature, humidity, and precipitation</strong> with network
+                        performance.
                     </p>
+                    <span class="toggle-icon">+</span>
+                    <div class="project-content">
+                        <p>
+                            This project used Python, MatLab, and PlotLy to visualize <strong>Key Performance
+                                Indicator</strong> values.
+                            The project spanned the entire Fall 2024 semester, and imvolved taking over <strong>50
+                                thousand</strong> data points.
+                            An example of what perfect (simulated) data would look like in this interface can be seen
+                            to the right:
+                        </p>
+
+                        <!-- <div class="image-content">
+                            <img src="assets/images/KPI-dataVisual.PNG" alt="5G KPI Analysis" class="zoomable">
+                        </div> -->
+                        <a href="https://example.com/5G-project" target="_blank">Read More</a>
+                    </div>
                 </div>
                 <div class="image-content">
-                    <img src="assets/images/5G_KPI_Analysis.PNG" alt="5G KPI Analysis" class="zoomable">
+                    <img src="assets/images/KPI-dataVisual.PNG" alt="5G KPI Analysis" class="zoomable">
                 </div>
             </section>
-    
+
+
             <section id="section2" class="text-and-image reverse">
                 <div class="image-content">
                     <img src="assets/images/bluelinkIoT.PNG" alt="BlueLink IoT Network" class="zoomable">
@@ -67,26 +141,30 @@
                 <div class="project-item">
                     <h1>BlueLink Bluetooth & WiFi IoT Network</h1>
                     <p>
-                        Designed and implemented a <strong>distributed IoT network</strong> using <strong>ESP32 microcontrollers</strong> connected via <strong>Bluetooth and WiFi</strong>. 
+                        Designed and implemented a <strong>distributed IoT network</strong> using <strong>ESP32
+                            microcontrollers</strong> connected via <strong>Bluetooth and WiFi</strong>.
                         The system enables real-time control and automation of:
-                        <ul>
-                            <li><strong>Smart lights with RGB control</strong></li>
-                            <li><strong>Smart fans and thermostats</strong></li>
-                            <li><strong>Air quality monitoring</strong></li>
-                            <li><strong>Flood water detection</strong></li>
-                        </ul>
-                        Integrated with a user-friendly <strong>Android app</strong> for seamless smart home automation.
-                        <br><a href="https://youtu.be/8Onl30TVQCg?si=hDx17WmNNWcEFkoD" target="_blank">Watch project overview video</a>.
+                    <ul>
+                        <li><strong>Smart lights with RGB control</strong></li>
+                        <li><strong>Smart fans and thermostats</strong></li>
+                        <li><strong>Air quality monitoring</strong></li>
+                        <li><strong>Flood water detection</strong></li>
+                    </ul>
+                    Integrated with a user-friendly <strong>Android app</strong> for seamless smart home automation.
+                    <br><a href="https://youtu.be/8Onl30TVQCg?si=hDx17WmNNWcEFkoD" target="_blank">Watch project
+                        overview video</a>.
                     </p>
                 </div>
             </section>
-    
+
             <section id="section3" class="text-and-image">
                 <div class="project-item">
                     <h1>Extended Capacity Uninterrupted Power Supply</h1>
                     <p>
-                        Developed a <strong>Deep Cycle Battery UPS system</strong> as a <strong>senior design project</strong> under the guidance of <strong>Dr. Jennifer L. Zirnheld</strong>. 
-                        The project involved designing a cost-effective and efficient UPS solution, supporting a <strong>600W load using a 100Ah battery</strong>. 
+                        Developed a <strong>Deep Cycle Battery UPS system</strong> as a <strong>senior design
+                            project</strong> under the guidance of <strong>Dr. Jennifer L. Zirnheld</strong>.
+                        The project involved designing a cost-effective and efficient UPS solution, supporting a
+                        <strong>600W load using a 100Ah battery</strong>.
                         One model incorporated <strong>solar charging capabilities</strong> for extended operation.
                     </p>
                 </div>
@@ -94,7 +172,7 @@
                     <img src="assets/images/UPS_Project.PNG" alt="Extended UPS System" class="zoomable">
                 </div>
             </section>
-    
+
             <section id="section4" class="text-and-image reverse">
                 <div class="image-content">
                     <img src="assets/images/pongInVHDL.PNG" alt="Pong in VHDL" class="zoomable">
@@ -102,25 +180,29 @@
                 <div class="project-item">
                     <h1>Pong in VHDL (EE478)</h1>
                     <p>
-                        Designed and implemented a hardware-accelerated version of <strong>Pong</strong> using <strong>VHDL</strong> on an <strong>FPGA board</strong>. 
-                        This project showcases digital logic, <strong>finite state machines (FSMs)</strong>, and <strong>VGA signal generation</strong>.
+                        Designed and implemented a hardware-accelerated version of <strong>Pong</strong> using
+                        <strong>VHDL</strong> on an <strong>FPGA board</strong>.
+                        This project showcases digital logic, <strong>finite state machines (FSMs)</strong>, and
+                        <strong>VGA signal generation</strong>.
                     </p>
                 </div>
             </section>
-    
+
             <section id="section5" class="text-and-image">
                 <div class="project-item">
                     <h1>Tetris in C++ (EE379)</h1>
                     <p>
-                        Developed a fully functional <strong>Tetris game</strong> in <strong>C++</strong>, featuring real-time game logic, collision detection, 
-                        and smooth rendering. The project demonstrates efficient <strong>graphics programming and structured software design</strong>.
+                        Developed a fully functional <strong>Tetris game</strong> in <strong>C++</strong>, featuring
+                        real-time game logic, collision detection,
+                        and smooth rendering. The project demonstrates efficient <strong>graphics programming and
+                            structured software design</strong>.
                     </p>
                 </div>
                 <div class="image-content">
                     <img src="assets/images/tetrisInCPP.PNG" alt="Tetris in C++" class="zoomable">
                 </div>
             </section>
-    
+
             <section id="section6" class="text-and-image reverse">
                 <div class="image-content">
                     <img src="assets/images/pinnacleHackathon.PNG" alt="Pinnacle Hackathon" class="zoomable">
@@ -128,25 +210,29 @@
                 <div class="project-item">
                     <h1>Pinnacle Hackathon 2021</h1>
                     <p>
-                        Created <strong>Prism</strong>, an augmented reality project using <strong>Magic Leap</strong> for holographic manufacturing assistance. 
-                        This project combined <strong>3D printing, CAD design, and AR visualization</strong>, earning an exclusive invite to Pinnacle Hackathon.
+                        Created <strong>Prism</strong>, an augmented reality project using <strong>Magic Leap</strong>
+                        for holographic manufacturing assistance.
+                        This project combined <strong>3D printing, CAD design, and AR visualization</strong>, earning an
+                        exclusive invite to Pinnacle Hackathon.
                     </p>
                 </div>
             </section>
-    
+
             <section id="section7" class="text-and-image">
                 <div class="project-item">
                     <h1>UB Hackathon 2020 - 2022</h1>
                     <p>
-                        Co-developed <strong>Red Alert</strong>, a fire prevention system using <strong>servos, circuits, and a backend server</strong>. 
-                        The project won the <strong>$2,000 Grand Prize</strong> and the <strong>Best Hardware award</strong> at UB Hackathon 2020.
+                        Co-developed <strong>Red Alert</strong>, a fire prevention system using <strong>servos,
+                            circuits, and a backend server</strong>.
+                        The project won the <strong>$2,000 Grand Prize</strong> and the <strong>Best Hardware
+                            award</strong> at UB Hackathon 2020.
                     </p>
                 </div>
                 <div class="image-content">
                     <img src="assets/images/ubHackathon.PNG" alt="UB Hackathon" class="zoomable">
                 </div>
             </section>
-    
+
             <section id="section8" class="text-and-image reverse">
                 <div class="image-content">
                     <img src="assets/images/filamentRecycling.PNG" alt="Filament Recycling" class="zoomable">
@@ -154,22 +240,24 @@
                 <div class="project-item">
                     <h1>Printer Filament Recycling (Code Green)</h1>
                     <p>
-                        Developed a <strong>plastic recycling system</strong> to convert waste bottles into 3D printer filament, winning 
+                        Developed a <strong>plastic recycling system</strong> to convert waste bottles into 3D printer
+                        filament, winning
                         the <strong>Best Hardware Hack</strong> and <strong>Hack with a Purpose</strong> awards.
                     </p>
                 </div>
             </section>
-    
+
         </div>
     </div>
-    
-    
+
+
 
     <footer>
         <p>Connect with me on <a href="https://www.linkedin.com/in/marcus-francisco">LinkedIn</a> and <a
                 href="https://github.com/yourgithub">GitHub</a>.</p>
         <p>&copy; 2025 Marcus Francisco. All rights reserved.</p>
-        <p>Website content, themes, animations, templates, images, and icons are all original work created by Marcus Francisco</p>
+        <p>Website content, themes, animations, templates, images, and icons are all original work created by Marcus
+            Francisco</p>
     </footer>
 
     <!-- Modal Structure for Images -->

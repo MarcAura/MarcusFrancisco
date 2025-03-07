@@ -342,3 +342,8 @@ document.addEventListener("DOMContentLoaded", function () {
 document.getElementById("contact-form").addEventListener("submit", function(event) {
     document.getElementById("form-message").style.display = "block";
 });
+
+// Dropdown Script
+function toggleDropdown(element) {
+    element.classList.toggle("active");
+}
