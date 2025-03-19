@@ -10,59 +10,6 @@
     <script defer src="script.js"></script>
     <link rel="stylesheet" href="assets/css/projects.css">
     <link rel="stylesheet" href="assets/css/aboutme.css">
-    <style>
-        /* Base project item */
-        .project-item {
-            background: white;
-            padding: 20px;
-            text-align: center;
-            max-width: 900px;
-            margin: 20px auto;
-            border-left: 5px solid #003c7d;
-            border-right: 5px solid #003c7d;
-            border-radius: 15px;
-            transition: transform 0.3s ease-out, box-shadow 0.3s ease-in-out;
-            cursor: pointer;
-            position: relative;
-        }
-
-        /* Hover effect to indicate it's clickable */
-        .project-item:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        /* The collapsible content (hidden by default) */
-        .project-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
-            opacity: 0;
-            padding: 0 20px;
-        }
-
-        /* When active, expand the dropdown */
-        .project-item.active .project-content {
-            max-height: 300px;
-            /* Adjust based on content */
-            opacity: 1;
-            padding-top: 10px;
-        }
-
-        /* Plus/Minus icon for toggling */
-        .toggle-icon {
-            position: absolute;
-            right: 20px;
-            top: 20px;
-            font-size: 1.5rem;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        /* Rotate icon when expanded */
-        .project-item.active .toggle-icon {
-            transform: rotate(180deg);
-        }
-    </style>
 </head>
 
 <body>
@@ -97,6 +44,40 @@
 
         <!-- Main Content -->
         <div class="content">
+
+
+            <div class="project-item" onclick="toggleDropdown(this)">
+                <h1>5G Network KPI Analysis</h1>
+                <p>
+                    Conducted an experimental study on the impact of <strong>weather conditions</strong> on
+                    <strong>5G Key Performance Indicators (KPIs)</strong> such as
+                    latency, signal strength, and throughput. Developed a real-time <strong>data collection
+                        system</strong> using a <strong>Raspberry Pi with a 5G hat</strong>,
+                    integrating environmental data from WeatherAPI. Processed data using <strong>Python, Plotly, and
+                        Matplotlib</strong>, visualizing KPIs with interactive
+                    heatmaps to correlate <strong>temperature, humidity, and precipitation</strong> with network
+                    performance.
+                </p>
+                <span class="toggle-icon">+</span>
+                <div class="project-content">
+                    <p>
+                        This project used Python, MatLab, and PlotLy to visualize <strong>Key Performance
+                            Indicator</strong> values.
+                        The project spanned the entire Fall 2024 semester, and imvolved taking over <strong>50
+                            thousand</strong> data points.
+                        An example of what perfect (simulated) data would look like in this interface can be seen
+                        to the right:
+                    </p>
+
+                    <!-- <div class="image-content">
+                        <img src="assets/images/KPI-dataVisual.PNG" alt="5G KPI Analysis" class="zoomable">
+                    </div> -->
+                    <a href="https://example.com/5G-project" target="_blank">Read More</a>
+                </div>
+            </div>
+
+
+
 
             <section id="section1" class="text-and-image">
                 <div class="project-item" onclick="toggleDropdown(this)">

@@ -347,3 +347,45 @@ document.getElementById("contact-form").addEventListener("submit", function(even
 function toggleDropdown(element) {
     element.classList.toggle("active");
 }
+
+
+// Reflection Expanding
+
+document.addEventListener("DOMContentLoaded", function () {
+    function toggleReflection(reflection) {
+        document.querySelectorAll(".reflection-item").forEach(item => {
+            if (item !== reflection) {
+                item.classList.remove("active");
+                let content = item.querySelector(".reflection-full");
+                content.style.maxHeight = "0px";
+                content.style.opacity = "0";
+                item.querySelector(".toggle-icon").textContent = "+";
+            }
+        });
+
+        reflection.classList.toggle("active");
+        let content = reflection.querySelector(".reflection-full");
+        let icon = reflection.querySelector(".toggle-icon");
+
+        if (reflection.classList.contains("active")) {
+            content.style.maxHeight = content.scrollHeight + "px";
+            content.style.opacity = "1";
+            icon.textContent = "−";
+        } else {
+            content.style.maxHeight = "0px";
+            content.style.opacity = "0";
+            icon.textContent = "+";
+        }
+    }
+
+    document.querySelectorAll(".reflection-item").forEach(item => {
+        item.addEventListener("click", function (event) {
+            // Prevent reflection from closing when clicking a zoomable image
+            if (!event.target.classList.contains("zoomable")) {
+                toggleReflection(this);
+            }
+            
+        });
+    });
+});
+

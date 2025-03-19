@@ -1,139 +1,197 @@
-/* Fixes for Portfolio Introduction */
-.project-item {
+/* 🔹 Base Reflection Item */
+.reflection-item {
     background: white;
-    padding: 40px;
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    width: 50%;
+    max-width: 900px;
+    /* max-width: 2200px; Ensures it doesn't get too wide */
     text-align: center;
-    max-width: 900px; /* Limits the width for better readability */
-    margin: 50px auto; /* Centers the section */
-    margin-top: 20px;
-    animation: fadeIn 0.8s ease-out forwards;
+    margin: 20px auto;
+    /* Centers it */
     border-left: 5px solid #003c7d;
     border-right: 5px solid #003c7d;
     border-radius: 15px;
-    transform: translateY(0px) scale(1);
-    transition: transform 0.3s ease-out, box-shadow 0.3s ease-in-out;
-}
-
-/* Adjust heading */
-.project-item h2 {
-    color: #003c7d;
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-
-/* Adjust heading */
-.project-item h3 {
-    color: #003c7d;
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-
-/* Align paragraph properly */
-.project-item p {
-    font-size: 1.2rem;
-    line-height: 1.5;
-    text-align: justify; /* Centers text */
-    max-width: 80%;
-    margin: 0 auto;
-}
-
-/* Organize the content into two justified columns */
-.project-item .content-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Two equal columns */
-    gap: 30px; /* Adds space between columns */
-    align-items: start;
-    text-align: left;
-    max-width: 90%;
-    margin: 0 auto;
-}
-
-/* Fix unordered list alignment */
-.project-item ul {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    max-width: 600px;
+    cursor: pointer;
+    /* position: relative; */
+    position: relative;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
     margin: 20px auto;
-    list-style: none;
-    padding-left: 0;
+    /* transform: translateY(0px) scale(1.0);  */
+    transition: width 0.3s ease-out, width 0.3s ease-in-out, transform 0.3s ease-out, box-shadow 0.3s ease-in-out,
+        background 0.3s ease-in-out, margin-bottom 0.3s ease-in-out;
 }
 
 
+.reflection-item.active {
+    background-image: none;
+    /* Removes image when expanded */
+    background-color: white;
+    /* Ensures a clean white background */
+    width: 100%;
+    /* Expands to full container width */
+    transform: translateY(30px);
+    /* scale(1.05); */
+    margin-bottom: 60px;
+    transition: width 0.3s ease-out, width 0.3s ease-in-out, transform 0.3s ease-out, box-shadow 0.3s ease-in-out,
+        background 0.3s ease-in-out, margin-bottom 0.3s ease-in-out;
+    ;
+}
 
+/* 🔹 Initially Visible Colored Text */
+.initial-text {
+    display: block;
+    /* color: #220ed7; */
+    color: #0066ff;
+    /* Example: Bootstrap's red */
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 0px;
+    transition: opacity 0.3s ease-in-out, margin-bottom 0.3s ease-in-out;
+}
 
-/* Style list items properly */
-.project-item ul li {
-    display: grid;
-    grid-template-columns: 220px auto;
-    align-items: center;
-    column-gap: 15px;
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-    text-align: left;
-    line-height: 1.5;
-    background: #f9f9f9;
-    padding: 12px 15px;
-    border-radius: 8px;
-    border-left: 4px solid #003c7d;
-
-    /* 🔹 Enable both fade-in and hover effect */
+/* 🔹 Hide Text When Item is Clicked (Active) */
+.reflection-item.active .initial-text {
     opacity: 0;
-    transform: translateY(20px) scale(1);
-    transition: opacity 0.8s ease-out, transform 0.3s ease-out, box-shadow 0.3s ease-in-out;
+    visibility: hidden;
+    margin-bottom: -40px;
+    transition: opacity 0.3s ease-in-out, visibility 0.1s ease-in-out, margin-bottom 0.3s ease-in-out;
 }
 
-
-/* Add a shadow effect on hover */
-.project-item ul li:hover {
-    transform: translateY(17px) scale(1.01); /* Slight lift + Zoom */
+/* 🔹 Hover effect for better UX */
+.reflection-item:hover {
+    transform: translateY(-3px) scale(1.02);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Make it look like a button/link but as a full container */
-.project-item a {
+/* 🔹 Hover effect for better UX */
+.reflection-item.active:hover {
+    transform: translateY(27px) scale(1.01);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 🔹 Full Reflection Content (Hidden by Default) */
+.reflection-full,
+.project-content {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    padding: 0 20px;
+}
+
+/* 🔹 When Active, Expand the Reflection */
+.reflection-item.active .reflection-full,
+.reflection-item.active .project-content {
+    /* max-height: 1000px; */
+    max-height: fit-content;
+    /* Expand based on content */
+    opacity: 1;
+    padding-top: 10px;
+}
+
+/* 🔹 Plus/Minus Toggle Icon */
+.toggle-icon {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* 🔹 Rotate icon when expanded */
+.reflection-item.active .toggle-icon {
+    transform: rotate(180deg);
+}
+
+/* 🔹 Plus/Minus Toggle Icon */
+.course-desc-icon {
     display: block;
-    text-decoration: none;
-    color: inherit; /* Keeps text color unchanged */
+    /* color: #220ed7; */
+    color: #003077;
+    /* Example: Bootstrap's red */
+    font-weight: bold;
+    background: rgb(238, 248, 255);
+    border-bottom: 2px solid #0078f8c6;
+    border-top: 2px solid #0078f8c6;
+    border-left: 2px solid #0078f800;
+    border-right: 2px solid #0078f800;
+    border-radius: 5px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 5px;
+    padding-left: 5px;
+    width: 20%;
+    opacity: 0;
+    transform: rotate(180deg);
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    font-size: 1.0rem;
+    transition: border-color 0.3s ease-in-out 0.5s,  transform 0.3s ease-in-out, max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, width 0.3s ease-in-out;
 }
 
-/* Hover effect for lifting and slight scaling */
-.project-item:hover {
-    transform: translateY(-5px) scale(1.03); /* Slight lift and zoom */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
+/* 🔹 Rotate icon when expanded */
+.reflection-item.active .course-desc-icon {
+    opacity: 100;
+    transform: rotate(0deg); 
+    transition: border-color 0.3s ease-in-out 0.5s, transform 0.3s ease-in-out, max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, width 0.3s ease-in-out;
+    /* Implement hover function */
 }
 
-/* 🔹 Apply Fade-In Animation */
-.project-item.visible {
+.reflection-item.active .course-desc-icon:hover {
+    font-size: medium;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out, max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, width 0.3s ease-in-out;
+}
+
+.reflection-item.active .course-desc-icon.active {
+    left: 20px;
+    /* right: 20px; */
+    padding-bottom: 0px;
+    width: 95%;
+    border-left: 2px solid #0078f8c6;
+    border-right: 2px solid #0078f8c6;
+    transition: border-color 0.3s ease-in-out 0.5s, transform 0.3s ease-in-out, max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, width 0.3s ease-in-out;
+}
+
+/* 🔹 Full Reflection Content (Hidden by Default) */
+.course-desc-content {
+    max-height: 0;
+    font-weight: normal;
+    overflow: hidden;
+    opacity: 0;
+    transition: transform 0.3s ease-in-out, max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, width 0.3s ease-in-out;
+    padding: 0 20px;
+}
+
+.course-desc-icon.active .course-desc-content {
+    /* max-height: 1000px; */
+    max-height: fit-content;
+    /* Expand based on content */
     opacity: 1;
-    /* transform: none; */
+    padding-top: 0px;
 }
 
-/* 🔹 Apply Fade-In Animation */
-.project-item.visible ul li {
-    opacity: 1;
-    /* transform: none; */
+
+/* Target h2 and h3 inside .reflection-item */
+.reflection-item h1 {
+    margin-bottom: 5px;
 }
 
-/* Apply delay to each list item */
-.project-item.visible ul li:nth-child(1) { opacity: 1; }
-.project-item.visible ul li:nth-child(2) { opacity: 1; }
-.project-item.visible ul li:nth-child(3) { opacity: 1; }
-.project-item.visible ul li:nth-child(4) { opacity: 1; }
-
-
-/* Make icons slightly larger on hover */
-.project-item .icon:hover {
-    transform: scale(1.14);
-    transition: 0.2s ease-in-out;
+/* Target h2 and h3 inside .reflection-item */
+.reflection-item h2 {
+    margin-top: 0px;
+    font-size: 0.9rem; /* Adjust size as needed */
+    font-weight: normal; /* Removes bold effect */
 }
 
-/* Ensure emoji or icons align properly */
-.project-item ul li::before {
-    /* content: "✅"; Replace with an appropriate icon */
-    margin-right: 10px;
+/* Target h2 and h3 inside .reflection-item */
+.reflection-item h3 {
+    font-size: 1.0rem; /* Adjust size as needed */
+    font-weight: normal; /* Removes bold effect */
 }

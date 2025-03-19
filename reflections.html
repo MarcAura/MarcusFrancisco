@@ -27,15 +27,58 @@
             height: auto;
             aspect-ratio: 16 / 9;
             /* ✅ Maintains correct aspect ratio */
-
-
         }
 
-        .content {
-            max-width: 800px;
-            /* Limits width of the content for readability */
-            margin-left: 0 auto;
-            margin-right: 0 auto;
+        body {
+            background-color: #f4f4f4;
+            position: relative;
+            /* Ensures proper layering */
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: scroll;
+            transition: background 0.5s ease-in-out, opacity 0.3s ease-in-out;
+            /* Allows background to scroll with the page */
+            transition: background 0.8s ease-in-out, opacity 0.5s ease-in-out;
+            opacity: 1;
+        }
+
+        body::after {
+            content: "";
+            position: absolute;
+            /* Changes from fixed to absolute to allow scrolling */
+            /* Keeps the background fixed while scrolling */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #f4f4f426;
+            /* Black overlay with 50% transparency */
+            z-index: -1;
+            /* Places it behind all content */
+            transition: background 0.5s ease-in-out, opacity 0.3s ease-in-out;
+        }
+
+
+        /* When a reflection item is active, apply the background */
+        body.active-bg {
+            background-size: cover;
+            background-position: center;
+            background-attachment: scroll;
+            /* Ensures background scrolls with content */
+            opacity: 1;
+            transition: background 0.5s ease-in-out, opacity 0.3s ease-in-out;
+        }
+
+        /* 🔹 Fade-out effect when no reflection item is active */
+        body.bg-fade-out {
+            opacity: 0;
+        }
+
+        /* 🔹 Temporary transparent effect before switching background */
+        body.fade-effect {
+            opacity: 0;
+            /* Fades out before switching the background */
         }
     </style>
 </head>
@@ -58,386 +101,796 @@
         <!-- Sidebar -->
         <div class="sidebar">
             <ul>
-                <li><a href="#reflection1">Reflection 1: EE541</a></li>
-                <li><a href="#reflection2">Reflection 2: EE553</a></li>
-                <li><a href="#reflection3">Reflection 3: EE526</a></li>
-                <li><a href="#reflection4">Reflection 4: EE550</a></li>
+                <li><a href="#reflection1">Machine Learning</a></li>
+                <li><a href="#reflection2">EE 553 - Microfabrication</a></li>
+                <li><a href="#reflection3">EE 526 - IoT Networks</a></li>
+                <li><a href="#reflection4">EE 550 - Photovoltaics</a></li>
+                <li><a href="#reflection5">Tapecon Internship</a></li>
             </ul>
         </div>
         <button id="sidebar-toggle">«</button> <!-- Side Bar Toggle -->
 
         <!-- Main Content -->
         <div class="content">
-            <section id="reflection1" class = "reflection-item">
-                <h1>EE 541 Reflection: Exploring Deep Learning</h1>
 
-                <p class="justified-text">
-                    I took EE 541 to dive into a completely new field within Electrical Engineering that piqued my
-                    interest. I excel in mathematics and physics and have always been fascinated by the "black-box
-                    magic" of deep learning. To me, calculus is clear-cut, motivated by the pursuit of truth through
-                    numbers, while physics employs theoretical principles and laws to bring order to an otherwise
-                    unpredictable world. However, at the time of taking this class, deep learning seemed entirely
-                    different. Electrical Engineering is rooted in mathematics, differential equations, and physics, all
-                    governed by well-defined laws. At first glance, artificial intelligence and machine learning
-                    appeared far less structured, relying on unknown weights in a neural network.
+            <section id="reflection1" class="reflection-item" onclick="toggleDropdown(this)"
+                data-bg="assets/images/DeepLearningBackground.PNG">
+                <div class="text-and-image">
+                    <span class="course-desc-icon" onclick="toggleDropdown(this); event.stopPropagation();">
+                        Course Description
+                        <div class="course-desc-content">
+                            <p class="justified-text">
+                                In this course, the students will learn advanced network design concepts through hands-on experimentation with real-world implementations. The course is divided in two parts. In the first part, the students will follow a guided set of assignments to consolidate the concepts learnt in the related networking courses. The instructor in class will review these concepts and the students will learn how to apply them in a practical environment. Then, a novel embedded system board will be utilized to implement well-known protocols for both wired and wireless networks. In the second part, the students will design, implement and evaluate state-of-the-art and novel networking protocols for real-world application scenarios that each group will come up with. This course will provide the students with the necessary skills to not only theoretically understand but also practically contribute to the development of our internetworked society.
+                            </p>
+                        </div>
+                    </span>
 
-                    Neural networks operate in a way that more closely resembles the human brain than traditional
-                    circuits. One of the most common applications of neural networks is handwriting recognition. Below
-                    is an example from my EE 541 project, where I trained a neural network using a dataset of
-                    handwritten numbers.
+                    <h1>EE 541 - Machine Learning</h1>
+                    <h2>Professor Seyyedali Hosseinalipour</h2>
 
-                    I took signal analysis with Professor Ali in the prior semester. After this class, I knew I wanted
-                    to take another course with him. I thoroughly enjoyed his teaching style, from his in-depth
-                    explanations to his ability to keep students engaged—even offering protein shakes as incentives. He
-                    prefers using chalk, which gives him an old-school approach that I appreciate, particularly since
-                    the content of this course was anything but old-school. This course was based on recent engineering
-                    research, with some journal articles published the same year we studied them. This made me excited
-                    to learn about an unfamiliar yet relevant topic from a professor whose teaching style resonated with
-                    me.
+                    <p class="justified-text">
+                        Explored the theoretical foundations of <strong>neural networks</strong>, <strong>reinforcement
+                            learning</strong>, and <strong>AI applications</strong>.
+                        Developed a deep learning model for <strong>handwriting recognition</strong> using the
+                        <strong>MNIST dataset</strong>, optimizing accuracy through
+                        <strong>hyperparameter tuning and backpropagation</strong>. This course deepened my
+                        understanding of AI-driven engineering solutions and
+                        their mathematical underpinnings.
+                    </p>
 
-                </p>
-
-                <figure class="image-container">
-                    <img src="assets/images/NeuralNetworkGrey.PNG" alt="Neural Network Visualization"
-                        class="zoomable-responsive" onclick="openModal(this)">
-                    <figcaption>Neural Network Visualization</figcaption>
-                </figure>
+                    <span class="initial-text">Click to Learn More</span> <!-- This text disappears on click -->
+                    <span class="toggle-icon">+</span>
+                    <div class="project-content">
 
 
-                <p class="justified-text">
-                    Deep learning can seem abstract, and understanding every facet of a neural network may not be
-                    feasible. However, one can form an understanding of the principles and methods used to achieve its
-                    design. Neural networks have hundreds or even thousands of nodes and weights, adjusted through
-                    learning algorithms that we can build and understand. However, determining why each weight changes
-                    and its precise effect on the output is complex. A mathematician [Author Name of 3B1B] explains this
-                    well in his breakdown of neural network behavior over successive training cycles.
+                        <h1>EE 541 Reflection: Exploring Deep Learning</h1>
 
-                    For an excellent visualization of neural networks and their growth through training, I highly
-                    recommend this video: [LINK TO 3B1B]. 3B1B is an incredible YouTube channel that has inspired me to
-                    explore more advanced areas of mathematics and challenge myself in fields such as deep learning.
+                        <p class="justified-text">
+                            I took EE 541 to dive into a completely new field within Electrical Engineering that piqued
+                            my
+                            interest. I excel in mathematics and physics and have always been fascinated by the
+                            "black-box
+                            magic" of deep learning. To me, calculus is clear-cut, motivated by the pursuit of truth
+                            through
+                            numbers, while physics employs theoretical principles and laws to bring order to an
+                            otherwise
+                            unpredictable world. However, at the time of taking this class, deep learning seemed
+                            entirely
+                            different. Electrical Engineering is rooted in mathematics, differential equations, and
+                            physics, all
+                            governed by well-defined laws. At first glance, artificial intelligence and machine learning
+                            appeared far less structured, relying on unknown weights in a neural network.
 
-                    Throughout the course, I struggled with the abstract nature of this field. To tackle this, I had to
-                    accept that fully comprehending every aspect of a deep learning module may not be realistic. Despite
-                    this, I was able to learn and design effective models. Over time, I gained a deeper understanding of
-                    Neural Networks and Reinforcement Learning. Randomness plays a critical role in deep learning, often
-                    complicating things. However, this randomness is beneficial—it drives educational exploration. A
-                    deep learning model must sometimes explore uncharted paths, even if the algorithm is uncertain
-                    whether the outcome will improve. This allows the model to discover new, potentially superior
-                    approaches.
+                            Neural networks operate in a way that more closely resembles the human brain than
+                            traditional
+                            circuits. One of the most common applications of neural networks is handwriting recognition.
+                            Below
+                            is an example from my EE 541 project, where I trained a neural network using a dataset of
+                            handwritten numbers.
 
-                    This mirrors my experience in taking EE 541. Much like a neural network making weight adjustments
-                    based on limited knowledge, I ventured into an unfamiliar field unsure of my success. Yet, by
-                    exploring deep learning, I have grown as an engineer. Much like a neural network performing training
-                    to explore alternative options, I took a leap by enrolling in EE 541 without knowing whether I would
-                    excel. In the end, I believe I am better for it.
+                            I took signal analysis with Professor Ali in the prior semester. After this class, I knew I
+                            wanted
+                            to take another course with him. I thoroughly enjoyed his teaching style, from his in-depth
+                            explanations to his ability to keep students engaged—even offering protein shakes as
+                            incentives. He
+                            prefers using chalk, which gives him an old-school approach that I appreciate, particularly
+                            since
+                            the content of this course was anything but old-school. This course was based on recent
+                            engineering
+                            research, with some journal articles published the same year we studied them. This made me
+                            excited
+                            to learn about an unfamiliar yet relevant topic from a professor whose teaching style
+                            resonated with
+                            me.
 
+                        </p>
 
-                    Initially, I believed that deep learning was completely different from the predictable, theory-based
-                    mathematics I was comfortable with. However, having completed the course, I now understand that this
-                    is not the case. A neural network and its teaching algorithm are ultimately just a complex system of
-                    equations, designed to adjust weights in a way that optimizes outcomes. In many ways, deep learning
-                    is an extension of traditional mathematical principles—it’s simply applied in a novel, dynamic way.
-
-                </p>
-            </section>
-
-            <section id="reflection2">
-                <h1>EE 553 Reflection: Microfabrication Lab Experience</h1>
-
-                <p class="justified-text">
-                    I entered the class for Microfabrication of Circuits excited to witness the fundamental processes
-                    underlying Electrical Engineering. Much of my EE background and undergraduate education is based on
-                    transistors, microelectronics, and the core principles of electrical circuit behavior, including
-                    properties of current and voltage. From a broad perspective, basic circuits with a DC source,
-                    resistors, and reactive components are easy to comprehend. However, delving deeper into Electrical
-                    Engineering reveals complexities such as internal resistance and forward biasing. While these
-                    phenomena can be analyzed through differential equations and theoretical models, they are difficult
-                    to visualize, making direct observation nearly impossible.
-
-                    To witness microfabrication firsthand is to look behind the curtain, replacing conceptual
-                    imagination with real-world experiences in the lab. Since learning how a computer worked in
-                    elementary school, I had been eager to understand how computer chips, transistors, and memory
-                    devices are made. This course provided a pivotal moment where all my undergraduate Electrical
-                    Engineering studies converged into an opportunity to observe microfabrication machines in action.
+                        <figure class="image-container">
+                            <img src="assets/images/NeuralNetworkGrey.PNG" alt="Neural Network Visualization"
+                                class="zoomable-responsive" onclick="openModal(this)">
+                            <figcaption>Neural Network Visualization</figcaption>
+                        </figure>
 
 
-                    In the microfabrication lab, we worked with highly specialized and expensive equipment. We began by
-                    learning how to use an ellipsometer, a device that . From there, we explored Electron Beam
-                    Lithography (EBL) and had the opportunity to examine an Electron Beam Microscope. These machines
-                    range in costand require extensive care, training, and supervision to operate. In the EBL process,
-                    we adhered specific metals to silicon by first applying a thin 2um layer of platinum on the
-                    spin-coated silicon surface. This platinum layer served as an intermediary to enhance the adhesion
-                    of gold, as gold adheres poorly to silicon but bonds well to platinum.
-                    One of the most fascinating properties we observed was the way incident light reflects off gold
-                    nanoparticles. In EBL, an electron beam is directed at a filament of gold, platinum, or another
-                    metal. The beam vaporizes the metal, and the vaporized material is then deposited onto a surface in
-                    precise patterns. Using this method, we achieved deposition resolutions as fine as 2um.
+                        <p class="justified-text">
+                            Deep learning can seem abstract, and understanding every facet of a neural network may not
+                            be
+                            feasible. However, one can form an understanding of the principles and methods used to
+                            achieve its
+                            design. Neural networks have hundreds or even thousands of nodes and weights, adjusted
+                            through
+                            learning algorithms that we can build and understand. However, determining why each weight
+                            changes
+                            and its precise effect on the output is complex. A mathematician [Author Name of 3B1B]
+                            explains this
+                            well in his breakdown of neural network behavior over successive training cycles.
 
-                    Gold nanoparticles exhibit size-dependent optical properties, allowing them to reflect different
-                    frequencies of light. This phenomenon was historically used in ancient times in stained glass
-                    windows, where molten glass mixed with gold nanoparticles produced vibrant red hues. In our lab, we
-                    unintentionally observed this effect due to a unique occurrence in the deposition process. The EBL
-                    machine uses clips to hold down the sample, which inadvertently blocked some of the vaporized gold
-                    deposition. This obstruction created a gradient of gold thickness across the sample.
+                            For an excellent visualization of neural networks and their growth through training, I
+                            highly
+                            recommend this video: [LINK TO 3B1B]. 3B1B is an incredible YouTube channel that has
+                            inspired me to
+                            explore more advanced areas of mathematics and challenge myself in fields such as deep
+                            learning.
 
-                    An interesting observation was that this deposition gradient resulted in thicknesses below the
-                    minimum deposition capability of the EBL machine. This created a visible color gradient on the
-                    sample, which we attributed to the optical properties of gold nanoparticles. Our final report
-                    documented all experiments performed throughout the semester, including:
-                    , Ellipsometry to measure oxide layer thickness on silicon, Electron Beam Lithography (EBL), E-Beam
-                    microscope usage, Microfabrication-grade microscope analysis, Profilometry with a newly acquired
-                    profilometer , Hydrofluoric Acid (HF) etching experiments, measuring etch rate over time
+                            Throughout the course, I struggled with the abstract nature of this field. To tackle this, I
+                            had to
+                            accept that fully comprehending every aspect of a deep learning module may not be realistic.
+                            Despite
+                            this, I was able to learn and design effective models. Over time, I gained a deeper
+                            understanding of
+                            Neural Networks and Reinforcement Learning. Randomness plays a critical role in deep
+                            learning, often
+                            complicating things. However, this randomness is beneficial—it drives educational
+                            exploration. A
+                            deep learning model must sometimes explore uncharted paths, even if the algorithm is
+                            uncertain
+                            whether the outcome will improve. This allows the model to discover new, potentially
+                            superior
+                            approaches.
 
-                    Additionally, my lab partners and I went beyond the standard course requirements to analyze and
-                    document the unexpected gold deposition gradient.
-                </p>
+                            This mirrors my experience in taking EE 541. Much like a neural network making weight
+                            adjustments
+                            based on limited knowledge, I ventured into an unfamiliar field unsure of my success. Yet,
+                            by
+                            exploring deep learning, I have grown as an engineer. Much like a neural network performing
+                            training
+                            to explore alternative options, I took a leap by enrolling in EE 541 without knowing whether
+                            I would
+                            excel. In the end, I believe I am better for it.
 
-                <figure class="image-container">
-                    <img src="assets/images/deposition_wScale_new.JPG" alt="Image of the E-Beam Deposition Sample"
-                        class="zoomable-responsive" onclick="openModal(this)">
-                    <figcaption>Neural Network Visualization</figcaption>
-                </figure>
 
-                <p class="justified-text">
-                    Spin coating was another technique we utilized in our experiments. The HF etching study examined the
-                    rate at which silicon was etched per second in the HF solution, providing valuable data on
-                    controlled material removal. Getting suited up for the cleanroom was a unique experience. The "bunny
-                    suit" worn inside the cleanroom is not for personal safety but rather to protect the sensitive
-                    materials and equipment from contamination. Given the extreme sensitivity of these machines, all
-                    potential contaminants, including dust and skin particles, must be contained within the suit. Each
-                    suit comes in a sterilized plastic package, and we were trained to put them on in a way that
-                    prevents external contamination. Before entering the cleanroom, we passed through an air shower,
-                    which blasted pressurized air to remove any residual dust or contaminants.
+                            Initially, I believed that deep learning was completely different from the predictable,
+                            theory-based
+                            mathematics I was comfortable with. However, having completed the course, I now understand
+                            that this
+                            is not the case. A neural network and its teaching algorithm are ultimately just a complex
+                            system of
+                            equations, designed to adjust weights in a way that optimizes outcomes. In many ways, deep
+                            learning
+                            is an extension of traditional mathematical principles—it’s simply applied in a novel,
+                            dynamic way.
 
-                    My experience in the cleanroom was one of the most valuable aspects of my time at UB. This course
-                    provided hands-on exposure to the processes required to fabricate the devices and materials that
-                    power modern technology. It reinforced my understanding of Electrical Engineering by grounding
-                    theoretical concepts in tangible experiences. Rather than relying solely on diagrams and equations,
-                    I now have firsthand knowledge of the fabrication techniques that make microelectronics possible.
-                </p>
-            </section>
-            <section id="reflection3">
-                <h1>Reflection 3: EE 526 - Wearable and Implantable Sensors, Professor Kwang Oh</h1>
-                <p class="justified-text">
-                    When deciding to take Wearable and Implantable Sensors, I considered the multiple projects I’ve
-                    contributed to in the past. Multiple hackathon projects, independent works, and an award-winning
-                    research project.
+                        </p>
 
-                    I have worked on various projects in IoT, embedded systems, wireless communication, and power
-                    electronics. I worked on 5G KPI analysis which examined the impact of weather on 5G performance
-                    using a Raspberry Pi with a 5G hat, and a UPS system providing a cost-effective backup power
-                    solution with deep-cycle batteries as part of my coursework. I also co-authored a published research
-                    project on Interactive Digital Twins, presented at ACM SenSys ‘22. I became team lead of this
-                    research project in 2023, worked on device firmware and intercommunication, and we were awarded the
-                    Russel Agrusa Student Innovation Award. Additionally, I contributed to multiple award-winning
-                    hackathon projects, such as a fire prevention system, modular security system, and a plastic bottle
-                    recycling machine for 3D printer filament. My work has refined my system design ability, knowledge
-                    on automation, and real-time data processing.
-
-                    All of these projects involved some degree of sensor usage. Combine this affinity for projects using
-                    sensors with my love for Dr. Oh’s teaching style, and I knew at once I was dead-set on taking this
-                    class.
-                    I learned in this class many specialized topics such as microfluidics, accelerometers, inertial
-                    sensors, and recent developments in sensor technology.
-                    EE526 provided background in the design, implementation, and optimization of wearable and
-                    implantable sensor systems. The course covered covering microfluidics, wireless communication, power
-                    management, biocompatibility, and data processing for biomedical and IoT applications.
-
-                    What I believe was most important is refining my ability to put thought and effort into planning a
-                    project on a strict timeline. The projects Dr. Oh assigned were broad enough in subject matter that
-                    you could select something you were genuinely interested in. For my project, I chose to make a WiFi
-                    and Bluetooth IoT network with an Android app from scratch. In completing this project, I achieved
-                    two main milestones that were not exactly course requirements, but were necessary for the completion
-                    of my project. For my combination WiFi and BLE project, I developed my own device connection and
-                    intercommunication protocol, and I developed an android app having no prior knowledge on how to do
-                    so. These skills are not directly related to wearable and implantable sensors, however they both
-                    were required to complete the project. For this, I needed to take initiative and learn the skills
-                    needed to complete each milestone.
-
-                    To be clear, the class doesn’t cover app development, device wireless intercommunication, firmware
-                    development, or some of the other tools needed to create my project I dubbed "BlueLink", but
-                    Professor Oh urged that students figure out how to acquire the necessary skills to complete project
-                    on their own time. I believe this was a great environment, because it forced you to be more
-                    realistic about your project expectations, while also getting you invested in project completion.
-                    This setup was very helpful to me since it motivated me to start early since there were many
-                    uncertain factors in my project. What I recommend for others taking this course is to aim big on the
-                    final project and begin scoping out the skills and technologies needed to complete it very early.
-                    Dr. Oh gives you the project prompt on the first day of class with the syllabus so you can start as
-                    early as the first day.
-                    For me, this meant exploring how to build an Android app, and also re-kindling the embers of device
-                    intercommunication I acquired working on my research project in past years.
-                    Beforehand, working for the ISE department, I was able to establish wired serial communication
-                    between two devices with different microcontrollers and hardware. This project presented a different
-                    challenge. I now need to establish bi-directional intercommunication between two of the same type of
-                    device, (ESP32s), but now the devices operate with different connection protocols. My work
-                    beforehand was two different types of hardware communicating, but in this project two different
-                    types of firmware must communication. One ESP must communicate via WiFi with the internet and the
-                    other must communicate via Bluetooth with the WiFi device.
-
-                    The biggest challenge I encountered was programming one of these small, inexpensive devices to use
-                    both BLE (Bluetooth Low Energy) and WiFi at the same time. This large challenge concerned the amount
-                    of Flash Memory the devices have available. Flash memory on an ESP32 is used to store the program
-                    code, libraries, and necessary data for execution, allowing the microcontroller to retain firmware
-                    even after a power cycle. When a program exceeds the available flash memory, the device may fail to
-                    compile, crash, or enter a reboot loop due to insufficient storage. To accommodate for this, you can
-                    optimize memory usage by reducing the program size (removing unused libraries, optimizing code, or
-                    using PROGMEM for constants), increasing partition sizes in the ESP32’s partition table, or using
-                    external flash storage for non-critical data.
-
-                    The device didn’t have enough flash memory to hold the program and execute it properly. The infinite
-                    reboot loop is what my ESP32 devices did whenever I attempted to use both communication types as the
-                    same time. This gave me a small hint that the ESP had enough memory to store the program but not
-                    enough to run it. To fix this, I altered the partition scheme and eventually found a configuration
-                    that would support my connection protocol.
-                    Other challenges were power usage and optimizing data processing to draw less power and use less
-                    memory. The two competing connection protocols caused the chip to draw too much power, causing a
-                    "brownout" or low voltage shutdown, and the two types of communication deliver messages in different
-                    formats. Command conversion was needed on the chip, and optimizing this was crucial since I had a
-                    limited amount of power and space. At one point I realized I was running too many ESP32 devices on
-                    one power supply, resulting in a brownout error. This was a separate problem from the brownout
-                    shutdown I mentioned earlier. This problem was amongst the easiest to solve since it only required I
-                    get another USB power supply, however that didn't prevent the hours of troubleshooting through
-                    software before I discovered the real cause of the problem.
-                    My approach to problem solving here needed to be consistent and robust if I were to finish this
-                    project on time. By this I mean I needed to implement changes iteratively, so most of the time I am
-                    able to deduce the source of an error quickly and begin troubleshooting immediately. If I
-                    implemented a hundred changes at once, finding issues would be more similar to finding a needle in a
-                    haystack. I tackled each problem one at a time, testing multiple devices each time to make sure the
-                    problems were not just a faulty chip. Problems arising from manufacturing defects in the chips
-                    happened twice in this project. I reallocated flash memory to program storage by changing the
-                    partition scheme, implemented power-saving connection methods, and wrote my own command system
-                    specifically for this setup.
-                    What I am left with is an IoT network with multiple devices. It uses my own connection protocol that
-                    I wrote, and since it uses both BLE and WiFi, local operations do not depend on WiFi, so if a user's
-                    WiFi goes down, device intercommunication persists. An example of where this would be useful is if
-                    you set up routines for a light or device to turn on and off at a certain time, WiFi dependence may
-                    become a cumbersome for IoT networks in this application where WiFi is not really even necessary in
-                    the first place. This network makes it so WiFi is only used for commands and instructions that need
-                    WiFi to communicate with an outside device, leaving the rest up to the Low Power Bluetooth network
-                    made up of inexpensive ESP32 devices.
-
-                    Taking on a demanding project like this was a risk. I was unsure at the start if I would be able to
-                    do much if not any of the action items I described above. My work paid off in many ways: I now am
-                    more experienced with conceptualizing, planning, and executing a project on a realistic timeline,
-                    and I have a project I can carry on developing outside of class.
-                    For me, these are very important to my career. I want to build technologies and systems that people
-                    can use alongside my engineering career. I believe being able to bring a project from start to
-                    finish by yourself requires discipline that is only obtained by doing it, going through the process.
-                    This discipline is what this class taught me.
-
-                    The prompt was essentially to create an IoT device using a microcontroller platform such as Arduino.
-                    My project was much more complicated than that, creating five separate fully functional IoT devices
-                    using the ESP32 microcontroller development board, and then creating an IoT network, Android App,
-                    and Web Server using my own connection protocol to connect them all. I could have developed
-                    something simpler, but I knew my potential, and worked to maximize what I was capable of creating
-                    under these conditions.
-                </p>
-
-                <div class="video-container-50">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/8Onl30TVQCg?si=79SV4fbzqMYWAx87"
-                        title="EE 526 Project Video" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>
+                        <p class="justified-text">
+                            I took EE 541 to dive into a completely new field within Electrical Engineering that piqued
+                            my interest.
+                            My background in <strong>mathematics</strong> and <strong>physics</strong> had always been
+                            rooted in deterministic systems,
+                            but deep learning introduced an entirely new paradigm where learning-based approaches drive
+                            decision-making.
+                        </p>
+                        <p class="justified-text">
+                            One of the most fascinating aspects was how <strong>neural networks operate</strong>,
+                            mimicking the structure
+                            of the human brain through <strong>layered weight matrices</strong>. Through this course, I
+                            gained hands-on experience in:
+                        </p>
+                        <figure class="image-container">
+                            <img src="assets/images/NeuralNetworkGrey.PNG" alt="Neural Network Visualization"
+                                class="zoomable-responsive" onclick="openModal(this); event.stopPropagation();">
+                            <figcaption>Neural Network Visualization</figcaption>
+                        </figure>
+                        <ul>
+                            <li>Designing and training neural networks using Python and TensorFlow</li>
+                            <li>Understanding <strong>gradient descent</strong> and <strong>backpropagation</strong>
+                            </li>
+                            <li>Optimizing deep learning models with hyperparameter tuning</li>
+                            <li>Applying reinforcement learning techniques to AI-driven systems</li>
+                        </ul>
+                        <p>
+                            A highlight of my coursework was implementing a convolutional neural network (CNN) for
+                            handwritten digit recognition.
+                            This project involved processing image datasets, constructing deep learning layers, and
+                            analyzing performance improvements
+                            using different activation functions and optimizers.
+                        </p>
+                        <!-- <a href="https://example.com/deep-learning-project" target="_blank">Read More</a> -->
+                    </div>
                 </div>
-
-                <p class="justified-text">
-                    To present projects to the class in a timely manner, we were required to make a video presentation
-                    with the constraint of being under 3 minutes. My video presentation that was shown to the class can
-                    be seen here:
-                    <a href="https://youtu.be/8Onl30TVQCg?si=79SV4fbzqMYWAx87" target="_blank">BlueLink Smart Home App
-                        and Network - Marcus Francisco EE526 Project 3</a>
-                    I feel most accomplished with the fact that I stuck with my original goals (with some slight
-                    alterations) instead of simplifying my project just to get an easy A. My goal was to create
-                    something worthwhile that would grant me more than a good grade, and I believe under the conditions
-                    this class provided I have achieved that goal.
-                </p>
             </section>
 
-            <section id="reflection4">
-                <h1>Reflection 4: EE 550 - Photovoltaic Technology, Professor Ian R. Sellers</h1>
-                <p class="justified-text">
 
-                    I enrolled in EE 550 expecting to deepen my understanding of photovoltaic (PV) technology beyond the
-                    surface-level knowledge I had gained from prior coursework and projects. I had previously worked
-                    with solar panels in my senior design project, where I became familiar with key characteristics such
-                    as open-circuit voltage, short-circuit current, maximum power point tracking (MPPT), and the
-                    equivalent circuit representation of solar cells as a current source with diode behavior. However,
-                    this class introduced me to a far more nuanced perspective—one that made me re-think how I
-                    critically assess emerging technologies and the claims made in research and the industry.
 
-                    One of the most significant takeaways from this course was learning to approach new photovoltaic
-                    technologies with a more critical mindset. In 2021, I wrote a paper on perovskite solar cells, a
-                    technology widely hailed for its potential to revolutionize the solar industry due to its high
-                    efficiency, tunable bandgap, and low-cost fabrication. At the time, my research was based on recent
-                    publications that portrayed perovskites as the next major leap in solar power. While I acknowledged
-                    concerns regarding their stability and service life, I largely focused on their advantages and
-                    future prospects. However, in EE 550, I gained a more balanced and skeptical perspective on the
-                    practical feasibility of perovskite-based photovoltaics.
+            <section id="reflection2" class="reflection-item" onclick="toggleDropdown(this)"
+                data-bg="assets/images/DeepLearningBackground2.PNG">
+                <div class="text-and-image">
+                    <span class="course-desc-icon" onclick="toggleDropdown(this); event.stopPropagation();">
+                        Course Description
+                        <div class="course-desc-content">
+                            <p class="justified-text">
+                                In this course, the students will learn advanced network design concepts through hands-on experimentation with real-world implementations. The course is divided in two parts. In the first part, the students will follow a guided set of assignments to consolidate the concepts learnt in the related networking courses. The instructor in class will review these concepts and the students will learn how to apply them in a practical environment. Then, a novel embedded system board will be utilized to implement well-known protocols for both wired and wireless networks. In the second part, the students will design, implement and evaluate state-of-the-art and novel networking protocols for real-world application scenarios that each group will come up with. This course will provide the students with the necessary skills to not only theoretically understand but also practically contribute to the development of our internetworked society.
+                            </p>
+                        </div>
+                    </span>
 
-                    Through discussions with Professor Sellers during class, I learned that much of the excitement
-                    surrounding perovskites is fueled by highly selective data, with many research papers presenting
-                    only the most optimistic results while glossing over fundamental reliability issues. For example,
-                    while perovskite solar cells can demonstrate efficiencies exceeding 25\% in controlled lab
-                    environments, their long-term stability is a major concern. Many perovskite cells degrade within
-                    weeks, far from the decades-long service life expected from commercial solar panels. Additionally,
-                    yield reporting in perovskite manufacturing is often absent, meaning that while individual cells may
-                    be inexpensive to produce, the true cost skyrockets if hundreds must be fabricated to obtain a
-                    single functional unit.
+                    <h1>EE 553 - Microelectronic Fabrication Lab</h1>
+                    <h2>Professor Huamin Li</h2>
 
-                    This realization reshaped my view of technological hype in renewable energy. While innovations are
-                    necessary to advance solar power, the premature excitement surrounding some emerging technologies
-                    can lead to unrealistic expectations and, ultimately, public distrust when those technologies fail
-                    to deliver on exaggerated promises. It is crucial to distinguish between lab-scale success and
-                    real-world viability, considering not only efficiency but also manufacturing scalability, stability,
-                    and deployment challenges.
+                    <p class="justified-text">
+                        Explored the theoretical foundations of <strong>neural networks</strong>, <strong>reinforcement
+                            learning</strong>, and <strong>AI applications</strong>.
+                        Developed a deep learning model for <strong>handwriting recognition</strong> using the
+                        <strong>MNIST dataset</strong>, optimizing accuracy through
+                        <strong>hyperparameter tuning and backpropagation</strong>. This course deepened my
+                        understanding of AI-driven engineering solutions and
+                        their mathematical underpinnings.
+                    </p>
+                    <span class="initial-text">Click to Learn More</span> <!-- This text disappears on click -->
+                    <span class="toggle-icon">+</span>
+                    <div class="project-content">
 
-                    I wrote a paper on Perovskite usage in solar panels in 2021. My report adresses some of the issues
-                    mentioned here, but it glances over the more concerning fact that perovskites are not proven to have
-                    a suitable service life for Photovoltaic panels. My report written on perovskites can be accessed
-                    via this link:
-                    <a href="https://marcaura.github.io/MarcusFrancisco/pdfs/perovskites.pdf" target="_blank">Perovskite
-                        Solar Cells Report</a>
 
-                    What I found in this class was a more realistic view on how useful perovskites are for widespread
-                    use. Professor Sellers was able to look past the hype, and was not easily convinced of perovskite
-                    panel feasibility like I was in years prior.
+                        <h1>EE 553 Reflection: Microfabrication Lab Experience</h1>
 
-                    Beyond perovskites, this course also provided valuable insight into the engineering and design
-                    principles behind PV systems. One particularly interesting topic was the role of boost converters in
-                    photovoltaic applications. As I am simultaneously studying power electronics in another course, I
-                    found it fascinating to see the direct application of DC-DC converters in maximizing the efficiency
-                    of solar energy conversion. Boost converters are commonly used in PV systems to step up the voltage
-                    from solar panels while maintaining maximum power transfer through MPPT algorithms. This connection
-                    between power electronics and photovoltaics reinforced how interdisciplinary renewable energy
-                    systems truly are.
+                        <p class="justified-text">
+                            I entered the class for Microfabrication of Circuits excited to witness the fundamental processes
+                            underlying Electrical Engineering. Much of my EE background and undergraduate education is based on
+                            transistors, microelectronics, and the core principles of electrical circuit behavior, including
+                            properties of current and voltage. From a broad perspective, basic circuits with a DC source,
+                            resistors, and reactive components are easy to comprehend. However, delving deeper into Electrical
+                            Engineering reveals complexities such as internal resistance and forward biasing. While these
+                            phenomena can be analyzed through differential equations and theoretical models, they are difficult
+                            to visualize, making direct observation nearly impossible.
+        
+                            To witness microfabrication firsthand is to look behind the curtain, replacing conceptual
+                            imagination with real-world experiences in the lab. Since learning how a computer worked in
+                            elementary school, I had been eager to understand how computer chips, transistors, and memory
+                            devices are made. This course provided a pivotal moment where all my undergraduate Electrical
+                            Engineering studies converged into an opportunity to observe microfabrication machines in action.
+        
+        
+                            In the microfabrication lab, we worked with highly specialized and expensive equipment. We began by
+                            learning how to use an ellipsometer, a device that . From there, we explored Electron Beam
+                            Lithography (EBL) and had the opportunity to examine an Electron Beam Microscope. These machines
+                            range in costand require extensive care, training, and supervision to operate. In the EBL process,
+                            we adhered specific metals to silicon by first applying a thin 2um layer of platinum on the
+                            spin-coated silicon surface. This platinum layer served as an intermediary to enhance the adhesion
+                            of gold, as gold adheres poorly to silicon but bonds well to platinum.
+                            One of the most fascinating properties we observed was the way incident light reflects off gold
+                            nanoparticles. In EBL, an electron beam is directed at a filament of gold, platinum, or another
+                            metal. The beam vaporizes the metal, and the vaporized material is then deposited onto a surface in
+                            precise patterns. Using this method, we achieved deposition resolutions as fine as 2um.
+        
+                            Gold nanoparticles exhibit size-dependent optical properties, allowing them to reflect different
+                            frequencies of light. This phenomenon was historically used in ancient times in stained glass
+                            windows, where molten glass mixed with gold nanoparticles produced vibrant red hues. In our lab, we
+                            unintentionally observed this effect due to a unique occurrence in the deposition process. The EBL
+                            machine uses clips to hold down the sample, which inadvertently blocked some of the vaporized gold
+                            deposition. This obstruction created a gradient of gold thickness across the sample.
+        
+                            An interesting observation was that this deposition gradient resulted in thicknesses below the
+                            minimum deposition capability of the EBL machine. This created a visible color gradient on the
+                            sample, which we attributed to the optical properties of gold nanoparticles. Our final report
+                            documented all experiments performed throughout the semester, including:
+                            , Ellipsometry to measure oxide layer thickness on silicon, Electron Beam Lithography (EBL), E-Beam
+                            microscope usage, Microfabrication-grade microscope analysis, Profilometry with a newly acquired
+                            profilometer , Hydrofluoric Acid (HF) etching experiments, measuring etch rate over time
+        
+                            Additionally, my lab partners and I went beyond the standard course requirements to analyze and
+                            document the unexpected gold deposition gradient.
+                        </p>
+        
+                        <figure class="image-container">
+                            <img src="assets/images/deposition_wScale_new.JPG" alt="Image of the E-Beam Deposition Sample"
+                                class="zoomable-responsive" onclick="openModal(this)">
+                            <figcaption>Neural Network Visualization</figcaption>
+                        </figure>
+        
+                        <p class="justified-text">
+                            Spin coating was another technique we utilized in our experiments. The HF etching study examined the
+                            rate at which silicon was etched per second in the HF solution, providing valuable data on
+                            controlled material removal. Getting suited up for the cleanroom was a unique experience. The "bunny
+                            suit" worn inside the cleanroom is not for personal safety but rather to protect the sensitive
+                            materials and equipment from contamination. Given the extreme sensitivity of these machines, all
+                            potential contaminants, including dust and skin particles, must be contained within the suit. Each
+                            suit comes in a sterilized plastic package, and we were trained to put them on in a way that
+                            prevents external contamination. Before entering the cleanroom, we passed through an air shower,
+                            which blasted pressurized air to remove any residual dust or contaminants.
+        
+                            My experience in the cleanroom was one of the most valuable aspects of my time at UB. This course
+                            provided hands-on exposure to the processes required to fabricate the devices and materials that
+                            power modern technology. It reinforced my understanding of Electrical Engineering by grounding
+                            theoretical concepts in tangible experiences. Rather than relying solely on diagrams and equations,
+                            I now have firsthand knowledge of the fabrication techniques that make microelectronics possible.
+                        </p>
+                        <h1>EE 541 Reflection: Exploring Deep Learning</h1>
 
-                    Another key takeaway was the complexity of integrating solar power into the electrical grid. Many
-                    people assume that the main challenge with solar power is simply storing excess energy to compensate
-                    for intermittency. While energy storage is important, EE 550 introduced me to the numerous technical
-                    and economic challenges beyond just storage. These include grid stability, voltage regulation, power
-                    electronics for grid interconnection, and the impact of variable solar generation on traditional
-                    power infrastructure.
+                        <p class="justified-text">
+                            I took EE 541 to dive into a completely new field within Electrical Engineering that piqued
 
-                    Overall, EE 550 has significantly refined my critical thinking when evaluating solar technologies.
-                    It has taught me to question the sustainability and practicality of emerging PV solutions rather
-                    than accepting optimistic projections at face value. While I still believe that perovskites and
-                    other next-generation materials may play a role in the future of solar energy, I now understand the
-                    importance of long-term reliability, economic feasibility, and scalable manufacturing as key factors
-                    in determining whether a new technology will succeed beyond the laboratory.
 
-                    This course has not only strengthened my technical understanding of photovoltaics but also provided
-                    me with a more grounded perspective—one that will be invaluable in my career as an engineer working
-                    in renewable energy. Moving forward, I will continue to approach emerging technologies with a
-                    balance of curiosity and skepticism, ensuring that my assessments are based on both scientific rigor
-                    and real-world viability.
+                        </p>
 
-                </p>
+                        <figure class="image-container">
+                            <img src="assets/images/NeuralNetworkGrey.PNG" alt="Neural Network Visualization"
+                                class="zoomable-responsive" onclick="openModal(this)">
+                            <figcaption>Neural Network Visualization</figcaption>
+                        </figure>
+
+
+                        <p class="justified-text">
+                            Deep learning can seem abstract, and understanding every facet of a neural network may not
+
+
+                        </p>
+
+                        <p class="justified-text">
+                            I took EE 541 to dive into a completely new field within Electrical Engineering that piqued
+                            my interest.
+                            My background in <strong>mathematics</strong> and <strong>physics</strong> had always been
+                            rooted in deterministic systems,
+                            but deep learning introduced an entirely new paradigm where learning-based approaches drive
+                            decision-making.
+                        </p>
+                        <p class="justified-text">
+                            One of the most fascinating aspects was how <strong>neural networks operate</strong>,
+                            mimicking the structure
+                            of the human brain through <strong>layered weight matrices</strong>. Through this course, I
+                            gained hands-on experience in:
+                        </p>
+                        <figure class="image-container">
+                            <img src="assets/images/NeuralNetworkGrey.PNG" alt="Neural Network Visualization"
+                                class="zoomable-responsive" onclick="openModal(this); event.stopPropagation();">
+                            <figcaption>Neural Network Visualization</figcaption>
+                        </figure>
+                        <ul>
+                            <li>Designing and training neural networks using Python and TensorFlow</li>
+                            <li>Understanding <strong>gradient descent</strong> and <strong>backpropagation</strong>
+                            </li>
+                            <li>Optimizing deep learning models with hyperparameter tuning</li>
+                            <li>Applying reinforcement learning techniques to AI-driven systems</li>
+                        </ul>
+                        <p>
+                            A highlight of my coursework was implementing a convolutional neural network (CNN) for
+                            handwritten digit recognition.
+                            This project involved processing image datasets, constructing deep learning layers, and
+                            analyzing performance improvements
+                            using different activation functions and optimizers.
+                        </p>
+                        <!-- <a href="https://example.com/deep-learning-project" target="_blank">Read More</a> -->
+                    </div>
+                </div>
             </section>
-            <section id="reflection5">
-                <h1>Reflection 5: EE49 Tapecon Internship</h1>
 
+
+
+
+
+
+
+            <section id="reflection3" class="reflection-item" onclick="toggleDropdown(this)"
+                data-bg="assets/images/DeepLearningBackground2.PNG">
+                <div class="text-and-image">
+                    <span class="course-desc-icon" onclick="toggleDropdown(this); event.stopPropagation();">
+                        Course Description
+                        <div class="course-desc-content">
+                            <p class="justified-text">
+                                In this course, the students will learn advanced network design concepts through hands-on experimentation with real-world implementations. The course is divided in two parts. In the first part, the students will follow a guided set of assignments to consolidate the concepts learnt in the related networking courses. The instructor in class will review these concepts and the students will learn how to apply them in a practical environment. Then, a novel embedded system board will be utilized to implement well-known protocols for both wired and wireless networks. In the second part, the students will design, implement and evaluate state-of-the-art and novel networking protocols for real-world application scenarios that each group will come up with. This course will provide the students with the necessary skills to not only theoretically understand but also practically contribute to the development of our internetworked society.
+                            </p>
+                        </div>
+                    </span>
+
+                    <h1>EE 526 - Wearable and Implantable Sensors</h1>
+                    <h2>Professor Kwang Oh</h2>
+
+                    <p class="justified-text">
+                        Explored the theoretical foundations of <strong>neural networks</strong>, <strong>reinforcement
+                            learning</strong>, and <strong>AI applications</strong>.
+                        Developed a deep learning model for <strong>handwriting recognition</strong> using the
+                        <strong>MNIST dataset</strong>, optimizing accuracy through
+                        <strong>hyperparameter tuning and backpropagation</strong>. This course deepened my
+                        understanding of AI-driven engineering solutions and
+                        their mathematical underpinnings.
+                    </p>
+                    <span class="initial-text">Click to Learn More</span> <!-- This text disappears on click -->
+                    <span class="toggle-icon">+</span>
+                    <div class="project-content">
+
+
+                        <h1>Reflection 3: EE 526 - Wearable and Implantable Sensors, Professor Kwang Oh</h1>
+                        <p class="justified-text">
+                            When deciding to take Wearable and Implantable Sensors, I considered the multiple projects I’ve
+                            contributed to in the past. Multiple hackathon projects, independent works, and an award-winning
+                            research project.
+        
+                            I have worked on various projects in IoT, embedded systems, wireless communication, and power
+                            electronics. I worked on 5G KPI analysis which examined the impact of weather on 5G performance
+                            using a Raspberry Pi with a 5G hat, and a UPS system providing a cost-effective backup power
+                            solution with deep-cycle batteries as part of my coursework. I also co-authored a published research
+                            project on Interactive Digital Twins, presented at ACM SenSys ‘22. I became team lead of this
+                            research project in 2023, worked on device firmware and intercommunication, and we were awarded the
+                            Russel Agrusa Student Innovation Award. Additionally, I contributed to multiple award-winning
+                            hackathon projects, such as a fire prevention system, modular security system, and a plastic bottle
+                            recycling machine for 3D printer filament. My work has refined my system design ability, knowledge
+                            on automation, and real-time data processing.
+        
+                            All of these projects involved some degree of sensor usage. Combine this affinity for projects using
+                            sensors with my love for Dr. Oh’s teaching style, and I knew at once I was dead-set on taking this
+                            class.
+                            I learned in this class many specialized topics such as microfluidics, accelerometers, inertial
+                            sensors, and recent developments in sensor technology.
+                            EE526 provided background in the design, implementation, and optimization of wearable and
+                            implantable sensor systems. The course covered covering microfluidics, wireless communication, power
+                            management, biocompatibility, and data processing for biomedical and IoT applications.
+        
+                            What I believe was most important is refining my ability to put thought and effort into planning a
+                            project on a strict timeline. The projects Dr. Oh assigned were broad enough in subject matter that
+                            you could select something you were genuinely interested in. For my project, I chose to make a WiFi
+                            and Bluetooth IoT network with an Android app from scratch. In completing this project, I achieved
+                            two main milestones that were not exactly course requirements, but were necessary for the completion
+                            of my project. For my combination WiFi and BLE project, I developed my own device connection and
+                            intercommunication protocol, and I developed an android app having no prior knowledge on how to do
+                            so. These skills are not directly related to wearable and implantable sensors, however they both
+                            were required to complete the project. For this, I needed to take initiative and learn the skills
+                            needed to complete each milestone.
+        
+                            To be clear, the class doesn’t cover app development, device wireless intercommunication, firmware
+                            development, or some of the other tools needed to create my project I dubbed "BlueLink", but
+                            Professor Oh urged that students figure out how to acquire the necessary skills to complete project
+                            on their own time. I believe this was a great environment, because it forced you to be more
+                            realistic about your project expectations, while also getting you invested in project completion.
+                            This setup was very helpful to me since it motivated me to start early since there were many
+                            uncertain factors in my project. What I recommend for others taking this course is to aim big on the
+                            final project and begin scoping out the skills and technologies needed to complete it very early.
+                            Dr. Oh gives you the project prompt on the first day of class with the syllabus so you can start as
+                            early as the first day.
+                            For me, this meant exploring how to build an Android app, and also re-kindling the embers of device
+                            intercommunication I acquired working on my research project in past years.
+                            Beforehand, working for the ISE department, I was able to establish wired serial communication
+                            between two devices with different microcontrollers and hardware. This project presented a different
+                            challenge. I now need to establish bi-directional intercommunication between two of the same type of
+                            device, (ESP32s), but now the devices operate with different connection protocols. My work
+                            beforehand was two different types of hardware communicating, but in this project two different
+                            types of firmware must communication. One ESP must communicate via WiFi with the internet and the
+                            other must communicate via Bluetooth with the WiFi device.
+        
+                            The biggest challenge I encountered was programming one of these small, inexpensive devices to use
+                            both BLE (Bluetooth Low Energy) and WiFi at the same time. This large challenge concerned the amount
+                            of Flash Memory the devices have available. Flash memory on an ESP32 is used to store the program
+                            code, libraries, and necessary data for execution, allowing the microcontroller to retain firmware
+                            even after a power cycle. When a program exceeds the available flash memory, the device may fail to
+                            compile, crash, or enter a reboot loop due to insufficient storage. To accommodate for this, you can
+                            optimize memory usage by reducing the program size (removing unused libraries, optimizing code, or
+                            using PROGMEM for constants), increasing partition sizes in the ESP32’s partition table, or using
+                            external flash storage for non-critical data.
+        
+                            The device didn’t have enough flash memory to hold the program and execute it properly. The infinite
+                            reboot loop is what my ESP32 devices did whenever I attempted to use both communication types as the
+                            same time. This gave me a small hint that the ESP had enough memory to store the program but not
+                            enough to run it. To fix this, I altered the partition scheme and eventually found a configuration
+                            that would support my connection protocol.
+                            Other challenges were power usage and optimizing data processing to draw less power and use less
+                            memory. The two competing connection protocols caused the chip to draw too much power, causing a
+                            "brownout" or low voltage shutdown, and the two types of communication deliver messages in different
+                            formats. Command conversion was needed on the chip, and optimizing this was crucial since I had a
+                            limited amount of power and space. At one point I realized I was running too many ESP32 devices on
+                            one power supply, resulting in a brownout error. This was a separate problem from the brownout
+                            shutdown I mentioned earlier. This problem was amongst the easiest to solve since it only required I
+                            get another USB power supply, however that didn't prevent the hours of troubleshooting through
+                            software before I discovered the real cause of the problem.
+                            My approach to problem solving here needed to be consistent and robust if I were to finish this
+                            project on time. By this I mean I needed to implement changes iteratively, so most of the time I am
+                            able to deduce the source of an error quickly and begin troubleshooting immediately. If I
+                            implemented a hundred changes at once, finding issues would be more similar to finding a needle in a
+                            haystack. I tackled each problem one at a time, testing multiple devices each time to make sure the
+                            problems were not just a faulty chip. Problems arising from manufacturing defects in the chips
+                            happened twice in this project. I reallocated flash memory to program storage by changing the
+                            partition scheme, implemented power-saving connection methods, and wrote my own command system
+                            specifically for this setup.
+                            What I am left with is an IoT network with multiple devices. It uses my own connection protocol that
+                            I wrote, and since it uses both BLE and WiFi, local operations do not depend on WiFi, so if a user's
+                            WiFi goes down, device intercommunication persists. An example of where this would be useful is if
+                            you set up routines for a light or device to turn on and off at a certain time, WiFi dependence may
+                            become a cumbersome for IoT networks in this application where WiFi is not really even necessary in
+                            the first place. This network makes it so WiFi is only used for commands and instructions that need
+                            WiFi to communicate with an outside device, leaving the rest up to the Low Power Bluetooth network
+                            made up of inexpensive ESP32 devices.
+        
+                            Taking on a demanding project like this was a risk. I was unsure at the start if I would be able to
+                            do much if not any of the action items I described above. My work paid off in many ways: I now am
+                            more experienced with conceptualizing, planning, and executing a project on a realistic timeline,
+                            and I have a project I can carry on developing outside of class.
+                            For me, these are very important to my career. I want to build technologies and systems that people
+                            can use alongside my engineering career. I believe being able to bring a project from start to
+                            finish by yourself requires discipline that is only obtained by doing it, going through the process.
+                            This discipline is what this class taught me.
+        
+                            The prompt was essentially to create an IoT device using a microcontroller platform such as Arduino.
+                            My project was much more complicated than that, creating five separate fully functional IoT devices
+                            using the ESP32 microcontroller development board, and then creating an IoT network, Android App,
+                            and Web Server using my own connection protocol to connect them all. I could have developed
+                            something simpler, but I knew my potential, and worked to maximize what I was capable of creating
+                            under these conditions.
+                        </p>
+        
+                        <div class="video-container-50">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/8Onl30TVQCg?si=79SV4fbzqMYWAx87"
+                                title="EE 526 Project Video" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+        
+                        <p class="justified-text">
+                            To present projects to the class in a timely manner, we were required to make a video presentation
+                            with the constraint of being under 3 minutes. My video presentation that was shown to the class can
+                            be seen here:
+                            <a href="https://youtu.be/8Onl30TVQCg?si=79SV4fbzqMYWAx87" target="_blank">BlueLink Smart Home App
+                                and Network - Marcus Francisco EE526 Project 3</a>
+                            I feel most accomplished with the fact that I stuck with my original goals (with some slight
+                            alterations) instead of simplifying my project just to get an easy A. My goal was to create
+                            something worthwhile that would grant me more than a good grade, and I believe under the conditions
+                            this class provided I have achieved that goal.
+                        </p>
+                    
+                    </div>
+                </div>
             </section>
+
+
+
+            <section id="reflection4" class="reflection-item" onclick="toggleDropdown(this)"
+                data-bg="assets/images/DeepLearningBackground2.PNG">
+                <div class="text-and-image">
+                    <span class="course-desc-icon" onclick="toggleDropdown(this); event.stopPropagation();">
+                        Course Description
+                        <div class="course-desc-content">
+                            <p class="justified-text">
+                                In this course, the students will learn advanced network design concepts through hands-on experimentation with real-world implementations. The course is divided in two parts. In the first part, the students will follow a guided set of assignments to consolidate the concepts learnt in the related networking courses. The instructor in class will review these concepts and the students will learn how to apply them in a practical environment. Then, a novel embedded system board will be utilized to implement well-known protocols for both wired and wireless networks. In the second part, the students will design, implement and evaluate state-of-the-art and novel networking protocols for real-world application scenarios that each group will come up with. This course will provide the students with the necessary skills to not only theoretically understand but also practically contribute to the development of our internetworked society.
+                            </p>
+                        </div>
+                    </span>
+
+                    <h1>EE 550  - Photovoltaic Technology</h1>
+                    <h2>Professor Ian R. Sellers</h2>
+
+                    <p class="justified-text">
+                        Explored the theoretical foundations of <strong>neural networks</strong>, <strong>reinforcement
+                            learning</strong>, and <strong>AI applications</strong>.
+                        Developed a deep learning model for <strong>handwriting recognition</strong> using the
+                        <strong>MNIST dataset</strong>, optimizing accuracy through
+                        <strong>hyperparameter tuning and backpropagation</strong>. This course deepened my
+                        understanding of AI-driven engineering solutions and
+                        their mathematical underpinnings.
+                    </p>
+                    <span class="initial-text">Click to Learn More</span> <!-- This text disappears on click -->
+                    <span class="toggle-icon">+</span>
+                    <div class="project-content">
+
+                        <h1>Reflection 4: EE 550 - Photovoltaic Technology, Professor Ian R. Sellers</h1>
+                        <p class="justified-text">
+        
+                            I enrolled in EE 550 expecting to deepen my understanding of photovoltaic (PV) technology beyond the
+                            surface-level knowledge I had gained from prior coursework and projects. I had previously worked
+                            with solar panels in my senior design project, where I became familiar with key characteristics such
+                            as open-circuit voltage, short-circuit current, maximum power point tracking (MPPT), and the
+                            equivalent circuit representation of solar cells as a current source with diode behavior. However,
+                            this class introduced me to a far more nuanced perspective—one that made me re-think how I
+                            critically assess emerging technologies and the claims made in research and the industry.
+        
+                            One of the most significant takeaways from this course was learning to approach new photovoltaic
+                            technologies with a more critical mindset. In 2021, I wrote a paper on perovskite solar cells, a
+                            technology widely hailed for its potential to revolutionize the solar industry due to its high
+                            efficiency, tunable bandgap, and low-cost fabrication. At the time, my research was based on recent
+                            publications that portrayed perovskites as the next major leap in solar power. While I acknowledged
+                            concerns regarding their stability and service life, I largely focused on their advantages and
+                            future prospects. However, in EE 550, I gained a more balanced and skeptical perspective on the
+                            practical feasibility of perovskite-based photovoltaics.
+        
+                            Through discussions with Professor Sellers during class, I learned that much of the excitement
+                            surrounding perovskites is fueled by highly selective data, with many research papers presenting
+                            only the most optimistic results while glossing over fundamental reliability issues. For example,
+                            while perovskite solar cells can demonstrate efficiencies exceeding 25\% in controlled lab
+                            environments, their long-term stability is a major concern. Many perovskite cells degrade within
+                            weeks, far from the decades-long service life expected from commercial solar panels. Additionally,
+                            yield reporting in perovskite manufacturing is often absent, meaning that while individual cells may
+                            be inexpensive to produce, the true cost skyrockets if hundreds must be fabricated to obtain a
+                            single functional unit.
+        
+                            This realization reshaped my view of technological hype in renewable energy. While innovations are
+                            necessary to advance solar power, the premature excitement surrounding some emerging technologies
+                            can lead to unrealistic expectations and, ultimately, public distrust when those technologies fail
+                            to deliver on exaggerated promises. It is crucial to distinguish between lab-scale success and
+                            real-world viability, considering not only efficiency but also manufacturing scalability, stability,
+                            and deployment challenges.
+        
+                            I wrote a paper on Perovskite usage in solar panels in 2021. My report adresses some of the issues
+                            mentioned here, but it glances over the more concerning fact that perovskites are not proven to have
+                            a suitable service life for Photovoltaic panels. My report written on perovskites can be accessed
+                            via this link:
+                            <a href="https://marcaura.github.io/MarcusFrancisco/pdfs/perovskites.pdf" target="_blank">Perovskite
+                                Solar Cells Report</a>
+        
+                            What I found in this class was a more realistic view on how useful perovskites are for widespread
+                            use. Professor Sellers was able to look past the hype, and was not easily convinced of perovskite
+                            panel feasibility like I was in years prior.
+        
+                            Beyond perovskites, this course also provided valuable insight into the engineering and design
+                            principles behind PV systems. One particularly interesting topic was the role of boost converters in
+                            photovoltaic applications. As I am simultaneously studying power electronics in another course, I
+                            found it fascinating to see the direct application of DC-DC converters in maximizing the efficiency
+                            of solar energy conversion. Boost converters are commonly used in PV systems to step up the voltage
+                            from solar panels while maintaining maximum power transfer through MPPT algorithms. This connection
+                            between power electronics and photovoltaics reinforced how interdisciplinary renewable energy
+                            systems truly are.
+        
+                            Another key takeaway was the complexity of integrating solar power into the electrical grid. Many
+                            people assume that the main challenge with solar power is simply storing excess energy to compensate
+                            for intermittency. While energy storage is important, EE 550 introduced me to the numerous technical
+                            and economic challenges beyond just storage. These include grid stability, voltage regulation, power
+                            electronics for grid interconnection, and the impact of variable solar generation on traditional
+                            power infrastructure.
+        
+                            Overall, EE 550 has significantly refined my critical thinking when evaluating solar technologies.
+                            It has taught me to question the sustainability and practicality of emerging PV solutions rather
+                            than accepting optimistic projections at face value. While I still believe that perovskites and
+                            other next-generation materials may play a role in the future of solar energy, I now understand the
+                            importance of long-term reliability, economic feasibility, and scalable manufacturing as key factors
+                            in determining whether a new technology will succeed beyond the laboratory.
+        
+                            This course has not only strengthened my technical understanding of photovoltaics but also provided
+                            me with a more grounded perspective—one that will be invaluable in my career as an engineer working
+                            in renewable energy. Moving forward, I will continue to approach emerging technologies with a
+                            balance of curiosity and skepticism, ensuring that my assessments are based on both scientific rigor
+                            and real-world viability.
+        
+                        </p>
+
+                    </div>
+                </div>
+            </section>
+            
+
+
+
+            <section id="reflection5" class="reflection-item" onclick="toggleDropdown(this)"
+                data-bg="assets/images/DeepLearningBackground2.PNG">
+                <div class="text-and-image">
+                    <span class="course-desc-icon" onclick="toggleDropdown(this); event.stopPropagation();">
+                        Course Description
+                        <div class="course-desc-content">
+                            <p class="justified-text">
+                                In this course, the students will learn advanced network design concepts through hands-on experimentation with real-world implementations. The course is divided in two parts. In the first part, the students will follow a guided set of assignments to consolidate the concepts learnt in the related networking courses. The instructor in class will review these concepts and the students will learn how to apply them in a practical environment. Then, a novel embedded system board will be utilized to implement well-known protocols for both wired and wireless networks. In the second part, the students will design, implement and evaluate state-of-the-art and novel networking protocols for real-world application scenarios that each group will come up with. This course will provide the students with the necessary skills to not only theoretically understand but also practically contribute to the development of our internetworked society.
+                            </p>
+                        </div>
+                    </span>
+
+                    <h1>EE496 Electronics Engineering Internship at Tapecon</h1>
+                    <h2>Professore Kevin Burke</h2>
+
+                    <p class="justified-text"z>
+                        My co-op experience at Tapecon allowed me to work on cutting-edge Flexible Hybrid Electronics (FHE), 
+                        a rapidly evolving field in electrical engineering. Throughout my internship, I designed and prototyped FHE circuits, 
+                        optimized manufacturing processes, and contributed to Tapecon’s goal of becoming the leading manufacturer of FHE. 
+                        My work involved microcontroller programming, circuit design, and troubleshooting advanced machinery used in production. 
+                        Several of my projects were presented at NextFlex Conferences in California and Berlin in 2023. This reflection details 
+                        my contributions, the challenges I faced, and the skills I developed.
+                    </p>
+                    <span class="initial-text">Click to Learn More</span> <!-- This text disappears on click -->
+                    <span class="toggle-icon">+</span>
+                    <div class="project-content">
+
+
+                        <h2>Introduction to Tapecon and its FHE Evolution</h2>
+
+                        <p class="justified-text">
+                            Tapecon is a company that has produced tape, stickers, adhesives, prints, and various other products throughout 
+                            most of its history. Recently, Tapecon has begun leveraging its expertise in adhesives and printing to produce 
+                            Flexible Hybrid Electronics (FHE)—a new category of electronics that integrates printed circuits on flexible dielectric sheets 
+                            rather than using traditional rigid circuit boards. This approach allows for thin, compact, and flexible electronics that have applications 
+                            in wearable technology, medical devices, and industrial automation.
+                        </p>
+                    
+                        <h2>Designing Printed Circuitry for FHE</h2>
+                    
+                        <p class="justified-text">
+                            The FHE design process begins with high-resolution film printing, followed by UV exposure to create a negative 
+                            of the circuit design. A fine stainless-steel mesh coated in UV-sensitive resin is used to apply conductive ink, which 
+                            seeps through the unexposed areas, forming the conductive traces on PET plastic or paper substrates.
+                        </p>
+                    
+                        <figure class="image-container">
+                            <img src="assets/images/FHE_film_print.jpg" alt="Example of an FHE design printed on film" class="zoomable">
+                            <figcaption>Figure 1: Example of an FHE design printed on film.</figcaption>
+                        </figure>
+                    
+                        <p class="justified-text">
+                            The resulting conductive patterns allow for surface-mount component placement, enabling the creation of fully functional 
+                            electronic circuits without the bulky form factor of traditional PCBs.
+                        </p>
+                    
+                        <figure class="image-container">
+                            <img src="assets/images/FHE_negative.jpg" alt="Example of an FHE design negative" class="zoomable">
+                            <figcaption>Figure 2: Example of an FHE design negative.</figcaption>
+                        </figure>
+                    
+                        <h2>Challenges and Problem-Solving</h2>
+                    
+                        <p class="justified-text">
+                            One of the main challenges in FHE development is achieving sustainability while maintaining efficiency. Traditional PCBs 
+                            use large amounts of metal and non-recyclable materials, whereas FHE circuits can be printed with small amounts of 
+                            conductive inks on flexible substrates, reducing waste.
+                        </p>
+                    
+                        <p class="justified-text">
+                            One of my first projects involved designing an FHE flood detector circuit using only a BJT transistor and conductive 
+                            traces. The industry standard for flood detection circuits requires a 3-inch circuit board, but I was able to reduce the 
+                            footprint to less than a half-inch while maintaining full functionality.
+                        </p>
+                    
+                        <figure class="image-container">
+                            <img src="assets/images/FHE_surface_resistor.jpg" alt="Example of an FHE with surface mount resistor" class="zoomable">
+                            <figcaption>Figure 3: Example of an FHE with surface mount resistor.</figcaption>
+                        </figure>
+                    
+                        <h2>Technical Achievements and Contributions</h2>
+                    
+                        <p class="justified-text">
+                            My work at Tapecon extended beyond just designing FHE circuits. I also developed programming and debugging 
+                            devices used for testing FHE circuits before deployment. One of my key contributions was the FHE temperature 
+                            detector circuit, which was showcased at the NextFlex Conference in California and Berlin in 2023.
+                        </p>
+                    
+                        <ul>
+                            <li>Developed a temperature-sensing FHE circuit using an AtTiny24A microcontroller.</li>
+                            <li>Designed a paper-thin sensor that illuminates an LED when temperature thresholds are exceeded.</li>
+                            <li>Demonstrated potential applications in cold-chain logistics and medical wearables.</li>
+                        </ul>
+                    
+                        <figure class="image-container">
+                            <img src="assets/images/FHE_programming_device.jpg" alt="FHE Programming Device" class="zoomable">
+                            <figcaption>Figure 4: FHE Programming Device.</figcaption>
+                        </figure>
+                    
+                        <h2>Summative Reflection</h2>
+                    
+                        <p class="justified-text">
+                            My co-op experience at Tapecon has been incredibly rewarding. Over the past two semesters and two summers, I have 
+                            had the opportunity to work with cutting-edge technology, refine my engineering skills, and contribute to projects that 
+                            were presented at international conferences.
+                        </p>
+                    
+                        <p class="justified-text">
+                            I have worked with large industrial equipment, including the Universal Pick and Place machine, which is capable of 
+                            placing over 200,000 components per hour. My exposure to these machines helped me refine circuit designs to 
+                            accommodate efficient component placement.
+                        </p>
+                    
+                        <figure class="image-container">
+                            <img src="assets/images/FHE_components.jpg" alt="Demonstration of small FHE components" class="zoomable">
+                            <figcaption>Figure 5: Demonstration of small FHE components.</figcaption>
+                        </figure>
+                    
+                        <h2>Professional Growth and Future Aspirations</h2>
+                    
+                        <p class="justified-text">
+                            Beyond technical skills, I developed strong career management skills, balancing 20+ hours per week at Tapecon 
+                            while excelling in my coursework and continuing my role as a professional musician. Managing these responsibilities 
+                            required strong organizational skills and time management.
+                        </p>
+                    
+                        <p class="justified-text">
+                            Working on FHE circuits has solidified my interest in sustainable electronics, and I am excited to see how flexible 
+                            hybrid technology evolves in the coming years. I plan to continue working at Tapecon throughout my Master’s program 
+                            and potentially pursue a PhD in Electrical Engineering.
+                        </p>
+                    
+                        <p class="justified-text">
+                            This internship experience bridged the gap between academia and industry, providing me with real-world problem-solving 
+                            skills that will be invaluable in my future career.
+                        </p>
+                    
+                        <figure class="image-container">
+                            <img src="assets/images/FHE_bonding_machine.jpg" alt="Bonding Machine used in FHE production line" class="zoomable">
+                            <figcaption>Figure 6: Bonding Machine used in FHE production line.</figcaption>
+                        </figure>
+                    
+                    </div>
+                </div>
+            </section>
+            
+
         </div>
     </div>
 
@@ -463,6 +916,7 @@
         </div>
     </div>
     <script src="script.js"></script>
+    <script src="assets/js/reflections.js"></script>
 </body>
 
 </html>
