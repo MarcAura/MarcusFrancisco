@@ -348,6 +348,22 @@ function toggleDropdown(element) {
     element.classList.toggle("active");
 }
 
+ 
+
+// Dropdown Script
+function toggleReflection(element) {
+    const content = element.querySelector('.course-desc-icon');
+
+    if (content.classList.contains('active') && element.classList.contains('active')) {
+        content.classList.toggle("active");
+    }
+    else{
+        element.classList.toggle("active");
+    }
+}
+
+
+
 
 // Reflection Expanding
 
