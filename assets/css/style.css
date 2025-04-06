@@ -551,35 +551,30 @@ footer a {
     text-align: center; /* Ensures the caption text is centered */
 }
 
-
-/* New Header Elements */
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center; /* Center items in nav */
-}
-
-nav ul li {
-    margin: 0; /* Remove space between items */
-}
+/* New Header Styles */
 
 nav ul li a {
-    display: block;
-    padding: 15px 20px;
-    margin: 0;
-    height: 100%;
+    display: inline-block;
+    padding: 10px 15px;
+    margin: -10px 5px;
     color: white;
     text-decoration: none;
     font-weight: bold;
-    background: transparent;
-    transition: background 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.335); /* Soft white outline */
+    background-color: transparent;
+    /* transition: all 0.3s ease-in-out; */
+    border-radius: 4px; /* Optional: soft corners */
 }
 
-/* 🎯 HOVER EFFECT */
+/* Hover effect with transparent blue fill */
 nav ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.15); /* Slightly lighter blue overlay */
-    border-radius: 0; /* Keep square corners if desired */
+    background-color: rgba(255, 134, 134, 0.15); /* Light transparent blue fill */
+    border-color: rgba(255, 255, 255, 0.8); /* Optional: stronger border on hover */
 }
+
+/* 
+header.shrink nav ul li a {
+    padding: 5px 10px;
+    font-size: 10px;
+    transition: all 0.3s ease-in-out;
+} */
