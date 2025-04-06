@@ -550,3 +550,36 @@ footer a {
     margin-top: 8px;
     text-align: center; /* Ensures the caption text is centered */
 }
+
+
+/* New Header Elements */
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Center items in nav */
+}
+
+nav ul li {
+    margin: 0; /* Remove space between items */
+}
+
+nav ul li a {
+    display: block;
+    padding: 15px 20px;
+    margin: 0;
+    height: 100%;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    background: transparent;
+    transition: background 0.3s ease;
+}
+
+/* 🎯 HOVER EFFECT */
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.15); /* Slightly lighter blue overlay */
+    border-radius: 0; /* Keep square corners if desired */
+}
