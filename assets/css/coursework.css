@@ -1,5 +1,6 @@
 /* Shared styling to make borders align */
 .coursework-header,
+.coursework-footer,
 .coursework-item {
     width: 90%;
     max-width: 900px;
@@ -19,6 +20,17 @@
     padding: 12px 0;
     background-color: #e6f0ff;
     border-radius: 10px 10px 0 0;
+}
+
+.coursework-footer {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 12px 0;
+    background-color: #e6f0ff;
+    border-radius:  0 0 10px 10px;
 }
 
 /* Collapsed course row */
@@ -53,6 +65,11 @@
     padding: 0 20px;
     text-align: left;
     transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out, padding 0.3s ease-in-out;
+}
+
+.coursework-item.active {
+    border-top: 1px solid #003c7db0;
+    border-bottom: 1px solid #003c7db0;
 }
 
 .coursework-item.active .course-content {
@@ -90,7 +107,8 @@
   }
   
 
-  .status-with-icon {
+  .status-with-icon { 
+    margin: auto;
     display: inline-flex;
     align-items: center;
     justify-content: flex-start;
@@ -102,3 +120,89 @@
     margin-right: 0.4em;
   }
   
+  .status-with-icon {
+    position: relative;
+    display: inline-block;
+    padding-left: 1.5em; /* space to make room for the icon */
+  }
+  
+  .overlay-icon {
+    position: absolute;
+    left: 0;
+    top: -110%;
+    transform: scale(1.0);
+    height: 1em;
+    width: auto;
+    /* pointer-events: none; ensures the icon doesn't block mouse events */
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+  
+  .overlay-icon:hover { 
+    transform: scale(1.1);
+    opacity: 0.85;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  .sidebar .semester-group {
+    margin-bottom: 1rem;
+    padding-left: 0;
+  }
+  
+  .sidebar .semester-group li {
+    list-style: none;
+    margin: 0.3rem 0;
+  }
+  
+  .sidebar .semester-group li strong {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #ffffff;
+  }
+  
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 1rem 0 0.5rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 2px solid #888; /* Accent underline (light blue) */
+    color: #ffffff;
+    letter-spacing: 0.5px;
+  }
+  
+
+  /* Scrollbar Beautification */
+
+  .sidebar {
+    overflow-y: auto;
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: rgba(100, 100, 100, 0.3) transparent; /* For Firefox */
+}
+
+/* WebKit Scrollbar Styling */
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: rgba(100, 100, 100, 0.3);
+    border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+  .sidebar {
+    overflow-y: hidden;
+}
+
+.sidebar:hover {
+    overflow-y: auto;
+}
+
+
