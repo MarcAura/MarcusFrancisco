@@ -7,6 +7,7 @@
     <title>Marcus Francisco's Portfolio</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/landing-style.css"> <!-- Landing page-specific styles -->
+    <link rel="stylesheet" href="assets/css/citations.css"> <!-- Landing page-specific styles -->
     <script defer src="script.js"></script>
 </head>
 
@@ -40,144 +41,40 @@
         <!-- Main Content -->
         <div class="content">
 
-            <!-- Hero Section with Circuit Background -->
-            <section id="hero">
-                <div class="hero-content">
-                    <!-- <div class="logo">MF</div> Custom MF Logo -->
-                    <h1>Marcus Francisco</h1>
-                    <h2>Electrical Engineer | Embedded Systems | FPGA, FHE & IoT | University at Buffalo</h2>
-                    <p>Exploring cutting-edge technology in microfabrication, FHE, and embedded systems.</p>
-
-                </div>
-                <div class="grid-container">
-                    <a href="about.html" class="grid-item"
-                        style="background-image: url('assets/images/landing/about.PNG');">
-                        <span>About Me</span>
-                    </a>
-                    <a href="reflections.html" class="grid-item"
-                        style="background-image: url('assets/images/landing/reflections.PNG');">
-                        <span>Reflections</span>
-                    </a>
-                    <a href="projects.html" class="grid-item"
-                        style="background-image: url('assets/images/landing/projects.PNG');">
-                        <span>Projects</span>
-                    </a>
-                    <a href="cv.html" class="grid-item" style="background-image: url('assets/images/landing/cv.PNG');">
-                        <span>Resume / CV</span>
-                    </a>
-                    <a href="citations.html" class="grid-item"
-                        style="background-image: url('assets/images/landing/citations.PNG');">
-                        <span>Citations</span>
-                    </a>
-                    <a href="contact.html" class="grid-item"
-                        style="background-image: url('assets/images/landing/contact.PNG');">
-                        <span>Contact</span>
-                    </a>
-                </div>
-            </section>
-
-            <!-- Portfolio Introduction -->
-            <section id="portfolio-intro" class="fade-in">
-                <h2>Welcome to My Engineering Portfolio</h2>
-                <p>
-                    I'm Marcus Francisco, an Electrical Engineering graduate student passionate about embedded systems, FPGA, microelectronics, and control systems.
-
-                    This portfolio showcases my <strong>technical expertise, research, and project work</strong> in
-                    Electrical Engineering.
-                    It serves as a <strong>professional repository</strong> of my journey—from <strong>circuit design &
-                        embedded systems</strong>
-                    to <strong>IoT development & FPGA programming</strong>.
-                </p>
-                <h3>Here in this portfolio, you will find:</h3>
-                
-                <ul>
-                    <li>
-                        <div class="title-wrapper">
-                            <img src="assets/icons/projects.svg" class="icon hover-effect">
-                            <strong>Projects & Research</strong>
-                        </div>
-                        <span class="description">Hands-on experience with Flexible Hybrid Electronics, IoT, Embedded Systems, and Microfabrication.</span>
-                    </li>
-                    <li>
-                        <div class="title-wrapper">
-                            <img src="assets/icons/courses.svg" class="icon hover-effect">
-                            <strong>Reflections on EE Courses</strong>
-                        </div>
-                        <span class="description">Insights on how my coursework shaped my career.</span>
-                    </li>
-                    <li>
-                        <div class="title-wrapper">
-                            <img src="assets/icons/skills.svg" class="icon hover-effect">
-                            <strong>Technical Skills & Certifications</strong>
-                        </div>
-                        <span class="description">Embedded systems, FPGA, circuit design, and more.</span>
-                    </li>
-                    <li>
-                        <div class="title-wrapper">
-                            <img src="assets/icons/publications.svg" class="icon hover-effect">
-                            <strong>Publications & Presentations</strong>
-                        </div>
-                        <span class="description">Papers, awards, and industry contributions.</span>
-                    </li>
-                </ul>
-
-            </section>
-
-            <!-- Visual Timeline -->
-            <section id="timeline">
-                <div class="container">
-                    <h2>My Engineering Education Timeline</h2>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-date">2020</div>
-                            <div class="timeline-content">
-                                <h3>Started at University at Buffalo</h3>
-                                <p>Enrolled in <strong>Electrical Engineering</strong> with a passion for Microelectronics, Embedded
-                                    Systems, and digital design.</p>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-date">2022</div>
-                            <div class="timeline-content">
-                                <h3>Researcher at UB REU</h3>
-                                <p>Developed a <strong>Digital Twin Campus Prototype</strong> and co-authored a paper published in
-                                    <strong>ACM Sensors Conference</strong>.</p>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-date">2023</div>
-                            <div class="timeline-content">
-                                <h3>Tapecon Electrical Engineering Internship</h3>
-                                <p>Worked on <strong>Flexible Hybrid Electronics (FHE)</strong>, with circuits presented in
-                                    <strong>California & Berlin</strong>.</p>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-date">2024</div>
-                            <div class="timeline-content">
-                                <h3>Developed BlueLink IoT Network</h3>
-                                <p>Designed an <strong>ESP32 Bluetooth & WiFi IoT System</strong> with an <strong>Android app</strong> using my own connection protocol.</p>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-date">2025</div>
-                            <div class="timeline-content">
-                                <h3>Master’s in Electrical Engineering</h3>
-                                <p>Completing my <strong>MS in EE</strong>, with a focus on <strong>Control Systems, Embedded Systems, and Microfabrication.</strong>.</p>
-                            </div>
+            <section id="citations">
+                <h1 class="section-title">Citations</h1>
+                <p class="intro-text">All images, reports, papers, and data referenced in this portfolio follow the IEEE citation format as per <a href="https://ieee-dataport.org/sites/default/files/analysis/27/IEEE%20Citation%20Guidelines.pdf" target="_blank">IEEE guidelines</a>. Click a citation below to expand its usage across the site and visit its source.</p>
+            
+                <div class="citation-list">
+            
+                    <!-- Citation Item Template -->
+                    <div class="citation-item" id="citation1">
+                        <button class="citation-toggle">[1] J. Smith and A. Doe, “Title of the Article,” <i>Journal of Engineering Systems</i>, vol. 12, no. 4, pp. 123–130, 2023. <a href="https://example.com/article1" target="_blank">[Source]</a></button>
+                        <div class="citation-details">
+                            <p><strong>Used In:</strong></p>
+                            <ul>
+                                <li><a href="reflections.html#reflection1">Reflections – Reflection on EE519</a></li>
+                                <li><a href="projects.html#smartlabel">Projects – Smart Label Development</a></li>
+                            </ul>
                         </div>
                     </div>
+            
+                    <div class="citation-item" id="citation2">
+                        <button class="citation-toggle">[2] UB EE Department, “EE616 Course Syllabus,” 2025. [Online]. Available: <a href="https://www.buffalo.edu/ee616/syllabus" target="_blank">https://www.buffalo.edu/ee616/syllabus</a></button>
+                        <div class="citation-details">
+                            <p><strong>Used In:</strong></p>
+                            <ul>
+                                <li><a href="coursework.html#ee616">Coursework – EE616</a></li>
+                                <li><a href="reflections.html#reflection-ee616">Reflections – ePortfolio Reflection</a></li>
+                            </ul>
+                        </div>
+                    </div>
+            
+                    <!-- Add additional citations in same structure -->
+            
                 </div>
             </section>
             
-            <section id="coming-soon">
-                <h1> More Coming Soon!</h1>
-                This portfolio was last updated on March 6th 2025.
-            </section>
 
         </div>
     </div>
@@ -202,6 +99,7 @@
     </div>
 
     <script src="script.js"></script>
+    <script src="assets/js/citations.js"></script>
 </body>
 
 </html>
