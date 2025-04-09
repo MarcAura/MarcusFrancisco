@@ -578,3 +578,14 @@ header.shrink nav ul li a {
     font-size: 10px;
     transition: all 0.3s ease-in-out;
 } */
+
+a.hyperlink-citation {
+    color: inherit;
+    /* text-decoration: underline; */ 
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a.hyperlink-citation:hover {
+    color: #00569c;
+}
