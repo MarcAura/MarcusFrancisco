@@ -206,3 +206,56 @@
 }
 
 
+/* coursework-hero Section */
+
+
+/* coursework-hero Section (Banner with Circuit Background) */
+#coursework-hero {
+  background: linear-gradient(135deg, #0061c1, #313ffd);
+  
+  /* background: radial-gradient(circle at center top, #0047AB 30%, #1c8aff 70%)  */
+  /* linear-gradient(to bottom, #1c8aff, #66b3ff); */
+
+  /* background-image: url('images/background.PNG'); Add a real circuit image */
+  background-blend-mode: overlay;
+  text-align: center;
+  color: white;
+
+  /* coursework-hero Section (Hanging Banner Effect) */
+  /* Move it up to hide the top behind the navbar */
+
+  padding: 20px 20px;
+  /* padding-top: 200px; */
+  position: relative;
+  margin-top: 40px; /* Adjust the value as needed */
+  border-radius: 20px 20px 20px 20px; /* Rounds only the bottom corners */
+  width: 40%; /* Keeps it responsive */
+  max-width: 1100px; /* Prevents it from being too wide */
+  margin: 30px auto; /* Centers the section */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Soft shadow */
+  opacity: 0;
+  /* margin-bottom: -160px; Adjust the value as needed */
+  /* transform: translateY(2px); Adjust if needed */
+  animation: fadeInDown 0.8s ease-out forwards;
+}
+
+@keyframes fadeInDown {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0px);
+  }
+}
+
+#coursework-hero h1 {
+  font-size: 3rem;
+  margin: 10px 0;
+}
+
+#coursework-hero h2 {
+  font-size: 1.5rem;
+  font-weight: lighter;
+}

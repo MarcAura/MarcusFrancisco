@@ -589,3 +589,34 @@ a.hyperlink-citation {
 a.hyperlink-citation:hover {
     color: #00569c;
 }
+
+
+/* Repeat of Sidebar Beautificatino from Coursweork */
+.sidebar {
+    overflow-y: auto;
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: rgba(100, 100, 100, 0.3) transparent; /* For Firefox */
+}
+
+/* WebKit Scrollbar Styling */
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: rgba(100, 100, 100, 0.3);
+    border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+  .sidebar {
+    overflow-y: hidden;
+}
+
+.sidebar:hover {
+    overflow-y: auto;
+}
