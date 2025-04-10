@@ -405,5 +405,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// Lock header zoom
-

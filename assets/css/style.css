@@ -18,7 +18,9 @@ header {
     /* Make sure it spans the entire width of the page */
     z-index: 1000;
     /* Ensure it stays above other content */
-}
+    /* Zoom Lock */
+     
+  }
 
 header.shrink {
     padding: 5px 15px;
