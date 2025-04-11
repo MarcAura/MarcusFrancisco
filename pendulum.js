@@ -94,5 +94,10 @@ function setUnstable() {
     integral = 0;
     prevError = 0;
 }
-
+function updateSliderValue(id) {
+    const slider = document.getElementById(id);
+    const display = document.getElementById(id + "-val");
+    display.textContent = slider.value;
+  }
+  
 controlLoop();

@@ -1,5 +1,6 @@
 /* Header and Navigation Bar */
 header {
+    font-size: 12px;
     
     text-align: center;
     background: linear-gradient(to bottom right, #003cbc, #096bfe);
@@ -25,7 +26,7 @@ header {
 header.shrink {
     padding: 5px 15px;
     /* Reduced padding when scrolled */
-    font-size: 10px;
+    font-size: 8px;
     /* Optional: reduce font size */
 }
 
@@ -675,4 +676,81 @@ a.hyperlink-citation:hover {
 
   canvas {
     border: 1px solid;
+  }
+
+  #controls {
+    margin-bottom: 15px;
+  }
+
+  label {
+    display: inline-block;
+    width: 100px;
+  }
+
+  input[type=range] {
+    width: 150px;
+  }
+
+  canvas {
+    border: 1px solid #333;
+    background: #fafafa;
+  }
+
+
+  .top-right-button {
+    position: fixed;
+    font-size: 11px;
+    top: 20px;
+    right: 20px;
+    background-color: #ac0b0b;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 6px; 
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    z-index: 1000;
+  }
+ 
+
+  
+  .top-right-button:hover {
+    background-color: #d23838;
+  }
+
+  @keyframes jogRightExit {
+    0% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    30% {
+      transform: translateX(15px);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(150vw);
+      opacity: 0;
+    }
+  }
+  
+  .top-right-button.exit {
+    animation: jogRightExit 0.8s ease-in-out forwards;
+  }
+  
+  @keyframes slideInFromRight {
+    0% {
+      transform: translateX(150vw);
+      opacity: 0;
+    }
+    70% {
+      transform: translateX(15px);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  .top-right-button.reenter {
+    animation: slideInFromRight 0.8s ease-out forwards;
   }

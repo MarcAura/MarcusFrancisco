@@ -74,10 +74,25 @@ setActiveLink();
 // Function to shrink the header on scroll
 function shrinkHeader() {
     const header = document.querySelector('header');
+    const button = document.querySelector('.top-right-button');
+
     if (window.scrollY > 50) { // Adjust the scroll distance as needed
         header.classList.add('shrink');
+        // Trigger button exit animation only once
+        if (!button.classList.contains('exit')) {
+            button.classList.add('exit');
+            button.classList.remove('reenter');
+        }
     } else {
         header.classList.remove('shrink');
+        if (button.classList.contains('exit')) {
+            button.classList.remove('exit');
+    
+            // Force reflow to allow animation to restart cleanly
+            void button.offsetWidth;
+    
+            button.classList.add('reenter');
+          }
     }
 }
 
@@ -285,7 +300,7 @@ function openModal(imgElement) {
     var modalCaption = document.getElementById("modalCaption"); // Get caption element
     modal.style.display = "block";
     modal.classList.add("show");
-    modalImg.src = imgElement.src;    
+    modalImg.src = imgElement.src;
     modalCaption.textContent = imgElement.alt || "No description available"; // Set caption text
 
 }
@@ -339,7 +354,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Sending Emails
 
-document.getElementById("contact-form").addEventListener("submit", function(event) {
+document.getElementById("contact-form").addEventListener("submit", function (event) {
     document.getElementById("form-message").style.display = "block";
 });
 
@@ -348,7 +363,7 @@ function toggleDropdown(element) {
     element.classList.toggle("active");
 }
 
- 
+
 
 // Dropdown Script
 function toggleReflection(element) {
@@ -357,7 +372,7 @@ function toggleReflection(element) {
     if (content.classList.contains('active') && element.classList.contains('active')) {
         content.classList.toggle("active");
     }
-    else{
+    else {
         element.classList.toggle("active");
     }
 }
@@ -400,8 +415,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!event.target.classList.contains("zoomable")) {
                 toggleReflection(this);
             }
-            
+
         });
     });
 });
-

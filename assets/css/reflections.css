@@ -177,7 +177,30 @@
     padding-top: 0px;
 }
 
-
+h5.reflection-heading {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    /* border-left: 4px solid #8CBCE5; */
+    padding-left: 0.75rem;
+  }
+  
+  .slider-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 20px;
+  }
+  
+  .slider-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 180px;
+  }
+  
 /* Target h2 and h3 inside .reflection-item */
 .reflection-item h1 {
     margin-bottom: 5px;
