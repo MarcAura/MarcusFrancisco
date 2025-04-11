@@ -1,7 +1,7 @@
 /* Header and Navigation Bar */
 header {
     font-size: 12px;
-    
+
     text-align: center;
     background: linear-gradient(to bottom right, #003cbc, #096bfe);
     /* Gradient from top-left to bottom-right */
@@ -20,8 +20,8 @@ header {
     z-index: 1000;
     /* Ensure it stays above other content */
     /* Zoom Lock */
-     
-  }
+
+}
 
 header.shrink {
     padding: 5px 15px;
@@ -42,7 +42,8 @@ body {
     /* Enable smooth scrolling */
     padding-top: 10px;
     /* Add space to the top of the body content so it's not hidden under the header */
-    transition: transform 0.3s ease; /* Ensure smooth scaling */
+    transition: transform 0.3s ease;
+    /* Ensure smooth scaling */
 
 }
 
@@ -93,7 +94,7 @@ nav ul li a {
     /* Extends 20px past the left edge */
     width: 100px;
     transform: translateX(-20px);
-    
+
     /* Sidebar width */
     background-color: #acc7ff;
     padding: 20px;
@@ -113,44 +114,53 @@ nav ul li a {
     /* Add padding to push the sidebar content down */
     position: sticky;
 
-    transition: transform 0.5s cubic-bezier(0.38, -0.25, 0.17, 1.35); /* Bouncy effect */
+    transition: transform 0.5s cubic-bezier(0.38, -0.25, 0.17, 1.35);
+    /* Bouncy effect */
 
 }
 
 /* Expanded Sidebar (Includes Slight Overshoot) */
 .sidebar.expanding {
-    transform: translateX(260px); /* Moves slightly beyond its final position */
+    transform: translateX(260px);
+    /* Moves slightly beyond its final position */
 }
 
 /* Fully Expanded Sidebar */
 .sidebar.expanded {
-    transform: translateX(250px); /* Settles at the final position */
+    transform: translateX(250px);
+    /* Settles at the final position */
 }
 
 /* Collapsing Sidebar (Includes Slight Retract Before Collapse) */
 .sidebar.collapsing {
-    transform: translateX(10px); /* Pulls slightly back before collapsing */
+    transform: translateX(10px);
+    /* Pulls slightly back before collapsing */
 }
 
 /* Fully Collapsed Sidebar */
 .sidebar.collapsed {
-    transform: translateX(-230px); /* Moves back off-screen */
+    transform: translateX(-230px);
+    /* Moves back off-screen */
 }
 
 /* Code to toggle Sidebar START */
 
 /* Collapsed Sidebar */
 .sidebar.collapsed {
-    transform: translateX(-140px); /* Hides most of the sidebar */
+    transform: translateX(-140px);
+    /* Hides most of the sidebar */
 }
 
 /* Toggle Button */
 #sidebar-toggle {
     /* position: fixed; Fix it to the screen */
-    left: 85px; /* Position it right next to the sidebar */
-    bottom: 5px; /* Position it right next to the sidebar */
+    left: 85px;
+    /* Position it right next to the sidebar */
+    bottom: 5px;
+    /* Position it right next to the sidebar */
     /* position: absolute; */
-    position: fixed; /* Makes it stay in place while scrolling */
+    position: fixed;
+    /* Makes it stay in place while scrolling */
     /* right: -30px; Place outside sidebar */
     /* top: 50%; */
     transform: translateY(-50%);
@@ -159,32 +169,40 @@ nav ul li a {
     color: white;
     border: none;
     cursor: pointer;
-    padding: 10px 15px; /* Add padding for a square shape */
+    padding: 10px 15px;
+    /* Add padding for a square shape */
     font-size: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 20px; /* Ensures button is square */
+    width: 20px;
+    /* Ensures button is square */
     height: 30px;
-    border-radius: 5px; /* Optional: rounded edges */
+    border-radius: 5px;
+    /* Optional: rounded edges */
     transition: left 0.3s ease-in-out, transform 0.3s ease-in-out;
-    z-index: 1100; /* Ensures it's above other elements */
+    z-index: 1100;
+    /* Ensures it's above other elements */
 }
 
 /* Rotate Button When Sidebar is Collapsed */
-.sidebar.collapsed + #sidebar-toggle {
-    left: 20px; /* Move button closer when sidebar is collapsed */
-    transform: translateY(-50%) rotate(180deg); /* Rotate button */
+.sidebar.collapsed+#sidebar-toggle {
+    left: 20px;
+    /* Move button closer when sidebar is collapsed */
+    transform: translateY(-50%) rotate(180deg);
+    /* Rotate button */
 }
 
 /* Adjust Button Position When Sidebar is Open */
-.sidebar.expanded + #sidebar-toggle {
-    left: 270px; /* Moves further out */
+.sidebar.expanded+#sidebar-toggle {
+    left: 270px;
+    /* Moves further out */
 }
 
 /* Adjust Button When Sidebar is Collapsing */
-.sidebar.collapsing + #sidebar-toggle {
-    left: 30px; /* Slightly retract before fully collapsing */
+.sidebar.collapsing+#sidebar-toggle {
+    left: 30px;
+    /* Slightly retract before fully collapsing */
 }
 
 
@@ -208,7 +226,8 @@ html {
 .sidebar ul li a {
     color: white;
     text-decoration: none;
-    font-size: 16px; /* Smaller size for non-highlighted links */
+    font-size: 16px;
+    /* Smaller size for non-highlighted links */
     transition: font-size 0.3s ease-in-out, font-weight 0.3s ease-in-out;
 }
 
@@ -219,7 +238,8 @@ html {
 /* Active link styling */
 .sidebar ul li a.active {
     font-weight: bold;
-    font-size: 18px; /* Slightly larger font size */
+    font-size: 18px;
+    /* Slightly larger font size */
     color: #ffcc00;
     transition: font-size 0.3s ease-in-out, font-weight 0.3s ease-in-out;
     /* Highlight active link */
@@ -239,8 +259,9 @@ html {
 }
 
 /* Reduce Left Padding When Sidebar is Collapsed */
-.sidebar.collapsed ~ .content {
-    margin-left: -135px; /* Reduce space when sidebar is collapsed */
+.sidebar.collapsed~.content {
+    margin-left: -135px;
+    /* Reduce space when sidebar is collapsed */
 }
 
 section {
@@ -530,7 +551,8 @@ footer a {
 
 /* Combined Zoomable and Responsive Image */
 .zoomable-responsive {
-    width: 50%;  /* Adjust scale as needed */
+    width: 50%;
+    /* Adjust scale as needed */
     height: auto;
     display: block;
     margin: auto;
@@ -539,19 +561,24 @@ footer a {
 }
 
 .zoomable-responsive:hover {
-    transform: scale(1.05); /* Slight hover effect */
+    transform: scale(1.05);
+    /* Slight hover effect */
 }
 
 .image-container {
-    text-align: center; /* Centers the content inside */
-    margin: 20px auto; /* Adds space around */
+    text-align: center;
+    /* Centers the content inside */
+    margin: 20px auto;
+    /* Adds space around */
 }
 
 .image-container figcaption {
     font-size: 14px;
-    color: #666; /* Grey text */
+    color: #666;
+    /* Grey text */
     margin-top: 8px;
-    text-align: center; /* Ensures the caption text is centered */
+    text-align: center;
+    /* Ensures the caption text is centered */
 }
 
 /* New Header Styles */
@@ -563,16 +590,20 @@ nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    border: 1px solid rgba(255, 255, 255, 0.335); /* Soft white outline */
+    border: 1px solid rgba(255, 255, 255, 0.335);
+    /* Soft white outline */
     background-color: transparent;
     /* transition: all 0.3s ease-in-out; */
-    border-radius: 4px; /* Optional: soft corners */
+    border-radius: 4px;
+    /* Optional: soft corners */
 }
 
 /* Hover effect with transparent blue fill */
 nav ul li a:hover {
-    background-color: rgba(255, 134, 134, 0.15); /* Light transparent blue fill */
-    border-color: rgba(255, 255, 255, 0.8); /* Optional: stronger border on hover */
+    background-color: rgba(255, 134, 134, 0.15);
+    /* Light transparent blue fill */
+    border-color: rgba(255, 255, 255, 0.8);
+    /* Optional: stronger border on hover */
 }
 
 /* 
@@ -584,7 +615,7 @@ header.shrink nav ul li a {
 
 a.hyperlink-citation {
     color: inherit;
-    /* text-decoration: underline; */ 
+    /* text-decoration: underline; */
     text-decoration: none;
     cursor: pointer;
 }
@@ -597,8 +628,10 @@ a.hyperlink-citation:hover {
 /* Repeat of Sidebar Beautificatino from Coursweork */
 .sidebar {
     overflow-y: auto;
-    scrollbar-width: thin; /* For Firefox */
-    scrollbar-color: rgba(100, 100, 100, 0.3) transparent; /* For Firefox */
+    scrollbar-width: thin;
+    /* For Firefox */
+    scrollbar-color: rgba(100, 100, 100, 0.3) transparent;
+    /* For Firefox */
 }
 
 /* WebKit Scrollbar Styling */
@@ -616,7 +649,7 @@ a.hyperlink-citation:hover {
 }
 
 
-  .sidebar {
+.sidebar {
     overflow-y: hidden;
 }
 
@@ -643,7 +676,8 @@ a.hyperlink-citation:hover {
 }
 
 .dropdown-text .secondary-text {
-    display: block;                  /* Always block to allow layout */
+    display: block;
+    /* Always block to allow layout */
     max-height: 0;
     overflow: hidden;
     opacity: 0;
@@ -654,10 +688,11 @@ a.hyperlink-citation:hover {
     line-height: 1.4;
     color: inherit;
 }
- 
+
 
 .dropdown-text.active .secondary-text {
-    max-height: 200px;              /* Set large enough to fit content */
+    max-height: 200px;
+    /* Set large enough to fit content */
     opacity: 1;
     margin-top: 0.75em;
     margin-bottom: 0.75em;
@@ -665,37 +700,115 @@ a.hyperlink-citation:hover {
 
 #controller {
     margin-bottom: 15px;
-  }
+}
 
-  .sim-container {
+.sim-container {
     display: flex;
     flex-direction: row;
     gap: 20px;
     align-items: flex-start;
-  }
+}
 
-  canvas {
+canvas {
     border: 1px solid;
-  }
+}
 
-  #controls {
+#controls {
     margin-bottom: 15px;
-  }
+}
 
-  label {
+label {
     display: inline-block;
     width: 100px;
-  }
+}
 
-  input[type=range] {
+input[type=range] {
     width: 150px;
-  }
+}
 
-  canvas {
+canvas {
     border: 1px solid #333;
     background: #fafafa;
-  }
+}
 
+
+
+
+
+
+.top-right-button:hover {
+    background-color: #d23838;
+}
+
+@keyframes jogRightExit {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    30% {
+        transform: translateX(15px);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(150vw);
+        opacity: 0;
+    }
+}
+
+.top-right-button.exit {
+    animation: jogRightExit 0.8s ease-in-out forwards;
+}
+
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(150vw);
+        opacity: 0;
+    }
+
+    70% {
+        transform: translateX(15px);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.top-right-button.reenter {
+    animation: slideInFromRight 0.8s ease-out forwards;
+}
+
+/* Super Header Styling */
+.super-header {
+    margin-top: -20px;
+    margin-bottom: 20px;
+    position: relative;
+    width: 100%;
+    /* background-color: #0058dc; match your site's theme */
+    background: linear-gradient(to bottom right, #003cbc, #096bfe);
+    color: white;
+    text-align: center;
+    padding: 1px 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    z-index: 998; /* ensure it sits above content initially */
+    transition: all 0.3s ease;
+  }
+  
+  /* Sticky main header that appears after scrolling */
+  header {
+    margin-top: -20px;
+    margin-bottom: -20px;
+    position: sticky;
+    /* top: 0; */
+    z-index: 997;
+    /* background: linear-gradient(to bottom right, #003cbc, #096bfe); */
+    /* transition: all 0.3s ease; */
+  }
+  
 
   .top-right-button {
     position: fixed;
@@ -705,52 +818,9 @@ a.hyperlink-citation:hover {
     background-color: #ac0b0b;
     color: white;
     padding: 10px 16px;
-    border-radius: 6px; 
+    border-radius: 6px;
     text-decoration: none;
     font-weight: bold;
     transition: background-color 0.3s ease;
-    z-index: 1000;
-  }
- 
-
-  
-  .top-right-button:hover {
-    background-color: #d23838;
-  }
-
-  @keyframes jogRightExit {
-    0% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-    30% {
-      transform: translateX(15px);
-      opacity: 1;
-    }
-    100% {
-      transform: translateX(150vw);
-      opacity: 0;
-    }
-  }
-  
-  .top-right-button.exit {
-    animation: jogRightExit 0.8s ease-in-out forwards;
-  }
-  
-  @keyframes slideInFromRight {
-    0% {
-      transform: translateX(150vw);
-      opacity: 0;
-    }
-    70% {
-      transform: translateX(15px);
-      opacity: 1;
-    }
-    100% {
-      transform: translateX(0);
-    }
-  }
-  
-  .top-right-button.reenter {
-    animation: slideInFromRight 0.8s ease-out forwards;
-  }
+    z-index: 1001;
+}
