@@ -17,6 +17,9 @@
 }
 
 .citation-item {
+    align-items: center;
+    width: 70%;
+    margin: auto;
     border: 1px solid #ccc;
     border-radius: 12px;
     overflow: hidden;

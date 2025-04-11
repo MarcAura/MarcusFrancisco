@@ -691,7 +691,7 @@ a.hyperlink-citation:hover {
 
 
 .dropdown-text.active .secondary-text {
-    max-height: 200px;
+    max-height: 1200px;
     /* Set large enough to fit content */
     opacity: 1;
     margin-top: 0.75em;
