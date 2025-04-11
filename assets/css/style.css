@@ -622,3 +622,57 @@ a.hyperlink-citation:hover {
 .sidebar:hover {
     overflow-y: auto;
 }
+
+.dropdown-text {
+    display: inline;
+    cursor: pointer;
+    color: inherit;
+    position: relative;
+}
+
+.dropdown-text .default-text {
+    display: inline;
+    text-decoration: underline;
+    transition: color 0.3s, text-decoration-color 0.3s;
+}
+
+.dropdown-text:hover .default-text {
+    color: #0066cc;
+    text-decoration-color: #0066cc;
+}
+
+.dropdown-text .secondary-text {
+    display: block;                  /* Always block to allow layout */
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    transition: max-height 0.4s ease, opacity 0.4s ease, margin 0.4s ease;
+    font-size: 0.95em;
+    line-height: 1.4;
+    color: inherit;
+}
+ 
+
+.dropdown-text.active .secondary-text {
+    max-height: 200px;              /* Set large enough to fit content */
+    opacity: 1;
+    margin-top: 0.75em;
+    margin-bottom: 0.75em;
+}
+
+#controller {
+    margin-bottom: 15px;
+  }
+
+  .sim-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  canvas {
+    border: 1px solid;
+  }
