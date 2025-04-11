@@ -893,6 +893,160 @@
             </section>
             
 
+
+
+
+
+
+
+            
+
+<!-- Additional Reflections -->
+
+
+
+
+
+
+<!--
+            
+            
+            
+
+Reflection 5
+EE 550LEC,    Special Topics (Digital Integrated Circuits),    Bibhudatta Sahoo
+
+I decided to take Digital Integrated Circuits for a number of reasons. This course, to me, is the culmination of all my prior graduate coursework that sheds light on what I would call the “mystery” within electronics. Digital circuits is a subject that interested me greatly, and having taken Analog circuits with Professor Sahoo the prior semester, I was excited to learn more about this area. As electrical engineers, it’s common knowledge how transistors work, how their characteristics affect circuits and how important their properties are when designing digital circuits. However, the more nuanced knowledge is in the specifics. How are transistors manufactured that creates such properties? Why do we as engineers need to design for components with variance in characteristics. In undergraduate work, we are taught that transistors may have vastly different I-V (Current and Voltage) Characteristics [IV DROPDOWN TO EXPLAIN WHAT THIS MEANS]  even though they have the same model number. In this graduate course, we are shown the principles behind why integrated circuits are designed the way they are, what new and interesting effects are observed when looking at such a small scale, and how we are able to procure designs that are not only functional, but feasible to produce with constraints of size, budget, and performance. 
+
+An example of the nuance of digital circuit design can be seen in the layout of transistors in an integrated circuit. Let’s first look at the simple BJT used in the following circuit. 
+
+[IMAGE OF A BJT]
+
+This circuit has a I-V curve [DROPDOWN OF GRAPH] that is common for a single BJT device. Inside the BJT circuit element is a PN junction layout that looks like this:
+
+[IMAGE OF PN JUNCTION BJT - Marcus Francisco]
+
+The terminals each attach to the [], [], and [] respectively, and the circuit behaves predictable in accordance with the IV curve mentioned above. 
+
+Let’s now look at a more complex MOSFET integrated circuit. This hypothetical circuit must fit within a []nm scale, contain [] mosfets, it must be able to operate at a certain frequency with a set propagation delay, and each mosfet must cost less than [] Approximate values of the cost and function of these circuits are inspired by the following sources [CITATION OF SOURCE AND SAHOO LECTURES]
+
+This layout is on such a small scale that capacitances between the terminals are now relevant. We must factor those into our calculations when determining the performance and capabilities of this circuit. Also, because we are limited by size, we must be clever with where we place each junction. A common practice is to overlap the doped silicon regions to create multiple MOSFETS with less doped material. [GIF OF MOSFET LAYOUTS WITH AND WITHOUT THIS DESIGN ASPECT]
+
+The knowledge it takes to optimize digital integrated circuits in this way is what this class was meant to teach. There are many other aspects that come into play in this course as well. [DESCRIBE MATERIAL FROM WORK]
+
+I have excelled in digital circuits, logic, and microelectronics in my undergraduate work, and for me the next step was to continue my education about digital circuits into my graduate work. I plan to pursue a career in digital design, so this education will align very well with my future work. 
+Something I learned about this subject is that there may be complex algorithms and tools that are used to optimize structures, however much of this field still requires a human touch. In an FPGA device, there may be a computation architecture for most purposes in creating a program, however there are also what are referred to as “Math Blocks” that are designed specifically for certain repeated functions. These are developed with purpose and great attention to detail in order to yield a block that can perform the repeated task with great speed and reduced space usage on the integrated circuit.
+
+Most of the challenges I encountered in this class were in using software. Cadence is the program we used most frequently to simulate circuits and perform analysis. This program could only be used on UB computers, and students needed to remote-in to use the program. I find I improved most in my ability to be effective in using this complex program within the limitations of a remote system. While not within the scope of the class itself, I also learned a lot about how to operate using the Linux operating system, which will be helpful down the line should I need to use Linux or Cadence again in my career. 
+
+I expected much of this course to be designing for digital logic using known optimization principles. I expected to see a circuit that I thought had been sufficiently optimized and then be informed that there were ways to make things even more efficient at using available resources. What surprised me is that sometimes the optimization took meticulous trial and error testing out many possible configurations, and even the simplest of logic could require hours of careful calculation and simulation. When I expected to be figuring out how to optimize a 3-bit multiplier circuit or something more complex, what I found is that it takes an entire class period to go through all the possible considerations in a single 4-bit ripple carry adder.
+
+
+
+
+The course’s most powerful contribution to my understanding came through the in-depth exploration of Logical Effort. Prior to this class, I was vaguely aware of the need to optimize digital paths—but here, I learned how to rigorously quantify delay across multi-stage circuits and evaluate delay contributions from logical, electrical, and parasitic sources. The equation
+d
+=
+g
+h
++
+p
+d=gh+p became a guiding principle throughout the semester. We used it not just for theoretical calculations, but also to design fast datapaths and reason through fanout, stage effort, and gate sizing at a high level. This gave me a practical framework for building timing-aware digital systems—something I will absolutely carry forward in industry settings.
+One of the most challenging yet rewarding experiences was Mini Project 1, where we designed a shift-and-accumulate processing core from scratch. This project tied together a barrel shifter, a pipelined adder tree, memory blocks, a synchronous counter, and control logic—all synthesized and verified as a cohesive system. The goal was to replicate the behavior of a simplified neural network accelerator, where 16 inputs and 16 coefficients are processed in parallel. This was not only technically demanding but also helped reinforce why performance and area optimization are critical in modern processor design.
+Designing this project demanded a solid understanding of pipeline register placement, bit-width propagation, and clock-domain synchronization—skills that I had only briefly touched in previous coursework. Debugging timing issues during simulation also revealed the real-world complexities that can emerge even when logic seems functionally correct. We saw firsthand how barrel shifter output bit-width decisions influenced the datapath, and how improper sizing at even one point could propagate errors downstream.
+Additionally, lectures on gate sizing and delay minimization opened my eyes to the subtle tradeoffs in circuit design. It’s not always best to minimize the number of stages—sometimes inserting more stages with appropriately sized gates yields lower total delay. This concept, grounded in the method of logical effort, was a paradigm shift for me. We analyzed example designs, including a FO4 inverter path, a decoder for a 16-word register file, and explored why NAND gates tend to be more efficient than NOR gates in CMOS logic. The use of spreadsheets to calculate optimal stage effort and input capacitances showed how engineers bring mathematical clarity to practical design constraints.
+In reflection, this course fundamentally deepened my perspective on digital design. It moved me beyond surface-level knowledge of how digital circuits behave into a deeper appreciation of why they behave that way, and how best to manipulate and refine that behavior for real-world systems. Whether I pursue embedded systems, ASIC design, or hardware acceleration for AI, the principles I’ve learned in EE550 will be immediately relevant.
+I also walked away with unexpected gains—especially in my comfort with Cadence tools, Linux remote environments, and waveform debugging. These skills were not the primary focus of the syllabus, but they became essential to completing our designs, and they reflect a broader lesson: in this field, no tool or concept exists in isolation. Each piece connects, overlaps, and reinforces the others.
+As I prepare to graduate and transition into full-time engineering work, this class stands out as one of the most formative. It was humbling, intense, and intellectually rich—and it left me with both the confidence and curiosity to continue learning long after grades are assigned.
+
+
+
+
+
+
+
+
+
+Reflection 6
+EE 519LEC,    Industrial Control Systems,                             Luis Carlos Herrera
+
+
+Give an explaination of the control system necessary to drive. An inverted pendulum and embed a video.
+
+Consider embedding a JS Fiddle inverted pendulum simulator, cite JSfiddle and the sources used to create the simulation. Make it relevant to the controls class.
+
+[JS Fiddle inverted pendulum simulator with adjustable gain values by user]
+
+— Include here an in depth description of the principles at work behind controlling the pendulum and how I felt learning these in class. Include an in depth description of state space systems and how you could apply state space to a circuit or to a pendulum. — 
+
+This course also filled a gap in my education around linear algebra. As someone who specializes in embedded systems and controls, I took the course for MatLab instead of Linear Algebra. I feel my MatLAB knowledge is greatly useful in my major, but I have been needing a more in depth course on linear algebra. This course taught me what was missing in this area. I recall Professor Herrra decided to try something different and used chalk to teach the linear algebra review. I really appreciate using chalk for teaching mathematics, and I found myself taking more detailed notes and paying attention to every detail. 
+
+Something interesting and unexpected I encountered in this class was that it would be where I discover the versatility of LaTeX. Beyond the course content and the relevant usage in my chosen career path, I was pleasantly surprised to make leaps and bounds in my professional report writing. At the end of this semester, I was able to procure professional looking IEEE style reports for all of my classes, and I attribute this mainly to this class inspiring me to use LaTeX and Overleaf in all my courses. I have gotten much better at the syntax and coding aspect of this language, and I feel confident that I work more efficiently and effectively in report writing than I ever was in other software. Typing professional reports in LaTeX is one of the most important skills I’ve learned in my graduate career. As a result of this course and Professor Herra encouraging the use of LaTeX I now use this language for all my reports. 
+
+What I valued most in EE519 was how it brought together theoretical math, real-world engineering systems, and modern technical tools. The inverted pendulum simulator, for instance, helped translate abstract concepts like controllability and pole placement into something interactive and intuitive. Learning how to model a system in state space—breaking it down into matrices that describe its evolution—gave me a framework I can now apply across disciplines, from robotics to analog circuits. By the end of the course, I wasn't just solving equations—I was understanding systems. That shift in mindset has helped me grow both as an engineer and a problem solver.
+
+
+
+
+
+
+
+IE 512LEC,        Decision Analysis             Jun Zhuang
+
+Decision analysis was both interesting and relevant to my life in ways beyond my education and career. This course helps to [GIVE GOOD OVERVEIW OF CLASS], and the overall idea is to provide a structure and reason upon which to base complex decisions where the right answer is not always clear. The class culminates in a final project where you use all the acquired skills throughout the semester in attempting to perform decision analysis on a decision of your choosing. My project is relevant to me for a personal reason. In Fall of 2024 I was told my by doctor that I have many of the warning signs for Thyroid cancer. I had abnormal blood thyroglobulin levels, and was informed by an ENT that I was a 4/5 on the TiRADS thyroid cancer risk assessment scale. I was unsure of what all the statistics meant at the time, and was understandably panicked at the now very real possibility of going through my last year of college as a cancer patient. Through research and consultation with many doctors, I was able to more adequately understand the numbers and the diagnosis. Thus, I decided to make my final project a decision tree, sensitivity analysis, and decision analysis of what actions to take when diagnosed with a thyroid nodule. 
+[EMBED POWERPOINT, DECISION TREES, AND FINAL PRESENTATION]
+This ended up being a great choice of project material, since I had already done extensive research on thyroid cancer, and was visiting thyroid surgeons and specialists to acquire the most accurate information I could. My goal was to be the most informed on the condition and on my choices as I possibly could, and I was invested in making this project useful as I was personally going through this difficult choice during that semester. 
+
+Decision Analysis Class:
+
+[Decision Analysis Reflection]
+
+In IE 512, we were taught to construct structured decision-making models for real-world problems, incorporating probabilities, utilities, and sensitivity analyses to evaluate uncertain outcomes. The course introduced fundamental tools such as decision trees, influence diagrams, and Bayes’ theorem. These tools allowed me to better define problems, quantify risks and outcomes, and identify optimal decisions under uncertainty. Our professor, Dr. Jun Zhuang, emphasized using these models not merely as theoretical exercises but as practical guides for high-stakes decision-making. My experience using this methodology—on a problem that impacted my own life—demonstrated how profoundly valuable decision analysis can be in navigating ambiguity. I learned to balance data with values, and weigh expected utility not just in survival years, but in quality of life and mental health. These lessons extended beyond academic exercises into deeply personal terrain, and helped me make peace with the choice I ultimately made.
+In this project, my brother and I created a decision tree to evaluate options for a patient diagnosed with a thyroid nodule. The two main alternatives we analyzed were surgical thyroidectomy and active monitoring. Each path contained chance nodes accounting for malignancy, surgical complications, hormone replacement side effects, and cancer progression. We used real statistics to assign probabilities to each outcome. For example, the overall 5-year relative survival rate for thyroid cancer is 98.4%, but drops to 51.9% if distant metastasis occurs {CITE SOURCE: “SEER Cancer Stat Facts: Thyroid Cancer”}. We also created an influence diagram that visualized how expert opinion, patient symptoms, and malignancy interact in a dynamic system of feedback loops. Our analysis helped reveal a non-obvious truth: sometimes waiting is the optimal choice. While surgery provides a definitive diagnosis, the lifelong tradeoff of hormone replacement therapy must be weighed against the low but real risk of malignancy for small or indeterminate nodules (e.g., 10.5% for nodules 1–1.9cm, and 15% for those >4cm) {CITE SOURCE: “Kamran et al., 2013”}.
+We modeled patient utility not only in terms of life expectancy but also in mental health. To do this, we developed a double-objective framework that weighted outcomes by both longevity and psychological burden. Our tornado and spider graphs showed that longevity was the dominant driver of expected value, but mental well-being had a meaningful effect, especially when dealing with uncertainty or repeated inconclusive biopsy results. When both longevity and mental health were weighted together, we found the optimal strategies were those that prioritized early specialist consultation and careful monitoring over aggressive surgical intervention—unless cancer was clearly suspected. See Figure 1 for our final decision tree and Figure 2 for the influence diagram. [Insert: Figure 1 – Final Decision Tree] [Insert: Figure 2 – Final Influence Diagram] [Insert: Figure 3 – Spider Graph or Tornado Chart]
+Ultimately, this project taught me how to bring clarity to a deeply ambiguous real-world challenge. It wasn’t just an exercise in numbers or decision theory—it gave me language and structure to think through the most important decision of my life to date. I now understand what it means to weigh tradeoffs under uncertainty, how to identify meaningful objectives, and how to respect the influence of both quantitative and qualitative outcomes. This course helped me become not just a better decision-maker, but a more analytical and self-aware individual during a deeply emotional time.
+
+
+The report for this project can be seen here
+The final presentation of this project can be viewed via this link:
+
+My Experience with a Thyroid Condition:
+
+The most central challenge to this problem is that doctors cannot diagnose thyroid cancer with certainty without removing the organ. There are scans, blood tests, MRIs, CT scans, Ultrasound, needle aspiration biopsies, and physical exams that can give us clues, but none tell us for certain weather or not you have cancer. I underwent each one of these tests, and at the time I was holding out hope that one of them would tell me for sure that I don’t have cancer, but that did not happen. Scans like the MRI and CT were done with and without contrast. Interestingly, these scans were taken of my thyroid (neck) and my sinuses and maxilofacial region in one go. For that reason, I my mouth was stuffed with gauze to maintain contrast between the soft palate and the tongue during the duration of the scan, where I was required to keep completely still for 50 minutes. 
+I soon came to understand what TiRADS means, [insert explaination], and I understood the nuance of what thyroglobulin levels indicate. Through my journey making decisions about this condition for myself, I discovered more of the mistakes one may make along the way. One of the pitfalls I found is going into surgery to remove the thyroid prematurely. The rate of thyroid nodules in the population is upwards of 60%, while the incidence of cancer is only []% {Cite Source}. This along with an indeterminant biopsy diagnosis results in a tough decision. I had an inconclusive biopsy, which ,exams the choice to go into surgery is ultimately up to me. Without all the information, you need to consider what statistics are available, and make a decision based on the limited information and the likely incidence of cancer for your set of symptoms. The trouble is that going into surgery means removing the thyroid, which means you will need to undergo hormone replacement therapy for the rest of your life. If you remove the thyroid suspecting cancer, but after the fact discover that no cancer was present, you’ve removed an important organ from your body permanently and it was unnecessary. 57% of Thyroidectomy surgeries result in this outcome. [CITATION] The feeling of discovering you just underwent an unnecessary life altering surgery is difficult to describe for patients, but I have heard it described as a mixture of happiness and regret. You’re pleased because now you know for certain that you don’t have cancer, but you lament the fact that you did not need to remove the thyroid and now need hormone replacement therapy. This choice has implications beyond the simple cancer diagnosis. If you keep getting indeterminant biopsies like I did my first three visits you are forced to live with the idea that you must choose the right option. You need to walk around every day with the knowledge that you may have cancer and are choosing not to have it removed. It is impossible to say if this alternate possibility is better than hormone replacement, but the psychological impact of this decision is quite significant. My case was not severe by most metrics, but I still found I was unable to focus in class, and was constantly researching thyroid cancer, trying to figure out my rate of survival given each course of action.
+Consulting with a thyroid surgeon was an absolute must. He gave me the much needed clarity to form a decision. I was given a through explanation of the condition and all the deciding factors, a conversation that lasted over an hour. I was given the choice to get another biopsy or to monitor with ultrasound. I knew that statistically speaking the it is very unlikely that next biopsy will provide useful results after several non-diagnostic tests. I asked about alternative biopsies such as surgical or core-needle biopsies. These both have their own set of severe drawbacks. A surgical biopsy is considered so dangerous it is no longer permitted in the medical field, due to the likelihood that the lyrangeal nerve will be damaged or severed. A core needle biopsy uses a larger needle, introducing more risks, longer recovery, and a risk to damage the carotid artery. I eventually proposed the idea of draining fluid during a traditional fine needle aspiration biopsy. This would make the nodule behave less cystic (fluid filled) and possibly make the tissue easier to collect inside the needle. I was nervous to ask the interventional radiologist to try something different that I hadn’t even heard of online, but I was determined to find a different strategy to improve my chances. I am pleased to report that my latest biopsy came back with more conclusive results. It was characterized and is associated with a far lower risk of cancer than the odds I was given back in September of 2024. I reflect on reading these results and consider how close I was to choosing surgery. In November of 2024 I was certain that my appointment with the surgeon would result in booking a surgery. By January of 2025 I had a more concrete understanding of the condition and made the right decision regarding surgery vs active monitoring.
+
+
+IEEE Bibliography
+[1] SEER Cancer Stat Facts: Thyroid Cancer, National Cancer Institute. [Online]. Available: https://seer.cancer.gov/statfacts/html/thyro.html
+[2] S. C. Kamran et al., “Thyroid Nodule Size and Prediction of Cancer,” J. Clin. Endocrinol. Metab., vol. 98, no. 2, pp. 564–570, Feb. 2013. [Online]. Available: https://doi.org/10.1210/jc.2012-2968
+[3] American Cancer Society, “Thyroid Hormone Therapy,” American Cancer Society. [Online]. Available: https://www.cancer.org/cancer/types/thyroid-cancer/treating/thyroid-hormone-therapy.html
+[4] Mount Sinai, “Evaluation of Thyroid Nodules,” Mount Sinai. [Online]. Available: https://www.mountsinai.org/care/ent/surgery/thyroid/thyroid-nodules-diseases/evaluation
+[5] G. F. Mendes et al., “Fine needle aspiration biopsy of thyroid nodule smaller than 1.0 cm: accuracy of TIRADS classification system in more than 1000 nodules,” Br. J. Radiol., vol. 91, no. 1083, p. 20170642, Dec. 2017. [Online]. Available: https://pmc.ncbi.nlm.nih.gov/articles/PMC5965458/
+[6] A. P. Farwell, “Unnecessary surgery is performed in the majority of indeterminate cytology thyroid nodules managed without molecular testing,” Clin. Thyroidol. Public, vol. 17, no. 3, pp. 9–10, Mar. 2024. [Online]. Available: https://www.thyroid.org/patient-thyroid-information/ct-for-patients/march-2024/vol-17-issue-3-p-9-10/
+
+
+
+            
+            
+            
+            
+            
+            -->
+
+            
+
+
+
+
+
+
+
+
+
+            
+
+
         </div>
     </div>
 
