@@ -738,7 +738,7 @@ canvas {
 
 
 .top-right-button:hover {
-    background-color: #d23838;
+    background-color: #dc3232;
 }
 
 @keyframes jogRightExit {
@@ -813,15 +813,41 @@ canvas {
 
   .top-right-button {
     position: fixed;
-    font-size: 11px;
-    top: 20px;
-    right: 20px;
-    background-color: #ac0b0b;
-    color: white;
-    padding: 10px 16px;
-    border-radius: 6px;
+    font-size: 12px;
+    top: 15px;
+    right: 15px;
+    background-color: #b12a059f;
+    color: #fffffff3;
+    padding: 8px 15px;
+    border-radius: 10px;
     text-decoration: none;
     font-weight: bold;
     transition: background-color 0.3s ease;
     z-index: 1001;
+    border: 1px solid #b7b7b7;  
+}
+
+.corner-link {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 8px 15px;
+  border: 2px solid #000000;  
+  border-radius: 10px;
+  font-weight: bold;
+  color: var(--text-color);
+  background-color: #007bff;  
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+
+}
+
+.corner-link:hover {
+  transform: translateY(-2px);
+  background-color: #0056b3;  
+  border-color: #0056b3;
+  color: var(--section-bg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
