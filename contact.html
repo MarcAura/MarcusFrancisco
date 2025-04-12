@@ -7,10 +7,11 @@
     <title>Marcus Francisco's Portfolio</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/landing-style.css"> <!-- Landing page-specific styles -->
+    <!-- <link rel="stylesheet" href="assets/css/projects.css"> Landing page-specific styles -->
     <script defer src="script.js"></script>
     <style>
         #hero {
-            margin-bottom: -150px;
+            margin-bottom: 0;
             /* Reduce space between hero and form */
         }
 
@@ -65,13 +66,107 @@
             background: linear-gradient(135deg, #0047AB, #1c8aff);
         }
 
+        #hero {
+            
+            margin-top: -200px;
+            
+        }
+
         /* Adjust heading */
         #hero h4 {
             color: #ff9500;
             font-size: 2rem;
             font-weight: bold;
             margin-bottom: 15px;
+
         }
+            /* proj-hero Section (Banner with Circuit Background) */
+            #proj-hero,
+            #proj-hero-tapecon,
+            #proj-hero-linkedin {
+                background: linear-gradient(135deg, #0061c1, #313ffd);
+
+                /* background: radial-gradient(circle at center top, #0047AB 30%, #1c8aff 70%)  */
+                /* linear-gradient(to bottom, #1c8aff, #66b3ff); */
+
+                /* background-image: url('images/background.PNG'); Add a real circuit image */
+                background-blend-mode: overlay;
+                text-align: center;
+                color: white;
+
+                /* proj-hero Section (Hanging Banner Effect) */
+                /* Move it up to hide the top behind the navbar */
+
+                padding: 20px 20px;
+                /* padding-top: 200px; */
+                position: relative;
+                /* Adjust the value as needed */
+                border-radius: 20px 20px 20px 20px;
+                /* Rounds only the bottom corners */
+                width: 20%;
+                /* Keeps it responsive */
+                max-width: 1100px;
+                /* Prevents it from being too wide */
+                margin: 30px auto;
+                margin-top: 20px;
+                /* Centers the section */
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+                /* Soft shadow */
+                opacity: 0;
+                transform: translateY(0px);
+                /* margin-bottom: -160px; Adjust the value as needed */
+                /* transform: translateY(2px); Adjust if needed */
+                animation: fadeInDown 0.8s ease-out forwards;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            @keyframes fadeInDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0px);
+                }
+            }
+
+            #proj-hero h1 {
+                font-size: 3rem;
+                margin: 10px 0;
+            }
+
+            #proj-hero h2 {
+                font-size: 1.5rem;
+                font-weight: lighter;
+            }
+
+
+
+            /* proj-hero Section (Banner with Circuit Background) */
+            #proj-hero-tapecon {
+                background: linear-gradient(135deg, #ecfcff, #ffffff);
+            }
+
+
+            /* proj-hero Section (Banner with Circuit Background) */
+            #proj-hero-linkedin {
+                background: linear-gradient(135deg, #f1f1f1, #e3f0ff);
+            }
+
+            /* Hover effect: float slightly + stronger shadow */
+            #proj-hero:hover,
+            #proj-hero-tapecon:hover,
+            #proj-hero-linkedin:hover {
+                transform: translateY(-5px);
+                box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.4);
+                background: linear-gradient(135deg, #ffffff, #dbecff);
+            }
+
+
+
+        
     </style>
 </head>
 
@@ -89,7 +184,7 @@
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
-        <a href="https://alexthegreay.github.io/Alex/"  class="top-right-button">Wrong Twin?</a>
+        <a href="https://alexthegreay.github.io/Alex/" class="top-right-button">Wrong Twin?</a>
     </header>
 
     <div class="container">
@@ -108,12 +203,21 @@
             <section id="hero" class="fade-in">
                 <div class="hero-content">
                     <h1>Contact Me</h1>
+
+
+
                     <h2>Let's Get in Touch</h2>
                     <p>If you have any inquiries or just want to connect, feel free to send me a message.</p>
                     <!-- <h4>Contact Page is still a work in progress! </h4>
                     <p>This form below does not yet work, but feel free to
                         practice typing messages in the meantime!</p> -->
                 </div>
+            </section>
+
+            <section id="proj-hero-linkedin">
+                <a href="https://www.linkedin.com/in/marcus-francisco/">
+                    <img src="assets/images/LinkedIn-Logo.png" />
+                </a>
             </section>
 
             <section id="contact" class="fade-in">
@@ -143,9 +247,11 @@
         </div>
     </div>
 
+
+
     <footer>
         <p>Connect with me on <a href="https://www.linkedin.com/in/marcus-francisco">LinkedIn</a> and <a
-                href="https://github.com/yourgithub">GitHub</a>.</p>
+                href="https://github.com/MarcAura">GitHub</a>.</p>
         <p>&copy; 2025 Marcus Francisco. All rights reserved.</p>
         <p>Website content, themes, animations, templates, images, and icons are all original work created by Marcus
             Francisco</p>

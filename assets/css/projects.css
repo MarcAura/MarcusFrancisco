@@ -211,7 +211,7 @@
 
 
 /* proj-hero Section (Banner with Circuit Background) */
-#proj-hero, #proj-hero-tapecon{
+#proj-hero, #proj-hero-tapecon, #proj-hero-linkedin{
     background: linear-gradient(135deg, #0061c1, #313ffd);
     
     /* background: radial-gradient(circle at center top, #0047AB 30%, #1c8aff 70%)  */
@@ -270,10 +270,16 @@
     background: linear-gradient(135deg, #ecfcff, #ffffff);
 } 
    
-
+  
+/* proj-hero Section (Banner with Circuit Background) */
+#proj-hero-linkedin {
+    background: linear-gradient(135deg, #e2e2e2, #e7fffc);
+} 
+   
 /* Hover effect: float slightly + stronger shadow */
 #proj-hero:hover,
-#proj-hero-tapecon:hover {
+#proj-hero-tapecon:hover, #proj-hero-linkedin:hover
+ {
   transform: translateY(-5px);
   box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.4);
 }
