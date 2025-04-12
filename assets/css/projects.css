@@ -189,7 +189,7 @@
 
 /* When active, expand the dropdown */
 .project-item.active .project-content {
-    max-height: 300px;
+    max-height: 3300px;
     /* Adjust based on content */
     opacity: 1;
     padding-top: 10px;
@@ -207,4 +207,73 @@
 /* Rotate icon when expanded */
 .project-item.active .toggle-icon {
     transform: rotate(180deg);
+}
+
+
+/* proj-hero Section (Banner with Circuit Background) */
+#proj-hero, #proj-hero-tapecon{
+    background: linear-gradient(135deg, #0061c1, #313ffd);
+    
+    /* background: radial-gradient(circle at center top, #0047AB 30%, #1c8aff 70%)  */
+    /* linear-gradient(to bottom, #1c8aff, #66b3ff); */
+  
+    /* background-image: url('images/background.PNG'); Add a real circuit image */
+    background-blend-mode: overlay;
+    text-align: center;
+    color: white;
+  
+    /* proj-hero Section (Hanging Banner Effect) */
+    /* Move it up to hide the top behind the navbar */
+  
+    padding: 20px 20px;
+    /* padding-top: 200px; */
+    position: relative;
+    margin-top: 40px; /* Adjust the value as needed */
+    border-radius: 20px 20px 20px 20px; /* Rounds only the bottom corners */
+    width: 40%; /* Keeps it responsive */
+    max-width: 1100px; /* Prevents it from being too wide */
+    margin: 30px auto; /* Centers the section */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Soft shadow */
+    opacity: 0;
+    transform: translateY(0px);
+    /* margin-bottom: -160px; Adjust the value as needed */
+    /* transform: translateY(2px); Adjust if needed */
+    animation: fadeInDown 0.8s ease-out forwards;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  @keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+  }
+  
+  #proj-hero h1 {
+    font-size: 3rem;
+    margin: 10px 0;
+  }
+  
+  #proj-hero h2 {
+    font-size: 1.5rem;
+    font-weight: lighter;
+  }
+
+
+  
+/* proj-hero Section (Banner with Circuit Background) */
+#proj-hero-tapecon {
+    background: linear-gradient(135deg, #ecfcff, #ffffff);
+} 
+   
+
+/* Hover effect: float slightly + stronger shadow */
+#proj-hero:hover,
+#proj-hero-tapecon:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.4);
 }

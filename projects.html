@@ -28,6 +28,7 @@
         </nav>
     </header>
 
+
     <div class="container">
         <!-- Sidebar -->
         <div class="sidebar">
@@ -43,45 +44,204 @@
                 <li><a href="#section9">Modular Security System</a></li>
             </ul>
         </div>
+        <button id="sidebar-toggle">«</button> <!-- Side Bar Toggle -->
+
 
         <!-- Main Content -->
         <div class="content">
 
 
-            <div class="project-item" onclick="toggleDropdown(this)">
-                <h1>5G Network KPI Analysis</h1>
-                <p>
-                    Conducted an experimental study on the impact of <strong>weather conditions</strong> on
-                    <strong>5G Key Performance Indicators (KPIs)</strong> such as
-                    latency, signal strength, and throughput. Developed a real-time <strong>data collection
-                        system</strong> using a <strong>Raspberry Pi with a 5G hat</strong>,
-                    integrating environmental data from WeatherAPI. Processed data using <strong>Python, Plotly, and
-                        Matplotlib</strong>, visualizing KPIs with interactive
-                    heatmaps to correlate <strong>temperature, humidity, and precipitation</strong> with network
-                    performance.
-                </p>
-                <span class="toggle-icon">+</span>
-                <div class="project-content">
-                    <p>
-                        This project used Python, MatLab, and PlotLy to visualize <strong>Key Performance
-                            Indicator</strong> values.
-                        The project spanned the entire Fall 2024 semester, and imvolved taking over <strong>50
-                            thousand</strong> data points.
-                        An example of what perfect (simulated) data would look like in this interface can be seen
-                        to the right:
-                    </p>
+            <section id="proj-hero-tapecon">
+                <a href="https://www.tapecon.com/" >
+                    <img src="assets/images/projects/tapeconbanner.png"  />
+                </a>
+            </section>
 
-                    <!-- <div class="image-content">
-                        <img src="assets/images/KPI-dataVisual.PNG" alt="5G KPI Analysis" class="zoomable">
-                    </div> -->
-                    <a href="https://example.com/5G-project" target="_blank">Read More</a>
+            <section id="section-tapecon" class="text-and-image">
+                <div class="project-item" onclick="toggleDropdown(this)">
+                  <h1>Flexible Hybrid Electronics Research at Tapecon</h1>
+                  <p>
+                    During my internship at  <strong>Tapecon Inc.</strong></a>, I worked at the forefront of <strong>Flexible Hybrid Electronics (FHE)</strong> development, contributing to the company’s cutting-edge smart label and sensor technologies. Located in the historic Larkin building in Buffalo, NY, Tapecon specializes in advanced manufacturing of flexible circuits, adhesives, and printed electronics.
+                  </p>
+                  <span class="toggle-icon">+</span>
+                  <div class="project-content">
+
+                    <p>
+                        During my first year at Tapecon, I worked to develop flexible circuit demonstrators intended to show off the capabilities of Tapecon's new FHE production line. These demonstrators were showcased at NextFlex Innovation Days in California and at a sister conference in Berlin, highlighting Tapecon's advancements in flexible hybrid printed electronics on an international stage.
+                    </p>
+                    
+
+                    <p>
+                      I moved on from demonstrators and began working directly on preparing the FHE line for production. One of my projects centered around improving the bonding and placement processes critical to FHE reliability. I designed and executed a series of controlled experiments to optimize bonding conditions for circuit components to PET and paper substrates. This involved tuning bonding conditions to enhance adhesion and yield while reducing delamination during production. These refinements were integrated directly into the production line, increasing throughput and reducing defect rates.
+                    </p>
+              
+                    <video autoplay muted loop playsinline width="60%">
+                        <source src="assets/images/projects/UniversalPNP.mp4" type="video/mp4">
+                        <figcaption>A Universal Pick and Place Machine</figcaption>
+                        Your browser does not support the video tag.
+                      </video>
+                      
+
+                    <p>
+                      I also played a lead role in calibrating the <strong>Universal Pick and Place (PnP) Fiducial Acquisition system</strong>. The existing setup misaligned components on the flexible substrates, causing functional errors in microcontroller performance. I identified that fiducials were missing in the acquisition logic and implemented a revised vision scan protocol with global correction settings. After deployment, placement precision improved dramatically, ensuring repeatable accuracy across batches.
+                    </p>
+              
+                    <p>
+                      In addition to hands-on process engineering, I contributed to technical documentation, data tracking, and troubleshooting across the FHE R&D line. I also coordinated with some of Tapecon's customers, using their feedback to develop the process for manufacturing certain products. 
+                    </p>
+              
+                    <!-- Image placeholders
+                    <figure class="image-container">
+                      <img src="assets/images/projects/tapecon-line1.png" alt="Tapecon FHE Production Line" class="zoomable-responsive" onclick="openModal(this); event.stopPropagation();">
+                      <figcaption>Tapecon Flexible Electronics Line – PET substrate bonding station</figcaption>
+                    </figure>
+              
+                    <figure class="image-container">
+                      <img src="assets/images/projects/tapecon-placement.png" alt="Pick and Place Calibration Process" class="zoomable-responsive" onclick="openModal(this); event.stopPropagation();">
+                      <figcaption>Universal Pick and Place – Fiducial Calibration in Process</figcaption>
+                    </figure>
+              
+                    <figure class="image-container">
+                      <img src="assets/images/projects/tapecon-nextflex.png" alt="Presenting at NextFlex Conference" class="zoomable-responsive" onclick="openModal(this); event.stopPropagation();">
+                      <figcaption>Presenting at NextFlex Innovation Days, California</figcaption>
+                    </figure> -->
+
+
+
+                  </div>
                 </div>
-            </div>
+              
+                <div class="image-content">
+                  <img src="assets/images/projects/TraceImage.JPG" alt="FHE Microcontroller" class="zoomable">
+                </div>
+              </section>
+              
+
+            <section id="proj-hero">
+                <a href="https://www.buffalo.edu/" >
+                    <img src="assets\images\UB_Twoline_Logo.png"  />
+                </a>
+            </section>
+
+
+            <section id="section2" class="text-and-image">
+                <div class="project-item" onclick="toggleDropdown(this)">
+                    <h1>Digital Twin Campus Prototype</h1>
+                    <p>
+                        This award-winning project, recognized with the Russell L. Agrusa Student Innovation Award, focused on the development of a fully operational Digital Twin framework that can be applied to a manufacturing process. Our prototype applied this framework to a 3D printer. The system integrates physical manufacturing equipment with a cyber-physical interface for real-time monitoring and remote control. By 2023 I became the research team lead. Beforehand, from June to August 2022, I led the hardware development team, designing and implementing the embedded systems infrastructure using ESP32 microcontrollers, Arduino platforms, and WebSocket protocols to enable seamless data transmission and cloud-based control. I traveled with Matthew Rubino to Boston to present our project to the 2022 Sensors and Systems Conference, leading to the publication of our work in the ACM Digital Library. 
+                    </p>
+                    <span class="toggle-icon">+</span>
+                    <div class="project-content">
+                        <p>
+                            Developed as part of a cross-functional team of Electrical Engineers and Computer Engineers, the prototype used <strong>embedded
+                                sensors</strong>,
+                            <strong>IoT frameworks</strong>, and <strong>3D digital modeling</strong> tools to reflect
+                            the
+                            live state of physical infrastructure. The system was designed for scalability, allowing
+                            future
+                            integration with smart city initiatives. The project received institutional recognition for
+                            its
+                            technical depth, innovation, and potential long-term societal benefit.
+
+                        </p>
+ 
+
+                        <figure class="image-container">
+                            <img src="assets/images/projects/ScreenUpdate.PNG"
+                                alt="Realtime Status Updates on the Printer" class="zoomable-responsive"
+                                onclick="openModal(this); event.stopPropagation();">
+                            <figcaption>Realtime Status Updates on the Printer<span style="display: inline; white-space: nowrap;">
+                                  [<a href="citations.html#xu-campus-digital-twin" class="hyperlink-citation" style="display: inline; white-space: nowrap;">19</a>].
+                              </span>
+                            </figcaption>
+                        </figure>
+                        
+
+                        <p>
+                            Our prototype connected a Creality Ender-3 Pro 3D printer with a React-based UI to
+                            demonstrate a scalable model
+                            for Industry 4.0. My contributions included architecting the hardware-software communication
+                            backbone that allowed
+                            the system to read real-time sensor data (vibration, pressure, camera streams) and issue
+                            G-code commands back to
+                            the printer via the cloud. I implemented robust serial and WebSocket communication between
+                            <strong>ESP32 microcontrollers, an Arduino Mega sensor board, and connection to a Node.js cloud
+                                server</strong>, enabling seamless data flow. A brief overview of the project can be seen below hosted on ACM Digital Library.
+                        </p>
+
+                        
+                        <video width="60%" controls>
+                            <source src="https://dl.acm.org/doi/suppl/10.1145/3560905.3568049/suppl_file/p758-rubino.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                          </video>
+
+                        <p>
+                            I overcame a critical issue in the project involving the <strong>ESP32's reconnection
+                                protocol</strong>, which caused system-wide crashes upon WiFi or power interruptions.
+                            After extensive testing, debugging, and optimization—
+                            including JSON encoding, buffer management, and process pausing—I implemented a stable
+                            recovery mechanism using
+                            Espressif’s native library functions and system-wide state control, effectively resolving
+                            the issue and ensuring
+                            uninterrupted streaming and command execution.
+                        </p>
+
+                         
+
+
+                        <figure class="image-container">
+                            <img src="assets/images/projects/ESP32CAM.PNG"
+                                alt="Camera Module for the Remote Monitoring System " class="zoomable-responsive"
+                                onclick="openModal(this); event.stopPropagation();">
+                            <figcaption>Camera Module for the Remote Monitoring System <span style="display: inline; white-space: nowrap;">
+                                [<a href="citations.html#xu-campus-digital-twin" class="hyperlink-citation" style="display: inline; white-space: nowrap;">19</a>].
+                              </span>
+                            </figcaption>
+                        </figure>
+
+
+                           
+
+
+                        <p>
+                            I also led the firmware development of the <strong>ESP32-CAM</strong> module for
+                            <strong>live video streaming</strong>, and helped replace inefficient byte-level header
+                            appending with a server-side stream-identification method. I finalized
+                            the integration of command handlers for controlling the printer, and synchronized
+                            server-issued <strong>Epoch timing</strong> for precise actuation. Our finalized system
+                            streamed synchronized sensor data and live visuals to a secure dashboard,
+                            allowing remote monitoring and control of the physical printer in real time. This prototype was featured at <strong>SenSys '22</strong> and published in the ACM Digital
+                            Library 
+                            <span style="display: inline; white-space: nowrap;">
+                                 [<a href="citations.html#xu-campus-digital-twin" class="hyperlink-citation" style="display: inline; white-space: nowrap;">19</a>].
+                              </span>
+                              
+                          <figure class="image-container">
+                            <img src="assets/images/projects/ESPCAMGif.gif"
+                                alt="Camera Module Movement" class="zoomable-responsive"
+                                onclick="openModal(this); event.stopPropagation();" style="width:100%; max-width:600px;" />
+                            <figcaption>Camera Module Movement<span style="display: inline; white-space: nowrap;">
+                                 [<a href="citations.html#xu-campus-digital-twin" class="hyperlink-citation" style="display: inline; white-space: nowrap;">19</a>].
+                              </span>
+                            </figcaption>
+                        </figure>
+                        </p>
+                    </div>
+                </div>
+                <div class="image-content">
+                    <img src="assets/images/projects/FirstPlace.PNG" alt="Digital Twin Campus Prototype" class="zoomable">
+                </div>
+            </section>
 
 
 
 
             <section id="section1" class="text-and-image">
+
+                <div class="image-content">
+                    <img src="assets/images/KPI-dataVisual.PNG" alt="5G KPI Analysis" class="zoomable">
+                </div>
+
                 <div class="project-item" onclick="toggleDropdown(this)">
                     <h1>5G Network KPI Analysis</h1>
                     <p>
@@ -111,10 +271,13 @@
                         <a href="https://example.com/5G-project" target="_blank">Read More</a>
                     </div>
                 </div>
-                <div class="image-content">
-                    <img src="assets/images/KPI-dataVisual.PNG" alt="5G KPI Analysis" class="zoomable">
-                </div>
             </section>
+
+
+
+
+
+
 
 
             <section id="section2" class="text-and-image reverse">
@@ -233,14 +396,14 @@
         </div>
     </div>
 
-
-
     <footer>
-        <p>Connect with me on <a href="https://www.linkedin.com/in/marcus-francisco">LinkedIn</a> and <a
+        <p>Connect with me on <a href="https://www.linkedin.com/in/yourlinkedin">LinkedIn</a> and <a
                 href="https://github.com/yourgithub">GitHub</a>.</p>
+
         <p>&copy; 2025 Marcus Francisco. All rights reserved.</p>
-        <p>Website content, themes, animations, templates, images, and icons are all original work created by Marcus
-            Francisco</p>
+        <p>Website theme, template code, and content is original work created by Marcus Francisco</p>
+
+
     </footer>
 
     <!-- Modal Structure for Images -->
@@ -254,8 +417,8 @@
             <button id="zoomOut">Zoom Out</button>
         </div>
     </div>
-
     <script src="script.js"></script>
+    <script src="assets/js/reflections.js"></script>
 </body>
 
 </html>

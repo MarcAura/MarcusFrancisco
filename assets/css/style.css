@@ -614,6 +614,7 @@ header.shrink nav ul li a {
 } */
 
 a.hyperlink-citation {
+    
     color: inherit;
     /* text-decoration: underline; */
     text-decoration: none;
