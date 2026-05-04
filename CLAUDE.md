@@ -208,7 +208,8 @@ sections may be added with a "Coming Soon" state if content is not yet ready.
 - Assistant Music Director: Enchords A Cappella group
 - This section should feel as professionally presented as the engineering work
 - Should include: performance photos, ensemble logos, video embeds, upcoming performances
-- Suggested page: a dedicated `music.html` page with a nav link, OR a major section on `about.html`
+- Suggested page: a dedicated `music.html` page with a nav link
+- Section within music page dedicated to my learning under the direction of great conductors like Dr Stephen Shewan. Under his direction I went to Conference All State multiple times as both performer and composer, went to NYSBDA, and other events. also include other conductors like Matthew Cool directing the American Legion Band, community band, performance in ASO, and all Erie and All County / All State Conductors. Side note to find all the MP3s for these events and include links to Mark records respecting copyright law
 
 ### 2. Personal Projects
 - Separate from academic/professional engineering projects
