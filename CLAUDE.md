@@ -1,1 +1,306 @@
-This is the document that will be used to instruct Claude Code to review, revise, develop, and improve this website.
+# CLAUDE.md — Marcus Francisco Portfolio
+## Project Instructions for Claude Code
+
+---
+
+## Overview
+
+This is a **multi-page personal and professional portfolio website** for Marcus H. Francisco, 
+Electrical Engineer and MS student at the University at Buffalo. It is built entirely in 
+**vanilla HTML, CSS, and JavaScript** — no frameworks, no build tools, no npm. It is hosted 
+on **GitHub Pages** and must remain a static site deployable directly from the repository.
+
+This portfolio is a **recruiter-facing professional document** as much as it is a website. 
+Every decision should reflect that standard.
+
+---
+
+## Stack & Constraints
+
+- **Vanilla HTML5, CSS3, JavaScript (ES6+)** only
+- **No frameworks** — no React, Vue, Angular, Svelte, etc.
+- **No build tools** — no Webpack, Vite, npm scripts, etc.
+- **No external CSS frameworks** — no Bootstrap, Tailwind, etc.
+- External libraries must be loaded via CDN only, and only if absolutely necessary
+- Must be fully deployable as a static site on GitHub Pages with no server-side logic
+- All assets (images, videos, icons, fonts) live under `assets/` and are referenced with 
+  relative paths
+
+---
+
+## File Structure
+
+```
+/
+├── index.html
+├── about.html
+├── projects.html
+├── cv.html
+├── coursework.html
+├── reflections.html
+├── citations.html
+├── contact.html
+├── CLAUDE.md
+├── assets/
+│   ├── images/
+│   ├── icons/
+│   └── videos/
+├── css/
+│   ├── global.css          ← shared styles: nav, footer, modals, variables
+│   ├── index.css
+│   ├── about.css
+│   ├── projects.css
+│   └── [page].css          ← one CSS file per page for page-specific styles
+└── js/
+    ├── global.js            ← shared JS: nav, modals, scroll behavior
+    ├── index.js
+    ├── projects.js
+    └── [page].js            ← one JS file per page for page-specific logic
+```
+
+All inline `<style>` blocks and inline `<script>` blocks must be moved to their respective 
+external files. No inline styles or scripts.
+
+---
+
+## Coding Standards
+
+### HTML
+- Use semantic HTML5 elements: `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, 
+  `<aside>`, `<footer>`
+- Every `<img>` must have a descriptive `alt` attribute
+- Every page must include the viewport meta tag: 
+  `<meta name="viewport" content="width=device-width, initial-scale=1.0">`
+- Use `id` for section anchors, `class` for styling targets
+- IDs must be unique per page and follow kebab-case: `section-id-name`
+
+### CSS
+- **Mobile-first**: write base styles for mobile, then use `@media (min-width: 768px)` and 
+  `@media (min-width: 1200px)` for larger layouts
+- All color values, font sizes, spacing, and transition timing must be defined as 
+  **CSS custom properties** in `:root` inside `global.css`
+- No hardcoded pixel widths on layout containers — use `%`, `rem`, `clamp()`, `max-width`
+- Use CSS Grid and Flexbox for layout — no floats, no absolute positioning for layout
+- Class names follow BEM or clear descriptive naming: `.project-card`, `.modal-overlay`, 
+  `.nav-link--active`
+- All transition durations must use variables: `var(--transition-fast)`, 
+  `var(--transition-normal)`, `var(--transition-slow)`
+
+### JavaScript
+- Use `const` and `let` only — never `var`
+- Use `addEventListener` — never inline `onclick`, `onmouseover`, etc. in HTML
+- Prefer `querySelector` / `querySelectorAll` over older DOM methods
+- All shared functionality (nav, modals, scroll-to-top, image zoom) lives in `global.js` 
+  and is initialized via `DOMContentLoaded`
+- No duplicate function definitions across files
+
+---
+
+## Design & Visual Standards
+
+### Typography
+- Headings: one consistent font family (currently in use — maintain it)
+- Body: one readable sans-serif, minimum 16px base size
+- Line height: 1.6 minimum for body text
+- Heading hierarchy: H1 = page title (one per page), H2 = section headers, H3 = subsections
+
+### Spacing
+- Consistent section padding using CSS variables: `--section-padding-y`, `--section-padding-x`
+- Card and component margins follow the same spacing scale (4px base unit or 8px)
+
+### Colors
+- Maintain the existing dark/accent color palette
+- All colors defined as variables in `:root` — no hardcoded hex values outside of 
+  `global.css`
+
+### Responsive Breakpoints
+```
+Mobile:  < 768px   (base styles, single column)
+Tablet:  ≥ 768px   (two column where appropriate)
+Desktop: ≥ 1200px  (full multi-column layouts)
+```
+
+Touch targets (buttons, links, nav items) must be at least 44×44px on mobile.
+
+---
+
+## Animations & Transitions
+
+**This section is critical. Read carefully before touching any animation.**
+
+Marcus has invested significant time hand-crafting specific animations. The rule is:
+
+- **Preserve**: Any animation that looks intentional, polished, and smooth as-is
+- **Improve**: Animations that are jerky, incomplete, inconsistent, or half-finished
+- **Standardize**: Timing and easing should use shared CSS variables
+
+### Known animations to audit (do not break without explicit instruction):
+- Navigation menu behavior and transitions
+- Section scroll reveal / fade-in effects
+- Page entry animations
+- The image zoom modal open/close transition
+- Timeline animation on index.html
+- Accordion expand/collapse on projects.html (the `+` toggle sections)
+
+### Animation principles to apply when improving:
+- Use `transform` and `opacity` for performant animations — avoid animating `width`, 
+  `height`, `top`, `left`, or `margin`
+- Use `will-change: transform` sparingly and only where needed
+- All easing should be `cubic-bezier` or named easing (`ease-in-out`) — no `linear` for 
+  UI transitions
+- Scroll-based reveals: use `IntersectionObserver` — do not use scroll event listeners 
+  for animation
+- Never remove an animation without replacing it with something equally or more polished
+
+---
+
+## Modal System
+
+The site has an image/content modal system that is currently inconsistent. The goal is a 
+**single unified modal component** used site-wide.
+
+### Modal requirements:
+- One modal HTML structure in `global.css` / `global.js`, reused across all pages
+- Opens with a smooth fade + subtle scale-up: `opacity 0→1`, `scale 0.95→1`
+- Closes on: (1) clicking the backdrop overlay, (2) the close button, (3) pressing Escape
+- Must be accessible: trap focus inside modal when open, restore focus on close
+- Must prevent body scroll while open (`overflow: hidden` on `<body>`)
+- Consistent close button position (top-right corner), consistent styling
+- Image zoom modal must support: zoom in, zoom out, pan on desktop, pinch-to-zoom on mobile
+
+---
+
+## Navigation
+
+- Navigation is shared across all pages — any change must work consistently everywhere
+- Active page link must be visually indicated
+- On mobile: navigation collapses to a hamburger menu
+- The "Wrong Twin?" link (to Alex's site) must be preserved — it is intentional
+- Sidebar/in-page nav (the anchor list on projects.html and about.html) must scroll 
+  smoothly to sections and highlight the active section on scroll
+
+---
+
+## Content Preservation Rules
+
+**Never remove or alter any of the following without explicit instruction:**
+
+- All project descriptions and technical details on projects.html
+- The engineering education timeline on index.html
+- All images and captions currently on the site
+- All embedded videos (local .mp4 files and external links)
+- All citations and citation references
+- Contact and social links (LinkedIn, GitHub)
+- The ACM publication reference and link
+- Award mentions (Russell L. Agrusa Award, UB Hackathon Grand Prize, Best Hardware)
+
+---
+
+## Planned Expansion Areas
+
+When adding new content, build it to match existing professional standards. Placeholder 
+sections may be added with a "Coming Soon" state if content is not yet ready.
+
+### 1. Professional Musician Career (HIGH PRIORITY)
+- Marcus is a **professional French Horn player**
+- Performs with: Amherst Symphony Orchestra, American Legion Band of Post 264
+- Sings with: UB Choir, Chamber Singers
+- Assistant Music Director: Enchords A Cappella group
+- This section should feel as professionally presented as the engineering work
+- Should include: performance photos, ensemble logos, video embeds, upcoming performances
+- Suggested page: a dedicated `music.html` page with a nav link, OR a major section on `about.html`
+
+### 2. Personal Projects
+- Separate from academic/professional engineering projects
+- May include hobbyist electronics, software experiments, creative builds
+- Should be clearly distinguished from the professional projects on projects.html
+
+### 3. YouTube Channels
+- Embed or link to YouTube content
+- Should include channel description, video previews, and subscribe links
+- Must use YouTube's privacy-enhanced embed URL: `https://www.youtube-nocookie.com/embed/`
+
+### 4. Engineering Career Gaps
+- Timeline gaps between 2020–2025 may need additional entries as content is provided
+- Graduate education details to be expanded as coursework, research, and milestones are confirmed Heavy emphasis will be placed on microelectronic fabrication lab study and embedded systems study.
+- Do not fabricate or infer content — only add what Marcus explicitly provides
+
+### 5. Current personal projects page. 
+- This will include the digitization music library software I'm building, the smart home system BlueLink, any apps in development, youtube channels in progress, boat restoration, car restoration, home NAS system to mimic a company level server for homeowners file storage, Media hosting software therein, mechanics business or any other speculative endeavors I'm embarking on. This page will be a low priority but keep it in mind.
+
+### 6. Connect with Me Page
+- This effort includes clear icons and links to GitHub, Linkedin, and any other social media once I see fit for them to be shared professionally. The connect page should contain some sort of legal and streamlined email handling system to forward requests to my email without disclosing my email to the public.
+
+### 7. Scan the current website for privacy breaches.
+- Anything you feel is disclosed in the website that may be a breach of my privacy or you think I may have added on accident, please notify me immediately.
+
+### 8. Diplomas and Certifications
+- The centerpiece of this will be my college diplomas, with sub features of every certification I've gotten including certificate of completion with the exception of any private matters.
+
+---
+
+## Pages Reference
+
+| Page | Purpose |
+|---|---|
+| `index.html` | Hero + intro + engineering timeline |
+| `about.html` | Background, education, interests, career goals, work experience, certifications |
+| `projects.html` | All engineering and academic projects with expandable detail sections |
+| `cv.html` | Resume / CV display |
+| `coursework.html` | EE coursework with reflections |
+| `reflections.html` | Personal/professional reflections |
+| `citations.html` | Academic citations referenced throughout the site |
+| `contact.html` | Contact form and social links |
+
+---
+
+## Media Guidelines
+
+- Images must be web-optimized: JPG/PNG for photos, SVG for icons and logos
+- Do not exceed 1MB per image — compress before adding
+- Video: prefer embedding YouTube/Vimeo for large videos; local `.mp4` only for short clips
+- All images must have `loading="lazy"` except above-the-fold hero images
+- Captions should be in `<figcaption>` inside a `<figure>` element
+- All elements should be considered Marcus Francisco's original work, that includes any icons created for the style and function of the website. As we add stylistic elements and images to the site, let's make sure it is of our combined creation and not stolen directly from other sources. 
+- Copyright where appropriate, all rights reserved.
+
+---
+
+## Tone & Professionalism
+
+This portfolio will be sent to engineering recruiters, academic committees, and 
+professional contacts. Every element should reflect:
+
+- **Precision** — no typos, no placeholder text, no broken links
+- **Clarity** — content is easy to scan and understand quickly
+- **Depth** — technical details are present and accurate for those who read closely
+- **Personality** — Marcus's identity as both an engineer and musician should come through; 
+  this is not a generic template
+
+When writing or editing copy, maintain Marcus's voice: technical but approachable, 
+confident but not arrogant, specific over vague.
+
+---
+
+## Before Making Any Change
+
+1. Identify which file(s) are affected
+2. Check whether the element is covered by a preservation rule above
+3. Check whether the animation guidance applies
+4. Make the smallest change that achieves the goal
+5. Test at 375px (mobile), 768px (tablet), and 1200px (desktop) widths
+
+---
+
+## Git Workflow
+
+- **Never commit directly to `main`**
+- All work happens on `dev` or a feature branch (e.g. `feature/mobile-nav`, 
+  `feature/music-section`)
+- Commit frequently with descriptive messages: `"Standardize modal open/close animation"` 
+  not `"fix stuff"`
+- Open a Pull Request from `dev` → `main` for review before merging
+
+---
+
+*Last updated: 2025. Maintained by Marcus Francisco.*
