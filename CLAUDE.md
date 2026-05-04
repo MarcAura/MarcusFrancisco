@@ -1,0 +1,1 @@
+This is the document that will be used to instruct Claude Code to review, revise, develop, and improve this website.
