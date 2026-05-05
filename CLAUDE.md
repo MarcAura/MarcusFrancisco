@@ -3,6 +3,12 @@
 
 ---
 
+## This Session Prompt: 
+
+Claude, please look over the website files and gain familiarity with CLAUDE.md and the overall style and purpose. Then implement the proposed fixes to comply with more modern web development standards and implement mobile compatibility.
+
+---
+
 ## Overview
 
 This is a **multi-page personal and professional portfolio website** for Marcus H. Francisco, 
@@ -193,6 +199,7 @@ The site has an image/content modal system that is currently inconsistent. The g
 - Contact and social links (LinkedIn, GitHub)
 - The ACM publication reference and link
 - Award mentions (Russell L. Agrusa Award, UB Hackathon Grand Prize, Best Hardware)
+- When removing obselete files that are not currently in use, do not delete any files, move them to an OBSELETE folder instead so no files are ever deleted. 
 
 ---
 
