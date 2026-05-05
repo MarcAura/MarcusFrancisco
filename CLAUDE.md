@@ -5,7 +5,7 @@
 
 ## This Session Prompt: 
 
-Claude, please look over the website files and gain familiarity with CLAUDE.md and the overall style and purpose. Then implement the proposed fixes to comply with more modern web development standards and implement mobile compatibility.
+Claude, please look over the website files and gain familiarity with CLAUDE.md and the overall website style and purpose. Then implement the proposed fixes to comply with more modern web development standards and implement mobile compatibility.
 
 ---
 
