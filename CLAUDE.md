@@ -5,7 +5,7 @@
 
 ## This Session Prompt: 
 
-Claude, please look over the website files and gain familiarity with CLAUDE.md and the overall website style and purpose. Then implement the proposed fixes to comply with more modern web development standards and implement mobile compatibility. We will be working within the ClaudeCode branch, and then committing to main after I proofread all your changes.
+Let's move on to other issues and touch on some of the expansion areas that are within your power to improve without my input.
 
 ---
 
@@ -248,6 +248,18 @@ sections may be added with a "Coming Soon" state if content is not yet ready.
 ### 9. Brass Quintet and Music Service
 - The purpose of this page is to advertise for the brass quintet known as Buffalo Niagara brass quintet or BNBQ. It will also serve as a page to show a portfolio and performance history of the work of both BNBQ, NFBQ (Niagara frontier brass quintet) and other quintets that I am involved in organizing or playing with. It will feature a short videos of our performances at commencements, weddings, or other places, there will be some sample music that you can listen along to to get an idea of what we can perform at your event, and then a form to request a quote for us to come play at your event. Specifically, a good video clip to include is the 2026 social Work commencement UB, which was live streamed on May 16 of 2026. The Interlude, where our names are announced and we play Rondeau.
 - this will also involve forming an organization where I can be the head contractor of the brass quintet and charge via invoice so that my quintet members don't need to fill out individual proprietor paperwork, and I can just disperse funds to them as employees. There's no need for a limitation of liability since it's just a brass quintet so I can go for any organization that allows me to form EIN
+
+### 10. Contact form for both personal, engineering contracting work, and musical contracting work.
+- A contact form needs to be navigatable and easily interpreted for the various services I may offer. Personal, Professional, Electrical Engineering, Music, Brass Quintet, Orchestral Work, Wind Ensemble, And many other purposes for someone to contact me. As it stands marcusfranciscoportfolio@gmail.com is a placeholder, and is not my actual email address. 
+
+### 11. A more expansive resume and CV section:
+- This enhancement will focus on creating a representative work for a Resume and extended CV that keeps private information out of the public eye while showcasing my acomplishments, career, and academic achievements and awards. I also would like to implement a certifications section with current, future, and "in progress" certifications that may pertain to engineering, electrician work, and any other lisencure that may be useful in a professional setting.
+
+### 12. A more expansive timeline section that grows with me:
+- It is difficult to track down all the things you've done as landmarks in your life. As I come to remember them and jot them down here, we will work to add them to the timeline accordingly. 
+
+### 13: Musician performance catalog.
+- This section will serve to provide access via existing youtube links or other, a catalog that will serve as a memory of all the musical works I've ever performed, that includes subsections for piano solos, horn conciertos, wind ensemble, orchestra, brass quintet, woodwind quintet, choir, a capella, and many others throughout my youth, highschool, college, and professional life.
 
 ---
 
