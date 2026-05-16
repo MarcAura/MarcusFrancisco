@@ -278,8 +278,64 @@
    
 /* Hover effect: float slightly + stronger shadow */
 #proj-hero:hover,
-#proj-hero-tapecon:hover, #proj-hero-linkedin:hover
- {
-  transform: translateY(-5px);
-  box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.4);
+#proj-hero-tapecon:hover,
+#proj-hero-linkedin:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.4);
+}
+
+
+/* =============================================
+   Mobile — < 768px
+   ============================================= */
+@media (max-width: 767px) {
+
+    /* Project cards: full width */
+    .project-item {
+        max-width: 100%;
+        padding: 15px 12px;
+        margin: 12px 0;
+    }
+
+    .project-item p {
+        font-size: 1rem;
+        max-width: 100%;
+    }
+
+    /* List items: single column */
+    .project-item ul li {
+        grid-template-columns: 1fr;
+        row-gap: 6px;
+    }
+
+    /* Proj-hero banners: full width on mobile */
+    #proj-hero,
+    #proj-hero-tapecon,
+    #proj-hero-linkedin {
+        width: 90%;
+        padding: 15px;
+    }
+
+    #proj-hero h1 {
+        font-size: 1.8rem;
+    }
+
+    #proj-hero h2 {
+        font-size: 1.1rem;
+    }
+}
+
+/* =============================================
+   Tablet — 768px to 1199px
+   ============================================= */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .project-item {
+        max-width: 100%;
+    }
+
+    #proj-hero,
+    #proj-hero-tapecon,
+    #proj-hero-linkedin {
+        width: 60%;
+    }
 }

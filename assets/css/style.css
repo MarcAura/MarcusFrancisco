@@ -1,4 +1,81 @@
-/* Header and Navigation Bar */
+/* =============================================
+   CSS Custom Properties (Design Tokens)
+   ============================================= */
+:root {
+    /* Brand Colors */
+    --color-primary:          #003c7d;
+    --color-primary-mid:      #0061c1;
+    --color-primary-light:    #096bfe;
+    --color-primary-dark:     #003cbc;
+    --color-accent:           #313ffd;
+    --color-accent-orange:    #ff9500;
+    --color-accent-yellow:    #ffcc00;
+    --color-link-bright:      #00C0FF;
+    --color-link-hover:       #00569c;
+
+    /* Neutrals */
+    --color-text:             #333;
+    --color-text-light:       #666;
+    --color-text-caption:     #ccc;
+    --color-bg:               #f4f4f4;
+    --color-bg-white:         #ffffff;
+    --color-bg-card:          #f9f9f9;
+    --color-sidebar:          #acc7ff;
+    --color-footer-bg:        #222;
+    --color-border-faint:     rgba(255, 255, 255, 0.335);
+
+    /* Gradients */
+    --gradient-nav:    linear-gradient(to bottom right, #003cbc, #096bfe);
+    --gradient-hero:   linear-gradient(135deg, #0061c1, #313ffd);
+    --gradient-btn:    linear-gradient(135deg, #0061c1, #313ffd);
+
+    /* Typography */
+    --font-family:      Arial, sans-serif;
+    --font-size-base:   16px;
+    --font-size-sm:     14px;
+    --font-size-nav:    12px;
+    --line-height-base: 1.6;
+
+    /* Spacing scale (8 px base) */
+    --space-xs:   4px;
+    --space-sm:   8px;
+    --space-md:   15px;
+    --space-lg:   20px;
+    --space-xl:   30px;
+    --space-2xl:  40px;
+    --space-3xl:  50px;
+    --section-padding-y: 45px;
+    --section-padding-x: 20px;
+
+    /* Sidebar dimensions */
+    --sidebar-width:            100px;
+    --sidebar-translate-expand: 250px;
+    --sidebar-translate-hide:  -140px;
+
+    /* Border radius */
+    --radius-sm:  5px;
+    --radius-md:  8px;
+    --radius-lg:  15px;
+    --radius-xl:  20px;
+
+    /* Transitions */
+    --transition-fast:   0.2s ease-in-out;
+    --transition-normal: 0.3s ease-in-out;
+    --transition-slow:   0.5s cubic-bezier(0.38, -0.25, 0.17, 1.35);
+
+    /* Shadows */
+    --shadow-sm:  0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md:  2px 2px 10px rgba(0, 0, 0, 0.1);
+    --shadow-lg:  0px 4px 10px rgba(0, 0, 0, 0.5);
+    --shadow-xl:  0 10px 20px rgba(0, 0, 0, 0.2);
+
+    /* Touch target minimum (WCAG) */
+    --touch-target: 44px;
+}
+
+/* =============================================
+   Header and Navigation Bar
+   ============================================= */
 header {
     font-size: 12px;
 
@@ -846,8 +923,185 @@ canvas {
 
 .corner-link:hover {
   transform: translateY(-2px);
-  background-color: #0056b3;  
+  background-color: #0056b3;
   border-color: #0056b3;
   color: var(--section-bg);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+/* =============================================
+   Hamburger Menu Button (hidden on desktop)
+   ============================================= */
+.nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+    min-width: var(--touch-target);
+    min-height: var(--touch-target);
+    align-items: center;
+}
+
+.nav-hamburger span {
+    display: block;
+    width: 28px;
+    height: 2px;
+    background: white;
+    border-radius: 2px;
+    transition: transform var(--transition-normal), opacity var(--transition-normal);
+}
+
+.nav-hamburger.open span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+.nav-hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+.nav-hamburger.open span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+
+/* =============================================
+   Mobile Breakpoint — < 768px
+   ============================================= */
+@media (max-width: 767px) {
+
+    /* --- Header & Nav --- */
+    header {
+        display: flex;
+        align-items: center;
+        gap: var(--space-md);
+        padding: 10px var(--space-md);
+        margin-top: 0;
+        margin-bottom: 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .nav-hamburger {
+        display: flex;
+        order: -1;
+    }
+
+    nav {
+        flex: 1;
+        position: relative;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: -55px;
+        width: 100vw;
+        background: var(--gradient-nav);
+        z-index: 999;
+        padding: var(--space-sm) 0;
+        margin: 0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    nav ul.nav-open {
+        display: flex;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 0;
+        width: 100%;
+    }
+
+    nav ul li a {
+        display: block;
+        width: 100%;
+        padding: 14px var(--space-lg);
+        border-radius: 0;
+        border: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        margin: 0;
+        min-height: var(--touch-target);
+        box-sizing: border-box;
+    }
+
+    nav ul li a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Hide "Wrong Twin?" on mobile to reduce clutter */
+    .top-right-button {
+        display: none;
+    }
+
+    /* --- Sidebar & Toggle --- */
+    .sidebar {
+        display: none;
+    }
+
+    #sidebar-toggle {
+        display: none;
+    }
+
+    /* --- Main Layout --- */
+    .container {
+        flex-direction: column;
+    }
+
+    .content {
+        margin-top: var(--space-lg);
+        margin-left: 0 !important;
+        padding: var(--space-md);
+        padding-right: var(--space-md);
+    }
+
+    /* Sidebar-collapsed content override resets on mobile */
+    .sidebar.collapsed ~ .content {
+        margin-left: 0;
+    }
+
+    /* --- Side-by-side layouts → stack vertically --- */
+    #text-and-image,
+    .side-by-side,
+    .sim-container {
+        flex-direction: column;
+    }
+
+    /* --- Video containers --- */
+    .video-container2 {
+        max-width: 100%;
+    }
+
+    /* --- Modal close button --- */
+    .close {
+        top: 10px;
+        right: 15px;
+    }
+}
+
+
+/* =============================================
+   Tablet Breakpoint — 768px to 1199px
+   ============================================= */
+@media (min-width: 768px) and (max-width: 1199px) {
+    nav ul li {
+        margin-right: 10px;
+    }
+
+    nav ul li a {
+        padding: 8px 10px;
+        font-size: 11px;
+    }
+
+    .sidebar {
+        width: 80px;
+    }
 }

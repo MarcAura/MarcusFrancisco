@@ -410,3 +410,100 @@ body {
     }
 }
 
+
+/* =============================================
+   Mobile — < 768px
+   ============================================= */
+@media (max-width: 767px) {
+
+    /* Hero: remove the desktop translateY trick so it renders normally */
+    #hero {
+        transform: none !important;
+        width: 95%;
+        margin: 10px auto 20px;
+        padding: 40px 15px;
+        animation: fadeInDownMobile 0.8s ease-out forwards;
+    }
+
+    @keyframes fadeInDownMobile {
+        from { opacity: 0; transform: translateY(-15px); }
+        to   { opacity: 1; transform: translateY(0);     }
+    }
+
+    #hero h1 {
+        font-size: 2rem;
+    }
+
+    #hero h2 {
+        font-size: 1.1rem;
+    }
+
+    /* Portfolio intro: no negative margin needed on mobile */
+    #portfolio-intro {
+        margin-top: 10px;
+        padding: 25px 15px;
+    }
+
+    #portfolio-intro p {
+        font-size: 1rem;
+        max-width: 100%;
+    }
+
+    /* List items: remove the fixed 220px column; stack icon+title/description */
+    #portfolio-intro ul li {
+        grid-template-columns: 1fr;
+        row-gap: 8px;
+    }
+
+    /* Grid: single column on small screens */
+    .content .grid-container {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .content .grid-item {
+        height: 140px;
+        font-size: 16px;
+    }
+
+    /* Timeline: tighten up */
+    .timeline {
+        padding: 10px 0;
+    }
+
+    .timeline-item {
+        flex-direction: column;
+        margin: 12px 0;
+    }
+
+    .timeline-date {
+        text-align: left;
+        padding-right: 0;
+        padding-bottom: 6px;
+        font-size: 1rem;
+    }
+
+    .timeline-content {
+        padding: 10px;
+    }
+}
+
+/* =============================================
+   Tablet — 768px to 1199px
+   ============================================= */
+@media (min-width: 768px) and (max-width: 1199px) {
+
+    #hero {
+        width: 95%;
+        padding: 50px 20px;
+    }
+
+    .content .grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    }
+
+    #portfolio-intro ul li {
+        grid-template-columns: 160px auto;
+    }
+}
+

@@ -7,50 +7,15 @@
     <title>CV - Marcus Francisco</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/aboutme.css">
-    <style>
-        .btn-download {
-            display: inline-block;
-            background: linear-gradient(135deg, #0061c1, #313ffd);
-            color: white;
-            font-size: 18px;
-            text-decoration: none;
-            padding: 12px 20px;
-            border-radius: 5px;
-            transition: background 0.3s ease-in-out;
-        }
-
-        .btn-download:hover {
-            background: linear-gradient(135deg, #0047AB, #1c8aff);
-        }
-
-        .image-content-icon-size img {
-            width: 180px;
-            /* Adjust this for a smaller size */
-            height: auto;
-            /* Keeps aspect ratio */
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Fix resume download position to top right */
-        #resume-download-fixed {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 10px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/cv.css">
+    <script defer src="script.js"></script>
 </head>
 
 <body>
     <header>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -63,7 +28,7 @@
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
-        <a href="https://alexthegreay.github.io/Alex/"  class="top-right-button">Wrong Twin?</a>
+        <a href="https://alexthegreay.github.io/Alex/" class="top-right-button">Wrong Twin?</a>
     </header>
 
     <div class="container">
@@ -296,7 +261,6 @@
             Francisco</p>
     </footer>
 
-    <script src="script.js"></script>
 </body>
 
 </html>

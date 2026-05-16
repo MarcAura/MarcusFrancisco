@@ -181,6 +181,70 @@
     padding-top: 0px;
 }
 
+/* Video container — restricted width for embedded videos */
+.video-container-50 {
+    width: 50%;
+    max-width: 560px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.video-container-50 iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+}
+
+/* Reflections page body background transitions */
+body {
+    background-color: #f4f4f4;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
+    transition: background 0.8s ease-in-out, opacity 0.5s ease-in-out;
+    opacity: 1;
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f4f4f426;
+    z-index: -1;
+    transition: background 0.5s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+body.active-bg {
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
+    opacity: 1;
+    transition: background 0.5s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+body.bg-fade-out {
+    opacity: 0;
+}
+
+body.fade-effect {
+    opacity: 0;
+}
+
+@media (max-width: 767px) {
+    .reflection-item {
+        width: 90%;
+    }
+    .video-container-50 {
+        width: 100%;
+    }
+}
+
 h5.reflection-heading {
     font-size: 1.1rem;
     font-weight: 600;

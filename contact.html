@@ -6,172 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marcus Francisco's Portfolio</title>
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/landing-style.css"> <!-- Landing page-specific styles -->
-    <!-- <link rel="stylesheet" href="assets/css/projects.css"> Landing page-specific styles -->
+    <link rel="stylesheet" href="assets/css/landing-style.css">
+    <link rel="stylesheet" href="assets/css/contact.css">
     <script defer src="script.js"></script>
-    <style>
-        #hero {
-            margin-bottom: 0;
-            /* Reduce space between hero and form */
-        }
-
-        .form-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-            text-align: left;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-            box-sizing: border-box;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-        }
-
-        .btn-submit {
-            background: linear-gradient(135deg, #0061c1, #313ffd);
-            color: white;
-            font-size: 18px;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-            transition: background 0.3s ease-in-out;
-        }
-
-        .btn-submit:hover {
-            background: linear-gradient(135deg, #0047AB, #1c8aff);
-        }
-
-        #hero {
-            
-            margin-top: -200px;
-            
-        }
-
-        /* Adjust heading */
-        #hero h4 {
-            color: #ff9500;
-            font-size: 2rem;
-            font-weight: bold;
-            margin-bottom: 15px;
-
-        }
-            /* proj-hero Section (Banner with Circuit Background) */
-            #proj-hero,
-            #proj-hero-tapecon,
-            #proj-hero-linkedin {
-                background: linear-gradient(135deg, #0061c1, #313ffd);
-
-                /* background: radial-gradient(circle at center top, #0047AB 30%, #1c8aff 70%)  */
-                /* linear-gradient(to bottom, #1c8aff, #66b3ff); */
-
-                /* background-image: url('images/background.PNG'); Add a real circuit image */
-                background-blend-mode: overlay;
-                text-align: center;
-                color: white;
-
-                /* proj-hero Section (Hanging Banner Effect) */
-                /* Move it up to hide the top behind the navbar */
-
-                padding: 20px 20px;
-                /* padding-top: 200px; */
-                position: relative;
-                /* Adjust the value as needed */
-                border-radius: 20px 20px 20px 20px;
-                /* Rounds only the bottom corners */
-                width: 20%;
-                /* Keeps it responsive */
-                max-width: 1100px;
-                /* Prevents it from being too wide */
-                margin: 30px auto;
-                margin-top: 20px;
-                /* Centers the section */
-                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-                /* Soft shadow */
-                opacity: 0;
-                transform: translateY(0px);
-                /* margin-bottom: -160px; Adjust the value as needed */
-                /* transform: translateY(2px); Adjust if needed */
-                animation: fadeInDown 0.8s ease-out forwards;
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-            }
-
-            @keyframes fadeInDown {
-                from {
-                    opacity: 0;
-                    transform: translateY(-20px);
-                }
-
-                to {
-                    opacity: 1;
-                    transform: translateY(0px);
-                }
-            }
-
-            #proj-hero h1 {
-                font-size: 3rem;
-                margin: 10px 0;
-            }
-
-            #proj-hero h2 {
-                font-size: 1.5rem;
-                font-weight: lighter;
-            }
-
-
-
-            /* proj-hero Section (Banner with Circuit Background) */
-            #proj-hero-tapecon {
-                background: linear-gradient(135deg, #ecfcff, #ffffff);
-            }
-
-
-            /* proj-hero Section (Banner with Circuit Background) */
-            #proj-hero-linkedin {
-                background: linear-gradient(135deg, #f1f1f1, #e3f0ff);
-            }
-
-            /* Hover effect: float slightly + stronger shadow */
-            #proj-hero:hover,
-            #proj-hero-tapecon:hover,
-            #proj-hero-linkedin:hover {
-                transform: translateY(-5px);
-                box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.4);
-                background: linear-gradient(135deg, #ffffff, #dbecff);
-            }
-
-
-
-        
-    </style>
 </head>
 
 <body>
     <header>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -239,7 +83,7 @@
 
                         <button type="submit" class="btn-submit">Send Message</button>
                     </form>
-                    <p id="form-message" style="display: none; color: green;">Your message has been sent!</p>
+                    <p id="form-message" hidden style="color: green;">Your message has been sent!</p>
                 </div>
             </section>
         </div>
@@ -267,7 +111,6 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
 </body>
 
 </html>

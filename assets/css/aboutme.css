@@ -156,8 +156,64 @@
 }
 
 .image-content img {
-    /* width: 500px; Adjust width as needed */
-    height: auto; /* Maintains aspect ratio. Consider constraining height to adjacent item */
+    height: auto;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* =============================================
+   Mobile — < 768px
+   ============================================= */
+@media (max-width: 767px) {
+
+    /* Stack text-and-image sections vertically */
+    .text-and-image {
+        flex-direction: column;
+    }
+
+    .text-and-image .image-content {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .text-and-image .image-content img {
+        width: 100%;
+    }
+
+    /* About-me card: full width, tighter padding */
+    .about-me-item {
+        max-width: 100%;
+        padding: 20px 15px;
+        margin: 15px 0;
+    }
+
+    .about-me-item p {
+        font-size: 1rem;
+        max-width: 100%;
+    }
+
+    /* List items: single column (remove fixed 220px) */
+    .about-me-item ul li {
+        grid-template-columns: 1fr;
+        row-gap: 8px;
+    }
+
+    /* Hero on about page: no negative margin needed */
+    #hero {
+        margin-bottom: 10px !important;
+    }
+}
+
+/* =============================================
+   Tablet — 768px to 1199px
+   ============================================= */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .about-me-item {
+        max-width: 100%;
+    }
+
+    .about-me-item ul li {
+        grid-template-columns: 160px auto;
+    }
 }

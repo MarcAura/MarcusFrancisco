@@ -1,0 +1,133 @@
+/* Contact Page Styles */
+
+/* Hero override: no negative margin-top on contact page */
+#hero {
+    margin-top: -200px;
+}
+
+/* Highlight text inside hero on contact page */
+#hero h4 {
+    color: #ff9500;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Contact form container */
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Form groups */
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+/* Submit button */
+.btn-submit {
+    background: var(--gradient-btn, linear-gradient(135deg, #0061c1, #313ffd));
+    color: white;
+    font-size: 18px;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s ease-in-out;
+    min-height: 44px;
+}
+
+.btn-submit:hover {
+    background: linear-gradient(135deg, #0047AB, #1c8aff);
+}
+
+/* LinkedIn / project hero banners on contact page */
+#proj-hero,
+#proj-hero-tapecon,
+#proj-hero-linkedin {
+    background: linear-gradient(135deg, #0061c1, #313ffd);
+    background-blend-mode: overlay;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    position: relative;
+    border-radius: 20px;
+    width: 20%;
+    max-width: 1100px;
+    margin: 30px auto 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    animation: fadeInDown 0.8s ease-out forwards;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#proj-hero-tapecon {
+    background: linear-gradient(135deg, #ecfcff, #ffffff);
+}
+
+#proj-hero-linkedin {
+    background: linear-gradient(135deg, #f1f1f1, #e3f0ff);
+}
+
+#proj-hero:hover,
+#proj-hero-tapecon:hover,
+#proj-hero-linkedin:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(135deg, #ffffff, #dbecff);
+}
+
+#proj-hero h1 { font-size: 3rem; margin: 10px 0; }
+#proj-hero h2 { font-size: 1.5rem; font-weight: lighter; }
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0px);   }
+}
+
+
+/* =============================================
+   Mobile — < 768px
+   ============================================= */
+@media (max-width: 767px) {
+    #hero {
+        margin-top: 0 !important;
+    }
+
+    #proj-hero,
+    #proj-hero-tapecon,
+    #proj-hero-linkedin {
+        width: 90%;
+    }
+
+    .form-container {
+        padding: 15px;
+    }
+}
