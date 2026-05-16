@@ -245,6 +245,10 @@ sections may be added with a "Coming Soon" state if content is not yet ready.
 ### 8. Diplomas and Certifications
 - The centerpiece of this will be my college diplomas, with sub features of every certification I've gotten including certificate of completion with the exception of any private matters.
 
+### 9. Brass Quintet and Music Service
+- The purpose of this page is to advertise for the brass quintet known as Buffalo Niagara brass quintet or BNBQ. It will also serve as a page to show a portfolio and performance history of the work of both BNBQ, NFBQ (Niagara frontier brass quintet) and other quintets that I am involved in organizing or playing with. It will feature a short videos of our performances at commencements, weddings, or other places, there will be some sample music that you can listen along to to get an idea of what we can perform at your event, and then a form to request a quote for us to come play at your event. Specifically, a good video clip to include is the 2026 social Work commencement UB, which was live streamed on May 16 of 2026. The Interlude, where our names are announced and we play Rondeau.
+- this will also involve forming an organization where I can be the head contractor of the brass quintet and charge via invoice so that my quintet members don't need to fill out individual proprietor paperwork, and I can just disperse funds to them as employees. There's no need for a limitation of liability since it's just a brass quintet so I can go for any organization that allows me to form EIN
+
 ---
 
 ## Pages Reference
