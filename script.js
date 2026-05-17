@@ -311,15 +311,40 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 // =============================================
-// Contact form — submission feedback
+// Contact form — async Formspree submission
 // =============================================
 document.addEventListener('DOMContentLoaded', function () {
     const contactForm = document.getElementById('contact-form');
     if (!contactForm) return;
 
-    contactForm.addEventListener('submit', function () {
-        const msg = document.getElementById('form-message');
-        if (msg) msg.style.display = 'block';
+    const submitBtn = document.getElementById('form-submit-btn');
+    const successMsg = document.getElementById('form-message');
+    const errorMsg = document.getElementById('form-error');
+
+    contactForm.addEventListener('submit', async function (event) {
+        event.preventDefault();
+
+        if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
+
+        try {
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: new FormData(contactForm),
+                headers: { Accept: 'application/json' }
+            });
+
+            if (response.ok) {
+                contactForm.reset();
+                contactForm.style.display = 'none';
+                if (successMsg) { successMsg.removeAttribute('hidden'); }
+                if (errorMsg) { errorMsg.setAttribute('hidden', ''); }
+            } else {
+                throw new Error('Server error');
+            }
+        } catch {
+            if (errorMsg) { errorMsg.removeAttribute('hidden'); }
+            if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Send Message'; }
+        }
     });
 });
 

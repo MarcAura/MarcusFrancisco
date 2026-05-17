@@ -1,5 +1,15 @@
 /* CV / Resume Page Styles */
 
+.cv-page-title {
+    text-align: center;
+}
+
+.cv-download-wrap {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
 /* Download button */
 .btn-download {
     display: inline-block;

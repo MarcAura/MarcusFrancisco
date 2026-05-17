@@ -57,23 +57,38 @@
             </section>
 
             <section id="proj-hero-linkedin">
-                <a href="https://www.linkedin.com/in/marcus-francisco/">
-                    <img src="assets/images/LinkedIn-Logo.png" />
+                <a href="https://www.linkedin.com/in/marcus-francisco/" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/images/LinkedIn-Logo.png" alt="LinkedIn — Connect with Marcus Francisco" loading="lazy" />
                 </a>
             </section>
 
             <section id="contact" class="fade-in">
-                <div class="form-container stylish-form">
-                    <form id="contact-form" action="marcusfranciscoportfolio@gmail.com" method="post"
-                        enctype="text/plain">
+                <div class="form-container">
+                    <!--
+                        FORM SETUP INSTRUCTIONS (one-time):
+                        1. Go to https://formspree.io and sign up (free — 50 submissions/month)
+                        2. Create a new form and set the destination to your email
+                        3. Replace REPLACE_WITH_YOUR_FORM_ID below with your Formspree form ID
+                        Your email address is NEVER exposed in the HTML this way.
+                    -->
+                    <form id="contact-form"
+                          action="https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID"
+                          method="POST">
+
+                        <!-- Hidden subject line for the email you receive -->
+                        <input type="hidden" name="_subject" value="Portfolio Contact — New Message">
+
+                        <!-- Honeypot anti-spam: bots fill this; humans leave it blank -->
+                        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
                         <div class="form-group">
                             <label for="name">Name:</label>
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" id="name" name="name" autocomplete="name" required>
                         </div>
 
                         <div class="form-group">
                             <label for="email">Email:</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" autocomplete="email" required>
                         </div>
 
                         <div class="form-group">
@@ -81,9 +96,10 @@
                             <textarea id="message" name="message" rows="5" required></textarea>
                         </div>
 
-                        <button type="submit" class="btn-submit">Send Message</button>
+                        <button type="submit" class="btn-submit" id="form-submit-btn">Send Message</button>
                     </form>
-                    <p id="form-message" hidden style="color: green;">Your message has been sent!</p>
+                    <p id="form-message" hidden class="form-success">Your message has been sent! I'll get back to you soon.</p>
+                    <p id="form-error" hidden class="form-error-msg">Something went wrong. Please try again or email me directly via LinkedIn.</p>
                 </div>
             </section>
         </div>
@@ -94,7 +110,7 @@
     <footer>
         <p>Connect with me on <a href="https://www.linkedin.com/in/marcus-francisco">LinkedIn</a> and <a
                 href="https://github.com/MarcAura">GitHub</a>.</p>
-        <p>&copy; 2025 Marcus Francisco. All rights reserved.</p>
+        <p>&copy; 2025&ndash;2026 Marcus Francisco. All rights reserved.</p>
         <p>Website content, themes, animations, templates, images, and icons are all original work created by Marcus
             Francisco</p>
     </footer>

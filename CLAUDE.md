@@ -261,6 +261,13 @@ sections may be added with a "Coming Soon" state if content is not yet ready.
 ### 13: Musician performance catalog.
 - This section will serve to provide access via existing youtube links or other, a catalog that will serve as a memory of all the musical works I've ever performed, that includes subsections for piano solos, horn conciertos, wind ensemble, orchestra, brass quintet, woodwind quintet, choir, a capella, and many others throughout my youth, highschool, college, and professional life.
 
+### 14: Little-Known achievements and small works.
+- This part is for achievements and work that is small and inconsequential enough to not necessarily be deserving of an entire page. The goal is to determine where to appropriately display work, taking credit, without it being weird or having too much fanfare. For example, things like "I created the design for the volleyball magnet for Williamsville East Volleyball as a student in 2018 and they're still selling". This is kinda cool that I did that as a young high school student, but it would be weird to feature it in a portfolio on its own, so it should be appropriately grouped with other things like it or another way to appropriately feature it should be considered. 
+
+### 15: In progress musical projects
+- Here is where we have ongoing project work. This would include the "Francisco Music Library" which is a digitization effort for my father's music library, along with my own compositions and arrangements. A sub-part of the project is to market and distribute my own music organizational software, so there will be a link to view the work as it progresses. 
+- Another thing to feature here is musical composition and recording projects that are in progress. These will include some of my arrangements, and also some recording projects that are speculative and may require approval from composers or copyright holders before moving forward, this caviat must be made clear. An example is a french horn arrangment for the Interstellar soundtrack or some arrangements of Percy Grainger that have not yet entered public domain. 
+
 ---
 
 ## Pages Reference

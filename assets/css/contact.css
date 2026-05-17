@@ -113,6 +113,26 @@
 }
 
 
+/* Form feedback messages */
+.form-success {
+    color: #1a7a1a;
+    background: #e8f5e9;
+    border: 1px solid #a5d6a7;
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.form-error-msg {
+    color: #b71c1c;
+    background: #ffebee;
+    border: 1px solid #ef9a9a;
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin-top: 15px;
+}
+
 /* =============================================
    Mobile — < 768px
    ============================================= */
