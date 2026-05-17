@@ -1,12 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!--
+    MUSIC PAGE IMAGE GUIDE
+    ════════════════════════════════════════════════════════════════
+    Add image files to: assets/images/music/
+    Create that folder if it does not exist.
+    Each placeholder below lists the exact filename to use.
+    Recommended formats: JPG for photos, PNG for graphics.
+    Compress to ≤ 800 KB before adding.
+    ════════════════════════════════════════════════════════════════
+
+    FILES NEEDED:
+    marcus-performing.jpg       — Marcus in concert attire on stage, or
+                                  mid-performance (full or half body)
+    french-horn-closeup.jpg     — Close-up of a French horn bell or
+                                  valves, warm studio/stage lighting
+    american-legion-band.jpg    — American Legion Band of Post 264
+                                  in performance or formal group photo
+    ub-choir-performance.jpg    — UB Choir on stage (group photo or
+                                  performance candid)
+    enchords-performance.jpg    — Enchords A Cappella in performance
+    concert-hall-stage.jpg      — Stage interior — Kleinhans Music Hall
+                                  or another venue Marcus has performed in
+    all-state-program.jpg       — Conference All-State program, award
+                                  certificate, or festival photo
+    marcus-horn-practice.jpg    — Candid of Marcus playing French horn
+                                  (rehearsal or practice setting)
+    ════════════════════════════════════════════════════════════════
+
+    DIRECTOR SOCIAL LINKS — fill in when available:
+    Dr. Stephen Shewan  → search Facebook / LinkedIn / school site
+    Matthew Cool        → search Facebook
+    Michael Shaw        → search Facebook / American Legion Band page
+    Claudia Brown       → search UB Music faculty page
+    Jaman Dunn          → search UB Music / Erie County Orchestra
+    ASO Director        → check Amherst Symphony Orchestra website
+    ════════════════════════════════════════════════════════════════
+-->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music — Marcus Francisco</title>
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/aboutme.css">
     <link rel="stylesheet" href="assets/css/music.css">
     <script defer src="script.js"></script>
 </head>
@@ -33,229 +70,553 @@
     </header>
 
     <div class="container">
-        <!-- Sidebar -->
         <div class="sidebar">
             <ul>
-                <li><a href="#music-hero">Overview</a></li>
+                <li><a href="#music-hero">Performance</a></li>
                 <li><a href="#ensembles">Ensembles</a></li>
-                <li><a href="#mentorship">Mentorship</a></li>
+                <li><a href="#instruction">Instruction</a></li>
+                <li><a href="#conductors">Conductors</a></li>
                 <li><a href="#recognition">Recognition</a></li>
                 <li><a href="#media">Media</a></li>
             </ul>
         </div>
         <button id="sidebar-toggle">«</button>
 
-        <!-- Main Content -->
         <div class="content">
 
-            <!-- Hero -->
+            <!-- ═══════════════════════════════════════════════════ -->
+            <!-- HERO                                               -->
+            <!-- ═══════════════════════════════════════════════════ -->
             <section id="music-hero">
                 <div class="hero-content">
                     <h1>Marcus Francisco</h1>
-                    <h2>Professional French Horn &bull; Vocalist &bull; Music Director</h2>
+                    <h2>French Horn &bull; Voice &bull; Ensemble Performer</h2>
                 </div>
             </section>
 
-            <!-- Overview -->
+
+            <!-- ═══════════════════════════════════════════════════ -->
+            <!-- OVERVIEW                                           -->
+            <!-- ═══════════════════════════════════════════════════ -->
             <section id="overview" class="fade-in">
                 <div class="music-section">
-                    <h2>Music as a Second Language</h2>
-                    <p>
-                        Music has been a constant alongside my engineering career, not a hobby held separately from it.
-                        As a professional French Horn player and vocalist, I perform with orchestras, concert bands,
-                        and choral ensembles in the Buffalo–Niagara region, and serve as Assistant Music Director for
-                        an a cappella group at the University at Buffalo. The precision, rehearsal discipline, and
-                        collaborative listening demanded by ensemble performance translate directly to how I approach
-                        complex engineering problems.
-                    </p>
-                    <p style="margin-top: 16px;">
-                        This page documents my active performing career, the mentors who shaped it, and the
-                        competitive milestones I reached as both a performer and a composer. Photos, recordings,
-                        and upcoming performance listings are coming soon.
-                    </p>
+                    <h2>On Stage</h2>
+
+                    <div class="music-text-image">
+                        <div class="text-col">
+                            <p>
+                                Music has run alongside my engineering career as a parallel discipline — not a
+                                weekend hobby, but a serious performance practice built over more than a decade.
+                                I began on French Horn under private instruction in high school and continued at
+                                the collegiate level, while also developing my voice in choral and a&nbsp;cappella
+                                settings. I have performed with orchestras, concert bands, choirs, and chamber
+                                ensembles in the Western New York region and have held music leadership roles
+                                with student ensembles at the University at Buffalo.
+                            </p>
+                            <p>
+                                The same values that make a reliable engineer — precise timing, active listening,
+                                and the ability to hold your part steady while tracking the whole system — are what
+                                an ensemble demands from every chair. The two careers have always informed each other.
+                            </p>
+                        </div>
+                        <div class="img-col">
+                            <!-- ▸ Replace with: assets/images/music/marcus-performing.jpg -->
+                            <figure class="music-img-placeholder" style="min-height:240px;">
+                                <span class="ph-icon">📷</span>
+                                <code>assets/images/music/marcus-performing.jpg</code>
+                                <p class="ph-desc">Marcus in concert attire or mid-performance on stage</p>
+                            </figure>
+                        </div>
+                    </div>
+
+                    <!-- Kleinhans / concert hall image -->
+                    <div class="music-img-full" style="margin-top:24px;">
+                        <!-- ▸ Replace with: assets/images/music/concert-hall-stage.jpg -->
+                        <figure class="music-img-placeholder" style="min-height:200px;">
+                            <span class="ph-icon">🎭</span>
+                            <code>assets/images/music/concert-hall-stage.jpg</code>
+                            <p class="ph-desc">Kleinhans Music Hall stage interior, or another venue
+                                where Marcus has performed — warm amber stage lighting</p>
+                        </figure>
+                    </div>
                 </div>
             </section>
 
-            <!-- Ensembles -->
+
+            <!-- ═══════════════════════════════════════════════════ -->
+            <!-- ENSEMBLES — CURRENT                               -->
+            <!-- ═══════════════════════════════════════════════════ -->
             <section id="ensembles" class="fade-in">
                 <div class="music-section">
                     <h2>Performing Ensembles</h2>
-                    <p>I currently hold active performance roles across orchestral, concert band, and choral settings.</p>
 
+                    <!-- Current -->
+                    <h3 style="color:#7a3d0a; font-size:1.1rem; margin:0 0 12px;">Currently Active</h3>
                     <div class="ensemble-grid">
 
                         <div class="ensemble-card">
+                            <span class="ensemble-status ensemble-status--current">Current Member</span>
+                            <p class="ensemble-name">American Legion Band of Post&nbsp;264</p>
+                            <p class="ensemble-role">French Horn</p>
+                            <p class="ensemble-desc">
+                                A community concert band performing ceremonial, march, and concert repertoire
+                                for civic and community events across Western New York.
+                            </p>
+                        </div>
+
+                        <!-- ▸ Add additional current ensembles here as membership is confirmed -->
+
+                    </div>
+
+                    <!-- Full-width band performance image -->
+                    <div class="music-img-full" style="margin-top:24px;">
+                        <!-- ▸ Replace with: assets/images/music/american-legion-band.jpg -->
+                        <figure class="music-img-placeholder">
+                            <span class="ph-icon">🎺</span>
+                            <code>assets/images/music/american-legion-band.jpg</code>
+                            <p class="ph-desc">American Legion Band of Post 264 in performance
+                                or formal group photo</p>
+                        </figure>
+                    </div>
+
+                    <!-- Past -->
+                    <h3 style="color:#7a3d0a; font-size:1.1rem; margin:28px 0 12px;">Past Performing Experience</h3>
+                    <p style="font-size:0.92rem; color:#7a5530; margin: 0 0 16px;">
+                        The ensembles below represent performing experiences prior to graduation from UB
+                        or periods when active membership has since changed.
+                    </p>
+                    <div class="ensemble-grid">
+
+                        <div class="ensemble-card">
+                            <span class="ensemble-status ensemble-status--past">Past</span>
                             <p class="ensemble-name">Amherst Symphony Orchestra</p>
                             <p class="ensemble-role">French Horn</p>
                             <p class="ensemble-desc">
-                                A full-size regional symphony orchestra serving the Amherst, NY community. Performs
-                                a season of classical orchestral repertoire spanning romantic to contemporary works.
+                                A full-size regional symphony orchestra serving the Amherst, NY community,
+                                performing a season of orchestral repertoire from Romantic to contemporary.
                             </p>
                         </div>
 
                         <div class="ensemble-card">
-                            <p class="ensemble-name">American Legion Band of Post 264</p>
-                            <p class="ensemble-role">French Horn</p>
-                            <p class="ensemble-desc">
-                                A community concert band directed by Matthew Cool. Performs ceremonial, march, and
-                                concert repertoire for civic and community events throughout the region.
-                            </p>
-                        </div>
-
-                        <div class="ensemble-card">
+                            <span class="ensemble-status ensemble-status--past">Past</span>
                             <p class="ensemble-name">UB Choir</p>
                             <p class="ensemble-role">Vocalist</p>
                             <p class="ensemble-desc">
-                                The flagship choral ensemble of the University at Buffalo. Performs major choral–orchestral
-                                works alongside chamber repertoire from a wide range of historical periods.
+                                The flagship choral ensemble of the University at Buffalo, performing
+                                major choral–orchestral works and chamber repertoire across historical periods.
                             </p>
                         </div>
 
                         <div class="ensemble-card">
-                            <p class="ensemble-name">Chamber Singers</p>
+                            <span class="ensemble-status ensemble-status--past">Past</span>
+                            <p class="ensemble-name">UB Chamber Singers</p>
                             <p class="ensemble-role">Vocalist</p>
                             <p class="ensemble-desc">
-                                An auditioned chamber choir at the University at Buffalo focused on refined ensemble
-                                singing across Renaissance, Baroque, and contemporary a cappella literature.
+                                An auditioned chamber choir at UB focused on refined ensemble singing
+                                across Renaissance, Baroque, and contemporary a&nbsp;cappella literature.
                             </p>
                         </div>
 
                         <div class="ensemble-card">
-                            <p class="ensemble-name">Enchords A Cappella</p>
-                            <p class="ensemble-role">Assistant Music Director</p>
+                            <span class="ensemble-status ensemble-status--past">Past</span>
+                            <p class="ensemble-name">Enchords A&nbsp;Cappella</p>
+                            <p class="ensemble-role">Member &amp; Assistant Music Director</p>
                             <p class="ensemble-desc">
-                                UB's a cappella group, for which I serve as Assistant Music Director — arranging
-                                repertoire, leading sectional rehearsals, and contributing to artistic direction
-                                and vocal blend.
+                                UB's a&nbsp;cappella group. In addition to performing, I served as
+                                Assistant Music Director — arranging repertoire and leading sectional rehearsals.
                             </p>
                         </div>
 
                     </div>
+
+                    <!-- Choir / a cappella image -->
+                    <div class="music-img-gallery" style="margin-top:24px;">
+                        <!-- ▸ Replace with: assets/images/music/ub-choir-performance.jpg -->
+                        <figure class="music-img-placeholder">
+                            <span class="ph-icon">🎼</span>
+                            <code>assets/images/music/<br>ub-choir-performance.jpg</code>
+                            <p class="ph-desc">UB Choir on stage, group photo or performance candid</p>
+                        </figure>
+                        <!-- ▸ Replace with: assets/images/music/enchords-performance.jpg -->
+                        <figure class="music-img-placeholder">
+                            <span class="ph-icon">🎤</span>
+                            <code>assets/images/music/<br>enchords-performance.jpg</code>
+                            <p class="ph-desc">Enchords A Cappella in performance</p>
+                        </figure>
+                    </div>
                 </div>
             </section>
 
-            <!-- Mentorship -->
-            <section id="mentorship" class="fade-in">
+
+            <!-- ═══════════════════════════════════════════════════ -->
+            <!-- PRIVATE INSTRUCTION                               -->
+            <!-- ═══════════════════════════════════════════════════ -->
+            <section id="instruction" class="fade-in">
                 <div class="music-section">
-                    <h2>Mentorship &amp; Artistic Development</h2>
+                    <h2>Private Instruction</h2>
                     <p>
-                        My formation as a musician has been shaped by conductors who pushed me toward excellence
-                        at regional and state levels. Their direction produced some of the most competitive results
-                        of my early music career.
+                        My technique and musicianship were built through sustained private study with
+                        dedicated teachers at each stage of my training.
                     </p>
 
-                    <div class="mentor-card">
-                        <p class="mentor-name">Dr. Stephen Shewan</p>
-                        <p class="mentor-title">Director of Bands &mdash; Mentor</p>
-                        <p>
-                            Under Dr. Shewan's direction I earned selection to Conference All-State multiple times
-                            as both a <strong>performer</strong> (French Horn) and a <strong>composer</strong> — a
-                            rare dual qualification that reflects both technical mastery and creative voice.
-                            I also participated in the New York State Bandmasters Association (NYSBDA) and a range
-                            of other state-level events under his leadership. His conducting standards established
-                            the musical discipline I carry into every ensemble I join.
-                        </p>
+                    <div class="instruction-grid">
+
+                        <div class="instruction-card">
+                            <p class="teacher-name">Tim Schwartz</p>
+                            <p class="teacher-instrument">French Horn</p>
+                            <p class="teacher-period">High School</p>
+                            <p class="teacher-desc">
+                                Private French Horn instruction during high school, laying the technical
+                                and musical foundation that led to Conference All-State selection as both
+                                performer and composer.
+                            </p>
+                            <div class="director-links" style="margin-top:10px;">
+                                <!-- ▸ Add Tim Schwartz Facebook / LinkedIn / studio URL below -->
+                                <a href="#" class="director-link-btn" aria-disabled="true">Facebook</a>
+                                <a href="#" class="director-link-btn" aria-disabled="true">Profile</a>
+                            </div>
+                        </div>
+
+                        <div class="instruction-card">
+                            <!--
+                                Developer note: User provided "Jacek Muzyk" — Polish name.
+                                Spelling confirmed as given. Verify with Marcus before publishing.
+                            -->
+                            <p class="teacher-name">Jacek Muzyk</p>
+                            <p class="teacher-instrument">French Horn</p>
+                            <p class="teacher-period">College — University at Buffalo</p>
+                            <p class="teacher-desc">
+                                Private French Horn study at the collegiate level, developing
+                                orchestral technique and expanding repertoire through the UB music program.
+                            </p>
+                            <div class="director-links" style="margin-top:10px;">
+                                <!-- ▸ Add Jacek Muzyk profile / faculty page URL below -->
+                                <a href="#" class="director-link-btn" aria-disabled="true">Facebook</a>
+                                <a href="#" class="director-link-btn" aria-disabled="true">Profile</a>
+                            </div>
+                        </div>
+
+                        <div class="instruction-card">
+                            <!--
+                                Developer note: User provided "Roland Martin" for Organ.
+                                Verify spelling with Marcus before publishing.
+                            -->
+                            <p class="teacher-name">Roland Martin</p>
+                            <p class="teacher-instrument">Organ</p>
+                            <p class="teacher-period">College — University at Buffalo</p>
+                            <p class="teacher-desc">
+                                Private organ performance instruction at UB, adding keyboard and
+                                pipe organ technique to an already broad musical background.
+                            </p>
+                            <div class="director-links" style="margin-top:10px;">
+                                <!-- ▸ Add Roland Martin profile / faculty page URL below -->
+                                <a href="#" class="director-link-btn" aria-disabled="true">Facebook</a>
+                                <a href="#" class="director-link-btn" aria-disabled="true">Profile</a>
+                            </div>
+                        </div>
+
                     </div>
 
-                    <div class="mentor-card" style="margin-top: 16px;">
-                        <p class="mentor-name">Matthew Cool</p>
-                        <p class="mentor-title">Director &mdash; American Legion Band &amp; Community Ensembles</p>
+                    <!-- Practice / lesson candid image -->
+                    <div class="music-img-full" style="margin-top:24px;">
+                        <!-- ▸ Replace with: assets/images/music/marcus-horn-practice.jpg -->
+                        <figure class="music-img-placeholder" style="min-height:180px;">
+                            <span class="ph-icon">🎺</span>
+                            <code>assets/images/music/marcus-horn-practice.jpg</code>
+                            <p class="ph-desc">Marcus playing French horn — rehearsal, lesson,
+                                or practice candid with warm natural lighting</p>
+                        </figure>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ═══════════════════════════════════════════════════ -->
+            <!-- CONDUCTORS & DIRECTORS                            -->
+            <!-- ═══════════════════════════════════════════════════ -->
+            <section id="conductors" class="fade-in">
+                <div class="music-section">
+                    <h2>Conductors &amp; Directors</h2>
+                    <p>
+                        My performing career has been shaped by the direction of accomplished conductors
+                        across high school, university, and community ensembles. I have been fortunate to
+                        perform under leaders who hold each musician to a high standard.
+                    </p>
+
+                    <!-- ── Formative / High School ── -->
+                    <h3 style="color:#7a3d0a; font-size:1.0rem; margin: 20px 0 12px; letter-spacing:0.3px;">
+                        Formative &amp; High School
+                    </h3>
+
+                    <div class="director-card">
+                        <p class="director-name">Dr. Stephen Shewan</p>
+                        <p class="director-role">Director of Bands — High School</p>
                         <p>
-                            Matthew Cool has directed me in the American Legion Band of Post 264, community band
-                            performances, and concert appearances with the Amherst Symphony Orchestra. His leadership
-                            in community music settings has given me broad experience performing across multiple
-                            ensemble formats and audience contexts.
+                            Under Dr. Shewan's direction I earned selection to Conference All-State
+                            multiple times as both a <strong>performer</strong> and a
+                            <strong>composer</strong> — a rare dual qualification. I also participated
+                            in NYSBDA and additional state-level events under his leadership.
+                            His conducting standards established the musical discipline I carry into
+                            every ensemble I have since joined.
+                        </p>
+                        <div class="director-links">
+                            <!-- ▸ Add Dr. Shewan's Facebook / school biography URL below -->
+                            <a href="#" class="director-link-btn" aria-disabled="true">Facebook</a>
+                            <a href="#" class="director-link-btn" aria-disabled="true">Profile</a>
+                        </div>
+                    </div>
+
+                    <!-- ── University at Buffalo ── -->
+                    <h3 style="color:#7a3d0a; font-size:1.0rem; margin: 24px 0 12px; letter-spacing:0.3px;">
+                        University at Buffalo
+                    </h3>
+
+                    <div class="director-card">
+                        <!--
+                            Developer note: Claudia Brown at UB — verify current title and
+                            Facebook / faculty profile URL with Marcus before publishing.
+                        -->
+                        <p class="director-name">Claudia Brown</p>
+                        <p class="director-role">Director — University at Buffalo Choral Ensembles</p>
+                        <p>
+                            Directed me in choral performance at the University at Buffalo.
+                        </p>
+                        <div class="director-links">
+                            <!-- ▸ Add Claudia Brown UB faculty page / Facebook URL below -->
+                            <a href="#" class="director-link-btn" aria-disabled="true">UB Profile</a>
+                            <a href="#" class="director-link-btn" aria-disabled="true">Facebook</a>
+                        </div>
+                    </div>
+
+                    <div class="director-card">
+                        <!--
+                            Developer note: Jaman Dunn at UB and Erie County Orchestra.
+                            Marcus to confirm Erie County Orchestra year and exact title.
+                            Verify spelling of first name "Jaman" and add profile URLs.
+                        -->
+                        <p class="director-name">Jaman Dunn</p>
+                        <p class="director-role">Director — University at Buffalo &amp; Erie County Orchestra
+                            <!-- ▸ Confirm year: Erie County Orchestra [YEAR] -->
+                        </p>
+                        <p>
+                            Directed me at the University at Buffalo and with the Erie County Orchestra.
+                            <!-- ▸ Marcus to provide additional detail about this tenure -->
+                        </p>
+                        <div class="director-links">
+                            <!-- ▸ Add Jaman Dunn profile / Erie County Orchestra page URL below -->
+                            <a href="#" class="director-link-btn" aria-disabled="true">Facebook</a>
+                            <a href="#" class="director-link-btn" aria-disabled="true">Profile</a>
+                        </div>
+                    </div>
+
+                    <!-- ── Community ── -->
+                    <h3 style="color:#7a3d0a; font-size:1.0rem; margin: 24px 0 12px; letter-spacing:0.3px;">
+                        Community Ensembles
+                    </h3>
+
+                    <div class="director-card">
+                        <p class="director-name">Matthew Cool</p>
+                        <p class="director-role">Director — American Legion Band of Post 264 &amp; Community Ensembles</p>
+                        <p>
+                            Directed me in the American Legion Band of Post 264, community band performances,
+                            and performances with the Amherst Symphony Orchestra. His leadership in civic
+                            and community music has given me broad experience across a wide range of
+                            ensemble types and audience settings.
+                        </p>
+                        <div class="director-links">
+                            <!-- ▸ Add Matthew Cool Facebook / American Legion Band page URL below -->
+                            <a href="#" class="director-link-btn" aria-disabled="true">Facebook</a>
+                            <a href="#" class="director-link-btn" aria-disabled="true">Profile</a>
+                        </div>
+                    </div>
+
+                    <div class="director-card">
+                        <!--
+                            Developer note: Michael Shaw — American Legion Band.
+                            Verify first name spelling and role. Add Facebook URL.
+                        -->
+                        <p class="director-name">Michael Shaw</p>
+                        <p class="director-role">Director — American Legion Band of Post 264</p>
+                        <p>
+                            Directed me with the American Legion Band of Post 264.
+                            <!-- ▸ Marcus to provide additional context about this tenure -->
+                        </p>
+                        <div class="director-links">
+                            <!-- ▸ Add Michael Shaw Facebook / profile URL below -->
+                            <a href="#" class="director-link-btn" aria-disabled="true">Facebook</a>
+                            <a href="#" class="director-link-btn" aria-disabled="true">Profile</a>
+                        </div>
+                    </div>
+
+                    <!-- ── Orchestral ── -->
+                    <h3 style="color:#7a3d0a; font-size:1.0rem; margin: 24px 0 12px; letter-spacing:0.3px;">
+                        Orchestral
+                    </h3>
+
+                    <div class="director-card">
+                        <!--
+                            Developer note: ASO Music Director — Marcus to confirm name.
+                            Check the Amherst Symphony Orchestra website for current or
+                            past music director(s) during Marcus's tenure.
+                        -->
+                        <p class="director-name">Amherst Symphony Orchestra — Music Director</p>
+                        <p class="director-role">
+                            Director — Amherst Symphony Orchestra
+                            <!-- ▸ Marcus to supply director name. Check: amherstsymphony.org -->
+                        </p>
+                        <p>
+                            <!-- ▸ Marcus to provide name and description -->
+                            Directed the Amherst Symphony Orchestra during performances in which
+                            Marcus participated as French Horn.
+                        </p>
+                        <div class="director-links">
+                            <!-- ▸ Add ASO director links below -->
+                            <a href="#" class="director-link-btn" aria-disabled="true">ASO Website</a>
+                            <a href="#" class="director-link-btn" aria-disabled="true">Facebook</a>
+                        </div>
+                    </div>
+
+                    <!-- Placeholder for additional directors -->
+                    <div class="director-card" style="border-style: dashed; opacity: 0.65;">
+                        <p class="director-name">Additional Directors</p>
+                        <p class="director-role">All Erie, All County &amp; All-State Festival Conductors</p>
+                        <p>
+                            <!-- ▸ Marcus to supply names of All County, All Erie, and All-State
+                                   conductors he performed or composed under -->
+                            County, regional, and state festival conductors will be listed here
+                            as names are confirmed.
                         </p>
                     </div>
                 </div>
             </section>
 
-            <!-- Recognition -->
+
+            <!-- ═══════════════════════════════════════════════════ -->
+            <!-- RECOGNITION                                        -->
+            <!-- ═══════════════════════════════════════════════════ -->
             <section id="recognition" class="fade-in">
                 <div class="music-section">
                     <h2>Competitions &amp; Recognition</h2>
                     <p>
-                        Competitive music events at the county, regional, and state levels are a significant
-                        part of my musical biography. These auditions demand both technical precision and
-                        artistic maturity evaluated by professional panels.
+                        Competitive music selection processes at the county, regional, and state levels
+                        have been a consistent part of my musical biography. These auditions and
+                        composition submissions are evaluated by professional panels and represent
+                        the most selective music opportunities available in New York State.
                     </p>
 
                     <ul class="achievement-list">
                         <li>
-                            <strong>Conference All-State — Performer (Multiple Years)</strong><br>
-                            Selected multiple times as a French Horn performer at the New York State
-                            Conference All-State festival, one of the most competitive music honor ensembles
-                            in New York State.
+                            <div>
+                                <strong>Conference All-State — Performer (Multiple Years)</strong><br>
+                                Selected multiple times as a French Horn performer at the New York State
+                                Conference All-State festival — among the most competitive music honor
+                                ensembles in the state.
+                            </div>
                         </li>
                         <li>
-                            <strong>Conference All-State — Composer (Multiple Years)</strong><br>
-                            Also selected multiple times as a composer, with original compositions programmed
-                            and performed at the All-State level. Simultaneous recognition as both performer
-                            and composer is uncommon.
+                            <div>
+                                <strong>Conference All-State — Composer (Multiple Years)</strong><br>
+                                Original compositions selected for performance at the All-State level
+                                multiple times. Simultaneous recognition as performer and composer
+                                in the same festival cycle is uncommon.
+                            </div>
                         </li>
                         <li>
-                            <strong>New York State Bandmasters Association (NYSBDA)</strong><br>
-                            Participated in NYSBDA events under the direction of Dr. Stephen Shewan,
-                            performing alongside the most accomplished wind band musicians in New York State.
+                            <div>
+                                <strong>New York State Bandmasters Association (NYSBDA)</strong><br>
+                                Performed in NYSBDA events under the direction of Dr. Stephen Shewan,
+                                alongside the most accomplished wind band musicians in New York State.
+                            </div>
                         </li>
                         <li>
-                            <strong>All Erie &amp; All County Festivals</strong><br>
-                            Selected for county- and regional-level honor ensembles, serving as stepping
-                            stones to state-level recognition and conducted by area music educators.
+                            <div>
+                                <strong>All Erie &amp; All County Festivals</strong><br>
+                                Selected for county- and regional-level honor ensembles as stepping stones
+                                to state recognition, conducted by area music educators.
+                            </div>
                         </li>
                         <li>
-                            <strong>New York State All-State Music Festival</strong><br>
-                            Performed with the All-State ensemble at the New York State School Music
-                            Association (NYSSMA) All-State festival.
+                            <div>
+                                <strong>New York State All-State Music Festival (NYSSMA)</strong><br>
+                                Performed with the All-State ensemble at the NYSSMA All-State festival.
+                            </div>
                         </li>
                     </ul>
+
+                    <!-- Recognition image -->
+                    <div class="music-img-full" style="margin-top:24px;">
+                        <!-- ▸ Replace with: assets/images/music/all-state-program.jpg -->
+                        <figure class="music-img-placeholder" style="min-height:180px;">
+                            <span class="ph-icon">🏆</span>
+                            <code>assets/images/music/all-state-program.jpg</code>
+                            <p class="ph-desc">Conference All-State program, award certificate,
+                                or festival candid photo</p>
+                        </figure>
+                    </div>
                 </div>
             </section>
 
-            <!-- Media (Coming Soon) -->
+
+            <!-- ═══════════════════════════════════════════════════ -->
+            <!-- MEDIA                                             -->
+            <!-- ═══════════════════════════════════════════════════ -->
             <section id="media" class="fade-in">
                 <div class="music-section">
                     <h2>Recordings &amp; Media</h2>
                     <p>
-                        Performance recordings, ensemble photos, and video highlights are being compiled and
-                        will be added here. All recordings will be linked with appropriate attribution
-                        respecting copyright.
+                        Performance recordings, ensemble photos, and video highlights are being compiled.
+                        All audio links will respect copyright — recordings from NYSSMA-administered
+                        events and commercially released recordings will be linked with proper attribution.
                     </p>
 
-                    <div class="coming-soon-block">
-                        <span class="cs-icon">🎺</span>
-                        <p>Performance photos &mdash; coming soon</p>
+                    <!-- Image gallery placeholder -->
+                    <div class="music-img-gallery" style="margin-top: 20px;">
+                        <!-- ▸ Replace each figure with an actual <img> when files are added -->
+                        <figure class="music-img-placeholder">
+                            <span class="ph-icon">📷</span>
+                            <code>assets/images/music/<br>performance-gallery-1.jpg</code>
+                            <p class="ph-desc">Performance photo 1</p>
+                        </figure>
+                        <figure class="music-img-placeholder">
+                            <span class="ph-icon">📷</span>
+                            <code>assets/images/music/<br>performance-gallery-2.jpg</code>
+                            <p class="ph-desc">Performance photo 2</p>
+                        </figure>
+                        <figure class="music-img-placeholder">
+                            <span class="ph-icon">📷</span>
+                            <code>assets/images/music/<br>performance-gallery-3.jpg</code>
+                            <p class="ph-desc">Performance photo 3</p>
+                        </figure>
                     </div>
 
-                    <div class="coming-soon-block" style="margin-top: 12px;">
+                    <div class="coming-soon-block" style="margin-top:20px;">
                         <span class="cs-icon">🎬</span>
-                        <p>Video highlights from orchestral and band performances &mdash; coming soon</p>
+                        <p>Video highlights from orchestral and band performances — coming soon</p>
                     </div>
 
-                    <div class="coming-soon-block" style="margin-top: 12px;">
+                    <div class="coming-soon-block">
                         <span class="cs-icon">🎵</span>
-                        <p>Audio recordings from All-State, NYSBDA, and ensemble concerts &mdash; coming soon</p>
+                        <p>Audio recordings — All-State, NYSBDA, and ensemble concerts — coming soon</p>
                     </div>
 
-                    <div class="coming-soon-block" style="margin-top: 12px;">
+                    <div class="coming-soon-block">
                         <span class="cs-icon">📅</span>
-                        <p>Upcoming performance calendar &mdash; coming soon</p>
+                        <p>Upcoming performance calendar — coming soon</p>
                     </div>
                 </div>
             </section>
 
-        </div>
-    </div>
+        </div><!-- /.content -->
+    </div><!-- /.container -->
 
     <footer>
         <p>Connect with me on <a href="https://www.linkedin.com/in/marcus-francisco">LinkedIn</a> and <a
                 href="https://github.com/MarcAura">GitHub</a>.</p>
         <p>&copy; 2025&ndash;2026 Marcus Francisco. All rights reserved.</p>
-        <p>Website content, themes, animations, templates, images, and icons are all original work created by Marcus
-            Francisco</p>
+        <p>Website content, themes, animations, templates, images, and icons are all original work
+            created by Marcus Francisco</p>
     </footer>
 
-    <!-- Modal Structure for Images -->
     <div id="imageModal" class="modal">
         <span class="close">&times;</span>
         <img class="modal-content" id="modalImage" alt="">
@@ -267,5 +628,4 @@
     </div>
 
 </body>
-
 </html>
