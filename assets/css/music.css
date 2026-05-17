@@ -1,0 +1,224 @@
+/* Music Page Styles */
+
+/* ---- Hero ---- */
+#music-hero {
+    background: linear-gradient(135deg, #1a0533, #4a0080, #7b1fa2);
+    text-align: center;
+    color: white;
+    padding: 60px 20px;
+    border-radius: 0 0 20px 20px;
+    width: 90%;
+    max-width: 1100px;
+    margin: 50px auto;
+    box-shadow: 0px 4px 20px rgba(100, 0, 180, 0.4);
+    opacity: 0;
+    animation: musicHeroIn 0.8s ease-out forwards;
+}
+
+@keyframes musicHeroIn {
+    from { opacity: 0; transform: translateY(-12px); }
+    to   { opacity: 1; transform: translateY(0);     }
+}
+
+#music-hero h1 {
+    font-size: 3rem;
+    margin: 10px 0;
+    letter-spacing: 1px;
+}
+
+#music-hero h2 {
+    font-size: 1.35rem;
+    font-weight: 300;
+    opacity: 0.9;
+    margin: 8px 0 0;
+}
+
+/* ---- Section containers (mirror .about-me-item pattern) ---- */
+.music-section {
+    background: white;
+    padding: 40px;
+    max-width: 900px;
+    margin: 30px auto;
+    border-left: 5px solid #7b1fa2;
+    border-right: 5px solid #7b1fa2;
+    border-radius: 15px;
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.music-section h2 {
+    color: #4a0080;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #e0c3ff;
+    padding-bottom: 10px;
+}
+
+.music-section p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    text-align: justify;
+    color: #333;
+}
+
+/* ---- Ensemble cards grid ---- */
+.ensemble-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.ensemble-card {
+    background: #f9f4ff;
+    border: 1px solid #d4a8ff;
+    border-top: 4px solid #7b1fa2;
+    border-radius: 10px;
+    padding: 20px;
+    transition: transform var(--transition-normal, 0.3s ease-in-out),
+                box-shadow var(--transition-normal, 0.3s ease-in-out);
+}
+
+@media (hover: hover) {
+    .ensemble-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(100, 0, 180, 0.15);
+    }
+}
+
+.ensemble-card .ensemble-name {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #4a0080;
+    margin: 0 0 6px;
+}
+
+.ensemble-card .ensemble-role {
+    font-size: 0.95rem;
+    color: #7b1fa2;
+    font-style: italic;
+    margin: 0 0 10px;
+}
+
+.ensemble-card .ensemble-desc {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ---- Achievement list ---- */
+.achievement-list {
+    list-style: none;
+    padding: 0;
+    margin: 16px 0 0;
+}
+
+.achievement-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    background: #f9f4ff;
+    border-left: 4px solid #7b1fa2;
+    border-radius: 8px;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #333;
+}
+
+.achievement-list li::before {
+    content: "♪";
+    color: #7b1fa2;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+/* ---- Coming-soon placeholder ---- */
+.coming-soon-block {
+    background: #faf7ff;
+    border: 2px dashed #c89aff;
+    border-radius: 12px;
+    padding: 30px 20px;
+    text-align: center;
+    color: #888;
+    margin-top: 20px;
+}
+
+.coming-soon-block .cs-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.coming-soon-block p {
+    font-size: 0.95rem;
+    margin: 0;
+    color: #999;
+    text-align: center;
+}
+
+/* ---- Mentor card ---- */
+.mentor-card {
+    background: linear-gradient(135deg, #f3e8ff, #ede0ff);
+    border-left: 5px solid #6a0dad;
+    border-radius: 10px;
+    padding: 20px 25px;
+    margin-top: 20px;
+}
+
+.mentor-card .mentor-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #4a0080;
+    margin: 0 0 4px;
+}
+
+.mentor-card .mentor-title {
+    font-size: 0.95rem;
+    color: #7b1fa2;
+    font-style: italic;
+    margin: 0 0 12px;
+}
+
+.mentor-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #444;
+    margin: 0;
+    text-align: left;
+}
+
+
+/* =============================================
+   Mobile — < 768px
+   ============================================= */
+@media (max-width: 767px) {
+
+    #music-hero {
+        animation: musicHeroInMobile 0.6s ease-out forwards !important;
+        padding: 40px 15px !important;
+        width: 95%;
+        margin: 10px auto 20px;
+    }
+
+    @keyframes musicHeroInMobile {
+        from { opacity: 0; transform: translateY(-10px); }
+        to   { opacity: 1; transform: translateY(0);     }
+    }
+
+    #music-hero h1 { font-size: 2rem; }
+    #music-hero h2 { font-size: 1.1rem; }
+
+    .music-section {
+        max-width: 100%;
+        padding: 20px 15px;
+        margin: 15px 0;
+    }
+
+    .ensemble-grid {
+        grid-template-columns: 1fr;
+    }
+}
