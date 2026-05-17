@@ -237,11 +237,73 @@ body.fade-effect {
 }
 
 @media (max-width: 767px) {
+
+    /* Reflection cards: full usable width, no horizontal overflow */
     .reflection-item {
-        width: 90%;
+        width: calc(100% - 20px);
+        margin-left: 10px;
+        margin-right: 10px;
+        box-sizing: border-box;
     }
+
+    /* When expanded, no downward shift — it pushes everything below normally */
+    .reflection-item.active {
+        transform: none;
+        margin-bottom: 20px;
+    }
+
+    .reflection-item.active:hover {
+        transform: none;
+    }
+
+    /* Course-description icon: reposition below toggle rather than absolute */
+    .course-desc-icon {
+        position: static;
+        width: 100%;
+        margin-top: 10px;
+        transform: rotate(180deg);
+    }
+
+    .reflection-item.active .course-desc-icon {
+        transform: rotate(0deg);
+    }
+
+    .reflection-item.active .course-desc-icon.active {
+        width: 100%;
+    }
+
+    /* Video embeds: full width */
     .video-container-50 {
         width: 100%;
+        max-width: 100%;
+    }
+
+    /* Canvases: scale down to fit the screen */
+    canvas {
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
+
+    /* Slider controls: wrap to next line on narrow screens */
+    .slider-row {
+        gap: 15px;
+    }
+
+    .slider-group {
+        min-width: 120px;
+    }
+}
+
+/* Disable hover lift on touch devices */
+@media (hover: none) {
+    .reflection-item:hover {
+        transform: none;
+        box-shadow: none;
+    }
+    .project-item:hover {
+        transform: none;
+        box-shadow: none;
     }
 }
 

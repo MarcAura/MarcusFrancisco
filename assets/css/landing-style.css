@@ -416,31 +416,28 @@ body {
    ============================================= */
 @media (max-width: 767px) {
 
-    /* Hero: remove the desktop translateY trick so it renders normally */
+    /* Hero: swap out the desktop translateY animation for a simple fade-in.
+       padding-top: 200px was only needed because the hero was shifted -200px
+       on desktop — on mobile it just renders in normal flow. */
     #hero {
-        transform: none !important;
+        animation: fadeInDownMobile 0.6s ease-out forwards !important;
+        padding: 40px 15px !important;
+        padding-top: 40px !important;
         width: 95%;
         margin: 10px auto 20px;
-        padding: 40px 15px;
-        animation: fadeInDownMobile 0.8s ease-out forwards;
     }
 
     @keyframes fadeInDownMobile {
-        from { opacity: 0; transform: translateY(-15px); }
+        from { opacity: 0; transform: translateY(-12px); }
         to   { opacity: 1; transform: translateY(0);     }
     }
 
-    #hero h1 {
-        font-size: 2rem;
-    }
+    #hero h1 { font-size: 2rem; }
+    #hero h2 { font-size: 1.1rem; }
 
-    #hero h2 {
-        font-size: 1.1rem;
-    }
-
-    /* Portfolio intro: no negative margin needed on mobile */
+    /* Portfolio intro: reset negative margin — hero no longer translated up */
     #portfolio-intro {
-        margin-top: 10px;
+        margin-top: 10px !important;
         padding: 25px 15px;
     }
 
@@ -449,7 +446,7 @@ body {
         max-width: 100%;
     }
 
-    /* List items: remove the fixed 220px column; stack icon+title/description */
+    /* List items: remove fixed 220px column */
     #portfolio-intro ul li {
         grid-template-columns: 1fr;
         row-gap: 8px;
@@ -467,9 +464,7 @@ body {
     }
 
     /* Timeline: tighten up */
-    .timeline {
-        padding: 10px 0;
-    }
+    .timeline { padding: 10px 0; }
 
     .timeline-item {
         flex-direction: column;
@@ -483,9 +478,15 @@ body {
         font-size: 1rem;
     }
 
-    .timeline-content {
-        padding: 10px;
-    }
+    .timeline-content { padding: 10px; }
+}
+
+/* Disable scale/lift hover effects on touch devices —
+   :hover fires on tap and causes jarring layout shifts. */
+@media (hover: none) {
+    .content .grid-item:hover       { transform: none; opacity: 1; }
+    .timeline-item:hover            { transform: none; box-shadow: none; }
+    #portfolio-intro ul li:hover    { transform: none; box-shadow: none; }
 }
 
 /* =============================================

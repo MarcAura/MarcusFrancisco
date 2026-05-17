@@ -807,6 +807,7 @@ input[type=range] {
 canvas {
     border: 1px solid #333;
     background: #fafafa;
+    max-width: 100%;
 }
 
 

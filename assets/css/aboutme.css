@@ -162,6 +162,11 @@
 }
 
 
+/* Disable hover lift/scale on touch devices */
+@media (hover: none) {
+    .about-me-item ul li:hover { transform: none; box-shadow: none; }
+}
+
 /* =============================================
    Mobile — < 768px
    ============================================= */

@@ -5,7 +5,7 @@
 
 ## This Session Prompt: 
 
-Let's move on to other issues and touch on some of the expansion areas that are within your power to improve without my input.
+Please continue to explore the website and Claude.md and pick the issue or expansion item you feel should be prioritized, thinking like a software developer.
 
 ---
 
