@@ -273,6 +273,11 @@ sections may be added with a "Coming Soon" state if content is not yet ready.
 ### 16: Homebrew and Other Recipes
 - Another page showing all my homebrew recipes 
 - Tab in the page dedicated specifically to "Clone" brews such as the Corona clone or Murphy's clone
+- This is a page people might navigate to for recipes so there may be traffic here. For that reason we will consider:
+   - Hosting Ads for ad revenue on recipes
+   - Integrating a homebrew calculator for ABV, recipes, hop times and bitterness, and other calculators (cover all bases)
+   - An interactive beer Recipe Builder that can export to PDF with desired flavor and ABV (Kind of like PC Part Picker but for beer)
+   - Promoting websites to increase traffic vis google search
 
 ### 17: App Development and Github Repositories 
 - Active dynamic description of all the projects I work on
