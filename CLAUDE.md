@@ -270,6 +270,14 @@ sections may be added with a "Coming Soon" state if content is not yet ready.
 - Here is where we have ongoing project work. This would include the "Francisco Music Library" which is a digitization effort for my father's music library, along with my own compositions and arrangements. A sub-part of the project is to market and distribute my own music organizational software, so there will be a link to view the work as it progresses. 
 - Another thing to feature here is musical composition and recording projects that are in progress. These will include some of my arrangements, and also some recording projects that are speculative and may require approval from composers or copyright holders before moving forward, this caviat must be made clear. An example is a french horn arrangment for the Interstellar soundtrack or some arrangements of Percy Grainger that have not yet entered public domain. 
 
+### 16: Homebrew and Other Recipes
+- Another page showing all my homebrew recipes 
+- Tab in the page dedicated specifically to "Clone" brews such as the Corona clone or Murphy's clone
+
+### 17: App Development and Github Repositories 
+- Active dynamic description of all the projects I work on
+- Implement an automatic pull from Github Profile to show progress from README.
+
 ---
 
 ## Pages Reference
