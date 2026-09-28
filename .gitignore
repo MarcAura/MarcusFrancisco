@@ -1,2 +1,3 @@
 # Local-only notes — never published
 *.private.md
+/private/
