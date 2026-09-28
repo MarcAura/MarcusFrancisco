@@ -276,12 +276,6 @@
   .course-summary span,
   .coursework-header span,
   .coursework-footer span {
-    overflow-wrap: break-word;
-    hyphens: auto; /* "Descrip-tion", not "Descriptio / n" */
-  }
-
-  .coursework-header,
-  .coursework-footer {
-    font-size: 0.9rem;
+    overflow-wrap: anywhere;
   }
 }

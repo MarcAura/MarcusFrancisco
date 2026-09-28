@@ -326,10 +326,6 @@ html {
 
 .content {
     flex: 1;
-    min-width: 0;
-    /* Flex items default to min-width:auto and grow to fit their widest word; long URLs
-       (citations) pushed the page sideways on tablets. Let it shrink and break long words. */
-    overflow-wrap: break-word;
     /* Allow content to fill remaining space */
     /* margin-left: 135px; Offset for sidebar */
     padding: 20px;
@@ -977,18 +973,21 @@ canvas {
 
 
 /* =============================================
-   Touch nav — phones AND tablets (< 1200px)
-   Nine links + "Wrong Twin?" can't fit one row below 1200px with 44px touch
-   targets: on tablets they wrapped, the second row overlapped the first
-   (links carry margin: -10px) and "Wrong Twin?" covered a link. Tablets are
-   touch devices, so both get the hamburger dropdown.
+   Mobile Breakpoint — < 768px
    ============================================= */
-@media (max-width: 1199px) {
+@media (max-width: 767px) {
 
+    /* --- Header & Nav --- */
     header {
         display: flex;
         align-items: center;
         gap: var(--space-md);
+        padding: 10px var(--space-md);
+        margin-top: 0;
+        margin-bottom: 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
     }
 
     .nav-hamburger {
@@ -998,9 +997,7 @@ canvas {
 
     nav {
         flex: 1;
-        /* static (not relative) so the dropdown below positions against the sticky header,
-           which spans the screen exactly — no magic offsets, no 100vw scrollbar overshoot */
-        position: static;
+        position: relative;
     }
 
     nav ul {
@@ -1008,9 +1005,8 @@ canvas {
         flex-direction: column;
         position: absolute;
         top: 100%;
-        left: 0;
-        right: 0;
-        width: auto;
+        left: -55px;
+        width: 100vw;
         background: var(--gradient-nav);
         z-index: 999;
         padding: var(--space-sm) 0;
@@ -1043,37 +1039,10 @@ canvas {
     nav ul li a:hover {
         background-color: rgba(255, 255, 255, 0.1);
     }
-}
 
-
-/* =============================================
-   Mobile Breakpoint — < 768px
-   ============================================= */
-@media (max-width: 767px) {
-
-    /* --- Header --- */
-    header {
-        display: flex;
-        align-items: center;
-        gap: var(--space-md);
-        padding: 10px var(--space-md);
-        margin-top: 0;
-        margin-bottom: 0;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-    }
-
-    /* "Wrong Twin?" stays visible on phones (content-preservation rule) as a
-       44px touch target at the header's right. It stays position: fixed so its
-       exit animation (translateX(150vw)) can never create sideways scroll. */
+    /* Hide "Wrong Twin?" on mobile to reduce clutter */
     .top-right-button {
-        top: 20px;
-        right: var(--space-md);
-        min-height: var(--touch-target);
-        display: inline-flex;
-        align-items: center;
-        box-sizing: border-box;
+        display: none;
     }
 
     /* --- Sidebar & Toggle --- */
@@ -1126,41 +1095,16 @@ canvas {
    Tablet Breakpoint — 768px to 1199px
    ============================================= */
 @media (min-width: 768px) and (max-width: 1199px) {
-    /* Nav moved to the touch-nav block above (hamburger below 1200px);
-       the old 11px, 8px-padded tablet links were too small to tap. */
+    nav ul li {
+        margin-right: 10px;
+    }
+
+    nav ul li a {
+        padding: 8px 10px;
+        font-size: 11px;
+    }
 
     .sidebar {
         width: 80px;
     }
-}
-
-/* =============================================
-   Narrow desktop — 1200px to 1439px
-   The centered one-row nav (~1050px) ran under the fixed "Wrong Twin?" button
-   (~122px incl. its offset) up to ~1300px. Tighten link spacing a little and
-   reserve the button's space on the right. Wider screens are unchanged.
-   ============================================= */
-@media (min-width: 1200px) and (max-width: 1439px) {
-    nav ul {
-        padding-right: 125px;
-    }
-
-    nav ul li {
-        margin-right: 6px;
-    }
-
-    nav ul li a {
-        padding: 10px 12px;
-    }
-}
-
-/* =============================================
-   Missing images — set by script.js when an image fails to load,
-   so visitors never see a broken-image icon. Removing the class is
-   automatic: the image shows as soon as its file exists.
-   ============================================= */
-img.img-missing {
-    /* !important: a state class must beat every page's own img display rule
-       (e.g. .zoomable { display: block } kept it visible — found by screenshot) */
-    display: none !important;
 }

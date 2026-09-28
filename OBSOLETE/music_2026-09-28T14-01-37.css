@@ -431,7 +431,6 @@
         animation: musicHeroInMobile 0.6s ease-out forwards !important;
         padding: 40px 15px !important;
         width: 95%;
-        box-sizing: border-box; /* 95% + 30px padding overflowed narrow phones */
         margin: 10px auto 20px;
     }
 

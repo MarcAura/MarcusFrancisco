@@ -259,29 +259,3 @@
   font-size: 1.5rem;
   font-weight: lighter;
 }
-
-/* =============================================
-   Mobile — six columns cannot fit a phone (1fr won't shrink below its content,
-   so rows ran 70px off a 320px screen). Wrap each row onto two lines of three;
-   header and footer wrap identically, so the columns stay aligned.
-   ============================================= */
-@media (max-width: 767px) {
-  .coursework-header,
-  .coursework-footer,
-  .course-summary {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    row-gap: 6px;
-  }
-
-  .course-summary span,
-  .coursework-header span,
-  .coursework-footer span {
-    overflow-wrap: break-word;
-    hyphens: auto; /* "Descrip-tion", not "Descriptio / n" */
-  }
-
-  .coursework-header,
-  .coursework-footer {
-    font-size: 0.9rem;
-  }
-}

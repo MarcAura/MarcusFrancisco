@@ -424,7 +424,6 @@ body {
         padding: 40px 15px !important;
         padding-top: 40px !important;
         width: 95%;
-        box-sizing: border-box; /* 95% + 30px padding overflowed narrow phones */
         margin: 10px auto 20px;
     }
 

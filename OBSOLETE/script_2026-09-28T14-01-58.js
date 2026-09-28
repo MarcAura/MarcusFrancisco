@@ -393,22 +393,3 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
-
-// =============================================
-// Missing images — hide instead of showing a broken-image icon.
-// Self-healing: once the file exists at the referenced path, it simply shows.
-// (Script is deferred, so also sweep images that already failed before it ran.)
-// =============================================
-(function () {
-    function markMissing(img) {
-        img.classList.add('img-missing');
-    }
-
-    document.addEventListener('error', function (event) {
-        if (event.target instanceof HTMLImageElement) markMissing(event.target);
-    }, true);
-
-    document.querySelectorAll('img[src]').forEach(function (img) {
-        if (img.complete && img.naturalWidth === 0) markMissing(img);
-    });
-})();

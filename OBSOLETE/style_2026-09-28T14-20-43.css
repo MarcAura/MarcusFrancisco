@@ -1135,26 +1135,6 @@ canvas {
 }
 
 /* =============================================
-   Narrow desktop — 1200px to 1439px
-   The centered one-row nav (~1050px) ran under the fixed "Wrong Twin?" button
-   (~122px incl. its offset) up to ~1300px. Tighten link spacing a little and
-   reserve the button's space on the right. Wider screens are unchanged.
-   ============================================= */
-@media (min-width: 1200px) and (max-width: 1439px) {
-    nav ul {
-        padding-right: 125px;
-    }
-
-    nav ul li {
-        margin-right: 6px;
-    }
-
-    nav ul li a {
-        padding: 10px 12px;
-    }
-}
-
-/* =============================================
    Missing images — set by script.js when an image fails to load,
    so visitors never see a broken-image icon. Removing the class is
    automatic: the image shows as soon as its file exists.
