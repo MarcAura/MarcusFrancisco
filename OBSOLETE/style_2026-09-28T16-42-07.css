@@ -1290,15 +1290,12 @@ nav ul li a[aria-current="page"] {
     pointer-events: auto;
 }
 
-/* Invisible block covering the first 1.5 screens; script.js shows .back-to-top whenever
-   it is entirely out of view. A block (not a 1px line) so jumps past it — anchor links,
-   restored scroll position — still register as a change. */
+/* Invisible marker 1.5 screens down; script.js shows .back-to-top once it scrolls past */
 .back-to-top-marker {
     position: absolute;
-    top: 0;
+    top: 150vh;
     left: 0;
     width: 1px;
-    height: 150vh;
+    height: 1px;
     pointer-events: none;
-    visibility: hidden;
 }

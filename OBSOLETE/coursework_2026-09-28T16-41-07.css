@@ -285,10 +285,3 @@
     font-size: 0.9rem;
   }
 }
-/* Touch screens: each tappable course row at least 44px tall (single-line rows were 37px) */
-@media (pointer: coarse) {
-  .course-summary {
-    min-height: var(--touch-target);
-    align-items: center;
-  }
-}

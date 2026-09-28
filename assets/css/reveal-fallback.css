@@ -1,0 +1,37 @@
+/* =============================================
+   Reveal fallback — show everything, no motion.
+
+   Loaded two ways from every page's <head>:
+     <link ... media="(prefers-reduced-motion: reduce)">  visitors who ask for less motion
+     <noscript><link ...></noscript>                      visitors without JavaScript
+   Scroll-reveal content starts at opacity 0 and waits for script.js to add
+   .visible; without motion or without JS that must never leave content hidden
+   (CLAUDE.md invariant 5.8). The animations themselves are unchanged for
+   everyone else.
+   ============================================= */
+
+.fade-in,
+.fade-in ul li,
+#portfolio-intro ul li,
+.project-item ul li,
+.about-me-item ul li,
+.timeline-item,
+.icon {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+}
+
+/* Heroes: keep their layout transform (the desktop "hanging banner" offset), drop only the fade */
+#hero,
+#music-hero,
+#coursework-hero,
+#proj-hero-linkedin {
+    opacity: 1 !important;
+    animation: none !important;
+}
+
+.back-to-top {
+    transition: none;
+}

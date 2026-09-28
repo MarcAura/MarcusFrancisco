@@ -1181,11 +1181,7 @@ img.img-missing {
     top: var(--space-sm);
     left: var(--space-sm);
     z-index: 2000;
-    display: inline-flex;
-    align-items: center;
-    min-height: var(--touch-target);
-    box-sizing: border-box;
-    padding: 0 var(--space-lg);
+    padding: 12px var(--space-lg);
     background: var(--color-bg-white);
     color: var(--color-primary);
     font-weight: bold;
@@ -1244,17 +1240,12 @@ nav ul li a[aria-current="page"] {
         box-sizing: border-box;
     }
 
-    /* (Citation numbers like "[5]" sit inside running text: exempt from target size
-       per WCAG 2.5.8, and enlarging them would break the line spacing.) */
-
-    button,
-    .sidebar ul li a {
-        min-height: var(--touch-target);
-    }
-
-    .sidebar ul li a {
-        display: flex;
+    .hyperlink-citation {
+        display: inline-flex;
         align-items: center;
+        justify-content: center;
+        min-width: var(--touch-target);
+        min-height: var(--touch-target);
     }
 
     input[type="range"] {
@@ -1290,15 +1281,12 @@ nav ul li a[aria-current="page"] {
     pointer-events: auto;
 }
 
-/* Invisible block covering the first 1.5 screens; script.js shows .back-to-top whenever
-   it is entirely out of view. A block (not a 1px line) so jumps past it — anchor links,
-   restored scroll position — still register as a change. */
+/* Invisible marker 1.5 screens down; script.js shows .back-to-top once it scrolls past */
 .back-to-top-marker {
     position: absolute;
-    top: 0;
+    top: 150vh;
     left: 0;
     width: 1px;
-    height: 150vh;
+    height: 1px;
     pointer-events: none;
-    visibility: hidden;
 }

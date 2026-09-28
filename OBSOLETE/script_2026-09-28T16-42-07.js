@@ -460,9 +460,8 @@ document.addEventListener('DOMContentLoaded', function () {
         if (skipTarget) skipTarget.focus({ preventScroll: true });
     });
 
-    // IntersectionObserver, not a scroll listener (CLAUDE.md): an invisible block covers the
-    // first 1.5 screens; while any of it is on screen, hide the button. (A 1px line was tried
-    // first: a jump straight past it never "crosses" the viewport, so the button never showed.)
+    // IntersectionObserver, not a scroll listener (CLAUDE.md): an invisible marker sits
+    // 1.5 screens down; once it has scrolled above the viewport, show the button.
     const marker = document.createElement('div');
     marker.className = 'back-to-top-marker';
     marker.setAttribute('aria-hidden', 'true');
@@ -470,6 +469,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     new IntersectionObserver(function (entries) {
         const entry = entries[0];
-        button.classList.toggle('is-visible', !entry.isIntersecting);
+        button.classList.toggle('is-visible', !entry.isIntersecting && entry.boundingClientRect.top < 0);
     }).observe(marker);
 });

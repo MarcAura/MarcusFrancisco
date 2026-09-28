@@ -151,13 +151,3 @@
         padding: 15px;
     }
 }
-
-/* Touch screens: form fields at least 44px tall (were 40px) */
-@media (pointer: coarse) {
-  #contact-form input:not([type="hidden"]),
-  #contact-form textarea,
-  #contact-form select {
-    min-height: var(--touch-target);
-    box-sizing: border-box;
-  }
-}

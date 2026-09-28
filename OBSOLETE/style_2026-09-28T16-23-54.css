@@ -71,11 +71,6 @@
 
     /* Touch target minimum (WCAG) */
     --touch-target: 44px;
-
-    /* Navigation state + keyboard focus */
-    --color-nav-active-bg:     rgba(255, 255, 255, 0.22);
-    --color-focus-inner:       #0b1f4d;   /* dark ring: visible on white/light pages */
-    --color-focus-outer:       #ffd166;   /* warm halo: visible on the blue header */
 }
 
 /* =============================================
@@ -188,7 +183,7 @@ nav ul li a {
     /* transition: transform 0.3s ease-in-out; */
     /* Ensure the sidebar stays above content */
 
-    height: 100vh; height: 100dvh; /* dvh = visible height on iPhone (excludes the address bar); vh is the fallback */
+    height: 100vh;
     /* Make the sidebar fill the entire height of the screen */
     /* height: calc(100vh - 60px);  Full screen height minus padding */
     /* height: auto;  Let it grow with content */
@@ -1168,137 +1163,4 @@ img.img-missing {
     /* !important: a state class must beat every page's own img display rule
        (e.g. .zoomable { display: block } kept it visible — found by screenshot) */
     display: none !important;
-}
-
-
-/* =============================================
-   Quality of life — accessibility & navigation aids
-   ============================================= */
-
-/* Skip link: first Tab on any page jumps past the nav to the content */
-.skip-link {
-    position: fixed;
-    top: var(--space-sm);
-    left: var(--space-sm);
-    z-index: 2000;
-    display: inline-flex;
-    align-items: center;
-    min-height: var(--touch-target);
-    box-sizing: border-box;
-    padding: 0 var(--space-lg);
-    background: var(--color-bg-white);
-    color: var(--color-primary);
-    font-weight: bold;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-xl);
-    transform: translateY(-200%);
-    transition: transform var(--transition-fast);
-}
-
-.skip-link:focus {
-    transform: translateY(0);
-}
-
-/* Keyboard focus: a two-tone ring that shows on both white pages and the blue header.
-   :focus-visible = keyboard only, so mouse clicks don't draw rings. */
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible,
-[tabindex]:focus-visible {
-    outline: 3px solid var(--color-focus-inner);
-    outline-offset: 2px;
-    box-shadow: 0 0 0 6px var(--color-focus-outer);
-}
-
-#main-content:focus {
-    outline: none;   /* focus target of the skip link; no ring on the whole page */
-}
-
-/* Current page in the nav (aria-current is set per page in the HTML) */
-nav ul li a[aria-current="page"] {
-    background-color: var(--color-nav-active-bg);
-    border-color: var(--color-bg-white);
-}
-
-@media (max-width: 1199px) {
-    nav ul li a[aria-current="page"] {
-        box-shadow: inset 4px 0 0 var(--color-accent-yellow);
-    }
-}
-
-/* Touch screens only: fingers need 44px targets; mouse users keep the original compact look */
-@media (pointer: coarse) {
-    #sidebar-toggle {
-        min-width: var(--touch-target);
-        min-height: var(--touch-target);
-    }
-
-    .top-right-button,
-    .director-link-btn,
-    .learn-more-link {
-        min-height: var(--touch-target);
-        display: inline-flex;
-        align-items: center;
-        box-sizing: border-box;
-    }
-
-    /* (Citation numbers like "[5]" sit inside running text: exempt from target size
-       per WCAG 2.5.8, and enlarging them would break the line spacing.) */
-
-    button,
-    .sidebar ul li a {
-        min-height: var(--touch-target);
-    }
-
-    .sidebar ul li a {
-        display: flex;
-        align-items: center;
-    }
-
-    input[type="range"] {
-        height: var(--touch-target);
-    }
-}
-
-/* Back-to-top button (created by script.js on long pages) */
-.back-to-top {
-    position: fixed;
-    right: var(--space-lg);
-    bottom: var(--space-lg);
-    z-index: 900;
-    width: var(--touch-target);
-    height: var(--touch-target);
-    border: none;
-    border-radius: 50%;
-    background: var(--gradient-btn);
-    color: var(--color-bg-white);
-    font-size: 20px;
-    line-height: 1;
-    cursor: pointer;
-    box-shadow: var(--shadow-xl);
-    opacity: 0;
-    transform: translateY(12px);
-    pointer-events: none;
-    transition: opacity var(--transition-normal), transform var(--transition-normal);
-}
-
-.back-to-top.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-}
-
-/* Invisible block covering the first 1.5 screens; script.js shows .back-to-top whenever
-   it is entirely out of view. A block (not a 1px line) so jumps past it — anchor links,
-   restored scroll position — still register as a change. */
-.back-to-top-marker {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 1px;
-    height: 150vh;
-    pointer-events: none;
-    visibility: hidden;
 }

@@ -188,7 +188,7 @@
 /* ---- Ensemble status tags ---- */
 .ensemble-status {
     display: inline-block;
-    font-size: 0.75rem; /* 12px — 0.72rem (11.5px) was below the readable minimum */
+    font-size: 0.72rem;
     font-weight: bold;
     letter-spacing: 0.5px;
     text-transform: uppercase;
