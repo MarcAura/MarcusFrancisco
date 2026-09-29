@@ -351,8 +351,3 @@
         width: 60%;
     }
 }
-/* Placeholder note on a project whose full write-up is still to come (honest "not yet") */
-.project-coming-soon {
-    font-style: italic;
-    color: var(--color-text-light);
-}

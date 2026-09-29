@@ -25,14 +25,6 @@ function setActiveLink() {
         }
     }
 
-    // At the very bottom the last section can never reach the header line, so clicking
-    // the last sidebar link highlighted the one before it. Bottom of page = last linked section.
-    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
-        const lastLink = sidebarLinks[sidebarLinks.length - 1];
-        const lastTarget = lastLink && document.getElementById(lastLink.getAttribute('href').slice(1));
-        if (lastTarget) currentSection = lastTarget;
-    }
-
     if (currentSection !== lastActiveSection) {
         sidebarLinks.forEach(link => link.classList.remove('active'));
         const activeLink = document.querySelector(`.sidebar ul li a[href="#${currentSection.id}"]`);
