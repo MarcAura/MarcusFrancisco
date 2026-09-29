@@ -6,15 +6,11 @@ const sidebarLinks = document.querySelectorAll('.sidebar ul li a');
 
 let lastActiveSection = sections[0] || null;
 
-// Measured ONCE, at load, while the header is full height — as on main. Sidebar links
-// scroll a section to just below the full-height header; re-measuring the shrunken
-// header on every scroll made the highlight land one section early. (Restored 2026-09-29.)
-const sidebarTopOffset = document.querySelector('header') ? document.querySelector('header').offsetHeight : 0;
-
 function setActiveLink() {
     if (!sections.length || !sidebarLinks.length) return;
 
-    const topOffset = sidebarTopOffset;
+    const header = document.querySelector('header');
+    const topOffset = header ? header.offsetHeight : 0;
     let currentSection = lastActiveSection;
 
     for (const section of sections) {
@@ -171,19 +167,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // 25 images call onclick="openModal(this)" directly (reflections, projects), so the
-    // opener must also be reachable globally. main had a separate global openModal; this
-    // routes those clicks through the same zoom/reset/scroll-lock code. (Restored 2026-09-29.)
-    window.openModal = function (imgElement) {
-        openModal(imgElement.dataset.largeSrc || imgElement.src, imgElement.alt || 'No description available');
-    };
-
-    // Clicking the enlarged image itself closes the viewer (main behaviour, restored 2026-09-29)
-    modalImage.addEventListener('click', function (event) {
-        event.stopPropagation();
-        closeModal();
-    });
-
     if (closeBtn) closeBtn.addEventListener('click', closeModal);
 
     modal.addEventListener('click', function (event) {
@@ -243,11 +226,7 @@ document.querySelectorAll('.sidebar ul li a').forEach(function (link) {
 
 
 // =============================================
-// Sidebar — collapse / restore
-// Restored from main (2026-09-29): a plain toggle of .collapsed. The bounce comes from
-// the .sidebar CSS transition (cubic-bezier overshoot). A May 2025 rewrite switched to an
-// expanding/expanded class sequence that main never actually ran (it crashed on a missing
-// #sidebar id); on re-open, .expanded shifted the sidebar 250px over the page content.
+// Sidebar — toggle with bounce animation
 // =============================================
 (function () {
     const toggleButton = document.getElementById('sidebar-toggle');
@@ -255,7 +234,21 @@ document.querySelectorAll('.sidebar ul li a').forEach(function (link) {
     if (!toggleButton || !sidebar) return;
 
     toggleButton.addEventListener('click', function () {
-        sidebar.classList.toggle('collapsed');
+        if (sidebar.classList.contains('collapsed')) {
+            sidebar.classList.remove('collapsed', 'collapsing');
+            sidebar.classList.add('expanding');
+            setTimeout(() => {
+                sidebar.classList.remove('expanding');
+                sidebar.classList.add('expanded');
+            }, 300);
+        } else {
+            sidebar.classList.remove('expanded', 'expanding');
+            sidebar.classList.add('collapsing');
+            setTimeout(() => {
+                sidebar.classList.remove('collapsing');
+                sidebar.classList.add('collapsed');
+            }, 300);
+        }
     });
 })();
 
@@ -365,24 +358,41 @@ function toggleDropdown(element) {
 
 
 // =============================================
-// Reflection items — expand/collapse (called by onclick="toggleReflection(this)")
-// Restored from main (2026-09-29). This is the behaviour the live site has always had:
-// a click opens/closes the card; while the description icon is open, a click on the
-// card closes the icon first. Several cards may be open at once.
-// Must stay a global function declaration — the HTML calls it by name. A May 2025
-// rewrite moved it inside DOMContentLoaded (ReferenceError on every click) and added an
-// exclusive-accordion listener that ran before the card became active, which inverted
-// the reflections.js background-image effect.
+// Reflection items — accordion expand/collapse
 // =============================================
-function toggleReflection(element) {
-    const icon = element.querySelector('.course-desc-icon');
+document.addEventListener('DOMContentLoaded', function () {
+    function toggleReflection(reflection) {
+        document.querySelectorAll('.reflection-item').forEach(function (item) {
+            if (item !== reflection) {
+                item.classList.remove('active');
+                const content = item.querySelector('.reflection-full');
+                if (content) { content.style.maxHeight = '0px'; content.style.opacity = '0'; }
+                const icon = item.querySelector('.toggle-icon');
+                if (icon) icon.textContent = '+';
+            }
+        });
 
-    if (icon && icon.classList.contains('active') && element.classList.contains('active')) {
-        icon.classList.toggle('active');
-    } else {
-        element.classList.toggle('active');
+        reflection.classList.toggle('active');
+        const content = reflection.querySelector('.reflection-full');
+        const icon = reflection.querySelector('.toggle-icon');
+
+        if (reflection.classList.contains('active')) {
+            if (content) { content.style.maxHeight = content.scrollHeight + 'px'; content.style.opacity = '1'; }
+            if (icon) icon.textContent = '−';
+        } else {
+            if (content) { content.style.maxHeight = '0px'; content.style.opacity = '0'; }
+            if (icon) icon.textContent = '+';
+        }
     }
-}
+
+    document.querySelectorAll('.reflection-item').forEach(function (item) {
+        item.addEventListener('click', function (event) {
+            if (!event.target.classList.contains('zoomable')) {
+                toggleReflection(this);
+            }
+        });
+    });
+});
 
 // =============================================
 // Missing images — hide instead of showing a broken-image icon.

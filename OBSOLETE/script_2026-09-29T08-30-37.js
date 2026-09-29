@@ -6,15 +6,11 @@ const sidebarLinks = document.querySelectorAll('.sidebar ul li a');
 
 let lastActiveSection = sections[0] || null;
 
-// Measured ONCE, at load, while the header is full height — as on main. Sidebar links
-// scroll a section to just below the full-height header; re-measuring the shrunken
-// header on every scroll made the highlight land one section early. (Restored 2026-09-29.)
-const sidebarTopOffset = document.querySelector('header') ? document.querySelector('header').offsetHeight : 0;
-
 function setActiveLink() {
     if (!sections.length || !sidebarLinks.length) return;
 
-    const topOffset = sidebarTopOffset;
+    const header = document.querySelector('header');
+    const topOffset = header ? header.offsetHeight : 0;
     let currentSection = lastActiveSection;
 
     for (const section of sections) {
