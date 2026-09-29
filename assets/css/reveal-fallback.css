@@ -1,16 +1,36 @@
 /* =============================================
-   Reveal fallback — show everything, no motion.
+   Reveal fallback — show everything, skip the motion.
 
    Loaded two ways from every page's <head>:
      <link ... media="(prefers-reduced-motion: reduce)">  visitors who ask for less motion
+                                                         (e.g. Windows "Animation effects" off)
      <noscript><link ...></noscript>                      visitors without JavaScript
-   Scroll-reveal content starts at opacity 0 and waits for script.js to add
-   .visible; without motion or without JS that must never leave content hidden
-   (CLAUDE.md invariant 5.8). The animations themselves are unchanged for
-   everyone else.
+   The animations themselves are unchanged for everyone else.
+
+   Rule 1 — FINISH animations instantly, never cancel them.
+   Several layouts ARE the end state of an animation: the home/about hero
+   "hangs" from behind the header because its fadeInDown animation ends at
+   translateY(-200px). Cancelling the animation (the first version of this
+   file, 2026-09-28) dropped every hero 200px onto the text below it.
+   Running it in 0.01ms lands on exactly the designed final position.
+
+   Rule 2 — scroll-reveal content that waits for script.js to add .visible
+   is shown directly (no JS / no scrolling needed; CLAUDE.md invariant 5.8).
+   Heroes are excluded from the transform reset: their transform is layout.
    ============================================= */
 
-.fade-in,
+*,
+*::before,
+*::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+    scroll-behavior: auto !important;
+}
+
+.fade-in:not([id$="hero"]),
 .fade-in ul li,
 #portfolio-intro ul li,
 .project-item ul li,
@@ -19,19 +39,11 @@
 .icon {
     opacity: 1 !important;
     transform: none !important;
-    transition: none !important;
-    animation: none !important;
 }
 
-/* Heroes: keep their layout transform (the desktop "hanging banner" offset), drop only the fade */
 #hero,
 #music-hero,
 #coursework-hero,
 #proj-hero-linkedin {
     opacity: 1 !important;
-    animation: none !important;
-}
-
-.back-to-top {
-    transition: none;
 }

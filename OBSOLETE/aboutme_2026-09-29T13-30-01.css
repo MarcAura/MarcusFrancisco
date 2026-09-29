@@ -222,12 +222,3 @@
         grid-template-columns: 160px auto;
     }
 }
-/* Restored from main's inline <style> in about.html (dropped in the May 2025 move to CSS files).
-   The hero is shifted up 200px to hang behind the header, which leaves empty space below it;
-   this pulls the next section up to close it. Tablet/desktop only — phones don't hang the hero,
-   so a negative margin there would slide the text under it. */
-@media (min-width: 768px) {
-    #hero {
-        margin-bottom: -120px;
-    }
-}
