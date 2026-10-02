@@ -509,3 +509,102 @@ body {
     }
 }
 
+
+
+/* =============================================
+   Draped banner — the hero unrolls from behind the header like a weighted
+   banner, then swings and settles (tablet/desktop, where the hero hangs).
+
+   How it stays honest to the original design:
+   - Every keyframe keeps translateY(var(--hero-hang)), and the last frame is the
+     same resting position as before (index/about -200px; contact sets 0px and
+     hangs via its margin). Layout after the animation is unchanged.
+   - It only animates transform, clip-path and opacity of the banner itself, so
+     every link and photo inside rides along and stays clickable throughout.
+   - Hinged at the top edge (transform-origin top), which sits behind the header.
+   - The unroll edge (clip-path) and the roller bar (::after) share the same
+     duration, span (0-55%) and easing, so the bar stays on the edge.
+   - The final clip extends 80px past the box so the shadow and hover effects show.
+   - Reduced motion: reveal-fallback.css finishes this in 0.01ms (last frame).
+   ============================================= */
+@media (min-width: 768px) {
+    #hero {
+        --hero-hang: -200px;
+        transform-origin: 50% 0;
+        animation: heroDrape var(--duration-banner-drape) linear forwards;
+    }
+
+    #hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 3;
+        pointer-events: none;
+        border-radius: inherit;
+        /* the roller: a dark bar with a light top highlight, drawn at the bottom edge */
+        background:
+            linear-gradient(to top,
+                transparent 0,
+                transparent 2px,
+                var(--color-banner-rod-shadow) 2px,
+                var(--color-banner-rod) 5px,
+                var(--color-banner-rod) 11px,
+                var(--color-banner-rod-light) 12px,
+                transparent 14px) bottom / 100% 14px no-repeat;
+        transform: translateY(-100%);
+        animation: heroDrapeRod var(--duration-banner-drape) linear forwards;
+    }
+}
+
+@keyframes heroDrape {
+    0% {
+        opacity: 1;
+        clip-path: inset(-80px -80px 100% -80px);
+        transform: translateY(var(--hero-hang)) perspective(1400px) rotateX(0deg);
+        animation-timing-function: cubic-bezier(0.55, 0, 0.35, 1);  /* falls, then the roll catches */
+    }
+    55% {
+        clip-path: inset(-80px -80px 0% -80px);
+        transform: translateY(var(--hero-hang)) perspective(1400px) rotateX(13deg);
+        animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
+    }
+    70% {
+        transform: translateY(var(--hero-hang)) perspective(1400px) rotateX(-6deg);
+        animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
+    }
+    82% {
+        transform: translateY(var(--hero-hang)) perspective(1400px) rotateX(2.5deg);
+        animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
+    }
+    92% {
+        transform: translateY(var(--hero-hang)) perspective(1400px) rotateX(-0.8deg);
+        animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
+    }
+    100% {
+        opacity: 1;
+        clip-path: inset(-80px -80px -80px -80px);
+        /* Plain 2D resting transform: ending on perspective() kept the banner on a 3D layer
+           (matrix3d), which rendered its text slightly soft at rest. */
+        transform: translateY(var(--hero-hang));
+    }
+}
+
+@keyframes heroDrapeRod {
+    0% {
+        transform: translateY(-100%);
+        opacity: 1;
+        animation-timing-function: cubic-bezier(0.55, 0, 0.35, 1);  /* must match heroDrape 0-55% */
+    }
+    55% {
+        transform: translateY(0);
+        opacity: 1;
+        animation-timing-function: ease-in-out;
+    }
+    80% {
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+}

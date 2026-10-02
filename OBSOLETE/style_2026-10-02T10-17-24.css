@@ -1,0 +1,1304 @@
+/* =============================================
+   CSS Custom Properties (Design Tokens)
+   ============================================= */
+:root {
+    /* Brand Colors */
+    --color-primary:          #003c7d;
+    --color-primary-mid:      #0061c1;
+    --color-primary-light:    #096bfe;
+    --color-primary-dark:     #003cbc;
+    --color-accent:           #313ffd;
+    --color-accent-orange:    #ff9500;
+    --color-accent-yellow:    #ffcc00;
+    --color-link-bright:      #00C0FF;
+    --color-link-hover:       #00569c;
+
+    /* Neutrals */
+    --color-text:             #333;
+    --color-text-light:       #666;
+    --color-text-caption:     #ccc;
+    --color-bg:               #f4f4f4;
+    --color-bg-white:         #ffffff;
+    --color-bg-card:          #f9f9f9;
+    --color-sidebar:          #acc7ff;
+    --color-footer-bg:        #222;
+    --color-border-faint:     rgba(255, 255, 255, 0.335);
+
+    /* Gradients */
+    --gradient-nav:    linear-gradient(to bottom right, #003cbc, #096bfe);
+    --gradient-hero:   linear-gradient(135deg, #0061c1, #313ffd);
+    --gradient-btn:    linear-gradient(135deg, #0061c1, #313ffd);
+
+    /* Typography */
+    --font-family:      Arial, sans-serif;
+    --font-size-base:   16px;
+    --font-size-sm:     14px;
+    --font-size-nav:    12px;
+    --line-height-base: 1.6;
+
+    /* Spacing scale (8 px base) */
+    --space-xs:   4px;
+    --space-sm:   8px;
+    --space-md:   15px;
+    --space-lg:   20px;
+    --space-xl:   30px;
+    --space-2xl:  40px;
+    --space-3xl:  50px;
+    --section-padding-y: 45px;
+    --section-padding-x: 20px;
+
+    /* Sidebar dimensions */
+    --sidebar-width:            100px;
+    --sidebar-translate-expand: 250px;
+    --sidebar-translate-hide:  -140px;
+
+    /* Border radius */
+    --radius-sm:  5px;
+    --radius-md:  8px;
+    --radius-lg:  15px;
+    --radius-xl:  20px;
+
+    /* Transitions */
+    --transition-fast:   0.2s ease-in-out;
+    --transition-normal: 0.3s ease-in-out;
+    --transition-slow:   0.5s cubic-bezier(0.38, -0.25, 0.17, 1.35);
+
+    /* Shadows */
+    --shadow-sm:  0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md:  2px 2px 10px rgba(0, 0, 0, 0.1);
+    --shadow-lg:  0px 4px 10px rgba(0, 0, 0, 0.5);
+    --shadow-xl:  0 10px 20px rgba(0, 0, 0, 0.2);
+
+    /* Touch target minimum (WCAG) */
+    --touch-target: 44px;
+
+    /* Navigation state + keyboard focus */
+    --color-nav-active-bg:     rgba(255, 255, 255, 0.22);
+    --color-focus-inner:       #0b1f4d;   /* dark ring: visible on white/light pages */
+    --color-focus-outer:       #ffd166;   /* warm halo: visible on the blue header */
+}
+
+/* =============================================
+   Header and Navigation Bar
+   ============================================= */
+header {
+    font-size: 12px;
+
+    text-align: center;
+    background: linear-gradient(to bottom right, #003cbc, #096bfe);
+    /* Gradient from top-left to bottom-right */
+    padding: 20px 30px;
+    /* Initial padding for the header */
+    transition: all 0.3s ease;
+    /* Smooth transition for shrinking */
+
+    position: fixed;
+    /* Fix header at the top of the page */
+    top: 0;
+    /* Make sure it's at the top */
+    left: 0;
+    width: 100%;
+    /* Make sure it spans the entire width of the page */
+    box-sizing: border-box;
+    /* Padding counts inside the 100% — without this the header is 60px wider than the screen */
+    z-index: 1000;
+    /* Ensure it stays above other content */
+    /* Zoom Lock */
+
+}
+
+header.shrink {
+    padding: 5px 15px;
+    /* Reduced padding when scrolled */
+    font-size: 8px;
+    /* Optional: reduce font size */
+}
+
+/* General page styles */
+body {
+
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    /* Enable smooth scrolling */
+    padding-top: 10px;
+    /* Add space to the top of the body content so it's not hidden under the header */
+    transition: transform 0.3s ease;
+    /* Ensure smooth scaling */
+
+}
+
+/* For adding images */
+.content img {
+    display: block;
+    /* Makes the image a block element */
+    margin: 20px auto;
+    /* Centers the image horizontally and adds vertical spacing */
+    max-width: 100%;
+    /* Ensures the image doesn't exceed the container's width */
+    height: auto;
+    /* Maintains the image's aspect ratio */
+}
+
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.container {
+    display: flex;
+    /* flex-direction: column;  Stack header and sidebar vertically */
+    flex-direction: row;
+    /* Align sidebar and content horizontally */
+    width: 100%;
+}
+
+
+/* Sidebar styles */
+.sidebar {
+    top: 0;
+    /* Start at the very top of the screen */
+    /* margin-top: 100px; Add space above content to prevent overlap with header */
+    /* top: 60px; Move the sidebar down below the header */
+    /* Extends 20px past the left edge */
+    width: 100px;
+    transform: translateX(-20px);
+
+    /* Sidebar width */
+    background-color: #acc7ff;
+    padding: 20px;
+    padding-left: 40px;
+    padding-right: 10px;
+    z-index: 100;
+    /* transition: transform 0.3s ease-in-out; */
+    /* Ensure the sidebar stays above content */
+
+    height: 100vh; height: 100dvh; /* dvh = visible height on iPhone (excludes the address bar); vh is the fallback */
+    /* Make the sidebar fill the entire height of the screen */
+    /* height: calc(100vh - 60px);  Full screen height minus padding */
+    /* height: auto;  Let it grow with content */
+    overflow-y: auto;
+    /* Allow vertical scrolling if content exceeds height */
+    padding-top: 80px;
+    /* Add padding to push the sidebar content down */
+    position: sticky;
+
+    transition: transform 0.5s cubic-bezier(0.38, -0.25, 0.17, 1.35);
+    /* Bouncy effect */
+
+}
+
+/* Expanded Sidebar (Includes Slight Overshoot) */
+.sidebar.expanding {
+    transform: translateX(260px);
+    /* Moves slightly beyond its final position */
+}
+
+/* Fully Expanded Sidebar */
+.sidebar.expanded {
+    transform: translateX(250px);
+    /* Settles at the final position */
+}
+
+/* Collapsing Sidebar (Includes Slight Retract Before Collapse) */
+.sidebar.collapsing {
+    transform: translateX(10px);
+    /* Pulls slightly back before collapsing */
+}
+
+/* Fully Collapsed Sidebar */
+.sidebar.collapsed {
+    transform: translateX(-230px);
+    /* Moves back off-screen */
+}
+
+/* Code to toggle Sidebar START */
+
+/* Collapsed Sidebar */
+.sidebar.collapsed {
+    transform: translateX(-140px);
+    /* Hides most of the sidebar */
+}
+
+/* Toggle Button */
+#sidebar-toggle {
+    /* position: fixed; Fix it to the screen */
+    left: 85px;
+    /* Position it right next to the sidebar */
+    bottom: 5px;
+    /* Position it right next to the sidebar */
+    /* position: absolute; */
+    position: fixed;
+    /* Makes it stay in place while scrolling */
+    /* right: -30px; Place outside sidebar */
+    /* top: 50%; */
+    transform: translateY(-50%);
+    /* background: #ffc387; */
+    background: #acc7ff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    /* Add padding for a square shape */
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    /* Ensures button is square */
+    height: 30px;
+    border-radius: 5px;
+    /* Optional: rounded edges */
+    transition: left 0.3s ease-in-out, transform 0.3s ease-in-out;
+    z-index: 1100;
+    /* Ensures it's above other elements */
+}
+
+/* Rotate Button When Sidebar is Collapsed */
+.sidebar.collapsed+#sidebar-toggle {
+    left: 20px;
+    /* Move button closer when sidebar is collapsed */
+    transform: translateY(-50%) rotate(180deg);
+    /* Rotate button */
+}
+
+/* Adjust Button Position When Sidebar is Open */
+.sidebar.expanded+#sidebar-toggle {
+    left: 270px;
+    /* Moves further out */
+}
+
+/* Adjust Button When Sidebar is Collapsing */
+.sidebar.collapsing+#sidebar-toggle {
+    left: 30px;
+    /* Slightly retract before fully collapsing */
+}
+
+
+
+/* Code to toggle Sidebar END */
+
+html {
+    scroll-padding-top: 80px;
+    /* Adjust based on the height of your top bar */
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    /* Smaller size for non-highlighted links */
+    transition: font-size 0.3s ease-in-out, font-weight 0.3s ease-in-out;
+}
+
+.sidebar ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Active link styling */
+.sidebar ul li a.active {
+    font-weight: bold;
+    font-size: 18px;
+    /* Slightly larger font size */
+    color: #ffcc00;
+    transition: font-size 0.3s ease-in-out, font-weight 0.3s ease-in-out;
+    /* Highlight active link */
+}
+
+.content {
+    flex: 1;
+    min-width: 0;
+    /* Flex items default to min-width:auto and grow to fit their widest word; long URLs
+       (citations) pushed the page sideways on tablets. Let it shrink and break long words. */
+    overflow-wrap: break-word;
+    /* Allow content to fill remaining space */
+    /* margin-left: 135px; Offset for sidebar */
+    padding: 20px;
+    /* margin-left: 140px; */
+    /* width: 100%; */
+    margin-top: 60px;
+    padding-right: 30px;
+    /* Add space above content to prevent overlap with header */
+    transition: margin-left 0.3s ease-in-out;
+}
+
+/* Reduce Left Padding When Sidebar is Collapsed */
+.sidebar.collapsed~.content {
+    margin-left: -135px;
+    /* Reduce space when sidebar is collapsed */
+}
+
+section {
+    margin-bottom: 45px;
+}
+
+/* main {
+    padding: 20px;
+} */
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #222;
+    color: white;
+}
+
+footer a {
+    color: #00C0FF;
+    /* Light blue for links */
+    text-decoration: none;
+}
+
+
+/* Modal (background) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.modal.show {
+    transition: opacity 0.3s ease;
+    opacity: 1;
+}
+
+
+
+/* Modal Content (the zoomed image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 70%;
+    max-height: 70%;
+    /* transform-origin: center center; Ensures scaling happens from the center */
+    transition: transform 0.2s ease;
+    /* Smooth transition when zooming */
+    transform-origin: 0 0;
+    /* Set transform origin to the top-left */
+}
+
+/* Caption of Modal Image */
+.caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+}
+
+/* Close Button */
+.close {
+    position: absolute;
+    top: 60px;
+    right: 100px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+}
+
+
+
+.responsive-image {
+    /* Base size: The image will start at 400px wide */
+    /* width: 400px; */
+    /* Allow the image to scale up (or down) with its container */
+    /* max-width: 100%; */
+    /* Keep the aspect ratio intact */
+    /* height: auto; */
+
+    /* Use this to make the image set to half the container width */
+    width: 50%;
+    /* Image is always 50% of its container’s width */
+    height: auto;
+
+}
+
+
+/* Container for text and image */
+#text-and-image {
+    display: flex;
+    align-items: flex-start;
+    /* Align items at the top */
+    gap: 20px;
+    /* Adds space between the text and image columns */
+    margin: 20px 0;
+    /* Vertical spacing for the section */
+}
+
+/* Text styling */
+#text-and-image .text-content {
+    flex: 1;
+    /* Take up available space */
+    text-align: justify;
+    /* Justify the text */
+}
+
+/* Image container styling */
+#text-and-image .image-content {
+    flex: 1;
+    /* Take up available space */
+    display: flex;
+    justify-content: center;
+    /* Center the image horizontally if desired */
+    align-items: center;
+    /* Center vertically if needed */
+}
+
+/* Ensure the image is responsive */
+#text-and-image .image-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Container for the responsive YouTube video */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    /* 16:9 aspect ratio */
+    padding-top: 25px;
+    /* Optional top padding */
+    height: 0;
+    overflow: hidden;
+}
+
+/* Style the iframe to fill the container */
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+
+/* Container for the video and text section */
+#video-and-text {
+    display: flex;
+    align-items: flex-start;
+    /* Align items at the top */
+    gap: 20px;
+    /* Space between the columns */
+    margin: 20px 0;
+    /* Vertical spacing */
+}
+
+/* Video column styling */
+#video-and-text .video-column {
+    flex: 1;
+    /* Takes up available space */
+}
+
+/* Responsive video container (maintaining 16:9 aspect ratio) */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Text column styling */
+#video-and-text .text-column {
+    flex: 1;
+    /* Takes up available space */
+    text-align: justify;
+    /* Justify the text */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Optional: centers text vertically within the column */
+}
+
+
+.video-container2 {
+    position: relative;
+    width: auto;
+    /* Adjusts to the native video width */
+    max-width: 70%;
+    /* Prevents overflowing the page */
+    margin: auto;
+    /* Centers the video */
+    background-color: inherit;
+    /* Matches the background of the webpage */
+}
+
+.video-container2 iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    /* Ensures the video keeps its native aspect ratio */
+    border: none;
+    /* Removes borders */
+    background-color: inherit;
+    /* Prevents black bars */
+}
+
+/* Container for text and image */
+.side-by-side {
+    display: flex;
+    align-items: center;
+    /* Aligns content vertically */
+    justify-content: space-between;
+    /* Distributes space */
+    gap: 20px;
+    /* Adds space between text and image */
+    margin: 20px 0;
+    /* Adds vertical spacing */
+}
+
+/* Text styling */
+.side-by-side .text-content {
+    flex: 1;
+    /* Allows the text to take up remaining space */
+    text-align: justify;
+    /* Justify the text for better readability */
+}
+
+/* Image container */
+.side-by-side .image-content {
+    flex: 1;
+    /* Makes image section take up available space */
+    display: flex;
+    justify-content: center;
+    /* Centers the image horizontally */
+    align-items: center;
+    /* Centers vertically */
+}
+
+/* Make sure the image is responsive */
+.side-by-side .image-content img {
+    max-width: 100%;
+    /* Prevents overflow */
+    height: auto;
+    /* Maintains aspect ratio */
+    display: block;
+}
+
+.no-bullets {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.justified-text {
+    text-align: justify;
+}
+
+
+/* Combined Zoomable and Responsive Image */
+.zoomable-responsive {
+    width: 50%;
+    /* Adjust scale as needed */
+    height: auto;
+    display: block;
+    margin: auto;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.zoomable-responsive:hover {
+    transform: scale(1.05);
+    /* Slight hover effect */
+}
+
+.image-container {
+    text-align: center;
+    /* Centers the content inside */
+    margin: 20px auto;
+    /* Adds space around */
+}
+
+.image-container figcaption {
+    font-size: 14px;
+    color: #666;
+    /* Grey text */
+    margin-top: 8px;
+    text-align: center;
+    /* Ensures the caption text is centered */
+}
+
+/* New Header Styles */
+
+nav ul li a {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: -10px 5px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid rgba(255, 255, 255, 0.335);
+    /* Soft white outline */
+    background-color: transparent;
+    /* transition: all 0.3s ease-in-out; */
+    border-radius: 4px;
+    /* Optional: soft corners */
+}
+
+/* Hover effect with transparent blue fill */
+nav ul li a:hover {
+    background-color: rgba(255, 134, 134, 0.15);
+    /* Light transparent blue fill */
+    border-color: rgba(255, 255, 255, 0.8);
+    /* Optional: stronger border on hover */
+}
+
+/* 
+header.shrink nav ul li a {
+    padding: 5px 10px;
+    font-size: 10px;
+    transition: all 0.3s ease-in-out;
+} */
+
+a.hyperlink-citation {
+    
+    color: inherit;
+    /* text-decoration: underline; */
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a.hyperlink-citation:hover {
+    color: #00569c;
+}
+
+
+/* Repeat of Sidebar Beautificatino from Coursweork */
+.sidebar {
+    overflow-y: auto;
+    scrollbar-width: thin;
+    /* For Firefox */
+    scrollbar-color: rgba(100, 100, 100, 0.3) transparent;
+    /* For Firefox */
+}
+
+/* WebKit Scrollbar Styling */
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: rgba(100, 100, 100, 0.3);
+    border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+.sidebar {
+    overflow-y: hidden;
+}
+
+.sidebar:hover {
+    overflow-y: auto;
+}
+
+.dropdown-text {
+    display: inline;
+    cursor: pointer;
+    color: inherit;
+    position: relative;
+}
+
+.dropdown-text .default-text {
+    display: inline;
+    text-decoration: underline;
+    transition: color 0.3s, text-decoration-color 0.3s;
+}
+
+.dropdown-text:hover .default-text {
+    color: #0066cc;
+    text-decoration-color: #0066cc;
+}
+
+.dropdown-text .secondary-text {
+    display: block;
+    /* Always block to allow layout */
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    transition: max-height 0.4s ease, opacity 0.4s ease, margin 0.4s ease;
+    font-size: 0.95em;
+    line-height: 1.4;
+    color: inherit;
+}
+
+
+.dropdown-text.active .secondary-text {
+    max-height: 1200px;
+    /* Set large enough to fit content */
+    opacity: 1;
+    margin-top: 0.75em;
+    margin-bottom: 0.75em;
+}
+
+#controller {
+    margin-bottom: 15px;
+}
+
+.sim-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+canvas {
+    border: 1px solid;
+}
+
+#controls {
+    margin-bottom: 15px;
+}
+
+label {
+    display: inline-block;
+    width: 100px;
+}
+
+input[type=range] {
+    width: 150px;
+}
+
+canvas {
+    border: 1px solid #333;
+    background: #fafafa;
+    max-width: 100%;
+}
+
+
+
+
+
+
+.top-right-button:hover {
+    background-color: #dc3232;
+}
+
+@keyframes jogRightExit {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    30% {
+        transform: translateX(15px);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(150vw);
+        opacity: 0;
+    }
+}
+
+.top-right-button.exit {
+    animation: jogRightExit 0.8s ease-in-out forwards;
+}
+
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(150vw);
+        opacity: 0;
+    }
+
+    70% {
+        transform: translateX(15px);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.top-right-button.reenter {
+    animation: slideInFromRight 0.8s ease-out forwards;
+}
+
+/* Super Header Styling */
+.super-header {
+    margin-top: -20px;
+    margin-bottom: 20px;
+    position: relative;
+    width: 100%;
+    /* background-color: #0058dc; match your site's theme */
+    background: linear-gradient(to bottom right, #003cbc, #096bfe);
+    color: white;
+    text-align: center;
+    padding: 1px 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    z-index: 998; /* ensure it sits above content initially */
+    transition: all 0.3s ease;
+  }
+  
+  /* Sticky main header that appears after scrolling */
+  header {
+    margin-top: -20px;
+    margin-bottom: -20px;
+    position: sticky;
+    /* top: 0; */
+    z-index: 997;
+    /* background: linear-gradient(to bottom right, #003cbc, #096bfe); */
+    /* transition: all 0.3s ease; */
+  }
+  
+
+  .top-right-button {
+    position: fixed;
+    font-size: 12px;
+    top: 15px;
+    right: 15px;
+    background-color: #b12a059f;
+    color: #fffffff3;
+    padding: 8px 15px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    z-index: 1001;
+    border: 1px solid #b7b7b7;  
+}
+
+.corner-link {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 8px 15px;
+  border: 2px solid #000000;  
+  border-radius: 10px;
+  font-weight: bold;
+  color: var(--text-color);
+  background-color: #007bff;  
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+
+}
+
+.corner-link:hover {
+  transform: translateY(-2px);
+  background-color: #0056b3;
+  border-color: #0056b3;
+  color: var(--section-bg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+/* =============================================
+   Hamburger Menu Button (hidden on desktop)
+   ============================================= */
+.nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+    min-width: var(--touch-target);
+    min-height: var(--touch-target);
+    align-items: center;
+}
+
+.nav-hamburger span {
+    display: block;
+    width: 28px;
+    height: 2px;
+    background: white;
+    border-radius: 2px;
+    transition: transform var(--transition-normal), opacity var(--transition-normal);
+}
+
+.nav-hamburger.open span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+.nav-hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+.nav-hamburger.open span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+
+/* =============================================
+   Touch nav — phones AND tablets (< 1200px)
+   Nine links + "Wrong Twin?" can't fit one row below 1200px with 44px touch
+   targets: on tablets they wrapped, the second row overlapped the first
+   (links carry margin: -10px) and "Wrong Twin?" covered a link. Tablets are
+   touch devices, so both get the hamburger dropdown.
+   ============================================= */
+@media (max-width: 1199px) {
+
+    header {
+        display: flex;
+        align-items: center;
+        gap: var(--space-md);
+    }
+
+    .nav-hamburger {
+        display: flex;
+        order: -1;
+    }
+
+    nav {
+        flex: 1;
+        /* static (not relative) so the dropdown below positions against the sticky header,
+           which spans the screen exactly — no magic offsets, no 100vw scrollbar overshoot */
+        position: static;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: auto;
+        background: var(--gradient-nav);
+        z-index: 999;
+        padding: var(--space-sm) 0;
+        margin: 0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    nav ul.nav-open {
+        display: flex;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 0;
+        width: 100%;
+    }
+
+    nav ul li a {
+        display: block;
+        width: 100%;
+        padding: 14px var(--space-lg);
+        border-radius: 0;
+        border: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        margin: 0;
+        min-height: var(--touch-target);
+        box-sizing: border-box;
+    }
+
+    nav ul li a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+}
+
+
+/* =============================================
+   Mobile Breakpoint — < 768px
+   ============================================= */
+@media (max-width: 767px) {
+
+    /* --- Header --- */
+    header {
+        display: flex;
+        align-items: center;
+        gap: var(--space-md);
+        padding: 10px var(--space-md);
+        margin-top: 0;
+        margin-bottom: 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    /* "Wrong Twin?" stays visible on phones (content-preservation rule) as a
+       44px touch target at the header's right. It stays position: fixed so its
+       exit animation (translateX(150vw)) can never create sideways scroll. */
+    .top-right-button {
+        top: 20px;
+        right: var(--space-md);
+        min-height: var(--touch-target);
+        display: inline-flex;
+        align-items: center;
+        box-sizing: border-box;
+    }
+
+    /* --- Sidebar & Toggle --- */
+    .sidebar {
+        display: none;
+    }
+
+    #sidebar-toggle {
+        display: none;
+    }
+
+    /* --- Main Layout --- */
+    .container {
+        flex-direction: column;
+    }
+
+    .content {
+        margin-top: var(--space-lg);
+        margin-left: 0 !important;
+        padding: var(--space-md);
+        padding-right: var(--space-md);
+    }
+
+    /* Sidebar-collapsed content override resets on mobile */
+    .sidebar.collapsed ~ .content {
+        margin-left: 0;
+    }
+
+    /* --- Side-by-side layouts → stack vertically --- */
+    #text-and-image,
+    .side-by-side,
+    .sim-container {
+        flex-direction: column;
+    }
+
+    /* --- Video containers --- */
+    .video-container2 {
+        max-width: 100%;
+    }
+
+    /* --- Modal close button --- */
+    .close {
+        top: 10px;
+        right: 15px;
+    }
+}
+
+
+/* =============================================
+   Tablet Breakpoint — 768px to 1199px
+   ============================================= */
+@media (min-width: 768px) and (max-width: 1199px) {
+    /* Nav moved to the touch-nav block above (hamburger below 1200px);
+       the old 11px, 8px-padded tablet links were too small to tap. */
+
+    .sidebar {
+        width: 80px;
+    }
+}
+
+/* =============================================
+   Narrow desktop — 1200px to 1439px
+   The centered one-row nav (~1050px) ran under the fixed "Wrong Twin?" button
+   (~122px incl. its offset) up to ~1300px. Tighten link spacing a little and
+   reserve the button's space on the right. Wider screens are unchanged.
+   ============================================= */
+@media (min-width: 1200px) and (max-width: 1439px) {
+    nav ul {
+        padding-right: 125px;
+    }
+
+    nav ul li {
+        margin-right: 6px;
+    }
+
+    nav ul li a {
+        padding: 10px 12px;
+    }
+}
+
+/* =============================================
+   Missing images — set by script.js when an image fails to load,
+   so visitors never see a broken-image icon. Removing the class is
+   automatic: the image shows as soon as its file exists.
+   ============================================= */
+img.img-missing {
+    /* !important: a state class must beat every page's own img display rule
+       (e.g. .zoomable { display: block } kept it visible — found by screenshot) */
+    display: none !important;
+}
+
+
+/* =============================================
+   Quality of life — accessibility & navigation aids
+   ============================================= */
+
+/* Skip link: first Tab on any page jumps past the nav to the content */
+.skip-link {
+    position: fixed;
+    top: var(--space-sm);
+    left: var(--space-sm);
+    z-index: 2000;
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--touch-target);
+    box-sizing: border-box;
+    padding: 0 var(--space-lg);
+    background: var(--color-bg-white);
+    color: var(--color-primary);
+    font-weight: bold;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-200%);
+    transition: transform var(--transition-fast);
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+/* Keyboard focus: a two-tone ring that shows on both white pages and the blue header.
+   :focus-visible = keyboard only, so mouse clicks don't draw rings. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+    outline: 3px solid var(--color-focus-inner);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 6px var(--color-focus-outer);
+}
+
+#main-content:focus {
+    outline: none;   /* focus target of the skip link; no ring on the whole page */
+}
+
+/* Current page in the nav (aria-current is set per page in the HTML) */
+nav ul li a[aria-current="page"] {
+    background-color: var(--color-nav-active-bg);
+    border-color: var(--color-bg-white);
+}
+
+@media (max-width: 1199px) {
+    nav ul li a[aria-current="page"] {
+        box-shadow: inset 4px 0 0 var(--color-accent-yellow);
+    }
+}
+
+/* Touch screens only: fingers need 44px targets; mouse users keep the original compact look */
+@media (pointer: coarse) {
+    #sidebar-toggle {
+        min-width: var(--touch-target);
+        min-height: var(--touch-target);
+    }
+
+    .top-right-button,
+    .director-link-btn,
+    .learn-more-link {
+        min-height: var(--touch-target);
+        display: inline-flex;
+        align-items: center;
+        box-sizing: border-box;
+    }
+
+    /* (Citation numbers like "[5]" sit inside running text: exempt from target size
+       per WCAG 2.5.8, and enlarging them would break the line spacing.) */
+
+    button,
+    .sidebar ul li a {
+        min-height: var(--touch-target);
+    }
+
+    .sidebar ul li a {
+        display: flex;
+        align-items: center;
+    }
+
+    input[type="range"] {
+        height: var(--touch-target);
+    }
+}
+
+/* Back-to-top button (created by script.js on long pages) */
+.back-to-top {
+    position: fixed;
+    right: var(--space-lg);
+    bottom: var(--space-lg);
+    z-index: 900;
+    width: var(--touch-target);
+    height: var(--touch-target);
+    border: none;
+    border-radius: 50%;
+    background: var(--gradient-btn);
+    color: var(--color-bg-white);
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: var(--shadow-xl);
+    opacity: 0;
+    transform: translateY(12px);
+    pointer-events: none;
+    transition: opacity var(--transition-normal), transform var(--transition-normal);
+}
+
+.back-to-top.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Invisible block covering the first 1.5 screens; script.js shows .back-to-top whenever
+   it is entirely out of view. A block (not a 1px line) so jumps past it — anchor links,
+   restored scroll position — still register as a change. */
+.back-to-top-marker {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 150vh;
+    pointer-events: none;
+    visibility: hidden;
+}

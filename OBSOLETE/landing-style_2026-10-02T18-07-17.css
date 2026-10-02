@@ -1,0 +1,608 @@
+/* Ensure landing page styles only affect the content area */
+.content #image-grid {
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Image Grid only affects the right-side content area */
+.content .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    width: 100%;
+    max-width: 100%; /* Prevents interference with sidebar */
+    padding-top: 10px;
+    padding-bottom: 0px;
+}
+
+/* Grid items apply only inside .content */
+.content .grid-item {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    border-radius: 15px; /* Rounds corners */
+}
+
+.content .grid-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background: rgba(0, 0, 0, 0.5); */
+    background: rgba(0, 31, 125, 0.4);
+    transition: background 0.3s ease-in-out;
+    border-radius: 15px; /* Rounds corners */
+}
+
+.content .grid-item:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.content .grid-item:hover::before {
+    background: rgba(221, 99, 0, 0.1);
+}
+
+.content .grid-item span {
+    position: relative;
+    z-index: 2;
+}
+
+
+
+/* Timeline and Landing page Stuff */
+
+/* General Styles
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+} */
+
+
+
+/* Hero Section (Banner with Circuit Background) */
+#hero {
+    background: linear-gradient(135deg, #0061c1, #313ffd);
+    
+    /* background: radial-gradient(circle at center top, #0047AB 30%, #1c8aff 70%)  */
+    /* linear-gradient(to bottom, #1c8aff, #66b3ff); */
+
+    /* background-image: url('images/background.PNG'); Add a real circuit image */
+    background-blend-mode: overlay;
+    text-align: center;
+    color: white;
+
+    /* Hero Section (Hanging Banner Effect) */
+    /* Move it up to hide the top behind the navbar */
+    transform: translateY(-200px); /* Adjust if needed */
+
+    padding: 60px 20px;
+    padding-top: 200px;
+    position: relative;
+    margin-top: 40px; /* Adjust the value as needed */
+    border-radius: 0 0 20px 20px; /* Rounds only the bottom corners */
+    width: 90%; /* Keeps it responsive */
+    max-width: 1100px; /* Prevents it from being too wide */
+    margin: 50px auto; /* Centers the section */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Soft shadow */
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInDown 0.8s ease-out forwards;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-220px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(-200px);
+    }
+}
+
+#hero h1 {
+    font-size: 3rem;
+    margin: 10px 0;
+}
+
+#hero h2 {
+    font-size: 1.5rem;
+    font-weight: lighter;
+}
+
+/* Custom MF Logo */
+.logo {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px 30px;
+    border-radius: 15px;
+    display: inline-block;
+}
+
+
+/* Fixes for Portfolio Introduction */
+#portfolio-intro {
+    background: white;
+    padding: 40px;
+    text-align: center;
+    max-width: 900px; /* Limits the width for better readability */
+    margin: 50px auto; /* Centers the section */
+    margin-top: -200px;
+    animation: fadeIn 0.8s ease-out forwards;
+    border-right: 5px solid #003c7d;
+    border-bottom: 5px solid #003c7d;
+    border-radius: 15px;
+}
+
+/* Adjust heading */
+#portfolio-intro h2 {
+    color: #003c7d;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Adjust heading */
+#portfolio-intro h3 {
+    color: #003c7d;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Align paragraph properly */
+#portfolio-intro p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    text-align: center; /* Centers text */
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+/* Organize the content into two justified columns */
+#portfolio-intro .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 30px; /* Adds space between columns */
+    align-items: start;
+    text-align: left;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+/* Fix unordered list alignment */
+#portfolio-intro ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    max-width: 600px;
+    margin: 20px auto;
+    list-style: none;
+    padding-left: 0;
+}
+
+
+
+
+/* Style list items properly */
+#portfolio-intro ul li {
+    display: grid;
+    grid-template-columns: 220px auto;
+    align-items: center;
+    column-gap: 15px;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    text-align: left;
+    line-height: 1.5;
+    background: #f9f9f9;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border-left: 4px solid #003c7d;
+
+    /* 🔹 Enable both fade-in and hover effect */
+    opacity: 0;
+    transform: translateY(20px) scale(1);
+    transition: opacity 0.8s ease-out, transform 0.3s ease-out, box-shadow 0.3s ease-in-out;
+}
+
+
+/* Add a shadow effect on hover */
+#portfolio-intro ul li:hover {
+    transform: translateY(17px) scale(1.01); /* Slight lift + Zoom */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+/* 🔹 Apply Fade-In Animation */
+#portfolio-intro.visible ul li {
+    opacity: 1;
+    /* transform: none; */
+}
+
+/* Apply delay to each list item */
+#portfolio-intro.visible ul li:nth-child(1) { opacity: 1; }
+#portfolio-intro.visible ul li:nth-child(2) { opacity: 1; }
+#portfolio-intro.visible ul li:nth-child(3) { opacity: 1; }
+#portfolio-intro.visible ul li:nth-child(4) { opacity: 1; }
+
+
+/* Make icons slightly larger on hover */
+#portfolio-intro .icon:hover {
+    transform: scale(1.14);
+    transition: 0.2s ease-in-out;
+}
+
+/* Ensure emoji or icons align properly */
+#portfolio-intro ul li::before {
+    /* content: "✅"; Replace with an appropriate icon */
+    margin-right: 10px;
+}
+
+
+
+/* Animations! */
+/* Initial state: Hidden with opacity 0 */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px); /* Slight downward shift */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* When section becomes visible */
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Delay effect for list items */
+.fade-in ul li {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+
+/* Tiny Icons */
+.icon {
+    width: 40px; /* Adjust size */
+    height: 40px;
+    margin-right: 15px; /* Space between icon and text */
+    vertical-align: middle;
+}
+
+
+/* Icon Hover Effect */
+.icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    vertical-align: middle;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Hover Effect: Slight Pop-Out and Glow */
+.hover-effect:hover {
+    transform: scale(1.2); /* Slight zoom */
+    filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.2));
+}
+
+/* Smooth Fade-in Effect */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    /* opacity: 0;
+    animation: fadeIn 0.8s ease-in-out forwards; */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Intro Alignment Stuff */
+/* Ensure icons remain aligned */
+#portfolio-intro .icon {
+    width: 40px; 
+    height: 40px;
+    margin-right: 10px;
+    flex-shrink: 0; /* Prevents shrinking */
+}
+
+/* Wrap icon & title together */
+#portfolio-intro .title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Ensure all descriptions align */
+#portfolio-intro .description {
+    text-align: left;
+}
+
+
+
+
+/* Timeline */
+.timeline {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    position: relative;
+}
+
+.timeline-item {
+    display: flex;
+    margin: 20px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;  /* Clickable */
+    opacity: 0;
+    transform: translateY(20px) scale(1);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s ease-in-out;
+}
+
+.timeline-date {
+    font-weight: bold;
+    flex: 1;
+    text-align: right;
+    padding-right: 20px;
+    color: #003c7d;
+}
+
+.timeline-content {
+    flex: 3;
+    background: white;
+    padding: 15px;
+    border-left: 5px solid #003c7d;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; /* Rounds all edges */
+}
+
+/* 🔹 Hover Effect: Works with Fade-In */
+.timeline-item:hover {
+    transform: translateY(-3px) scale(1.06); /* Slight lift + Zoom */
+    box-shadow: 4px 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* 🔹 Apply Fade-In Animation */
+.timeline-item.visible {
+    opacity: 1;
+    /* transform: translateY(0) scale(1); Default state after fade-in */
+}
+
+.timeline-content h3 {
+    margin: 5px 0;
+}
+
+/* Scroll Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =============================================
+   Mobile — < 768px
+   ============================================= */
+@media (max-width: 767px) {
+
+    /* Hero: swap out the desktop translateY animation for a simple fade-in.
+       padding-top: 200px was only needed because the hero was shifted -200px
+       on desktop — on mobile it just renders in normal flow. */
+    #hero {
+        animation: fadeInDownMobile 0.6s ease-out forwards !important;
+        padding: 40px 15px !important;
+        padding-top: 40px !important;
+        width: 95%;
+        box-sizing: border-box; /* 95% + 30px padding overflowed narrow phones */
+        margin: 10px auto 20px;
+    }
+
+    @keyframes fadeInDownMobile {
+        from { opacity: 0; transform: translateY(-12px); }
+        to   { opacity: 1; transform: translateY(0);     }
+    }
+
+    #hero h1 { font-size: 2rem; }
+    #hero h2 { font-size: 1.1rem; }
+
+    /* Portfolio intro: reset negative margin — hero no longer translated up */
+    #portfolio-intro {
+        margin-top: 10px !important;
+        padding: 25px 15px;
+    }
+
+    #portfolio-intro p {
+        font-size: 1rem;
+        max-width: 100%;
+    }
+
+    /* List items: remove fixed 220px column */
+    #portfolio-intro ul li {
+        grid-template-columns: 1fr;
+        row-gap: 8px;
+    }
+
+    /* Grid: single column on small screens */
+    .content .grid-container {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .content .grid-item {
+        height: 140px;
+        font-size: 16px;
+    }
+
+    /* Timeline: tighten up */
+    .timeline { padding: 10px 0; }
+
+    .timeline-item {
+        flex-direction: column;
+        margin: 12px 0;
+    }
+
+    .timeline-date {
+        text-align: left;
+        padding-right: 0;
+        padding-bottom: 6px;
+        font-size: 1rem;
+    }
+
+    .timeline-content { padding: 10px; }
+}
+
+/* Disable scale/lift hover effects on touch devices —
+   :hover fires on tap and causes jarring layout shifts. */
+@media (hover: none) {
+    .content .grid-item:hover       { transform: none; opacity: 1; }
+    .timeline-item:hover            { transform: none; box-shadow: none; }
+    #portfolio-intro ul li:hover    { transform: none; box-shadow: none; }
+}
+
+/* =============================================
+   Tablet — 768px to 1199px
+   ============================================= */
+@media (min-width: 768px) and (max-width: 1199px) {
+
+    #hero {
+        width: 95%;
+        padding: 50px 20px;
+    }
+
+    .content .grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    }
+
+    #portfolio-intro ul li {
+        grid-template-columns: 160px auto;
+    }
+}
+
+
+
+/* =============================================
+   Draped banner — the hero unrolls from behind the header like a weighted
+   banner, then swings and settles (tablet/desktop, where the hero hangs).
+
+   How it stays honest to the original design:
+   - Every keyframe keeps translateY(var(--hero-hang)), and the last frame is the
+     same resting position as before (index/about -200px; contact sets 0px and
+     hangs via its margin). Layout after the animation is unchanged.
+   - It only animates transform, clip-path and opacity of the banner itself, so
+     every link and photo inside rides along and stays clickable throughout.
+   - Hinged at the top edge (transform-origin top), which sits behind the header.
+   - The unroll edge (clip-path) and the roller bar (::after) share the same
+     duration, span (0-55%) and easing, so the bar stays on the edge.
+   - The final clip extends 80px past the box so the shadow and hover effects show.
+   - Reduced motion: reveal-fallback.css finishes this in 0.01ms (last frame).
+   ============================================= */
+@media (min-width: 768px) {
+    #hero {
+        --hero-hang: -200px;
+        transform-origin: 50% 0;
+        animation: heroDrape var(--duration-banner-drape) linear forwards;
+    }
+
+    #hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 3;
+        pointer-events: none;
+        border-radius: inherit;
+        /* the roller: a dark bar with a light top highlight, drawn at the bottom edge */
+        background:
+            linear-gradient(to top,
+                transparent 0,
+                transparent 2px,
+                var(--color-banner-rod-shadow) 2px,
+                var(--color-banner-rod) 5px,
+                var(--color-banner-rod) 11px,
+                var(--color-banner-rod-light) 12px,
+                transparent 14px) bottom / 100% 14px no-repeat;
+        transform: translateY(-100%);
+        animation: heroDrapeRod var(--duration-banner-drape) linear forwards;
+    }
+}
+
+@keyframes heroDrape {
+    0% {
+        opacity: 1;
+        clip-path: inset(-80px -80px 100% -80px);
+        transform: translateY(var(--hero-hang)) perspective(1400px) rotateX(0deg);
+        animation-timing-function: cubic-bezier(0.55, 0, 0.35, 1);  /* falls, then the roll catches */
+    }
+    55% {
+        clip-path: inset(-80px -80px 0% -80px);
+        transform: translateY(var(--hero-hang)) perspective(1400px) rotateX(13deg);
+        animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
+    }
+    70% {
+        transform: translateY(var(--hero-hang)) perspective(1400px) rotateX(-6deg);
+        animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
+    }
+    82% {
+        transform: translateY(var(--hero-hang)) perspective(1400px) rotateX(2.5deg);
+        animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
+    }
+    92% {
+        transform: translateY(var(--hero-hang)) perspective(1400px) rotateX(-0.8deg);
+        animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
+    }
+    100% {
+        opacity: 1;
+        clip-path: inset(-80px -80px -80px -80px);
+        transform: translateY(var(--hero-hang)) perspective(1400px) rotateX(0deg);
+    }
+}
+
+@keyframes heroDrapeRod {
+    0% {
+        transform: translateY(-100%);
+        opacity: 1;
+        animation-timing-function: cubic-bezier(0.55, 0, 0.35, 1);  /* must match heroDrape 0-55% */
+    }
+    55% {
+        transform: translateY(0);
+        opacity: 1;
+        animation-timing-function: ease-in-out;
+    }
+    80% {
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+}

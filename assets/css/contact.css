@@ -168,5 +168,6 @@
 @media (min-width: 768px) {
     #hero {
         margin-bottom: 0; /* Reduce space between hero and form */
+        --hero-hang: 0px; /* contact hangs via margin-top: -200px, not transform (draped banner) */
     }
 }
