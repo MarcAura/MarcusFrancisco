@@ -1,0 +1,738 @@
+/* Ensure landing page styles only affect the content area */
+.content #image-grid {
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Image Grid only affects the right-side content area */
+.content .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    width: 100%;
+    max-width: 100%; /* Prevents interference with sidebar */
+    padding-top: 10px;
+    padding-bottom: 0px;
+}
+
+/* Grid items apply only inside .content */
+.content .grid-item {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    border-radius: 15px; /* Rounds corners */
+}
+
+.content .grid-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background: rgba(0, 0, 0, 0.5); */
+    background: rgba(0, 31, 125, 0.4);
+    transition: background 0.3s ease-in-out;
+    border-radius: 15px; /* Rounds corners */
+}
+
+.content .grid-item:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.content .grid-item:hover::before {
+    background: rgba(221, 99, 0, 0.1);
+}
+
+.content .grid-item span {
+    position: relative;
+    z-index: 2;
+}
+
+
+
+/* Timeline and Landing page Stuff */
+
+/* General Styles
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+} */
+
+
+
+/* Hero Section (Banner with Circuit Background) */
+#hero {
+    background: linear-gradient(135deg, #0061c1, #313ffd);
+    
+    /* background: radial-gradient(circle at center top, #0047AB 30%, #1c8aff 70%)  */
+    /* linear-gradient(to bottom, #1c8aff, #66b3ff); */
+
+    /* background-image: url('images/background.PNG'); Add a real circuit image */
+    background-blend-mode: overlay;
+    text-align: center;
+    color: white;
+
+    /* Hero Section (Hanging Banner Effect) */
+    /* Move it up to hide the top behind the navbar */
+    transform: translateY(-200px); /* Adjust if needed */
+
+    padding: 60px 20px;
+    padding-top: 200px;
+    position: relative;
+    margin-top: 40px; /* Adjust the value as needed */
+    border-radius: 0 0 20px 20px; /* Rounds only the bottom corners */
+    width: 90%; /* Keeps it responsive */
+    max-width: 1100px; /* Prevents it from being too wide */
+    margin: 50px auto; /* Centers the section */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Soft shadow */
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInDown 0.8s ease-out forwards;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-220px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(-200px);
+    }
+}
+
+#hero h1 {
+    font-size: 3rem;
+    margin: 10px 0;
+}
+
+#hero h2 {
+    font-size: 1.5rem;
+    font-weight: lighter;
+}
+
+/* Custom MF Logo */
+.logo {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px 30px;
+    border-radius: 15px;
+    display: inline-block;
+}
+
+
+/* Fixes for Portfolio Introduction */
+#portfolio-intro {
+    background: white;
+    padding: 40px;
+    text-align: center;
+    max-width: 900px; /* Limits the width for better readability */
+    margin: 50px auto; /* Centers the section */
+    margin-top: -200px;
+    animation: fadeIn 0.8s ease-out forwards;
+    border-right: 5px solid #003c7d;
+    border-bottom: 5px solid #003c7d;
+    border-radius: 15px;
+}
+
+/* Adjust heading */
+#portfolio-intro h2 {
+    color: #003c7d;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Adjust heading */
+#portfolio-intro h3 {
+    color: #003c7d;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Align paragraph properly */
+#portfolio-intro p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    text-align: center; /* Centers text */
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+/* Organize the content into two justified columns */
+#portfolio-intro .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 30px; /* Adds space between columns */
+    align-items: start;
+    text-align: left;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+/* Fix unordered list alignment */
+#portfolio-intro ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    max-width: 600px;
+    margin: 20px auto;
+    list-style: none;
+    padding-left: 0;
+}
+
+
+
+
+/* Style list items properly */
+#portfolio-intro ul li {
+    display: grid;
+    grid-template-columns: 220px auto;
+    align-items: center;
+    column-gap: 15px;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    text-align: left;
+    line-height: 1.5;
+    background: #f9f9f9;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border-left: 4px solid #003c7d;
+
+    /* 🔹 Enable both fade-in and hover effect */
+    opacity: 0;
+    transform: translateY(20px) scale(1);
+    transition: opacity 0.8s ease-out, transform 0.3s ease-out, box-shadow 0.3s ease-in-out;
+}
+
+
+/* Add a shadow effect on hover */
+#portfolio-intro ul li:hover {
+    transform: translateY(17px) scale(1.01); /* Slight lift + Zoom */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+/* 🔹 Apply Fade-In Animation */
+#portfolio-intro.visible ul li {
+    opacity: 1;
+    /* transform: none; */
+}
+
+/* Apply delay to each list item */
+#portfolio-intro.visible ul li:nth-child(1) { opacity: 1; }
+#portfolio-intro.visible ul li:nth-child(2) { opacity: 1; }
+#portfolio-intro.visible ul li:nth-child(3) { opacity: 1; }
+#portfolio-intro.visible ul li:nth-child(4) { opacity: 1; }
+
+
+/* Make icons slightly larger on hover */
+#portfolio-intro .icon:hover {
+    transform: scale(1.14);
+    transition: 0.2s ease-in-out;
+}
+
+/* Ensure emoji or icons align properly */
+#portfolio-intro ul li::before {
+    /* content: "✅"; Replace with an appropriate icon */
+    margin-right: 10px;
+}
+
+
+
+/* Animations! */
+/* Initial state: Hidden with opacity 0 */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px); /* Slight downward shift */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* When section becomes visible */
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Delay effect for list items */
+.fade-in ul li {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+
+/* Tiny Icons */
+.icon {
+    width: 40px; /* Adjust size */
+    height: 40px;
+    margin-right: 15px; /* Space between icon and text */
+    vertical-align: middle;
+}
+
+
+/* Icon Hover Effect */
+.icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    vertical-align: middle;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Hover Effect: Slight Pop-Out and Glow */
+.hover-effect:hover {
+    transform: scale(1.2); /* Slight zoom */
+    filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.2));
+}
+
+/* Smooth Fade-in Effect */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    /* opacity: 0;
+    animation: fadeIn 0.8s ease-in-out forwards; */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Intro Alignment Stuff */
+/* Ensure icons remain aligned */
+#portfolio-intro .icon {
+    width: 40px; 
+    height: 40px;
+    margin-right: 10px;
+    flex-shrink: 0; /* Prevents shrinking */
+}
+
+/* Wrap icon & title together */
+#portfolio-intro .title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Ensure all descriptions align */
+#portfolio-intro .description {
+    text-align: left;
+}
+
+
+
+
+/* Timeline */
+.timeline {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    position: relative;
+}
+
+.timeline-item {
+    display: flex;
+    margin: 20px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;  /* Clickable */
+    opacity: 0;
+    transform: translateY(20px) scale(1);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s ease-in-out;
+}
+
+.timeline-date {
+    font-weight: bold;
+    flex: 1;
+    text-align: right;
+    padding-right: 20px;
+    color: #003c7d;
+}
+
+.timeline-content {
+    flex: 3;
+    background: white;
+    padding: 15px;
+    border-left: 5px solid #003c7d;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; /* Rounds all edges */
+}
+
+/* 🔹 Hover Effect: Works with Fade-In */
+.timeline-item:hover {
+    transform: translateY(-3px) scale(1.06); /* Slight lift + Zoom */
+    box-shadow: 4px 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* 🔹 Apply Fade-In Animation */
+.timeline-item.visible {
+    opacity: 1;
+    /* transform: translateY(0) scale(1); Default state after fade-in */
+}
+
+.timeline-content h3 {
+    margin: 5px 0;
+}
+
+/* Scroll Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =============================================
+   Mobile — < 768px
+   ============================================= */
+@media (max-width: 767px) {
+
+    /* Hero: swap out the desktop translateY animation for a simple fade-in.
+       padding-top: 200px was only needed because the hero was shifted -200px
+       on desktop — on mobile it just renders in normal flow. */
+    #hero {
+        animation: fadeInDownMobile 0.6s ease-out forwards !important;
+        padding: 40px 15px !important;
+        padding-top: 40px !important;
+        width: 95%;
+        box-sizing: border-box; /* 95% + 30px padding overflowed narrow phones */
+        margin: 10px auto 20px;
+    }
+
+    @keyframes fadeInDownMobile {
+        from { opacity: 0; transform: translateY(-12px); }
+        to   { opacity: 1; transform: translateY(0);     }
+    }
+
+    #hero h1 { font-size: 2rem; }
+    #hero h2 { font-size: 1.1rem; }
+
+    /* Portfolio intro: reset negative margin — hero no longer translated up */
+    #portfolio-intro {
+        margin-top: 10px !important;
+        padding: 25px 15px;
+    }
+
+    #portfolio-intro p {
+        font-size: 1rem;
+        max-width: 100%;
+    }
+
+    /* List items: remove fixed 220px column */
+    #portfolio-intro ul li {
+        grid-template-columns: 1fr;
+        row-gap: 8px;
+    }
+
+    /* Grid: single column on small screens */
+    .content .grid-container {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .content .grid-item {
+        height: 140px;
+        font-size: 16px;
+    }
+
+    /* Timeline: tighten up */
+    .timeline { padding: 10px 0; }
+
+    .timeline-item {
+        flex-direction: column;
+        margin: 12px 0;
+    }
+
+    .timeline-date {
+        text-align: left;
+        padding-right: 0;
+        padding-bottom: 6px;
+        font-size: 1rem;
+    }
+
+    .timeline-content { padding: 10px; }
+}
+
+/* Disable scale/lift hover effects on touch devices —
+   :hover fires on tap and causes jarring layout shifts. */
+@media (hover: none) {
+    .content .grid-item:hover       { transform: none; opacity: 1; }
+    .timeline-item:hover            { transform: none; box-shadow: none; }
+    #portfolio-intro ul li:hover    { transform: none; box-shadow: none; }
+}
+
+/* =============================================
+   Tablet — 768px to 1199px
+   ============================================= */
+@media (min-width: 768px) and (max-width: 1199px) {
+
+    #hero {
+        width: 95%;
+        padding: 50px 20px;
+    }
+
+    .content .grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    }
+
+    #portfolio-intro ul li {
+        grid-template-columns: 160px auto;
+    }
+}
+
+
+
+/* DRAPE:START — generated by private/scripts/make_drape_css.py; edit the script, not this block */
+/* =============================================
+   Banner unfurl — the hero unrolls from behind the header off a weighted roll,
+   jerks taut, bounces, sways and settles (tablet/desktop, where the hero hangs).
+   Physics-sampled keyframes; see the script's docstring for the model and tunables.
+   Final frame = the original resting transform (plain 2D); reduced motion lands on it
+   immediately (reveal-fallback.css). Phones: unchanged (D-11).
+   ============================================= */
+@property --hero-roll {
+    syntax: "<length>";
+    inherits: false;
+    initial-value: 34px;
+}
+
+@media (min-width: 768px) {
+    #hero {
+        --hero-hang: -200px;
+        transform-origin: 50% 0;
+        animation: heroUnfurl 2.8s linear forwards;
+    }
+
+    /* crease shading: soft vertical folds in the fabric, relaxing as it hangs */
+    #hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        pointer-events: none;
+        border-radius: inherit;
+        background: repeating-linear-gradient(90deg,
+            var(--color-banner-fold-light) 0%,
+            transparent 4%,
+            var(--color-banner-fold-dark) 9%,
+            transparent 13%,
+            var(--color-banner-fold-light) 17%);
+        background-size: 140% 100%;
+        mix-blend-mode: soft-light;
+        opacity: 0;
+        animation: heroUnfurlCloth 2.8s linear forwards;
+    }
+
+    /* the roll: a cylinder at the cloth edge that thins as the banner unrolls */
+    #hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 3;
+        pointer-events: none;
+        background:
+            linear-gradient(to bottom,
+                var(--color-banner-rod-shadow) 0%,
+                var(--color-banner-rod) 18%,
+                var(--color-banner-rod-light) 45%,
+                var(--color-banner-rod) 70%,
+                var(--color-banner-rod-shadow) 100%)
+            bottom / 100% var(--hero-roll) no-repeat;
+        border-radius: 0 0 calc(var(--hero-roll) / 2) calc(var(--hero-roll) / 2);
+        transform: translateY(-100%);
+        opacity: 0;
+        animation: heroUnfurlRoll 2.8s linear forwards;
+    }
+}
+
+@keyframes heroUnfurl {
+    0% { clip-path: inset(-80px -80px calc(100% - 17px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(0.377deg) rotateX(0deg) scaleY(1); }
+    2% { clip-path: inset(-80px -80px calc(99.564% - 16.952px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(0.627deg) rotateX(0.078deg) scaleY(1); }
+    4% { clip-path: inset(-80px -80px calc(98.533% - 16.839px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(0.794deg) rotateX(0.191deg) scaleY(1); }
+    6% { clip-path: inset(-80px -80px calc(97.017% - 16.672px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(0.874deg) rotateX(0.114deg) scaleY(1); }
+    8% { clip-path: inset(-80px -80px calc(95.064% - 16.457px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(0.869deg) rotateX(-0.195deg) scaleY(1); }
+    10% { clip-path: inset(-80px -80px calc(92.707% - 16.198px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(0.789deg) rotateX(-0.488deg) scaleY(1); }
+    12% { clip-path: inset(-80px -80px calc(89.965% - 15.896px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(0.649deg) rotateX(-0.422deg) scaleY(1); }
+    14% { clip-path: inset(-80px -80px calc(86.858% - 15.554px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(0.468deg) rotateX(0.083deg) scaleY(1); }
+    16% { clip-path: inset(-80px -80px calc(83.399% - 15.174px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(0.267deg) rotateX(0.678deg) scaleY(1); }
+    18% { clip-path: inset(-80px -80px calc(79.599% - 14.756px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(0.065deg) rotateX(0.824deg) scaleY(1); }
+    20% { clip-path: inset(-80px -80px calc(75.468% - 14.301px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(-0.121deg) rotateX(0.269deg) scaleY(1); }
+    22% { clip-path: inset(-80px -80px calc(71.015% - 13.812px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(-0.275deg) rotateX(-0.646deg) scaleY(1); }
+    24% { clip-path: inset(-80px -80px calc(66.248% - 13.287px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(-0.388deg) rotateX(-1.183deg) scaleY(1); }
+    26% { clip-path: inset(-80px -80px calc(61.173% - 12.729px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(-0.455deg) rotateX(-0.799deg) scaleY(1); }
+    28% { clip-path: inset(-80px -80px calc(55.796% - 12.138px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(-0.474deg) rotateX(0.33deg) scaleY(1); }
+    30% { clip-path: inset(-80px -80px calc(50.123% - 11.514px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(-0.451deg) rotateX(1.353deg) scaleY(1); }
+    32% { clip-path: inset(-80px -80px calc(44.16% - 10.858px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(-0.39deg) rotateX(1.384deg) scaleY(1); }
+    34% { clip-path: inset(-80px -80px calc(37.91% - 10.17px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(-0.303deg) rotateX(0.26deg) scaleY(1); }
+    36% { clip-path: inset(-80px -80px calc(31.378% - 9.452px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(-0.198deg) rotateX(-1.221deg) scaleY(1); }
+    38% { clip-path: inset(-80px -80px calc(24.568% - 8.702px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(-0.089deg) rotateX(-1.863deg) scaleY(1); }
+    40% { clip-path: inset(-80px -80px calc(17.484% - 7.923px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(0.016deg) rotateX(-1.035deg) scaleY(1); }
+    42% { clip-path: inset(-80px -80px calc(10.129% - 7.114px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(0.108deg) rotateX(0.733deg) scaleY(1); }
+    44% { clip-path: inset(-80px -80px calc(2.506% - 6.276px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(0.18deg) rotateX(2.075deg) scaleY(1); }
+    46% { clip-path: inset(-80px -80px calc(0% - 14.686px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(0.228deg) rotateX(2.763deg) scaleY(1.0189); }
+    48% { clip-path: inset(-80px -80px calc(0% - 27.486px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(0.25deg) rotateX(5.369deg) scaleY(1.0195); }
+    50% { clip-path: inset(-80px -80px calc(0% - 40.286px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(0.248deg) rotateX(6.07deg) scaleY(0.9989); }
+    52% { clip-path: inset(-80px -80px calc(0% - 53.086px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(0.224deg) rotateX(5.151deg) scaleY(0.9862); }
+    54% { clip-path: inset(-80px -80px calc(0% - 65.886px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(0.184deg) rotateX(3.222deg) scaleY(0.9924); }
+    56% { clip-path: inset(-80px -80px calc(0% - 78.686px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(0.132deg) rotateX(0.99deg) scaleY(1.0048); }
+    58% { clip-path: inset(-80px -80px calc(0% - 86px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(0.075deg) rotateX(-0.933deg) scaleY(1.008); }
+    60% { clip-path: inset(-80px -80px calc(0% - 86px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(0.018deg) rotateX(-2.159deg) scaleY(1.0016); }
+    62% { clip-path: inset(-80px -80px calc(0% - 86px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(-0.033deg) rotateX(-2.561deg) scaleY(0.9956); }
+    64% { clip-path: inset(-80px -80px calc(0% - 86px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(-0.074deg) rotateX(-2.248deg) scaleY(0.9963); }
+    66% { clip-path: inset(-80px -80px calc(0% - 86px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(-0.103deg) rotateX(-1.474deg) scaleY(1.0007); }
+    68% { clip-path: inset(-80px -80px calc(0% - 86px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(-0.119deg) rotateX(-0.545deg) scaleY(1.0029); }
+    70% { clip-path: inset(-80px -80px calc(0% - 86px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(-0.121deg) rotateX(0.27deg) scaleY(1.0012); }
+    72% { clip-path: inset(-80px -80px calc(0% - 86px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(-0.113deg) rotateX(0.801deg) scaleY(0.9989); }
+    74% { clip-path: inset(-80px -80px calc(0% - 86px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(-0.095deg) rotateX(0.993deg) scaleY(0.9985); }
+    76% { clip-path: inset(-80px -80px calc(0% - 86px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(-0.071deg) rotateX(0.889deg) scaleY(0.9999); }
+    78% { clip-path: inset(-80px -80px calc(0% - 86px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(-0.045deg) rotateX(0.598deg) scaleY(1.0009); }
+    80% { clip-path: inset(-80px -80px calc(0% - 86px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(-0.019deg) rotateX(0.248deg) scaleY(1.0006); }
+    82% { clip-path: inset(-80px -80px calc(0% - 86px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(0.003deg) rotateX(-0.054deg) scaleY(0.9998); }
+    84% { clip-path: inset(-80px -80px calc(0% - 86px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(0.02deg) rotateX(-0.244deg) scaleY(0.9995); }
+    86% { clip-path: inset(-80px -80px calc(0% - 86px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(0.031deg) rotateX(-0.307deg) scaleY(0.9999); }
+    88% { clip-path: inset(-80px -80px calc(0% - 86px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(0.036deg) rotateX(-0.267deg) scaleY(1.0002); }
+    90% { clip-path: inset(-80px -80px calc(0% - 86px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(0.034deg) rotateX(-0.172deg) scaleY(1.0002); }
+    92% { clip-path: inset(-80px -80px calc(0% - 86px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(0.029deg) rotateX(-0.07deg) scaleY(1); }
+    94% { clip-path: inset(-80px -80px calc(0% - 86px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(0.021deg) rotateX(0.003deg) scaleY(0.9999); }
+    96% { clip-path: inset(-80px -80px calc(0% - 86px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(0.012deg) rotateX(0.032deg) scaleY(1); }
+    98% { clip-path: inset(-80px -80px calc(0% - 86px) -80px); transform: translateY(var(--hero-hang)) perspective(1400px) rotateZ(0.005deg) rotateX(0.025deg) scaleY(1); }
+    100% { clip-path: inset(-80px -80px -80px -80px); transform: translateY(var(--hero-hang)); }
+}
+
+@keyframes heroUnfurlRoll {
+    0% { transform: translateY(calc(-100% + 17px)); --hero-roll: 34px; opacity: 1; }
+    2% { transform: translateY(calc(-99.564% + 16.952px)); --hero-roll: 33.904px; opacity: 1; }
+    4% { transform: translateY(calc(-98.533% + 16.839px)); --hero-roll: 33.677px; opacity: 1; }
+    6% { transform: translateY(calc(-97.017% + 16.672px)); --hero-roll: 33.344px; opacity: 1; }
+    8% { transform: translateY(calc(-95.064% + 16.457px)); --hero-roll: 32.914px; opacity: 1; }
+    10% { transform: translateY(calc(-92.707% + 16.198px)); --hero-roll: 32.395px; opacity: 1; }
+    12% { transform: translateY(calc(-89.965% + 15.896px)); --hero-roll: 31.792px; opacity: 1; }
+    14% { transform: translateY(calc(-86.858% + 15.554px)); --hero-roll: 31.109px; opacity: 1; }
+    16% { transform: translateY(calc(-83.399% + 15.174px)); --hero-roll: 30.348px; opacity: 1; }
+    18% { transform: translateY(calc(-79.599% + 14.756px)); --hero-roll: 29.512px; opacity: 1; }
+    20% { transform: translateY(calc(-75.468% + 14.301px)); --hero-roll: 28.603px; opacity: 1; }
+    22% { transform: translateY(calc(-71.015% + 13.812px)); --hero-roll: 27.623px; opacity: 1; }
+    24% { transform: translateY(calc(-66.248% + 13.287px)); --hero-roll: 26.574px; opacity: 1; }
+    26% { transform: translateY(calc(-61.173% + 12.729px)); --hero-roll: 25.458px; opacity: 1; }
+    28% { transform: translateY(calc(-55.796% + 12.138px)); --hero-roll: 24.275px; opacity: 1; }
+    30% { transform: translateY(calc(-50.123% + 11.514px)); --hero-roll: 23.027px; opacity: 1; }
+    32% { transform: translateY(calc(-44.16% + 10.858px)); --hero-roll: 21.715px; opacity: 1; }
+    34% { transform: translateY(calc(-37.91% + 10.17px)); --hero-roll: 20.34px; opacity: 1; }
+    36% { transform: translateY(calc(-31.378% + 9.452px)); --hero-roll: 18.903px; opacity: 1; }
+    38% { transform: translateY(calc(-24.568% + 8.702px)); --hero-roll: 17.405px; opacity: 1; }
+    40% { transform: translateY(calc(-17.484% + 7.923px)); --hero-roll: 15.846px; opacity: 1; }
+    42% { transform: translateY(calc(-10.129% + 7.114px)); --hero-roll: 14.228px; opacity: 1; }
+    44% { transform: translateY(calc(-2.506% + 6.276px)); --hero-roll: 12.551px; opacity: 1; }
+    46% { transform: translateY(calc(0% + 6px)); --hero-roll: 12px; opacity: 1; }
+    48% { transform: translateY(calc(0% + 6px)); --hero-roll: 12px; opacity: 1; }
+    50% { transform: translateY(calc(0% + 6px)); --hero-roll: 12px; opacity: 1; }
+    52% { transform: translateY(calc(0% + 6px)); --hero-roll: 12px; opacity: 1; }
+    54% { transform: translateY(calc(0% + 6px)); --hero-roll: 12px; opacity: 1; }
+    56% { transform: translateY(calc(0% + 6px)); --hero-roll: 12px; opacity: 1; }
+    58% { transform: translateY(calc(0% + 6px)); --hero-roll: 12px; opacity: 1; }
+    60% { transform: translateY(calc(0% + 6px)); --hero-roll: 12px; opacity: 1; }
+    62% { transform: translateY(calc(0% + 6px)); --hero-roll: 12px; opacity: 1; }
+    64% { transform: translateY(calc(0% + 6px)); --hero-roll: 12px; opacity: 0.889; }
+    66% { transform: translateY(calc(0% + 6px)); --hero-roll: 12px; opacity: 0.778; }
+    68% { transform: translateY(calc(0% + 6px)); --hero-roll: 12px; opacity: 0.667; }
+    70% { transform: translateY(calc(0% + 6px)); --hero-roll: 12px; opacity: 0.556; }
+    72% { transform: translateY(calc(0% + 6px)); --hero-roll: 12px; opacity: 0.444; }
+    74% { transform: translateY(calc(0% + 6px)); --hero-roll: 12px; opacity: 0.333; }
+    76% { transform: translateY(calc(0% + 6px)); --hero-roll: 12px; opacity: 0.222; }
+    78% { transform: translateY(calc(0% + 6px)); --hero-roll: 12px; opacity: 0.111; }
+    80% { transform: translateY(calc(0% + 6px)); --hero-roll: 12px; opacity: 0; }
+    82% { transform: translateY(calc(0% + 6px)); --hero-roll: 12px; opacity: 0; }
+    84% { transform: translateY(calc(0% + 6px)); --hero-roll: 12px; opacity: 0; }
+    86% { transform: translateY(calc(0% + 6px)); --hero-roll: 12px; opacity: 0; }
+    88% { transform: translateY(calc(0% + 6px)); --hero-roll: 12px; opacity: 0; }
+    90% { transform: translateY(calc(0% + 6px)); --hero-roll: 12px; opacity: 0; }
+    92% { transform: translateY(calc(0% + 6px)); --hero-roll: 12px; opacity: 0; }
+    94% { transform: translateY(calc(0% + 6px)); --hero-roll: 12px; opacity: 0; }
+    96% { transform: translateY(calc(0% + 6px)); --hero-roll: 12px; opacity: 0; }
+    98% { transform: translateY(calc(0% + 6px)); --hero-roll: 12px; opacity: 0; }
+    100% { transform: translateY(calc(0% + 6px)); --hero-roll: 12px; opacity: 0; }
+}
+
+@keyframes heroUnfurlCloth {
+    0% { opacity: 0.9; background-position: 0% 0; }
+    2% { opacity: 0.877; background-position: 1.2% 0; }
+    4% { opacity: 0.855; background-position: 2.4% 0; }
+    6% { opacity: 0.833; background-position: 3.6% 0; }
+    8% { opacity: 0.81; background-position: 4.8% 0; }
+    10% { opacity: 0.787; background-position: 6% 0; }
+    12% { opacity: 0.765; background-position: 7.2% 0; }
+    14% { opacity: 0.742; background-position: 8.4% 0; }
+    16% { opacity: 0.72; background-position: 9.6% 0; }
+    18% { opacity: 0.697; background-position: 10.8% 0; }
+    20% { opacity: 0.675; background-position: 12% 0; }
+    22% { opacity: 0.652; background-position: 13.2% 0; }
+    24% { opacity: 0.63; background-position: 14.4% 0; }
+    26% { opacity: 0.608; background-position: 15.6% 0; }
+    28% { opacity: 0.585; background-position: 16.8% 0; }
+    30% { opacity: 0.562; background-position: 18% 0; }
+    32% { opacity: 0.54; background-position: 19.2% 0; }
+    34% { opacity: 0.517; background-position: 20.4% 0; }
+    36% { opacity: 0.495; background-position: 21.6% 0; }
+    38% { opacity: 0.473; background-position: 22.8% 0; }
+    40% { opacity: 0.45; background-position: 24% 0; }
+    42% { opacity: 0.427; background-position: 25.2% 0; }
+    44% { opacity: 0.405; background-position: 26.4% 0; }
+    46% { opacity: 0.382; background-position: 27.6% 0; }
+    48% { opacity: 0.36; background-position: 28.8% 0; }
+    50% { opacity: 0.338; background-position: 30% 0; }
+    52% { opacity: 0.315; background-position: 31.2% 0; }
+    54% { opacity: 0.292; background-position: 32.4% 0; }
+    56% { opacity: 0.27; background-position: 33.6% 0; }
+    58% { opacity: 0.248; background-position: 34.8% 0; }
+    60% { opacity: 0.225; background-position: 36% 0; }
+    62% { opacity: 0.202; background-position: 37.2% 0; }
+    64% { opacity: 0.18; background-position: 38.4% 0; }
+    66% { opacity: 0.157; background-position: 39.6% 0; }
+    68% { opacity: 0.135; background-position: 40.8% 0; }
+    70% { opacity: 0.113; background-position: 42% 0; }
+    72% { opacity: 0.09; background-position: 43.2% 0; }
+    74% { opacity: 0.067; background-position: 44.4% 0; }
+    76% { opacity: 0.045; background-position: 45.6% 0; }
+    78% { opacity: 0.023; background-position: 46.8% 0; }
+    80% { opacity: 0; background-position: 48% 0; }
+    82% { opacity: 0; background-position: 49.2% 0; }
+    84% { opacity: 0; background-position: 50.4% 0; }
+    86% { opacity: 0; background-position: 51.6% 0; }
+    88% { opacity: 0; background-position: 52.8% 0; }
+    90% { opacity: 0; background-position: 54% 0; }
+    92% { opacity: 0; background-position: 55.2% 0; }
+    94% { opacity: 0; background-position: 56.4% 0; }
+    96% { opacity: 0; background-position: 57.6% 0; }
+    98% { opacity: 0; background-position: 58.8% 0; }
+    100% { opacity: 0; background-position: 60% 0; }
+}
+/* DRAPE:END */

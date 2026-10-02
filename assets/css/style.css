@@ -81,7 +81,8 @@
     --color-banner-rod-light:  rgba(255, 255, 255, 0.55);
     --color-banner-rod:        #0b1f4d;
     --color-banner-rod-shadow: rgba(0, 0, 0, 0.35);
-    --duration-banner-drape:   1.8s;
+    --color-banner-fold-light: rgba(255, 255, 255, 0.35);  /* fabric crease highlight */
+    --color-banner-fold-dark:  rgba(0, 10, 40, 0.45);      /* fabric crease shadow */
 
     /* Music page palette (was documented only as a comment in music.css) */
     --music-deep:   #0f0603;   /* stage darkness */
