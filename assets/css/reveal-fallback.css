@@ -1,11 +1,12 @@
 /* =============================================
    Reveal fallback — show everything, skip the motion.
 
-   Loaded two ways from every page's <head>:
-     <link ... media="(prefers-reduced-motion: reduce)">  visitors who ask for less motion
-                                                         (e.g. Windows "Animation effects" off)
-     <noscript><link ...></noscript>                      visitors without JavaScript
-   The animations themselves are unchanged for everyone else.
+   Loaded from every page's <head> inside <noscript>: visitors without JavaScript.
+   It is NOT applied for OS reduced-motion any more (Marcus, 2026-10-10: "the animations are
+   completely gone… every movement seems rushed" — his Windows has animation effects off, and
+   this file was finishing every animation and transition in 0.01ms). To re-enable it for
+   reduced-motion visitors, add back to each page:
+     <link rel="stylesheet" href="assets/css/reveal-fallback.css" media="(prefers-reduced-motion: reduce)">
 
    Rule 1 — FINISH animations instantly, never cancel them.
    Several layouts ARE the end state of an animation: the home/about hero

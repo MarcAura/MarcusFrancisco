@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — Marcus Francisco</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/landing-style.css">
+    <link rel="stylesheet" href="assets/css/contact.css">
+    <meta name="description" content="Get in touch with Marcus Francisco.">
+    <meta name="theme-color" content="#003cbc">
+    <link rel="canonical" href="https://marcaura.github.io/MarcusFrancisco/contact.html">
+    <!-- Link previews (LinkedIn, iMessage, Slack, X) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Marcus Francisco">
+    <meta property="og:title" content="Contact — Marcus Francisco">
+    <meta property="og:description" content="Get in touch with Marcus Francisco.">
+    <meta property="og:url" content="https://marcaura.github.io/MarcusFrancisco/contact.html">
+    <meta property="og:image" content="https://marcaura.github.io/MarcusFrancisco/assets/images/social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Marcus Francisco — Electrical Engineer and French horn performer">
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- Icons -->
+    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="assets/icons/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+    <!-- Show all content, without animation, for reduced-motion and no-JS visitors -->
+    <link rel="stylesheet" href="assets/css/reveal-fallback.css" media="(prefers-reduced-motion: reduce)">
+    <noscript><link rel="stylesheet" href="assets/css/reveal-fallback.css"></noscript>
+    <script defer src="assets/js/script.js"></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="music.html">Music</a></li>
+                <li><a href="reflections.html">Reflections</a></li>
+                <li><a href="projects.html">Work & Projects</a></li>
+                <li><a href="cv.html">Resume / CV</a></li>
+                <li><a href="coursework.html">Coursework</a></li>
+                <li><a href="citations.html">Citations</a></li>
+                <li><a href="contact.html" aria-current="page">Contact</a></li>
+            </ul>
+        </nav>
+        <a href="https://alexthegreay.github.io/Alex/" class="top-right-button">Wrong Twin?</a>
+    </header>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <ul>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        <button id="sidebar-toggle">«</button> <!-- Side Bar Toggle -->
+
+        <!-- Main Content -->
+        <div class="content" id="main-content" tabindex="-1">
+
+            <!-- Hero Section with Circuit Background -->
+            <section id="hero" class="fade-in">
+                <div class="hero-content">
+                    <h1>Contact Me</h1>
+
+                    <h2>Let's Get in Touch</h2>
+                    <p>If you have any inquiries or just want to connect, feel free to send me a message.</p>
+                    <!-- <h4>Contact Page is still a work in progress! </h4>
+                    <p>This form below does not yet work, but feel free to
+                        practice typing messages in the meantime!</p> -->
+                </div>
+            </section>
+
+            <section id="proj-hero-linkedin">
+                <a href="https://www.linkedin.com/in/marcus-francisco/" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/images/LinkedIn-Logo.png" alt="LinkedIn — Connect with Marcus Francisco" loading="lazy" />
+                </a>
+            </section>
+
+            <section id="contact" class="fade-in">
+                <div class="form-container">
+                    <!--
+                        FORM SETUP INSTRUCTIONS (one-time):
+                        1. Go to https://formspree.io and sign up (free — 50 submissions/month)
+                        2. Create a new form and set the destination to your email
+                        3. Replace REPLACE_WITH_YOUR_FORM_ID below with your Formspree form ID
+                        Your email address is NEVER exposed in the HTML this way.
+                    -->
+                    <form id="contact-form"
+                          action="https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID"
+                          method="POST">
+
+                        <!-- Hidden subject line for the email you receive -->
+                        <input type="hidden" name="_subject" value="Portfolio Contact — New Message">
+
+                        <!-- Honeypot anti-spam: bots fill this; humans leave it blank -->
+                        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" autocomplete="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" autocomplete="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message:</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit" id="form-submit-btn">Send Message</button>
+                    </form>
+                    <p id="form-message" hidden class="form-success">Your message has been sent! I'll get back to you soon.</p>
+                    <p id="form-error" hidden class="form-error-msg">Something went wrong. Please try again or email me directly via LinkedIn.</p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+
+    <footer>
+        <p>Connect with me on <a href="https://www.linkedin.com/in/marcus-francisco">LinkedIn</a> and <a
+                href="https://github.com/MarcAura">GitHub</a>.</p>
+        <p>&copy; 2025&ndash;2026 Marcus Francisco. All rights reserved.</p>
+        <p>Website content, themes, animations, templates, images, and icons are all original work created by Marcus
+            Francisco</p>
+    </footer>
+
+    <!-- Modal Structure for Images -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div class="caption" id="modalCaption"></div>
+        <!-- Optional zoom controls -->
+        <div id="zoomControls">
+            <button id="zoomIn">Zoom In</button>
+            <button id="zoomOut">Zoom Out</button>
+        </div>
+    </div>
+
+</body>
+
+</html>

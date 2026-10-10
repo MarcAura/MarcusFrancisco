@@ -450,10 +450,8 @@ document.addEventListener('DOMContentLoaded', function () {
     button.textContent = '↑';
     document.body.appendChild(button);
 
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-
     button.addEventListener('click', function () {
-        window.scrollTo({ top: 0, behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         const skipTarget = document.getElementById('main-content');
         if (skipTarget) skipTarget.focus({ preventScroll: true });
     });

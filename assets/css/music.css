@@ -24,11 +24,13 @@
         #c47a1a 100%);
     text-align: center;
     color: white;
-    padding: 70px 20px 60px;
+    /* Hanging banner, same as the home/About #hero: the extra 200px of top padding sits
+       behind the header because the animation ends at translateY(-200px). */
+    padding: 270px 20px 60px;
     border-radius: 0 0 24px 24px;
     width: 90%;
     max-width: 1100px;
-    margin: 50px auto;
+    margin: 50px auto -150px; /* -150px: pulls the next section up by the 200px lift, keeping a 50px gap */
     box-shadow: 0 6px 32px rgba(180, 90, 10, 0.45);
     opacity: 0;
     animation: musicHeroIn 0.85s ease-out forwards;
@@ -41,15 +43,15 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse 70% 60% at 50% 40%,
+    background: radial-gradient(ellipse 70% 40% at 50% 70%,
         rgba(232, 168, 48, 0.18) 0%,
         transparent 70%);
     pointer-events: none;
 }
 
 @keyframes musicHeroIn {
-    from { opacity: 0; transform: translateY(-12px); }
-    to   { opacity: 1; transform: translateY(0);     }
+    from { opacity: 0; transform: translateY(-220px); }
+    to   { opacity: 1; transform: translateY(-200px); }
 }
 
 #music-hero h1 {
