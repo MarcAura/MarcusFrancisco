@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <!-- Unlisted page: not linked from the site and kept out of search results -->
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#4153a6">
+    <title>Weekly Schedule | Marcus Francisco</title>
+    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="assets/icons/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+    <link rel="stylesheet" href="assets/css/calendar.css">
+    <script defer src="assets/js/calendar-data.js"></script>
+    <script defer src="assets/js/calendar.js"></script>
+</head>
+
+<body>
+    <header class="cal-topbar">
+        <a class="cal-icon-btn" href="index.html" aria-label="Back to Marcus Francisco's portfolio">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H5m6-7-7 7 7 7"/></svg>
+        </a>
+        <label class="cal-search">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>
+            <span class="visually-hidden">Search classes</span>
+            <input id="cal-search" type="search" placeholder="Search classes" autocomplete="off" enterkeyhint="search">
+        </label>
+        <div class="cal-topbar-end">
+            <a class="cal-icon-btn" href="index.html" aria-label="Portfolio home">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11 12 4l8 7v9h-5v-6H9v6H4z"/></svg>
+            </a>
+            <button class="cal-icon-btn" id="cal-menu-btn" type="button" aria-label="Display options"
+                aria-controls="cal-options" aria-expanded="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="12" cy="19" r="1.6"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <div class="cal-titlebar">
+        <h1 id="cal-title">Weekly Schedule</h1>
+    </div>
+
+    <div class="cal-shell">
+        <nav class="cal-sidebar" aria-label="Schedule views">
+            <ul>
+                <li><button type="button" class="cal-nav-item" data-view="list">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7" r="3.2"/><path d="M5 20c.6-4 3.4-6 7-6s6.4 2 7 6z"/></svg>
+                    View My Classes</button></li>
+                <li><button type="button" class="cal-nav-item" data-view="week">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="1.5"/><path d="M3.5 9.5h17M8 3v4m8-4v4M7 13h2m2 0h2m2 0h2M7 16.5h2m2 0h2"/></svg>
+                    Weekly Schedule</button></li>
+                <li><button type="button" class="cal-nav-item" data-view="timeline">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5v15h16"/><path d="M7 8h7m-4 4h8m-11 4h6"/></svg>
+                    Term Timeline</button></li>
+            </ul>
+            <p class="cal-disclaimer">A personal recreation for Marcus Francisco's own classes. Not affiliated with the
+                University at Buffalo.</p>
+        </nav>
+
+        <main class="cal-main" id="main-content">
+            <noscript>
+                <p class="cal-notice">This calendar needs JavaScript to draw the schedule.</p>
+            </noscript>
+
+            <div class="cal-term-row">
+                <label for="cal-term">Term</label>
+                <select id="cal-term"></select>
+            </div>
+
+            <!-- Weekly Schedule -->
+            <section id="view-week" class="cal-view" aria-labelledby="cal-week-label">
+                <div class="cal-controls">
+                    <div class="cal-controls-row">
+                        <button type="button" class="cal-btn" id="cal-prev">&lt;&lt; Prev</button>
+                        <h2 class="cal-week-label" id="cal-week-label" aria-live="polite"></h2>
+                        <button type="button" class="cal-btn" id="cal-next">Next &gt;&gt;</button>
+                    </div>
+                    <div class="cal-controls-row">
+                        <button type="button" class="cal-btn" id="cal-today">Return to Current Week</button>
+                        <button type="button" class="cal-btn" id="cal-finals" aria-pressed="false">Show Final Exams</button>
+                    </div>
+                </div>
+                <p class="cal-notice" id="cal-week-notice" hidden></p>
+                <div class="cal-scroll" id="cal-scroll">
+                    <div class="cal-grid" id="cal-grid"></div>
+                </div>
+                <div class="cal-unscheduled" id="cal-unscheduled" hidden></div>
+            </section>
+
+            <!-- View My Classes -->
+            <section id="view-list" class="cal-view" hidden aria-labelledby="cal-list-heading">
+                <h2 class="cal-section-title" id="cal-list-heading">My Classes</h2>
+                <div id="cal-list"></div>
+            </section>
+
+            <!-- Term Timeline (like the Schedule Builder's week chart) -->
+            <section id="view-timeline" class="cal-view" hidden aria-labelledby="cal-timeline-heading">
+                <h2 class="cal-section-title" id="cal-timeline-heading">Term Timeline</h2>
+                <p class="cal-hint">Each bar shows the weeks a class meets. Tap a week number to open that week.</p>
+                <div class="cal-scroll">
+                    <div id="cal-timeline"></div>
+                </div>
+            </section>
+
+            <details class="cal-options" id="cal-options">
+                <summary>Display Options</summary>
+                <div class="cal-options-body">
+                    <label class="cal-check"><input type="checkbox" id="opt-weekend"> Show Saturday and Sunday</label>
+                    <label class="cal-check"><input type="checkbox" id="opt-title" checked> Show class title</label>
+                    <label class="cal-check"><input type="checkbox" id="opt-room" checked> Show location</label>
+                    <label class="cal-field">Start time
+                        <select id="opt-start"></select>
+                    </label>
+                    <label class="cal-field">End time
+                        <select id="opt-end"></select>
+                    </label>
+                </div>
+            </details>
+        </main>
+    </div>
+
+    <!-- Class details (tap a class) -->
+    <dialog class="cal-dialog" id="cal-dialog" aria-labelledby="cal-dialog-title">
+        <form method="dialog">
+            <h3 id="cal-dialog-title"></h3>
+            <dl id="cal-dialog-body"></dl>
+            <button type="submit" class="cal-btn">Close</button>
+        </form>
+    </dialog>
+</body>
+
+</html>
